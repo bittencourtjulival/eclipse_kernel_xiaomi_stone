@@ -230,6 +230,11 @@ static inline int audit_update_lsm_rules(void)
 	return 0;
 }
 
+static inline int audit_update_lsm_rules(void)
+{
+	return 0;
+}
+
 static inline kuid_t audit_get_loginuid(struct task_struct *tsk)
 {
 	return INVALID_UID;
