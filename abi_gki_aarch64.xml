@@ -39913,6 +39913,11 @@
       <class-decl name='gpio_desc' size-in-bits='256' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-3087'/>
       <class-decl name='regulator' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-4403'/>
       <class-decl name='reset_control' size-in-bits='384' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-4404'/>
+      <union-decl name='phy_configure_opts' size-in-bits='896' visibility='default' filepath='include/linux/phy/phy.h' line='50' column='1' id='type-id-4405'>
+        <data-member access='private'>
+          <var-decl name='mipi_dphy' type-id='type-id-4406' visibility='default' filepath='include/linux/phy/phy.h' line='51' column='1'/>
+        </data-member>
+      </union-decl>
       <enum-decl name='gpiod_flags' filepath='include/linux/gpio/consumer.h' line='48' column='1' id='type-id-2070'>
         <underlying-type type-id='type-id-113'/>
         <enumerator name='GPIOD_ASIS' value='0'/>
@@ -39922,7 +39927,7 @@
         <enumerator name='GPIOD_OUT_LOW_OPEN_DRAIN' value='11'/>
         <enumerator name='GPIOD_OUT_HIGH_OPEN_DRAIN' value='15'/>
       </enum-decl>
-      <class-decl name='phy' size-in-bits='6720' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='130' column='1' id='type-id-4405'>
+      <class-decl name='phy' size-in-bits='6720' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='130' column='1' id='type-id-4407'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='dev' type-id='type-id-719' visibility='default' filepath='include/linux/phy/phy.h' line='131' column='1'/>
         </data-member>
@@ -39930,7 +39935,7 @@
           <var-decl name='id' type-id='type-id-92' visibility='default' filepath='include/linux/phy/phy.h' line='132' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='6208'>
-          <var-decl name='ops' type-id='type-id-4406' visibility='default' filepath='include/linux/phy/phy.h' line='133' column='1'/>
+          <var-decl name='ops' type-id='type-id-4408' visibility='default' filepath='include/linux/phy/phy.h' line='133' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='6272'>
           <var-decl name='mutex' type-id='type-id-186' visibility='default' filepath='include/linux/phy/phy.h' line='134' column='1'/>
@@ -39942,48 +39947,48 @@
           <var-decl name='power_count' type-id='type-id-92' visibility='default' filepath='include/linux/phy/phy.h' line='136' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='6592'>
-          <var-decl name='attrs' type-id='type-id-4407' visibility='default' filepath='include/linux/phy/phy.h' line='137' column='1'/>
+          <var-decl name='attrs' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='137' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='6656'>
           <var-decl name='pwr' type-id='type-id-3454' visibility='default' filepath='include/linux/phy/phy.h' line='138' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='phy_ops' size-in-bits='704' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='66' column='1' id='type-id-4408'>
+      <class-decl name='phy_ops' size-in-bits='704' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='66' column='1' id='type-id-4410'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='init' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='67' column='1'/>
+          <var-decl name='init' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='67' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='exit' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='68' column='1'/>
+          <var-decl name='exit' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='68' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='power_on' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='69' column='1'/>
+          <var-decl name='power_on' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='69' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='power_off' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='70' column='1'/>
+          <var-decl name='power_off' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='70' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='set_mode' type-id='type-id-4410' visibility='default' filepath='include/linux/phy/phy.h' line='71' column='1'/>
+          <var-decl name='set_mode' type-id='type-id-4412' visibility='default' filepath='include/linux/phy/phy.h' line='71' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='configure' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='83' column='1'/>
+          <var-decl name='configure' type-id='type-id-4413' visibility='default' filepath='include/linux/phy/phy.h' line='83' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='validate' type-id='type-id-4412' visibility='default' filepath='include/linux/phy/phy.h' line='101' column='1'/>
+          <var-decl name='validate' type-id='type-id-4414' visibility='default' filepath='include/linux/phy/phy.h' line='101' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='reset' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='103' column='1'/>
+          <var-decl name='reset' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='103' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='calibrate' type-id='type-id-4409' visibility='default' filepath='include/linux/phy/phy.h' line='104' column='1'/>
+          <var-decl name='calibrate' type-id='type-id-4411' visibility='default' filepath='include/linux/phy/phy.h' line='104' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='release' type-id='type-id-4413' visibility='default' filepath='include/linux/phy/phy.h' line='105' column='1'/>
+          <var-decl name='release' type-id='type-id-4415' visibility='default' filepath='include/linux/phy/phy.h' line='105' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='640'>
           <var-decl name='owner' type-id='type-id-2440' visibility='default' filepath='include/linux/phy/phy.h' line='106' column='1'/>
         </data-member>
       </class-decl>
-      <enum-decl name='phy_mode' filepath='include/linux/phy/phy.h' line='23' column='1' id='type-id-4414'>
+      <enum-decl name='phy_mode' filepath='include/linux/phy/phy.h' line='23' column='1' id='type-id-4416'>
         <underlying-type type-id='type-id-113'/>
         <enumerator name='PHY_MODE_INVALID' value='0'/>
         <enumerator name='PHY_MODE_USB_HOST' value='1'/>
@@ -40004,7 +40009,7 @@
         <enumerator name='PHY_MODE_MIPI_DPHY' value='16'/>
         <enumerator name='PHY_MODE_SATA' value='17'/>
       </enum-decl>
-      <class-decl name='phy_configure_opts_mipi_dphy' size-in-bits='896' is-struct='yes' visibility='default' filepath='include/linux/phy/phy-mipi-dphy.h' line='15' column='1' id='type-id-4415'>
+      <class-decl name='phy_configure_opts_mipi_dphy' size-in-bits='896' is-struct='yes' visibility='default' filepath='include/linux/phy/phy-mipi-dphy.h' line='15' column='1' id='type-id-4406'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='clk_miss' type-id='type-id-135' visibility='default' filepath='include/linux/phy/phy-mipi-dphy.h' line='24' column='1'/>
         </data-member>
@@ -40081,17 +40086,12 @@
           <var-decl name='lanes' type-id='type-id-115' visibility='default' filepath='include/linux/phy/phy-mipi-dphy.h' line='275' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='phy_configure_opts' size-in-bits='896' visibility='default' filepath='include/linux/phy/phy.h' line='50' column='1' id='type-id-4416'>
-        <data-member access='private'>
-          <var-decl name='mipi_dphy' type-id='type-id-4415' visibility='default' filepath='include/linux/phy/phy.h' line='51' column='1'/>
-        </data-member>
-      </union-decl>
-      <class-decl name='phy_attrs' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='114' column='1' id='type-id-4407'>
+      <class-decl name='phy_attrs' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='114' column='1' id='type-id-4409'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='bus_width' type-id='type-id-134' visibility='default' filepath='include/linux/phy/phy.h' line='115' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='mode' type-id='type-id-4414' visibility='default' filepath='include/linux/phy/phy.h' line='116' column='1'/>
+          <var-decl name='mode' type-id='type-id-4416' visibility='default' filepath='include/linux/phy/phy.h' line='116' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='regulator_bulk_data' size-in-bits='192' is-struct='yes' visibility='default' filepath='include/linux/regulator/consumer.h' line='167' column='1' id='type-id-4417'>
@@ -40116,19 +40116,19 @@
       <pointer-type-def type-id='type-id-4418' size-in-bits='64' id='type-id-3158'/>
       <qualified-type-def type-id='type-id-4418' const='yes' id='type-id-4419'/>
       <pointer-type-def type-id='type-id-4419' size-in-bits='64' id='type-id-4420'/>
-      <qualified-type-def type-id='type-id-4408' const='yes' id='type-id-4421'/>
-      <pointer-type-def type-id='type-id-4421' size-in-bits='64' id='type-id-4406'/>
+      <qualified-type-def type-id='type-id-4410' const='yes' id='type-id-4421'/>
+      <pointer-type-def type-id='type-id-4421' size-in-bits='64' id='type-id-4408'/>
       <pointer-type-def type-id='type-id-3087' size-in-bits='64' id='type-id-1773'/>
-      <pointer-type-def type-id='type-id-4422' size-in-bits='64' id='type-id-4409'/>
-      <pointer-type-def type-id='type-id-4423' size-in-bits='64' id='type-id-4410'/>
-      <pointer-type-def type-id='type-id-4424' size-in-bits='64' id='type-id-4412'/>
-      <pointer-type-def type-id='type-id-4425' size-in-bits='64' id='type-id-4411'/>
-      <pointer-type-def type-id='type-id-4405' size-in-bits='64' id='type-id-4426'/>
-      <pointer-type-def type-id='type-id-4416' size-in-bits='64' id='type-id-4427'/>
+      <pointer-type-def type-id='type-id-4422' size-in-bits='64' id='type-id-4411'/>
+      <pointer-type-def type-id='type-id-4423' size-in-bits='64' id='type-id-4412'/>
+      <pointer-type-def type-id='type-id-4424' size-in-bits='64' id='type-id-4414'/>
+      <pointer-type-def type-id='type-id-4425' size-in-bits='64' id='type-id-4413'/>
+      <pointer-type-def type-id='type-id-4407' size-in-bits='64' id='type-id-4426'/>
+      <pointer-type-def type-id='type-id-4405' size-in-bits='64' id='type-id-4427'/>
       <pointer-type-def type-id='type-id-4403' size-in-bits='64' id='type-id-3454'/>
       <pointer-type-def type-id='type-id-4417' size-in-bits='64' id='type-id-4428'/>
       <pointer-type-def type-id='type-id-4404' size-in-bits='64' id='type-id-3594'/>
-      <pointer-type-def type-id='type-id-4429' size-in-bits='64' id='type-id-4413'/>
+      <pointer-type-def type-id='type-id-4429' size-in-bits='64' id='type-id-4415'/>
       <function-decl name='pm_runtime_enable' mangled-name='pm_runtime_enable' filepath='include/linux/pm_runtime.h' line='45' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='pm_runtime_enable'>
         <parameter type-id='type-id-729'/>
         <return type-id='type-id-686'/>
@@ -40250,13 +40250,13 @@
       </function-type>
       <function-type size-in-bits='64' id='type-id-4423'>
         <parameter type-id='type-id-4426'/>
-        <parameter type-id='type-id-4414'/>
+        <parameter type-id='type-id-4416'/>
         <parameter type-id='type-id-92'/>
         <return type-id='type-id-92'/>
       </function-type>
       <function-type size-in-bits='64' id='type-id-4424'>
         <parameter type-id='type-id-4426'/>
-        <parameter type-id='type-id-4414'/>
+        <parameter type-id='type-id-4416'/>
         <parameter type-id='type-id-92'/>
         <parameter type-id='type-id-4427'/>
         <return type-id='type-id-92'/>
@@ -40567,7 +40567,7 @@
       </function-decl>
       <function-decl name='phy_set_mode_ext' mangled-name='phy_set_mode_ext' filepath='drivers/phy/phy-core.c' line='359' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='phy_set_mode_ext'>
         <parameter type-id='type-id-4426' name='phy' filepath='drivers/phy/phy-core.c' line='359' column='1'/>
-        <parameter type-id='type-id-4414' name='mode' filepath='drivers/phy/phy-core.c' line='359' column='1'/>
+        <parameter type-id='type-id-4416' name='mode' filepath='drivers/phy/phy-core.c' line='359' column='1'/>
         <parameter type-id='type-id-92' name='submode' filepath='drivers/phy/phy-core.c' line='359' column='1'/>
         <return type-id='type-id-92'/>
       </function-decl>
@@ -40584,7 +40584,7 @@
       <function-decl name='devm_phy_create' mangled-name='devm_phy_create' filepath='drivers/phy/phy-core.c' line='910' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='devm_phy_create'>
         <parameter type-id='type-id-729' name='dev' filepath='drivers/phy/phy-core.c' line='910' column='1'/>
         <parameter type-id='type-id-1703' name='node' filepath='drivers/phy/phy-core.c' line='910' column='1'/>
-        <parameter type-id='type-id-4406' name='ops' filepath='drivers/phy/phy-core.c' line='911' column='1'/>
+        <parameter type-id='type-id-4408' name='ops' filepath='drivers/phy/phy-core.c' line='911' column='1'/>
         <return type-id='type-id-4426'/>
       </function-decl>
       <function-decl name='__devm_of_phy_provider_register' mangled-name='__devm_of_phy_provider_register' filepath='drivers/phy/phy-core.c' line='1041' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='__devm_of_phy_provider_register'>
@@ -56178,7 +56178,7 @@
       <class-decl name='fsverity_operations' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6066'/>
       <class-decl name='hd_geometry' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6067'/>
       <class-decl name='iommu_fwspec' size-in-bits='320' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6068'/>
-      <class-decl name='iommu_group' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6069'/>
+      <class-decl name='iommu_group' size-in-bits='1728' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6069'/>
       <class-decl name='iommu_ops' size-in-bits='2304' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6070'/>
       <class-decl name='iommu_param' size-in-bits='320' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6071'/>
       <class-decl name='irq_domain' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-6072'/>
@@ -61905,38 +61905,41 @@
           <var-decl name='value' type-id='type-id-271' visibility='default' filepath='include/linux/blk_types.h' line='114' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='bio_crypt_ctx' size-in-bits='448' is-struct='yes' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='64' column='1' id='type-id-6623'>
+      <class-decl name='bio_crypt_ctx' size-in-bits='448' is-struct='yes' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='67' column='1' id='type-id-6623'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='bc_key' type-id='type-id-4973' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='65' column='1'/>
+          <var-decl name='bc_key' type-id='type-id-4973' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='68' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='bc_keyslot' type-id='type-id-92' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='66' column='1'/>
+          <var-decl name='bc_keyslot' type-id='type-id-92' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='69' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='bc_dun' type-id='type-id-6145' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='69' column='1'/>
+          <var-decl name='bc_dun' type-id='type-id-6145' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='72' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='bc_ksm' type-id='type-id-4821' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='75' column='1'/>
+          <var-decl name='bc_ksm' type-id='type-id-4821' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='78' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='blk_crypto_key' size-in-bits='1184' is-struct='yes' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='39' column='1' id='type-id-6624'>
+      <class-decl name='blk_crypto_key' size-in-bits='1216' is-struct='yes' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='41' column='1' id='type-id-6624'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='crypto_mode' type-id='type-id-6625' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='40' column='1'/>
+          <var-decl name='crypto_mode' type-id='type-id-6625' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='42' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='data_unit_size' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='41' column='1'/>
+          <var-decl name='data_unit_size' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='43' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='data_unit_size_bits' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='42' column='1'/>
+          <var-decl name='data_unit_size_bits' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='44' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='96'>
-          <var-decl name='size' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='43' column='1'/>
+          <var-decl name='size' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='45' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='hash' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='44' column='1'/>
+          <var-decl name='hash' type-id='type-id-135' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='46' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='160'>
-          <var-decl name='raw' type-id='type-id-6148' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='45' column='1'/>
+          <var-decl name='is_hw_wrapped' type-id='type-id-188' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='47' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='168'>
+          <var-decl name='raw' type-id='type-id-6148' visibility='default' filepath='include/linux/bio-crypt-ctx.h' line='48' column='1'/>
         </data-member>
       </class-decl>
       <enum-decl name='blk_crypto_mode_num' filepath='include/linux/bio-crypt-ctx.h' line='8' column='1' id='type-id-6625'>
