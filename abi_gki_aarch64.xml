@@ -58317,18 +58317,30 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/binfmt_misc.c' language='LANG_C89'>
-      <class-decl name='vfsmount' size-in-bits='256' is-struct='yes' visibility='default' filepath='include/linux/mount.h' line='68' column='1' id='type-id-6187'>
+      <class-decl name='vfsmount' size-in-bits='512' is-struct='yes' visibility='default' filepath='include/linux/mount.h' line='69' column='1' id='type-id-6187'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='mnt_root' type-id='type-id-2179' visibility='default' filepath='include/linux/mount.h' line='69' column='1'/>
+          <var-decl name='mnt_root' type-id='type-id-2179' visibility='default' filepath='include/linux/mount.h' line='70' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='mnt_sb' type-id='type-id-6188' visibility='default' filepath='include/linux/mount.h' line='70' column='1'/>
+          <var-decl name='mnt_sb' type-id='type-id-6188' visibility='default' filepath='include/linux/mount.h' line='71' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='mnt_flags' type-id='type-id-92' visibility='default' filepath='include/linux/mount.h' line='71' column='1'/>
+          <var-decl name='mnt_flags' type-id='type-id-92' visibility='default' filepath='include/linux/mount.h' line='72' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='data' type-id='type-id-126' visibility='default' filepath='include/linux/mount.h' line='72' column='1'/>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/mount.h' line='73' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='256'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/mount.h' line='74' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='320'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/mount.h' line='75' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='384'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/mount.h' line='76' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='448'>
+          <var-decl name='data' type-id='type-id-126' visibility='default' filepath='include/linux/mount.h' line='77' column='1'/>
         </data-member>
       </class-decl>
       <pointer-type-def type-id='type-id-6189' size-in-bits='64' id='type-id-4175'/>
@@ -74252,7 +74264,7 @@
         <parameter type-id='type-id-1595'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='mntget' mangled-name='mntget' filepath='include/linux/mount.h' line='84' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mntget'>
+      <function-decl name='mntget' mangled-name='mntget' filepath='include/linux/mount.h' line='89' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mntget'>
         <parameter type-id='type-id-6193'/>
         <return type-id='type-id-6193'/>
       </function-decl>
