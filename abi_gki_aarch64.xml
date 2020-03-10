@@ -27486,21 +27486,21 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/input/joystick/xpad.c' language='LANG_C89'>
-      <function-decl name='usb_alloc_coherent' mangled-name='usb_alloc_coherent' filepath='include/linux/usb.h' line='1758' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_alloc_coherent'>
+      <function-decl name='usb_alloc_coherent' mangled-name='usb_alloc_coherent' filepath='include/linux/usb.h' line='1788' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_alloc_coherent'>
         <parameter type-id='type-id-3026'/>
         <parameter type-id='type-id-113'/>
         <parameter type-id='type-id-131'/>
         <parameter type-id='type-id-1835'/>
         <return type-id='type-id-126'/>
       </function-decl>
-      <function-decl name='usb_free_coherent' mangled-name='usb_free_coherent' filepath='include/linux/usb.h' line='1760' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_free_coherent'>
+      <function-decl name='usb_free_coherent' mangled-name='usb_free_coherent' filepath='include/linux/usb.h' line='1790' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_free_coherent'>
         <parameter type-id='type-id-3026'/>
         <parameter type-id='type-id-113'/>
         <parameter type-id='type-id-126'/>
         <parameter type-id='type-id-386'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_anchor_urb' mangled-name='usb_anchor_urb' filepath='include/linux/usb.h' line='1722' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_anchor_urb'>
+      <function-decl name='usb_anchor_urb' mangled-name='usb_anchor_urb' filepath='include/linux/usb.h' line='1752' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_anchor_urb'>
         <parameter type-id='type-id-3027'/>
         <parameter type-id='type-id-3028'/>
         <return type-id='type-id-681'/>
@@ -38561,7 +38561,7 @@
 
       </array-type-def>
       <class-decl name='ep_device' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-4184'/>
-      <class-decl name='usb_tt' size-in-bits='640' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-4185'/>
+      <class-decl name='usb_tt' size-in-bits='896' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-4185'/>
       <class-decl name='wusb_dev' is-struct='yes' visibility='default' is-declaration-only='yes' id='type-id-4186'/>
       <array-type-def dimensions='1' type-id='type-id-4187' size-in-bits='1536' id='type-id-4188'>
         <subrange length='8' type-id='type-id-1' id='type-id-28'/>
@@ -38591,127 +38591,151 @@
         <subrange length='infinite' type-id='type-id-1' id='type-id-121'/>
 
       </array-type-def>
-      <class-decl name='usb_driver' size-in-bits='2432' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1183' column='1' id='type-id-4201'>
+      <class-decl name='usb_driver' size-in-bits='2688' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1204' column='1' id='type-id-4201'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='name' type-id='type-id-177' visibility='default' filepath='include/linux/usb.h' line='1184' column='1'/>
+          <var-decl name='name' type-id='type-id-177' visibility='default' filepath='include/linux/usb.h' line='1205' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='probe' type-id='type-id-4202' visibility='default' filepath='include/linux/usb.h' line='1186' column='1'/>
+          <var-decl name='probe' type-id='type-id-4202' visibility='default' filepath='include/linux/usb.h' line='1207' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='disconnect' type-id='type-id-4203' visibility='default' filepath='include/linux/usb.h' line='1189' column='1'/>
+          <var-decl name='disconnect' type-id='type-id-4203' visibility='default' filepath='include/linux/usb.h' line='1210' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='unlocked_ioctl' type-id='type-id-4204' visibility='default' filepath='include/linux/usb.h' line='1191' column='1'/>
+          <var-decl name='unlocked_ioctl' type-id='type-id-4204' visibility='default' filepath='include/linux/usb.h' line='1212' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='suspend' type-id='type-id-4205' visibility='default' filepath='include/linux/usb.h' line='1194' column='1'/>
+          <var-decl name='suspend' type-id='type-id-4205' visibility='default' filepath='include/linux/usb.h' line='1215' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='resume' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1195' column='1'/>
+          <var-decl name='resume' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1216' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='reset_resume' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1196' column='1'/>
+          <var-decl name='reset_resume' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1217' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='pre_reset' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1198' column='1'/>
+          <var-decl name='pre_reset' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1219' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='post_reset' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1199' column='1'/>
+          <var-decl name='post_reset' type-id='type-id-4206' visibility='default' filepath='include/linux/usb.h' line='1220' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='id_table' type-id='type-id-4207' visibility='default' filepath='include/linux/usb.h' line='1201' column='1'/>
+          <var-decl name='id_table' type-id='type-id-4207' visibility='default' filepath='include/linux/usb.h' line='1222' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='dev_groups' type-id='type-id-233' visibility='default' filepath='include/linux/usb.h' line='1202' column='1'/>
+          <var-decl name='dev_groups' type-id='type-id-233' visibility='default' filepath='include/linux/usb.h' line='1223' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='704'>
-          <var-decl name='dynids' type-id='type-id-4208' visibility='default' filepath='include/linux/usb.h' line='1204' column='1'/>
+          <var-decl name='dynids' type-id='type-id-4208' visibility='default' filepath='include/linux/usb.h' line='1225' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='896'>
-          <var-decl name='drvwrap' type-id='type-id-4209' visibility='default' filepath='include/linux/usb.h' line='1205' column='1'/>
+          <var-decl name='drvwrap' type-id='type-id-4209' visibility='default' filepath='include/linux/usb.h' line='1226' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='31'>
-          <var-decl name='no_dynamic_id' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1206' column='1'/>
+          <var-decl name='no_dynamic_id' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1227' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='30'>
-          <var-decl name='supports_autosuspend' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1207' column='1'/>
+          <var-decl name='supports_autosuspend' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1228' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='29'>
-          <var-decl name='disable_hub_initiated_lpm' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1208' column='1'/>
+          <var-decl name='disable_hub_initiated_lpm' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1229' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='28'>
-          <var-decl name='soft_unbind' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1209' column='1'/>
+          <var-decl name='soft_unbind' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1230' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2432'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1232' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2496'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1233' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2560'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1234' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2624'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1235' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_interface' size-in-bits='7360' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='232' column='1' id='type-id-4210'>
+      <class-decl name='usb_interface' size-in-bits='7616' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='233' column='1' id='type-id-4210'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='altsetting' type-id='type-id-4211' visibility='default' filepath='include/linux/usb.h' line='235' column='1'/>
+          <var-decl name='altsetting' type-id='type-id-4211' visibility='default' filepath='include/linux/usb.h' line='236' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='cur_altsetting' type-id='type-id-4211' visibility='default' filepath='include/linux/usb.h' line='237' column='1'/>
+          <var-decl name='cur_altsetting' type-id='type-id-4211' visibility='default' filepath='include/linux/usb.h' line='238' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='num_altsetting' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='239' column='1'/>
+          <var-decl name='num_altsetting' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='240' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='intf_assoc' type-id='type-id-4195' visibility='default' filepath='include/linux/usb.h' line='243' column='1'/>
+          <var-decl name='intf_assoc' type-id='type-id-4195' visibility='default' filepath='include/linux/usb.h' line='244' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='minor' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='245' column='1'/>
+          <var-decl name='minor' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='246' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='288'>
-          <var-decl name='condition' type-id='type-id-4212' visibility='default' filepath='include/linux/usb.h' line='247' column='1'/>
+          <var-decl name='condition' type-id='type-id-4212' visibility='default' filepath='include/linux/usb.h' line='248' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='31'>
-          <var-decl name='sysfs_files_created' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='248' column='1'/>
+          <var-decl name='sysfs_files_created' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='249' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='30'>
-          <var-decl name='ep_devs_created' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='249' column='1'/>
+          <var-decl name='ep_devs_created' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='250' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='29'>
-          <var-decl name='unregistering' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='250' column='1'/>
+          <var-decl name='unregistering' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='251' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='28'>
-          <var-decl name='needs_remote_wakeup' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='251' column='1'/>
+          <var-decl name='needs_remote_wakeup' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='252' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='27'>
-          <var-decl name='needs_altsetting0' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='252' column='1'/>
+          <var-decl name='needs_altsetting0' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='253' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='26'>
-          <var-decl name='needs_binding' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='253' column='1'/>
+          <var-decl name='needs_binding' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='254' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='25'>
-          <var-decl name='resetting_device' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='254' column='1'/>
+          <var-decl name='resetting_device' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='255' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='24'>
-          <var-decl name='authorized' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='255' column='1'/>
+          <var-decl name='authorized' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='256' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='dev' type-id='type-id-956' visibility='default' filepath='include/linux/usb.h' line='257' column='1'/>
+          <var-decl name='dev' type-id='type-id-956' visibility='default' filepath='include/linux/usb.h' line='258' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='7040'>
-          <var-decl name='usb_dev' type-id='type-id-703' visibility='default' filepath='include/linux/usb.h' line='258' column='1'/>
+          <var-decl name='usb_dev' type-id='type-id-703' visibility='default' filepath='include/linux/usb.h' line='259' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='7104'>
-          <var-decl name='reset_ws' type-id='type-id-280' visibility='default' filepath='include/linux/usb.h' line='259' column='1'/>
+          <var-decl name='reset_ws' type-id='type-id-280' visibility='default' filepath='include/linux/usb.h' line='260' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='7360'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='262' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='7424'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='263' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='7488'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='264' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='7552'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='265' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_host_interface' size-in-bits='320' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='82' column='1' id='type-id-4191'>
+      <class-decl name='usb_host_interface' size-in-bits='320' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='83' column='1' id='type-id-4191'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='desc' type-id='type-id-4213' visibility='default' filepath='include/linux/usb.h' line='83' column='1'/>
+          <var-decl name='desc' type-id='type-id-4213' visibility='default' filepath='include/linux/usb.h' line='84' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='96'>
-          <var-decl name='extralen' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='85' column='1'/>
+          <var-decl name='extralen' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='86' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='extra' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='86' column='1'/>
+          <var-decl name='extra' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='87' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='endpoint' type-id='type-id-4189' visibility='default' filepath='include/linux/usb.h' line='91' column='1'/>
+          <var-decl name='endpoint' type-id='type-id-4189' visibility='default' filepath='include/linux/usb.h' line='92' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='string' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='93' column='1'/>
+          <var-decl name='string' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='94' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='usb_interface_descriptor' size-in-bits='72' is-struct='yes' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='382' column='1' id='type-id-4213'>
@@ -38743,36 +38767,36 @@
           <var-decl name='iInterface' type-id='type-id-161' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='392' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_host_endpoint' size-in-bits='640' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='67' column='1' id='type-id-4214'>
+      <class-decl name='usb_host_endpoint' size-in-bits='640' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='68' column='1' id='type-id-4214'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='desc' type-id='type-id-4215' visibility='default' filepath='include/linux/usb.h' line='68' column='1'/>
+          <var-decl name='desc' type-id='type-id-4215' visibility='default' filepath='include/linux/usb.h' line='69' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='72'>
-          <var-decl name='ss_ep_comp' type-id='type-id-4216' visibility='default' filepath='include/linux/usb.h' line='69' column='1'/>
+          <var-decl name='ss_ep_comp' type-id='type-id-4216' visibility='default' filepath='include/linux/usb.h' line='70' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='120'>
-          <var-decl name='ssp_isoc_ep_comp' type-id='type-id-4217' visibility='default' filepath='include/linux/usb.h' line='70' column='1'/>
+          <var-decl name='ssp_isoc_ep_comp' type-id='type-id-4217' visibility='default' filepath='include/linux/usb.h' line='71' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='urb_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='71' column='1'/>
+          <var-decl name='urb_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='72' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='hcpriv' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='72' column='1'/>
+          <var-decl name='hcpriv' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='73' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='ep_dev' type-id='type-id-4218' visibility='default' filepath='include/linux/usb.h' line='73' column='1'/>
+          <var-decl name='ep_dev' type-id='type-id-4218' visibility='default' filepath='include/linux/usb.h' line='74' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='extra' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='75' column='1'/>
+          <var-decl name='extra' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='76' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='extralen' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='76' column='1'/>
+          <var-decl name='extralen' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='77' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='544'>
-          <var-decl name='enabled' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='77' column='1'/>
+          <var-decl name='enabled' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='78' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='streams' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='78' column='1'/>
+          <var-decl name='streams' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='79' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='usb_endpoint_descriptor' size-in-bits='72' is-struct='yes' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='400' column='1' id='type-id-4215'>
@@ -38858,7 +38882,7 @@
           <var-decl name='iFunction' type-id='type-id-161' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='785' column='1'/>
         </data-member>
       </class-decl>
-      <enum-decl name='usb_interface_condition' filepath='include/linux/usb.h' line='96' column='1' id='type-id-4212'>
+      <enum-decl name='usb_interface_condition' filepath='include/linux/usb.h' line='97' column='1' id='type-id-4212'>
         <underlying-type type-id='type-id-110'/>
         <enumerator name='USB_INTERFACE_UNBOUND' value='0'/>
         <enumerator name='USB_INTERFACE_BINDING' value='1'/>
@@ -38906,199 +38930,211 @@
           <var-decl name='driver_info' type-id='type-id-2797' visibility='default' filepath='include/linux/mod_devicetable.h' line='145' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_dynids' size-in-bits='192' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1090' column='1' id='type-id-4208'>
+      <class-decl name='usb_dynids' size-in-bits='192' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1111' column='1' id='type-id-4208'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb.h' line='1091' column='1'/>
+          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb.h' line='1112' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1092' column='1'/>
+          <var-decl name='list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1113' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usbdrv_wrap' size-in-bits='1472' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1112' column='1' id='type-id-4209'>
+      <class-decl name='usbdrv_wrap' size-in-bits='1472' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1133' column='1' id='type-id-4209'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='driver' type-id='type-id-2696' visibility='default' filepath='include/linux/usb.h' line='1113' column='1'/>
+          <var-decl name='driver' type-id='type-id-2696' visibility='default' filepath='include/linux/usb.h' line='1134' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1408'>
-          <var-decl name='for_devices' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1114' column='1'/>
+          <var-decl name='for_devices' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1135' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_device' size-in-bits='11712' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='631' column='1' id='type-id-4221'>
+      <class-decl name='usb_device' size-in-bits='11968' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='647' column='1' id='type-id-4221'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='devnum' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='632' column='1'/>
+          <var-decl name='devnum' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='648' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='devpath' type-id='type-id-21' visibility='default' filepath='include/linux/usb.h' line='633' column='1'/>
+          <var-decl name='devpath' type-id='type-id-21' visibility='default' filepath='include/linux/usb.h' line='649' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='160'>
-          <var-decl name='route' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='634' column='1'/>
+          <var-decl name='route' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='650' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='state' type-id='type-id-4222' visibility='default' filepath='include/linux/usb.h' line='635' column='1'/>
+          <var-decl name='state' type-id='type-id-4222' visibility='default' filepath='include/linux/usb.h' line='651' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='224'>
-          <var-decl name='speed' type-id='type-id-4223' visibility='default' filepath='include/linux/usb.h' line='636' column='1'/>
+          <var-decl name='speed' type-id='type-id-4223' visibility='default' filepath='include/linux/usb.h' line='652' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='rx_lanes' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='637' column='1'/>
+          <var-decl name='rx_lanes' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='653' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='288'>
-          <var-decl name='tx_lanes' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='638' column='1'/>
+          <var-decl name='tx_lanes' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='654' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='tt' type-id='type-id-4224' visibility='default' filepath='include/linux/usb.h' line='640' column='1'/>
+          <var-decl name='tt' type-id='type-id-4224' visibility='default' filepath='include/linux/usb.h' line='656' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='ttport' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='641' column='1'/>
+          <var-decl name='ttport' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='657' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='416'>
-          <var-decl name='toggle' type-id='type-id-874' visibility='default' filepath='include/linux/usb.h' line='643' column='1'/>
+          <var-decl name='toggle' type-id='type-id-874' visibility='default' filepath='include/linux/usb.h' line='659' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='parent' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='645' column='1'/>
+          <var-decl name='parent' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='661' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='bus' type-id='type-id-4225' visibility='default' filepath='include/linux/usb.h' line='646' column='1'/>
+          <var-decl name='bus' type-id='type-id-4225' visibility='default' filepath='include/linux/usb.h' line='662' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='ep0' type-id='type-id-4214' visibility='default' filepath='include/linux/usb.h' line='647' column='1'/>
+          <var-decl name='ep0' type-id='type-id-4214' visibility='default' filepath='include/linux/usb.h' line='663' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1280'>
-          <var-decl name='dev' type-id='type-id-956' visibility='default' filepath='include/linux/usb.h' line='649' column='1'/>
+          <var-decl name='dev' type-id='type-id-956' visibility='default' filepath='include/linux/usb.h' line='665' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='7936'>
-          <var-decl name='descriptor' type-id='type-id-4226' visibility='default' filepath='include/linux/usb.h' line='651' column='1'/>
+          <var-decl name='descriptor' type-id='type-id-4226' visibility='default' filepath='include/linux/usb.h' line='667' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='8128'>
-          <var-decl name='bos' type-id='type-id-4227' visibility='default' filepath='include/linux/usb.h' line='652' column='1'/>
+          <var-decl name='bos' type-id='type-id-4227' visibility='default' filepath='include/linux/usb.h' line='668' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='8192'>
-          <var-decl name='config' type-id='type-id-4228' visibility='default' filepath='include/linux/usb.h' line='653' column='1'/>
+          <var-decl name='config' type-id='type-id-4228' visibility='default' filepath='include/linux/usb.h' line='669' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='8256'>
-          <var-decl name='actconfig' type-id='type-id-4228' visibility='default' filepath='include/linux/usb.h' line='655' column='1'/>
+          <var-decl name='actconfig' type-id='type-id-4228' visibility='default' filepath='include/linux/usb.h' line='671' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='8320'>
-          <var-decl name='ep_in' type-id='type-id-4190' visibility='default' filepath='include/linux/usb.h' line='656' column='1'/>
+          <var-decl name='ep_in' type-id='type-id-4190' visibility='default' filepath='include/linux/usb.h' line='672' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='9344'>
-          <var-decl name='ep_out' type-id='type-id-4190' visibility='default' filepath='include/linux/usb.h' line='657' column='1'/>
+          <var-decl name='ep_out' type-id='type-id-4190' visibility='default' filepath='include/linux/usb.h' line='673' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10368'>
-          <var-decl name='rawdescriptors' type-id='type-id-1834' visibility='default' filepath='include/linux/usb.h' line='659' column='1'/>
+          <var-decl name='rawdescriptors' type-id='type-id-1834' visibility='default' filepath='include/linux/usb.h' line='675' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10432'>
-          <var-decl name='bus_mA' type-id='type-id-223' visibility='default' filepath='include/linux/usb.h' line='661' column='1'/>
+          <var-decl name='bus_mA' type-id='type-id-223' visibility='default' filepath='include/linux/usb.h' line='677' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10448'>
-          <var-decl name='portnum' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='662' column='1'/>
+          <var-decl name='portnum' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='678' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10456'>
-          <var-decl name='level' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='663' column='1'/>
+          <var-decl name='level' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='679' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10464'>
-          <var-decl name='devaddr' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='664' column='1'/>
+          <var-decl name='devaddr' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='680' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='23'>
-          <var-decl name='can_submit' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='666' column='1'/>
+          <var-decl name='can_submit' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='682' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='22'>
-          <var-decl name='persist_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='667' column='1'/>
+          <var-decl name='persist_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='683' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='21'>
-          <var-decl name='have_langid' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='668' column='1'/>
+          <var-decl name='have_langid' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='684' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='20'>
-          <var-decl name='authorized' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='669' column='1'/>
+          <var-decl name='authorized' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='685' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='19'>
-          <var-decl name='authenticated' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='670' column='1'/>
+          <var-decl name='authenticated' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='686' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='18'>
-          <var-decl name='wusb' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='671' column='1'/>
+          <var-decl name='wusb' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='687' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='17'>
-          <var-decl name='lpm_capable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='672' column='1'/>
+          <var-decl name='lpm_capable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='688' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='16'>
-          <var-decl name='usb2_hw_lpm_capable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='673' column='1'/>
+          <var-decl name='usb2_hw_lpm_capable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='689' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='15'>
-          <var-decl name='usb2_hw_lpm_besl_capable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='674' column='1'/>
+          <var-decl name='usb2_hw_lpm_besl_capable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='690' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='14'>
-          <var-decl name='usb2_hw_lpm_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='675' column='1'/>
+          <var-decl name='usb2_hw_lpm_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='691' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='13'>
-          <var-decl name='usb2_hw_lpm_allowed' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='676' column='1'/>
+          <var-decl name='usb2_hw_lpm_allowed' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='692' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='12'>
-          <var-decl name='usb3_lpm_u1_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='677' column='1'/>
+          <var-decl name='usb3_lpm_u1_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='693' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11'>
-          <var-decl name='usb3_lpm_u2_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='678' column='1'/>
+          <var-decl name='usb3_lpm_u2_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='694' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10496'>
-          <var-decl name='string_langid' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='679' column='1'/>
+          <var-decl name='string_langid' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='695' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10560'>
-          <var-decl name='product' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='682' column='1'/>
+          <var-decl name='product' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='698' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10624'>
-          <var-decl name='manufacturer' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='683' column='1'/>
+          <var-decl name='manufacturer' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='699' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10688'>
-          <var-decl name='serial' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='684' column='1'/>
+          <var-decl name='serial' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='700' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10752'>
-          <var-decl name='filelist' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='686' column='1'/>
+          <var-decl name='filelist' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='702' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10880'>
-          <var-decl name='maxchild' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='688' column='1'/>
+          <var-decl name='maxchild' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='704' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10912'>
-          <var-decl name='quirks' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='690' column='1'/>
+          <var-decl name='quirks' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='706' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='10944'>
-          <var-decl name='urbnum' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='691' column='1'/>
+          <var-decl name='urbnum' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='707' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11008'>
-          <var-decl name='active_duration' type-id='type-id-113' visibility='default' filepath='include/linux/usb.h' line='693' column='1'/>
+          <var-decl name='active_duration' type-id='type-id-113' visibility='default' filepath='include/linux/usb.h' line='709' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11072'>
-          <var-decl name='connect_time' type-id='type-id-113' visibility='default' filepath='include/linux/usb.h' line='696' column='1'/>
+          <var-decl name='connect_time' type-id='type-id-113' visibility='default' filepath='include/linux/usb.h' line='712' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='31'>
-          <var-decl name='do_remote_wakeup' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='698' column='1'/>
+          <var-decl name='do_remote_wakeup' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='714' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='30'>
-          <var-decl name='reset_resume' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='699' column='1'/>
+          <var-decl name='reset_resume' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='715' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='29'>
-          <var-decl name='port_is_suspended' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='700' column='1'/>
+          <var-decl name='port_is_suspended' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='716' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11200'>
-          <var-decl name='wusb_dev' type-id='type-id-4229' visibility='default' filepath='include/linux/usb.h' line='702' column='1'/>
+          <var-decl name='wusb_dev' type-id='type-id-4229' visibility='default' filepath='include/linux/usb.h' line='718' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11264'>
-          <var-decl name='slot_id' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='703' column='1'/>
+          <var-decl name='slot_id' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='719' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11296'>
-          <var-decl name='removable' type-id='type-id-4230' visibility='default' filepath='include/linux/usb.h' line='704' column='1'/>
+          <var-decl name='removable' type-id='type-id-4230' visibility='default' filepath='include/linux/usb.h' line='720' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11328'>
-          <var-decl name='l1_params' type-id='type-id-4231' visibility='default' filepath='include/linux/usb.h' line='705' column='1'/>
+          <var-decl name='l1_params' type-id='type-id-4231' visibility='default' filepath='include/linux/usb.h' line='721' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11392'>
-          <var-decl name='u1_params' type-id='type-id-4232' visibility='default' filepath='include/linux/usb.h' line='706' column='1'/>
+          <var-decl name='u1_params' type-id='type-id-4232' visibility='default' filepath='include/linux/usb.h' line='722' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11520'>
-          <var-decl name='u2_params' type-id='type-id-4232' visibility='default' filepath='include/linux/usb.h' line='707' column='1'/>
+          <var-decl name='u2_params' type-id='type-id-4232' visibility='default' filepath='include/linux/usb.h' line='723' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11648'>
-          <var-decl name='lpm_disable_count' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='708' column='1'/>
+          <var-decl name='lpm_disable_count' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='724' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11680'>
-          <var-decl name='hub_delay' type-id='type-id-220' visibility='default' filepath='include/linux/usb.h' line='710' column='1'/>
+          <var-decl name='hub_delay' type-id='type-id-220' visibility='default' filepath='include/linux/usb.h' line='726' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='11712'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='728' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='11776'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='729' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='11840'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='730' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='11904'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='731' column='1'/>
         </data-member>
       </class-decl>
       <enum-decl name='usb_device_state' filepath='include/uapi/linux/usb/ch9.h' line='1149' column='1' id='type-id-4222'>
@@ -39123,71 +39159,83 @@
         <enumerator name='USB_SPEED_SUPER' value='5'/>
         <enumerator name='USB_SPEED_SUPER_PLUS' value='6'/>
       </enum-decl>
-      <class-decl name='usb_bus' size-in-bits='1024' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='424' column='1' id='type-id-4233'>
+      <class-decl name='usb_bus' size-in-bits='1280' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='435' column='1' id='type-id-4233'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='controller' type-id='type-id-703' visibility='default' filepath='include/linux/usb.h' line='425' column='1'/>
+          <var-decl name='controller' type-id='type-id-703' visibility='default' filepath='include/linux/usb.h' line='436' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='sysdev' type-id='type-id-703' visibility='default' filepath='include/linux/usb.h' line='426' column='1'/>
+          <var-decl name='sysdev' type-id='type-id-703' visibility='default' filepath='include/linux/usb.h' line='437' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='busnum' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='427' column='1'/>
+          <var-decl name='busnum' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='438' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='bus_name' type-id='type-id-177' visibility='default' filepath='include/linux/usb.h' line='428' column='1'/>
+          <var-decl name='bus_name' type-id='type-id-177' visibility='default' filepath='include/linux/usb.h' line='439' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='uses_pio_for_control' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='429' column='1'/>
+          <var-decl name='uses_pio_for_control' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='440' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='264'>
-          <var-decl name='otg_port' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='433' column='1'/>
+          <var-decl name='otg_port' type-id='type-id-162' visibility='default' filepath='include/linux/usb.h' line='444' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='15'>
-          <var-decl name='is_b_host' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='434' column='1'/>
+          <var-decl name='is_b_host' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='445' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='14'>
-          <var-decl name='b_hnp_enable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='435' column='1'/>
+          <var-decl name='b_hnp_enable' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='446' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='13'>
-          <var-decl name='no_stop_on_short' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='436' column='1'/>
+          <var-decl name='no_stop_on_short' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='447' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='12'>
-          <var-decl name='no_sg_constraint' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='441' column='1'/>
+          <var-decl name='no_sg_constraint' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='452' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='288'>
-          <var-decl name='sg_tablesize' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='442' column='1'/>
+          <var-decl name='sg_tablesize' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='453' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='devnum_next' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='444' column='1'/>
+          <var-decl name='devnum_next' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='455' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='devnum_next_mutex' type-id='type-id-182' visibility='default' filepath='include/linux/usb.h' line='446' column='1'/>
+          <var-decl name='devnum_next_mutex' type-id='type-id-182' visibility='default' filepath='include/linux/usb.h' line='457' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='devmap' type-id='type-id-4234' visibility='default' filepath='include/linux/usb.h' line='448' column='1'/>
+          <var-decl name='devmap' type-id='type-id-4234' visibility='default' filepath='include/linux/usb.h' line='459' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='root_hub' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='449' column='1'/>
+          <var-decl name='root_hub' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='460' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='832'>
-          <var-decl name='hs_companion' type-id='type-id-4225' visibility='default' filepath='include/linux/usb.h' line='450' column='1'/>
+          <var-decl name='hs_companion' type-id='type-id-4225' visibility='default' filepath='include/linux/usb.h' line='461' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='896'>
-          <var-decl name='bandwidth_allocated' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='452' column='1'/>
+          <var-decl name='bandwidth_allocated' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='463' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='928'>
-          <var-decl name='bandwidth_int_reqs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='459' column='1'/>
+          <var-decl name='bandwidth_int_reqs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='470' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='960'>
-          <var-decl name='bandwidth_isoc_reqs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='460' column='1'/>
+          <var-decl name='bandwidth_isoc_reqs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='471' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='992'>
-          <var-decl name='resuming_ports' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='462' column='1'/>
+          <var-decl name='resuming_ports' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='473' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1024'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='480' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1088'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='481' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1152'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='482' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1216'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='483' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_devmap' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='417' column='1' id='type-id-4234'>
+      <class-decl name='usb_devmap' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='428' column='1' id='type-id-4234'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='devicemap' type-id='type-id-116' visibility='default' filepath='include/linux/usb.h' line='418' column='1'/>
+          <var-decl name='devicemap' type-id='type-id-116' visibility='default' filepath='include/linux/usb.h' line='429' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='usb_device_descriptor' size-in-bits='144' is-struct='yes' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='289' column='1' id='type-id-4226'>
@@ -39234,24 +39282,36 @@
           <var-decl name='bNumConfigurations' type-id='type-id-161' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='304' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_host_bos' size-in-bits='384' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='396' column='1' id='type-id-4235'>
+      <class-decl name='usb_host_bos' size-in-bits='640' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='402' column='1' id='type-id-4235'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='desc' type-id='type-id-4236' visibility='default' filepath='include/linux/usb.h' line='397' column='1'/>
+          <var-decl name='desc' type-id='type-id-4236' visibility='default' filepath='include/linux/usb.h' line='403' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='ext_cap' type-id='type-id-4237' visibility='default' filepath='include/linux/usb.h' line='400' column='1'/>
+          <var-decl name='ext_cap' type-id='type-id-4237' visibility='default' filepath='include/linux/usb.h' line='406' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='ss_cap' type-id='type-id-4238' visibility='default' filepath='include/linux/usb.h' line='401' column='1'/>
+          <var-decl name='ss_cap' type-id='type-id-4238' visibility='default' filepath='include/linux/usb.h' line='407' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='ssp_cap' type-id='type-id-4239' visibility='default' filepath='include/linux/usb.h' line='402' column='1'/>
+          <var-decl name='ssp_cap' type-id='type-id-4239' visibility='default' filepath='include/linux/usb.h' line='408' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='ss_id' type-id='type-id-4240' visibility='default' filepath='include/linux/usb.h' line='403' column='1'/>
+          <var-decl name='ss_id' type-id='type-id-4240' visibility='default' filepath='include/linux/usb.h' line='409' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='ptm_cap' type-id='type-id-4241' visibility='default' filepath='include/linux/usb.h' line='404' column='1'/>
+          <var-decl name='ptm_cap' type-id='type-id-4241' visibility='default' filepath='include/linux/usb.h' line='410' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='384'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='412' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='448'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='413' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='512'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='414' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='576'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='415' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='usb_bos_descriptor' size-in-bits='40' is-struct='yes' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='837' column='1' id='type-id-4242'>
@@ -39362,27 +39422,27 @@
           <var-decl name='bDevCapabilityType' type-id='type-id-161' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='1076' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_host_config' size-in-bits='5440' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='374' column='1' id='type-id-4248'>
+      <class-decl name='usb_host_config' size-in-bits='5440' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='380' column='1' id='type-id-4248'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='desc' type-id='type-id-4249' visibility='default' filepath='include/linux/usb.h' line='375' column='1'/>
+          <var-decl name='desc' type-id='type-id-4249' visibility='default' filepath='include/linux/usb.h' line='381' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='string' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='377' column='1'/>
+          <var-decl name='string' type-id='type-id-14' visibility='default' filepath='include/linux/usb.h' line='383' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='intf_assoc' type-id='type-id-4196' visibility='default' filepath='include/linux/usb.h' line='381' column='1'/>
+          <var-decl name='intf_assoc' type-id='type-id-4196' visibility='default' filepath='include/linux/usb.h' line='387' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1216'>
-          <var-decl name='interface' type-id='type-id-4194' visibility='default' filepath='include/linux/usb.h' line='385' column='1'/>
+          <var-decl name='interface' type-id='type-id-4194' visibility='default' filepath='include/linux/usb.h' line='391' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='3264'>
-          <var-decl name='intf_cache' type-id='type-id-4198' visibility='default' filepath='include/linux/usb.h' line='389' column='1'/>
+          <var-decl name='intf_cache' type-id='type-id-4198' visibility='default' filepath='include/linux/usb.h' line='395' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='5312'>
-          <var-decl name='extra' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='391' column='1'/>
+          <var-decl name='extra' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='397' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='5376'>
-          <var-decl name='extralen' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='392' column='1'/>
+          <var-decl name='extralen' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='398' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='usb_config_descriptor' size-in-bits='72' is-struct='yes' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='345' column='1' id='type-id-4249'>
@@ -39411,43 +39471,43 @@
           <var-decl name='bMaxPower' type-id='type-id-161' visibility='default' filepath='include/uapi/linux/usb/ch9.h' line='354' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_interface_cache' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='322' column='1' id='type-id-4250'>
+      <class-decl name='usb_interface_cache' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='328' column='1' id='type-id-4250'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='num_altsetting' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='323' column='1'/>
+          <var-decl name='num_altsetting' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='329' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='ref' type-id='type-id-209' visibility='default' filepath='include/linux/usb.h' line='324' column='1'/>
+          <var-decl name='ref' type-id='type-id-209' visibility='default' filepath='include/linux/usb.h' line='330' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='altsetting' type-id='type-id-4192' visibility='default' filepath='include/linux/usb.h' line='328' column='1'/>
+          <var-decl name='altsetting' type-id='type-id-4192' visibility='default' filepath='include/linux/usb.h' line='334' column='1'/>
         </data-member>
       </class-decl>
-      <enum-decl name='usb_device_removable' filepath='include/linux/usb.h' line='476' column='1' id='type-id-4230'>
+      <enum-decl name='usb_device_removable' filepath='include/linux/usb.h' line='492' column='1' id='type-id-4230'>
         <underlying-type type-id='type-id-110'/>
         <enumerator name='USB_DEVICE_REMOVABLE_UNKNOWN' value='0'/>
         <enumerator name='USB_DEVICE_REMOVABLE' value='1'/>
         <enumerator name='USB_DEVICE_FIXED' value='2'/>
       </enum-decl>
-      <class-decl name='usb2_lpm_parameters' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='502' column='1' id='type-id-4231'>
+      <class-decl name='usb2_lpm_parameters' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='518' column='1' id='type-id-4231'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='besl' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='506' column='1'/>
+          <var-decl name='besl' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='522' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='timeout' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='512' column='1'/>
+          <var-decl name='timeout' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='528' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb3_lpm_parameters' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='522' column='1' id='type-id-4232'>
+      <class-decl name='usb3_lpm_parameters' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='538' column='1' id='type-id-4232'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='mel' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='529' column='1'/>
+          <var-decl name='mel' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='545' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='pel' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='535' column='1'/>
+          <var-decl name='pel' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='551' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='sel' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='545' column='1'/>
+          <var-decl name='sel' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='561' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='96'>
-          <var-decl name='timeout' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='551' column='1'/>
+          <var-decl name='timeout' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='567' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='tasklet_struct' size-in-bits='320' is-struct='yes' visibility='default' filepath='include/linux/interrupt.h' line='592' column='1' id='type-id-4251'>
@@ -39519,128 +39579,140 @@
           <var-decl name='count' type-id='type-id-92' visibility='default' filepath='include/linux/netdevice.h' line='306' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='urb' size-in-bits='1472' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1550' column='1' id='type-id-4256'>
+      <class-decl name='urb' size-in-bits='1728' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1576' column='1' id='type-id-4256'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='kref' type-id='type-id-209' visibility='default' filepath='include/linux/usb.h' line='1552' column='1'/>
+          <var-decl name='kref' type-id='type-id-209' visibility='default' filepath='include/linux/usb.h' line='1578' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='unlinked' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1553' column='1'/>
+          <var-decl name='unlinked' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1579' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='hcpriv' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='1554' column='1'/>
+          <var-decl name='hcpriv' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='1580' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='use_count' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='1555' column='1'/>
+          <var-decl name='use_count' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='1581' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='160'>
-          <var-decl name='reject' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='1556' column='1'/>
+          <var-decl name='reject' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='1582' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='urb_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1559' column='1'/>
+          <var-decl name='urb_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1585' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='anchor_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1561' column='1'/>
+          <var-decl name='anchor_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1587' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='anchor' type-id='type-id-3028' visibility='default' filepath='include/linux/usb.h' line='1562' column='1'/>
+          <var-decl name='anchor' type-id='type-id-3028' visibility='default' filepath='include/linux/usb.h' line='1588' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='dev' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='1563' column='1'/>
+          <var-decl name='dev' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='1589' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='ep' type-id='type-id-4189' visibility='default' filepath='include/linux/usb.h' line='1564' column='1'/>
+          <var-decl name='ep' type-id='type-id-4189' visibility='default' filepath='include/linux/usb.h' line='1590' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='pipe' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1565' column='1'/>
+          <var-decl name='pipe' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1591' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='672'>
-          <var-decl name='stream_id' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1566' column='1'/>
+          <var-decl name='stream_id' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1592' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='704'>
-          <var-decl name='status' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1567' column='1'/>
+          <var-decl name='status' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1593' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='736'>
-          <var-decl name='transfer_flags' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1568' column='1'/>
+          <var-decl name='transfer_flags' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1594' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='transfer_buffer' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='1569' column='1'/>
+          <var-decl name='transfer_buffer' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='1595' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='832'>
-          <var-decl name='transfer_dma' type-id='type-id-442' visibility='default' filepath='include/linux/usb.h' line='1570' column='1'/>
+          <var-decl name='transfer_dma' type-id='type-id-442' visibility='default' filepath='include/linux/usb.h' line='1596' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='896'>
-          <var-decl name='sg' type-id='type-id-154' visibility='default' filepath='include/linux/usb.h' line='1571' column='1'/>
+          <var-decl name='sg' type-id='type-id-154' visibility='default' filepath='include/linux/usb.h' line='1597' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='960'>
-          <var-decl name='num_mapped_sgs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1572' column='1'/>
+          <var-decl name='num_mapped_sgs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1598' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='992'>
-          <var-decl name='num_sgs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1573' column='1'/>
+          <var-decl name='num_sgs' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1599' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1024'>
-          <var-decl name='transfer_buffer_length' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='1574' column='1'/>
+          <var-decl name='transfer_buffer_length' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='1600' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1056'>
-          <var-decl name='actual_length' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='1575' column='1'/>
+          <var-decl name='actual_length' type-id='type-id-130' visibility='default' filepath='include/linux/usb.h' line='1601' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1088'>
-          <var-decl name='setup_packet' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='1576' column='1'/>
+          <var-decl name='setup_packet' type-id='type-id-943' visibility='default' filepath='include/linux/usb.h' line='1602' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1152'>
-          <var-decl name='setup_dma' type-id='type-id-442' visibility='default' filepath='include/linux/usb.h' line='1577' column='1'/>
+          <var-decl name='setup_dma' type-id='type-id-442' visibility='default' filepath='include/linux/usb.h' line='1603' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1216'>
-          <var-decl name='start_frame' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1578' column='1'/>
+          <var-decl name='start_frame' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1604' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1248'>
-          <var-decl name='number_of_packets' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1579' column='1'/>
+          <var-decl name='number_of_packets' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1605' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1280'>
-          <var-decl name='interval' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1580' column='1'/>
+          <var-decl name='interval' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1606' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1312'>
-          <var-decl name='error_count' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1582' column='1'/>
+          <var-decl name='error_count' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1608' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1344'>
-          <var-decl name='context' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='1583' column='1'/>
+          <var-decl name='context' type-id='type-id-126' visibility='default' filepath='include/linux/usb.h' line='1609' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1408'>
-          <var-decl name='complete' type-id='type-id-4257' visibility='default' filepath='include/linux/usb.h' line='1584' column='1'/>
+          <var-decl name='complete' type-id='type-id-4257' visibility='default' filepath='include/linux/usb.h' line='1610' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1472'>
-          <var-decl name='iso_frame_desc' type-id='type-id-4200' visibility='default' filepath='include/linux/usb.h' line='1585' column='1'/>
+          <var-decl name='iso_frame_desc' type-id='type-id-4200' visibility='default' filepath='include/linux/usb.h' line='1611' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1472'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1613' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1536'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1614' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1600'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1615' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1664'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb.h' line='1616' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='usb_anchor' size-in-bits='448' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1349' column='1' id='type-id-4258'>
+      <class-decl name='usb_anchor' size-in-bits='448' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1375' column='1' id='type-id-4258'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='urb_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1350' column='1'/>
+          <var-decl name='urb_list' type-id='type-id-129' visibility='default' filepath='include/linux/usb.h' line='1376' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='wait' type-id='type-id-407' visibility='default' filepath='include/linux/usb.h' line='1351' column='1'/>
+          <var-decl name='wait' type-id='type-id-407' visibility='default' filepath='include/linux/usb.h' line='1377' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb.h' line='1352' column='1'/>
+          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb.h' line='1378' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='352'>
-          <var-decl name='suspend_wakeups' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='1353' column='1'/>
+          <var-decl name='suspend_wakeups' type-id='type-id-141' visibility='default' filepath='include/linux/usb.h' line='1379' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='31'>
-          <var-decl name='poisoned' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1354' column='1'/>
+          <var-decl name='poisoned' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1380' column='1'/>
         </data-member>
       </class-decl>
-      <typedef-decl name='usb_complete_t' type-id='type-id-4259' filepath='include/linux/usb.h' line='1365' column='1' id='type-id-4257'/>
-      <class-decl name='usb_iso_packet_descriptor' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1340' column='1' id='type-id-4199'>
+      <typedef-decl name='usb_complete_t' type-id='type-id-4259' filepath='include/linux/usb.h' line='1391' column='1' id='type-id-4257'/>
+      <class-decl name='usb_iso_packet_descriptor' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1366' column='1' id='type-id-4199'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='offset' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1341' column='1'/>
+          <var-decl name='offset' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1367' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='length' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1342' column='1'/>
+          <var-decl name='length' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1368' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='actual_length' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1343' column='1'/>
+          <var-decl name='actual_length' type-id='type-id-131' visibility='default' filepath='include/linux/usb.h' line='1369' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='96'>
-          <var-decl name='status' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1344' column='1'/>
+          <var-decl name='status' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1370' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='mii_if_info' size-in-bits='384' is-struct='yes' visibility='default' filepath='include/linux/mii.h' line='18' column='1' id='type-id-4260'>
@@ -39722,17 +39794,17 @@
       <pointer-type-def type-id='type-id-4274' size-in-bits='64' id='type-id-4259'/>
       <pointer-type-def type-id='type-id-4275' size-in-bits='64' id='type-id-4203'/>
       <pointer-type-def type-id='type-id-4186' size-in-bits='64' id='type-id-4229'/>
-      <function-decl name='usb_deregister' mangled-name='usb_deregister' filepath='include/linux/usb.h' line='1281' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_deregister'>
+      <function-decl name='usb_deregister' mangled-name='usb_deregister' filepath='include/linux/usb.h' line='1307' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_deregister'>
         <parameter type-id='type-id-4271'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_register_driver' mangled-name='usb_register_driver' filepath='include/linux/usb.h' line='1274' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_register_driver'>
+      <function-decl name='usb_register_driver' mangled-name='usb_register_driver' filepath='include/linux/usb.h' line='1300' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_register_driver'>
         <parameter type-id='type-id-4271'/>
         <parameter type-id='type-id-138'/>
         <parameter type-id='type-id-177'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_reset_device' mangled-name='usb_reset_device' filepath='include/linux/usb.h' line='745' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_reset_device'>
+      <function-decl name='usb_reset_device' mangled-name='usb_reset_device' filepath='include/linux/usb.h' line='766' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_reset_device'>
         <parameter type-id='type-id-3026'/>
         <return type-id='type-id-92'/>
       </function-decl>
@@ -39775,7 +39847,7 @@
         <parameter type-id='type-id-4252'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_control_msg' mangled-name='usb_control_msg' filepath='include/linux/usb.h' line='1783' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_control_msg'>
+      <function-decl name='usb_control_msg' mangled-name='usb_control_msg' filepath='include/linux/usb.h' line='1813' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_control_msg'>
         <parameter type-id='type-id-3026'/>
         <parameter type-id='type-id-131'/>
         <parameter type-id='type-id-112'/>
@@ -39787,11 +39859,11 @@
         <parameter type-id='type-id-92'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_kill_urb' mangled-name='usb_kill_urb' filepath='include/linux/usb.h' line='1712' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_kill_urb'>
+      <function-decl name='usb_kill_urb' mangled-name='usb_kill_urb' filepath='include/linux/usb.h' line='1742' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_kill_urb'>
         <parameter type-id='type-id-3027'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_free_urb' mangled-name='usb_free_urb' filepath='include/linux/usb.h' line='1707' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_free_urb'>
+      <function-decl name='usb_free_urb' mangled-name='usb_free_urb' filepath='include/linux/usb.h' line='1737' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_free_urb'>
         <parameter type-id='type-id-3027'/>
         <return type-id='type-id-681'/>
       </function-decl>
@@ -39801,7 +39873,7 @@
         <parameter is-variadic='yes'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_autopm_get_interface' mangled-name='usb_autopm_get_interface' filepath='include/linux/usb.h' line='764' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_get_interface'>
+      <function-decl name='usb_autopm_get_interface' mangled-name='usb_autopm_get_interface' filepath='include/linux/usb.h' line='785' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_get_interface'>
         <parameter type-id='type-id-4193'/>
         <return type-id='type-id-92'/>
       </function-decl>
@@ -39809,7 +39881,7 @@
         <parameter type-id='type-id-1833'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_autopm_put_interface' mangled-name='usb_autopm_put_interface' filepath='include/linux/usb.h' line='765' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_put_interface'>
+      <function-decl name='usb_autopm_put_interface' mangled-name='usb_autopm_put_interface' filepath='include/linux/usb.h' line='786' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_put_interface'>
         <parameter type-id='type-id-4193'/>
         <return type-id='type-id-681'/>
       </function-decl>
@@ -39817,7 +39889,7 @@
         <parameter type-id='type-id-4182'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_submit_urb' mangled-name='usb_submit_urb' filepath='include/linux/usb.h' line='1710' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_submit_urb'>
+      <function-decl name='usb_submit_urb' mangled-name='usb_submit_urb' filepath='include/linux/usb.h' line='1740' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_submit_urb'>
         <parameter type-id='type-id-3027'/>
         <parameter type-id='type-id-131'/>
         <return type-id='type-id-92'/>
@@ -39847,11 +39919,11 @@
         <parameter type-id='type-id-92'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_autopm_get_interface_async' mangled-name='usb_autopm_get_interface_async' filepath='include/linux/usb.h' line='766' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_get_interface_async'>
+      <function-decl name='usb_autopm_get_interface_async' mangled-name='usb_autopm_get_interface_async' filepath='include/linux/usb.h' line='787' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_get_interface_async'>
         <parameter type-id='type-id-4193'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_autopm_put_interface_async' mangled-name='usb_autopm_put_interface_async' filepath='include/linux/usb.h' line='767' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_put_interface_async'>
+      <function-decl name='usb_autopm_put_interface_async' mangled-name='usb_autopm_put_interface_async' filepath='include/linux/usb.h' line='788' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_put_interface_async'>
         <parameter type-id='type-id-4193'/>
         <return type-id='type-id-681'/>
       </function-decl>
@@ -39882,7 +39954,7 @@
         <parameter type-id='type-id-684'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_alloc_urb' mangled-name='usb_alloc_urb' filepath='include/linux/usb.h' line='1706' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_alloc_urb'>
+      <function-decl name='usb_alloc_urb' mangled-name='usb_alloc_urb' filepath='include/linux/usb.h' line='1736' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_alloc_urb'>
         <parameter type-id='type-id-92'/>
         <parameter type-id='type-id-131'/>
         <return type-id='type-id-3027'/>
@@ -40007,179 +40079,197 @@
         <subrange length='5' type-id='type-id-1' id='type-id-856'/>
 
       </array-type-def>
-      <class-decl name='usbnet' size-in-bits='4736' is-struct='yes' visibility='default' filepath='include/linux/usb/usbnet.h' line='27' column='1' id='type-id-4277'>
+      <class-decl name='usbnet' size-in-bits='4992' is-struct='yes' visibility='default' filepath='include/linux/usb/usbnet.h' line='29' column='1' id='type-id-4277'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='udev' type-id='type-id-3026' visibility='default' filepath='include/linux/usb/usbnet.h' line='29' column='1'/>
+          <var-decl name='udev' type-id='type-id-3026' visibility='default' filepath='include/linux/usb/usbnet.h' line='31' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='intf' type-id='type-id-4193' visibility='default' filepath='include/linux/usb/usbnet.h' line='30' column='1'/>
+          <var-decl name='intf' type-id='type-id-4193' visibility='default' filepath='include/linux/usb/usbnet.h' line='32' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='driver_info' type-id='type-id-4278' visibility='default' filepath='include/linux/usb/usbnet.h' line='31' column='1'/>
+          <var-decl name='driver_info' type-id='type-id-4278' visibility='default' filepath='include/linux/usb/usbnet.h' line='33' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='driver_name' type-id='type-id-177' visibility='default' filepath='include/linux/usb/usbnet.h' line='32' column='1'/>
+          <var-decl name='driver_name' type-id='type-id-177' visibility='default' filepath='include/linux/usb/usbnet.h' line='34' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='driver_priv' type-id='type-id-126' visibility='default' filepath='include/linux/usb/usbnet.h' line='33' column='1'/>
+          <var-decl name='driver_priv' type-id='type-id-126' visibility='default' filepath='include/linux/usb/usbnet.h' line='35' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='wait' type-id='type-id-407' visibility='default' filepath='include/linux/usb/usbnet.h' line='34' column='1'/>
+          <var-decl name='wait' type-id='type-id-407' visibility='default' filepath='include/linux/usb/usbnet.h' line='36' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='phy_mutex' type-id='type-id-182' visibility='default' filepath='include/linux/usb/usbnet.h' line='35' column='1'/>
+          <var-decl name='phy_mutex' type-id='type-id-182' visibility='default' filepath='include/linux/usb/usbnet.h' line='37' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='suspend_count' type-id='type-id-112' visibility='default' filepath='include/linux/usb/usbnet.h' line='36' column='1'/>
+          <var-decl name='suspend_count' type-id='type-id-112' visibility='default' filepath='include/linux/usb/usbnet.h' line='38' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='776'>
-          <var-decl name='pkt_cnt' type-id='type-id-112' visibility='default' filepath='include/linux/usb/usbnet.h' line='37' column='1'/>
+          <var-decl name='pkt_cnt' type-id='type-id-112' visibility='default' filepath='include/linux/usb/usbnet.h' line='39' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='784'>
-          <var-decl name='pkt_err' type-id='type-id-112' visibility='default' filepath='include/linux/usb/usbnet.h' line='37' column='1'/>
+          <var-decl name='pkt_err' type-id='type-id-112' visibility='default' filepath='include/linux/usb/usbnet.h' line='39' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='800'>
-          <var-decl name='rx_qlen' type-id='type-id-223' visibility='default' filepath='include/linux/usb/usbnet.h' line='38' column='1'/>
+          <var-decl name='rx_qlen' type-id='type-id-223' visibility='default' filepath='include/linux/usb/usbnet.h' line='40' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='816'>
-          <var-decl name='tx_qlen' type-id='type-id-223' visibility='default' filepath='include/linux/usb/usbnet.h' line='38' column='1'/>
+          <var-decl name='tx_qlen' type-id='type-id-223' visibility='default' filepath='include/linux/usb/usbnet.h' line='40' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='31'>
-          <var-decl name='can_dma_sg' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='39' column='1'/>
+          <var-decl name='can_dma_sg' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='41' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='864'>
-          <var-decl name='in' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='42' column='1'/>
+          <var-decl name='in' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='44' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='896'>
-          <var-decl name='out' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='42' column='1'/>
+          <var-decl name='out' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='44' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='960'>
-          <var-decl name='status' type-id='type-id-4189' visibility='default' filepath='include/linux/usb/usbnet.h' line='43' column='1'/>
+          <var-decl name='status' type-id='type-id-4189' visibility='default' filepath='include/linux/usb/usbnet.h' line='45' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1024'>
-          <var-decl name='maxpacket' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='44' column='1'/>
+          <var-decl name='maxpacket' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='46' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1088'>
-          <var-decl name='delay' type-id='type-id-573' visibility='default' filepath='include/linux/usb/usbnet.h' line='45' column='1'/>
+          <var-decl name='delay' type-id='type-id-573' visibility='default' filepath='include/linux/usb/usbnet.h' line='47' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1408'>
-          <var-decl name='padding_pkt' type-id='type-id-177' visibility='default' filepath='include/linux/usb/usbnet.h' line='46' column='1'/>
+          <var-decl name='padding_pkt' type-id='type-id-177' visibility='default' filepath='include/linux/usb/usbnet.h' line='48' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1472'>
-          <var-decl name='net' type-id='type-id-907' visibility='default' filepath='include/linux/usb/usbnet.h' line='49' column='1'/>
+          <var-decl name='net' type-id='type-id-907' visibility='default' filepath='include/linux/usb/usbnet.h' line='51' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1536'>
-          <var-decl name='msg_enable' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='50' column='1'/>
+          <var-decl name='msg_enable' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='52' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1600'>
-          <var-decl name='data' type-id='type-id-4276' visibility='default' filepath='include/linux/usb/usbnet.h' line='51' column='1'/>
+          <var-decl name='data' type-id='type-id-4276' visibility='default' filepath='include/linux/usb/usbnet.h' line='53' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1920'>
-          <var-decl name='xid' type-id='type-id-130' visibility='default' filepath='include/linux/usb/usbnet.h' line='52' column='1'/>
+          <var-decl name='xid' type-id='type-id-130' visibility='default' filepath='include/linux/usb/usbnet.h' line='54' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1952'>
-          <var-decl name='hard_mtu' type-id='type-id-130' visibility='default' filepath='include/linux/usb/usbnet.h' line='53' column='1'/>
+          <var-decl name='hard_mtu' type-id='type-id-130' visibility='default' filepath='include/linux/usb/usbnet.h' line='55' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1984'>
-          <var-decl name='rx_urb_size' type-id='type-id-247' visibility='default' filepath='include/linux/usb/usbnet.h' line='54' column='1'/>
+          <var-decl name='rx_urb_size' type-id='type-id-247' visibility='default' filepath='include/linux/usb/usbnet.h' line='56' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2048'>
-          <var-decl name='mii' type-id='type-id-4260' visibility='default' filepath='include/linux/usb/usbnet.h' line='55' column='1'/>
+          <var-decl name='mii' type-id='type-id-4260' visibility='default' filepath='include/linux/usb/usbnet.h' line='57' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2432'>
-          <var-decl name='rxq' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='58' column='1'/>
+          <var-decl name='rxq' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='60' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2624'>
-          <var-decl name='txq' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='59' column='1'/>
+          <var-decl name='txq' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='61' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2816'>
-          <var-decl name='done' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='60' column='1'/>
+          <var-decl name='done' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='62' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='3008'>
-          <var-decl name='rxq_pause' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='61' column='1'/>
+          <var-decl name='rxq_pause' type-id='type-id-920' visibility='default' filepath='include/linux/usb/usbnet.h' line='63' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='3200'>
-          <var-decl name='interrupt' type-id='type-id-3027' visibility='default' filepath='include/linux/usb/usbnet.h' line='62' column='1'/>
+          <var-decl name='interrupt' type-id='type-id-3027' visibility='default' filepath='include/linux/usb/usbnet.h' line='64' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='3264'>
-          <var-decl name='interrupt_count' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='63' column='1'/>
+          <var-decl name='interrupt_count' type-id='type-id-131' visibility='default' filepath='include/linux/usb/usbnet.h' line='65' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='3328'>
-          <var-decl name='interrupt_mutex' type-id='type-id-182' visibility='default' filepath='include/linux/usb/usbnet.h' line='64' column='1'/>
+          <var-decl name='interrupt_mutex' type-id='type-id-182' visibility='default' filepath='include/linux/usb/usbnet.h' line='66' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='3584'>
-          <var-decl name='deferred' type-id='type-id-4258' visibility='default' filepath='include/linux/usb/usbnet.h' line='65' column='1'/>
+          <var-decl name='deferred' type-id='type-id-4258' visibility='default' filepath='include/linux/usb/usbnet.h' line='67' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='4032'>
-          <var-decl name='bh' type-id='type-id-4251' visibility='default' filepath='include/linux/usb/usbnet.h' line='66' column='1'/>
+          <var-decl name='bh' type-id='type-id-4251' visibility='default' filepath='include/linux/usb/usbnet.h' line='68' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='4352'>
-          <var-decl name='stats64' type-id='type-id-1540' visibility='default' filepath='include/linux/usb/usbnet.h' line='68' column='1'/>
+          <var-decl name='stats64' type-id='type-id-1540' visibility='default' filepath='include/linux/usb/usbnet.h' line='70' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='4416'>
-          <var-decl name='kevent' type-id='type-id-280' visibility='default' filepath='include/linux/usb/usbnet.h' line='70' column='1'/>
+          <var-decl name='kevent' type-id='type-id-280' visibility='default' filepath='include/linux/usb/usbnet.h' line='72' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='4672'>
-          <var-decl name='flags' type-id='type-id-113' visibility='default' filepath='include/linux/usb/usbnet.h' line='71' column='1'/>
+          <var-decl name='flags' type-id='type-id-113' visibility='default' filepath='include/linux/usb/usbnet.h' line='73' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4736'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb/usbnet.h' line='89' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4800'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb/usbnet.h' line='90' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4864'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb/usbnet.h' line='91' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4928'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb/usbnet.h' line='92' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='driver_info' size-in-bits='1152' is-struct='yes' visibility='default' filepath='include/linux/usb/usbnet.h' line='94' column='1' id='type-id-4279'>
+      <class-decl name='driver_info' size-in-bits='1280' is-struct='yes' visibility='default' filepath='include/linux/usb/usbnet.h' line='101' column='1' id='type-id-4279'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='description' type-id='type-id-14' visibility='default' filepath='include/linux/usb/usbnet.h' line='95' column='1'/>
+          <var-decl name='description' type-id='type-id-14' visibility='default' filepath='include/linux/usb/usbnet.h' line='102' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='flags' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='97' column='1'/>
+          <var-decl name='flags' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='104' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='bind' type-id='type-id-4280' visibility='default' filepath='include/linux/usb/usbnet.h' line='126' column='1'/>
+          <var-decl name='bind' type-id='type-id-4280' visibility='default' filepath='include/linux/usb/usbnet.h' line='133' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='unbind' type-id='type-id-4281' visibility='default' filepath='include/linux/usb/usbnet.h' line='129' column='1'/>
+          <var-decl name='unbind' type-id='type-id-4281' visibility='default' filepath='include/linux/usb/usbnet.h' line='136' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='reset' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='132' column='1'/>
+          <var-decl name='reset' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='139' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='stop' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='135' column='1'/>
+          <var-decl name='stop' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='142' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='check_connect' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='138' column='1'/>
+          <var-decl name='check_connect' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='145' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='manage_power' type-id='type-id-4283' visibility='default' filepath='include/linux/usb/usbnet.h' line='141' column='1'/>
+          <var-decl name='manage_power' type-id='type-id-4283' visibility='default' filepath='include/linux/usb/usbnet.h' line='148' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='status' type-id='type-id-4284' visibility='default' filepath='include/linux/usb/usbnet.h' line='144' column='1'/>
+          <var-decl name='status' type-id='type-id-4284' visibility='default' filepath='include/linux/usb/usbnet.h' line='151' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='link_reset' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='147' column='1'/>
+          <var-decl name='link_reset' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='154' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='rx_fixup' type-id='type-id-4285' visibility='default' filepath='include/linux/usb/usbnet.h' line='150' column='1'/>
+          <var-decl name='rx_fixup' type-id='type-id-4285' visibility='default' filepath='include/linux/usb/usbnet.h' line='157' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='704'>
-          <var-decl name='tx_fixup' type-id='type-id-4286' visibility='default' filepath='include/linux/usb/usbnet.h' line='153' column='1'/>
+          <var-decl name='tx_fixup' type-id='type-id-4286' visibility='default' filepath='include/linux/usb/usbnet.h' line='160' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='recover' type-id='type-id-4287' visibility='default' filepath='include/linux/usb/usbnet.h' line='157' column='1'/>
+          <var-decl name='recover' type-id='type-id-4287' visibility='default' filepath='include/linux/usb/usbnet.h' line='164' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='832'>
-          <var-decl name='early_init' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='162' column='1'/>
+          <var-decl name='early_init' type-id='type-id-4282' visibility='default' filepath='include/linux/usb/usbnet.h' line='169' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='896'>
-          <var-decl name='indication' type-id='type-id-4288' visibility='default' filepath='include/linux/usb/usbnet.h' line='165' column='1'/>
+          <var-decl name='indication' type-id='type-id-4288' visibility='default' filepath='include/linux/usb/usbnet.h' line='172' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='960'>
-          <var-decl name='set_rx_mode' type-id='type-id-4287' visibility='default' filepath='include/linux/usb/usbnet.h' line='168' column='1'/>
+          <var-decl name='set_rx_mode' type-id='type-id-4287' visibility='default' filepath='include/linux/usb/usbnet.h' line='175' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1024'>
-          <var-decl name='in' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='171' column='1'/>
+          <var-decl name='in' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='178' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1056'>
-          <var-decl name='out' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='172' column='1'/>
+          <var-decl name='out' type-id='type-id-92' visibility='default' filepath='include/linux/usb/usbnet.h' line='179' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1088'>
-          <var-decl name='data' type-id='type-id-113' visibility='default' filepath='include/linux/usb/usbnet.h' line='174' column='1'/>
+          <var-decl name='data' type-id='type-id-113' visibility='default' filepath='include/linux/usb/usbnet.h' line='181' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1152'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb/usbnet.h' line='183' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1216'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb/usbnet.h' line='184' column='1'/>
         </data-member>
       </class-decl>
       <qualified-type-def type-id='type-id-4279' const='yes' id='type-id-4289'/>
@@ -40194,7 +40284,7 @@
       <pointer-type-def type-id='type-id-4297' size-in-bits='64' id='type-id-4284'/>
       <pointer-type-def type-id='type-id-4298' size-in-bits='64' id='type-id-4281'/>
       <pointer-type-def type-id='type-id-4299' size-in-bits='64' id='type-id-4288'/>
-      <function-decl name='usbnet_unlink_rx_urbs' mangled-name='usbnet_unlink_rx_urbs' filepath='include/linux/usb/usbnet.h' line='263' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usbnet_unlink_rx_urbs'>
+      <function-decl name='usbnet_unlink_rx_urbs' mangled-name='usbnet_unlink_rx_urbs' filepath='include/linux/usb/usbnet.h' line='273' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usbnet_unlink_rx_urbs'>
         <parameter type-id='type-id-4295'/>
         <return type-id='type-id-681'/>
       </function-decl>
@@ -40202,25 +40292,25 @@
         <parameter type-id='type-id-907'/>
         <return type-id='type-id-131'/>
       </function-decl>
-      <function-decl name='usbnet_link_change' mangled-name='usbnet_link_change' filepath='include/linux/usb/usbnet.h' line='280' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usbnet_link_change'>
+      <function-decl name='usbnet_link_change' mangled-name='usbnet_link_change' filepath='include/linux/usb/usbnet.h' line='290' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usbnet_link_change'>
         <parameter type-id='type-id-4295'/>
         <parameter type-id='type-id-11'/>
         <parameter type-id='type-id-11'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_get_from_anchor' mangled-name='usb_get_from_anchor' filepath='include/linux/usb.h' line='1726' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_get_from_anchor'>
+      <function-decl name='usb_get_from_anchor' mangled-name='usb_get_from_anchor' filepath='include/linux/usb.h' line='1756' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_get_from_anchor'>
         <parameter type-id='type-id-3028'/>
         <return type-id='type-id-3027'/>
       </function-decl>
-      <function-decl name='usb_autopm_get_interface_no_resume' mangled-name='usb_autopm_get_interface_no_resume' filepath='include/linux/usb.h' line='768' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_get_interface_no_resume'>
+      <function-decl name='usb_autopm_get_interface_no_resume' mangled-name='usb_autopm_get_interface_no_resume' filepath='include/linux/usb.h' line='789' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_get_interface_no_resume'>
         <parameter type-id='type-id-4193'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_unlink_urb' mangled-name='usb_unlink_urb' filepath='include/linux/usb.h' line='1711' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_unlink_urb'>
+      <function-decl name='usb_unlink_urb' mangled-name='usb_unlink_urb' filepath='include/linux/usb.h' line='1741' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_unlink_urb'>
         <parameter type-id='type-id-3027'/>
         <return type-id='type-id-92'/>
       </function-decl>
-      <function-decl name='usb_clear_halt' mangled-name='usb_clear_halt' filepath='include/linux/usb.h' line='1815' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_clear_halt'>
+      <function-decl name='usb_clear_halt' mangled-name='usb_clear_halt' filepath='include/linux/usb.h' line='1845' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_clear_halt'>
         <parameter type-id='type-id-3026'/>
         <parameter type-id='type-id-92'/>
         <return type-id='type-id-92'/>
@@ -53607,22 +53697,22 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/usb/core/hcd.c' language='LANG_C89'>
-      <function-decl name='usb_hcd_unlink_urb_from_ep' mangled-name='usb_hcd_unlink_urb_from_ep' filepath='include/linux/usb/hcd.h' line='434' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hcd_unlink_urb_from_ep'>
+      <function-decl name='usb_hcd_unlink_urb_from_ep' mangled-name='usb_hcd_unlink_urb_from_ep' filepath='include/linux/usb/hcd.h' line='444' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hcd_unlink_urb_from_ep'>
         <parameter type-id='type-id-5693'/>
         <parameter type-id='type-id-3027'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_hcd_giveback_urb' mangled-name='usb_hcd_giveback_urb' filepath='include/linux/usb/hcd.h' line='438' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hcd_giveback_urb'>
+      <function-decl name='usb_hcd_giveback_urb' mangled-name='usb_hcd_giveback_urb' filepath='include/linux/usb/hcd.h' line='448' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hcd_giveback_urb'>
         <parameter type-id='type-id-5693'/>
         <parameter type-id='type-id-3027'/>
         <parameter type-id='type-id-92'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_hc_died' mangled-name='usb_hc_died' filepath='include/linux/usb/hcd.h' line='506' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hc_died'>
+      <function-decl name='usb_hc_died' mangled-name='usb_hc_died' filepath='include/linux/usb/hcd.h' line='516' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hc_died'>
         <parameter type-id='type-id-5693'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_hcd_is_primary_hcd' mangled-name='usb_hcd_is_primary_hcd' filepath='include/linux/usb/hcd.h' line='467' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hcd_is_primary_hcd'>
+      <function-decl name='usb_hcd_is_primary_hcd' mangled-name='usb_hcd_is_primary_hcd' filepath='include/linux/usb/hcd.h' line='477' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_hcd_is_primary_hcd'>
         <parameter type-id='type-id-5693'/>
         <return type-id='type-id-92'/>
       </function-decl>
@@ -53715,7 +53805,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/usb/core/hub.c' language='LANG_C89'>
-      <function-decl name='usb_autopm_put_interface_no_suspend' mangled-name='usb_autopm_put_interface_no_suspend' filepath='include/linux/usb.h' line='769' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_put_interface_no_suspend'>
+      <function-decl name='usb_autopm_put_interface_no_suspend' mangled-name='usb_autopm_put_interface_no_suspend' filepath='include/linux/usb.h' line='790' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_autopm_put_interface_no_suspend'>
         <parameter type-id='type-id-4193'/>
         <return type-id='type-id-681'/>
       </function-decl>
@@ -53734,33 +53824,33 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/usb/core/message.c' language='LANG_C89'>
-      <class-decl name='usb_sg_request' size-in-bits='704' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1853' column='1' id='type-id-5695'>
+      <class-decl name='usb_sg_request' size-in-bits='704' is-struct='yes' visibility='default' filepath='include/linux/usb.h' line='1883' column='1' id='type-id-5695'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='status' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1854' column='1'/>
+          <var-decl name='status' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1884' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='bytes' type-id='type-id-247' visibility='default' filepath='include/linux/usb.h' line='1855' column='1'/>
+          <var-decl name='bytes' type-id='type-id-247' visibility='default' filepath='include/linux/usb.h' line='1885' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb.h' line='1861' column='1'/>
+          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb.h' line='1891' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='dev' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='1863' column='1'/>
+          <var-decl name='dev' type-id='type-id-3026' visibility='default' filepath='include/linux/usb.h' line='1893' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='pipe' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1864' column='1'/>
+          <var-decl name='pipe' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1894' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='288'>
-          <var-decl name='entries' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1866' column='1'/>
+          <var-decl name='entries' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1896' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='urbs' type-id='type-id-5696' visibility='default' filepath='include/linux/usb.h' line='1867' column='1'/>
+          <var-decl name='urbs' type-id='type-id-5696' visibility='default' filepath='include/linux/usb.h' line='1897' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='count' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1869' column='1'/>
+          <var-decl name='count' type-id='type-id-92' visibility='default' filepath='include/linux/usb.h' line='1899' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='complete' type-id='type-id-292' visibility='default' filepath='include/linux/usb.h' line='1870' column='1'/>
+          <var-decl name='complete' type-id='type-id-292' visibility='default' filepath='include/linux/usb.h' line='1900' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='usb_cdc_parsed_header' size-in-bits='960' is-struct='yes' visibility='default' filepath='include/linux/usb/cdc.h' line='26' column='1' id='type-id-5697'>
@@ -54086,11 +54176,11 @@
       <pointer-type-def type-id='type-id-5697' size-in-bits='64' id='type-id-5726'/>
       <pointer-type-def type-id='type-id-5712' size-in-bits='64' id='type-id-5698'/>
       <pointer-type-def type-id='type-id-5695' size-in-bits='64' id='type-id-5727'/>
-      <function-decl name='usb_sg_cancel' mangled-name='usb_sg_cancel' filepath='include/linux/usb.h' line='1883' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_sg_cancel'>
+      <function-decl name='usb_sg_cancel' mangled-name='usb_sg_cancel' filepath='include/linux/usb.h' line='1913' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_sg_cancel'>
         <parameter type-id='type-id-5727'/>
         <return type-id='type-id-681'/>
       </function-decl>
-      <function-decl name='usb_reset_endpoint' mangled-name='usb_reset_endpoint' filepath='include/linux/usb.h' line='1818' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_reset_endpoint'>
+      <function-decl name='usb_reset_endpoint' mangled-name='usb_reset_endpoint' filepath='include/linux/usb.h' line='1848' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_reset_endpoint'>
         <parameter type-id='type-id-3026'/>
         <parameter type-id='type-id-131'/>
         <return type-id='type-id-681'/>
@@ -54136,266 +54226,290 @@
         <subrange length='4' type-id='type-id-1' id='type-id-10'/>
 
       </array-type-def>
-      <class-decl name='usb_hcd' size-in-bits='4736' is-struct='yes' visibility='default' filepath='include/linux/usb/hcd.h' line='81' column='1' id='type-id-5733'>
+      <class-decl name='usb_hcd' size-in-bits='5248' is-struct='yes' visibility='default' filepath='include/linux/usb/hcd.h' line='82' column='1' id='type-id-5733'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='self' type-id='type-id-4233' visibility='default' filepath='include/linux/usb/hcd.h' line='86' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1024'>
-          <var-decl name='kref' type-id='type-id-209' visibility='default' filepath='include/linux/usb/hcd.h' line='87' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1088'>
-          <var-decl name='product_desc' type-id='type-id-177' visibility='default' filepath='include/linux/usb/hcd.h' line='89' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1152'>
-          <var-decl name='speed' type-id='type-id-92' visibility='default' filepath='include/linux/usb/hcd.h' line='90' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1184'>
-          <var-decl name='irq_descr' type-id='type-id-5734' visibility='default' filepath='include/linux/usb/hcd.h' line='94' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1408'>
-          <var-decl name='rh_timer' type-id='type-id-573' visibility='default' filepath='include/linux/usb/hcd.h' line='96' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1728'>
-          <var-decl name='status_urb' type-id='type-id-3027' visibility='default' filepath='include/linux/usb/hcd.h' line='97' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1792'>
-          <var-decl name='wakeup_work' type-id='type-id-280' visibility='default' filepath='include/linux/usb/hcd.h' line='99' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2048'>
-          <var-decl name='died_work' type-id='type-id-280' visibility='default' filepath='include/linux/usb/hcd.h' line='101' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2304'>
-          <var-decl name='driver' type-id='type-id-5694' visibility='default' filepath='include/linux/usb/hcd.h' line='106' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2368'>
-          <var-decl name='usb_phy' type-id='type-id-5735' visibility='default' filepath='include/linux/usb/hcd.h' line='112' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2432'>
-          <var-decl name='phy_roothub' type-id='type-id-5736' visibility='default' filepath='include/linux/usb/hcd.h' line='113' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2496'>
-          <var-decl name='flags' type-id='type-id-113' visibility='default' filepath='include/linux/usb/hcd.h' line='119' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2560'>
-          <var-decl name='dev_policy' type-id='type-id-5737' visibility='default' filepath='include/linux/usb/hcd.h' line='151' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='31'>
-          <var-decl name='rh_registered' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='154' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='30'>
-          <var-decl name='rh_pollable' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='155' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='29'>
-          <var-decl name='msix_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='156' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='28'>
-          <var-decl name='msi_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='157' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='27'>
-          <var-decl name='skip_phy_initialization' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='163' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='26'>
-          <var-decl name='uses_new_polling' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='167' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='25'>
-          <var-decl name='wireless' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='168' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='24'>
-          <var-decl name='has_tt' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='169' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='23'>
-          <var-decl name='amd_resume_bug' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='170' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='22'>
-          <var-decl name='can_do_streams' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='171' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='21'>
-          <var-decl name='tpl_support' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='172' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='20'>
-          <var-decl name='cant_recv_wakeups' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='173' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2624'>
-          <var-decl name='irq' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='176' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2688'>
-          <var-decl name='regs' type-id='type-id-126' visibility='default' filepath='include/linux/usb/hcd.h' line='177' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2752'>
-          <var-decl name='rsrc_start' type-id='type-id-2192' visibility='default' filepath='include/linux/usb/hcd.h' line='178' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2816'>
-          <var-decl name='rsrc_len' type-id='type-id-2192' visibility='default' filepath='include/linux/usb/hcd.h' line='179' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2880'>
-          <var-decl name='power_budget' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='180' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2944'>
-          <var-decl name='high_prio_bh' type-id='type-id-5738' visibility='default' filepath='include/linux/usb/hcd.h' line='182' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='3520'>
-          <var-decl name='low_prio_bh' type-id='type-id-5738' visibility='default' filepath='include/linux/usb/hcd.h' line='183' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4096'>
-          <var-decl name='address0_mutex' type-id='type-id-1833' visibility='default' filepath='include/linux/usb/hcd.h' line='196' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4160'>
-          <var-decl name='bandwidth_mutex' type-id='type-id-1833' visibility='default' filepath='include/linux/usb/hcd.h' line='197' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4224'>
-          <var-decl name='shared_hcd' type-id='type-id-5693' visibility='default' filepath='include/linux/usb/hcd.h' line='198' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4288'>
-          <var-decl name='primary_hcd' type-id='type-id-5693' visibility='default' filepath='include/linux/usb/hcd.h' line='199' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4352'>
-          <var-decl name='pool' type-id='type-id-5732' visibility='default' filepath='include/linux/usb/hcd.h' line='203' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4608'>
-          <var-decl name='state' type-id='type-id-92' visibility='default' filepath='include/linux/usb/hcd.h' line='205' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4672'>
-          <var-decl name='localmem_pool' type-id='type-id-5739' visibility='default' filepath='include/linux/usb/hcd.h' line='220' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='4736'>
-          <var-decl name='hcd_priv' type-id='type-id-120' visibility='default' filepath='include/linux/usb/hcd.h' line='231' column='1'/>
-        </data-member>
-      </class-decl>
-      <class-decl name='hc_driver' size-in-bits='2880' is-struct='yes' visibility='default' filepath='include/linux/usb/hcd.h' line='249' column='1' id='type-id-5740'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='description' type-id='type-id-177' visibility='default' filepath='include/linux/usb/hcd.h' line='250' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='product_desc' type-id='type-id-177' visibility='default' filepath='include/linux/usb/hcd.h' line='251' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='hcd_priv_size' type-id='type-id-247' visibility='default' filepath='include/linux/usb/hcd.h' line='252' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='irq' type-id='type-id-5741' visibility='default' filepath='include/linux/usb/hcd.h' line='255' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='flags' type-id='type-id-92' visibility='default' filepath='include/linux/usb/hcd.h' line='257' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='reset' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='271' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='start' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='272' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='pci_suspend' type-id='type-id-5743' visibility='default' filepath='include/linux/usb/hcd.h' line='278' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='pci_resume' type-id='type-id-5743' visibility='default' filepath='include/linux/usb/hcd.h' line='281' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='stop' type-id='type-id-5744' visibility='default' filepath='include/linux/usb/hcd.h' line='284' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='shutdown' type-id='type-id-5744' visibility='default' filepath='include/linux/usb/hcd.h' line='287' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='704'>
-          <var-decl name='get_frame_number' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='290' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='urb_enqueue' type-id='type-id-5745' visibility='default' filepath='include/linux/usb/hcd.h' line='293' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='832'>
-          <var-decl name='urb_dequeue' type-id='type-id-5746' visibility='default' filepath='include/linux/usb/hcd.h' line='295' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='896'>
-          <var-decl name='map_urb_for_dma' type-id='type-id-5745' visibility='default' filepath='include/linux/usb/hcd.h' line='307' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='960'>
-          <var-decl name='unmap_urb_for_dma' type-id='type-id-5747' visibility='default' filepath='include/linux/usb/hcd.h' line='309' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1024'>
-          <var-decl name='endpoint_disable' type-id='type-id-5748' visibility='default' filepath='include/linux/usb/hcd.h' line='312' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1088'>
-          <var-decl name='endpoint_reset' type-id='type-id-5748' visibility='default' filepath='include/linux/usb/hcd.h' line='317' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1152'>
-          <var-decl name='hub_status_data' type-id='type-id-5749' visibility='default' filepath='include/linux/usb/hcd.h' line='321' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1216'>
-          <var-decl name='hub_control' type-id='type-id-5750' visibility='default' filepath='include/linux/usb/hcd.h' line='322' column='1'/>
+          <var-decl name='self' type-id='type-id-4233' visibility='default' filepath='include/linux/usb/hcd.h' line='87' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1280'>
-          <var-decl name='bus_suspend' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='325' column='1'/>
+          <var-decl name='kref' type-id='type-id-209' visibility='default' filepath='include/linux/usb/hcd.h' line='88' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1344'>
-          <var-decl name='bus_resume' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='326' column='1'/>
+          <var-decl name='product_desc' type-id='type-id-177' visibility='default' filepath='include/linux/usb/hcd.h' line='90' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1408'>
-          <var-decl name='start_port_reset' type-id='type-id-5751' visibility='default' filepath='include/linux/usb/hcd.h' line='327' column='1'/>
+          <var-decl name='speed' type-id='type-id-92' visibility='default' filepath='include/linux/usb/hcd.h' line='91' column='1'/>
         </data-member>
-        <data-member access='public' layout-offset-in-bits='1472'>
-          <var-decl name='get_resuming_ports' type-id='type-id-5752' visibility='default' filepath='include/linux/usb/hcd.h' line='328' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1536'>
-          <var-decl name='relinquish_port' type-id='type-id-5753' visibility='default' filepath='include/linux/usb/hcd.h' line='331' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1600'>
-          <var-decl name='port_handed_over' type-id='type-id-5754' visibility='default' filepath='include/linux/usb/hcd.h' line='333' column='1'/>
+        <data-member access='public' layout-offset-in-bits='1440'>
+          <var-decl name='irq_descr' type-id='type-id-5734' visibility='default' filepath='include/linux/usb/hcd.h' line='95' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1664'>
-          <var-decl name='clear_tt_buffer_complete' type-id='type-id-5748' visibility='default' filepath='include/linux/usb/hcd.h' line='336' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1728'>
-          <var-decl name='alloc_dev' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='341' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1792'>
-          <var-decl name='free_dev' type-id='type-id-5756' visibility='default' filepath='include/linux/usb/hcd.h' line='343' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1856'>
-          <var-decl name='alloc_streams' type-id='type-id-5757' visibility='default' filepath='include/linux/usb/hcd.h' line='345' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1920'>
-          <var-decl name='free_streams' type-id='type-id-5758' visibility='default' filepath='include/linux/usb/hcd.h' line='351' column='1'/>
+          <var-decl name='rh_timer' type-id='type-id-573' visibility='default' filepath='include/linux/usb/hcd.h' line='97' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1984'>
-          <var-decl name='add_endpoint' type-id='type-id-5759' visibility='default' filepath='include/linux/usb/hcd.h' line='366' column='1'/>
+          <var-decl name='status_urb' type-id='type-id-3027' visibility='default' filepath='include/linux/usb/hcd.h' line='98' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2048'>
-          <var-decl name='drop_endpoint' type-id='type-id-5759' visibility='default' filepath='include/linux/usb/hcd.h' line='369' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2112'>
-          <var-decl name='check_bandwidth' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='376' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2176'>
-          <var-decl name='reset_bandwidth' type-id='type-id-5756' visibility='default' filepath='include/linux/usb/hcd.h' line='384' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2240'>
-          <var-decl name='address_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='386' column='1'/>
+          <var-decl name='wakeup_work' type-id='type-id-280' visibility='default' filepath='include/linux/usb/hcd.h' line='100' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2304'>
-          <var-decl name='enable_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='388' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2368'>
-          <var-decl name='update_hub_device' type-id='type-id-5760' visibility='default' filepath='include/linux/usb/hcd.h' line='392' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2432'>
-          <var-decl name='reset_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='394' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2496'>
-          <var-decl name='update_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='398' column='1'/>
+          <var-decl name='died_work' type-id='type-id-280' visibility='default' filepath='include/linux/usb/hcd.h' line='102' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2560'>
-          <var-decl name='set_usb2_hw_lpm' type-id='type-id-5761' visibility='default' filepath='include/linux/usb/hcd.h' line='399' column='1'/>
+          <var-decl name='driver' type-id='type-id-5694' visibility='default' filepath='include/linux/usb/hcd.h' line='107' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2624'>
-          <var-decl name='enable_usb3_lpm_timeout' type-id='type-id-5762' visibility='default' filepath='include/linux/usb/hcd.h' line='402' column='1'/>
+          <var-decl name='usb_phy' type-id='type-id-5735' visibility='default' filepath='include/linux/usb/hcd.h' line='113' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2688'>
-          <var-decl name='disable_usb3_lpm_timeout' type-id='type-id-5762' visibility='default' filepath='include/linux/usb/hcd.h' line='407' column='1'/>
+          <var-decl name='phy_roothub' type-id='type-id-5736' visibility='default' filepath='include/linux/usb/hcd.h' line='114' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2752'>
-          <var-decl name='find_raw_port_number' type-id='type-id-5754' visibility='default' filepath='include/linux/usb/hcd.h' line='409' column='1'/>
+          <var-decl name='flags' type-id='type-id-113' visibility='default' filepath='include/linux/usb/hcd.h' line='120' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2816'>
-          <var-decl name='port_power' type-id='type-id-5763' visibility='default' filepath='include/linux/usb/hcd.h' line='411' column='1'/>
+          <var-decl name='dev_policy' type-id='type-id-5737' visibility='default' filepath='include/linux/usb/hcd.h' line='152' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='31'>
+          <var-decl name='rh_registered' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='155' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='30'>
+          <var-decl name='rh_pollable' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='156' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='29'>
+          <var-decl name='msix_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='157' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='28'>
+          <var-decl name='msi_enabled' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='158' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='27'>
+          <var-decl name='skip_phy_initialization' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='164' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='26'>
+          <var-decl name='uses_new_polling' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='168' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='25'>
+          <var-decl name='wireless' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='169' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='24'>
+          <var-decl name='has_tt' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='170' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='23'>
+          <var-decl name='amd_resume_bug' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='171' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='22'>
+          <var-decl name='can_do_streams' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='172' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='21'>
+          <var-decl name='tpl_support' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='173' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='20'>
+          <var-decl name='cant_recv_wakeups' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='174' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2880'>
+          <var-decl name='irq' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='177' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2944'>
+          <var-decl name='regs' type-id='type-id-126' visibility='default' filepath='include/linux/usb/hcd.h' line='178' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3008'>
+          <var-decl name='rsrc_start' type-id='type-id-2192' visibility='default' filepath='include/linux/usb/hcd.h' line='179' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3072'>
+          <var-decl name='rsrc_len' type-id='type-id-2192' visibility='default' filepath='include/linux/usb/hcd.h' line='180' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3136'>
+          <var-decl name='power_budget' type-id='type-id-131' visibility='default' filepath='include/linux/usb/hcd.h' line='181' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3200'>
+          <var-decl name='high_prio_bh' type-id='type-id-5738' visibility='default' filepath='include/linux/usb/hcd.h' line='183' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3776'>
+          <var-decl name='low_prio_bh' type-id='type-id-5738' visibility='default' filepath='include/linux/usb/hcd.h' line='184' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4352'>
+          <var-decl name='address0_mutex' type-id='type-id-1833' visibility='default' filepath='include/linux/usb/hcd.h' line='197' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4416'>
+          <var-decl name='bandwidth_mutex' type-id='type-id-1833' visibility='default' filepath='include/linux/usb/hcd.h' line='198' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4480'>
+          <var-decl name='shared_hcd' type-id='type-id-5693' visibility='default' filepath='include/linux/usb/hcd.h' line='199' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4544'>
+          <var-decl name='primary_hcd' type-id='type-id-5693' visibility='default' filepath='include/linux/usb/hcd.h' line='200' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4608'>
+          <var-decl name='pool' type-id='type-id-5732' visibility='default' filepath='include/linux/usb/hcd.h' line='204' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4864'>
+          <var-decl name='state' type-id='type-id-92' visibility='default' filepath='include/linux/usb/hcd.h' line='206' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4928'>
+          <var-decl name='localmem_pool' type-id='type-id-5739' visibility='default' filepath='include/linux/usb/hcd.h' line='221' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='4992'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='229' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='5056'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='230' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='5120'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='231' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='5184'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='232' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='5248'>
+          <var-decl name='hcd_priv' type-id='type-id-120' visibility='default' filepath='include/linux/usb/hcd.h' line='237' column='1'/>
+        </data-member>
+      </class-decl>
+      <class-decl name='hc_driver' size-in-bits='3136' is-struct='yes' visibility='default' filepath='include/linux/usb/hcd.h' line='255' column='1' id='type-id-5740'>
+        <data-member access='public' layout-offset-in-bits='0'>
+          <var-decl name='description' type-id='type-id-177' visibility='default' filepath='include/linux/usb/hcd.h' line='256' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='64'>
+          <var-decl name='product_desc' type-id='type-id-177' visibility='default' filepath='include/linux/usb/hcd.h' line='257' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='128'>
+          <var-decl name='hcd_priv_size' type-id='type-id-247' visibility='default' filepath='include/linux/usb/hcd.h' line='258' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='192'>
+          <var-decl name='irq' type-id='type-id-5741' visibility='default' filepath='include/linux/usb/hcd.h' line='261' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='256'>
+          <var-decl name='flags' type-id='type-id-92' visibility='default' filepath='include/linux/usb/hcd.h' line='263' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='320'>
+          <var-decl name='reset' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='277' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='384'>
+          <var-decl name='start' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='278' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='448'>
+          <var-decl name='pci_suspend' type-id='type-id-5743' visibility='default' filepath='include/linux/usb/hcd.h' line='284' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='512'>
+          <var-decl name='pci_resume' type-id='type-id-5743' visibility='default' filepath='include/linux/usb/hcd.h' line='287' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='576'>
+          <var-decl name='stop' type-id='type-id-5744' visibility='default' filepath='include/linux/usb/hcd.h' line='290' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='640'>
+          <var-decl name='shutdown' type-id='type-id-5744' visibility='default' filepath='include/linux/usb/hcd.h' line='293' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='704'>
+          <var-decl name='get_frame_number' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='296' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='768'>
+          <var-decl name='urb_enqueue' type-id='type-id-5745' visibility='default' filepath='include/linux/usb/hcd.h' line='299' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='832'>
+          <var-decl name='urb_dequeue' type-id='type-id-5746' visibility='default' filepath='include/linux/usb/hcd.h' line='301' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='896'>
+          <var-decl name='map_urb_for_dma' type-id='type-id-5745' visibility='default' filepath='include/linux/usb/hcd.h' line='313' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='960'>
+          <var-decl name='unmap_urb_for_dma' type-id='type-id-5747' visibility='default' filepath='include/linux/usb/hcd.h' line='315' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1024'>
+          <var-decl name='endpoint_disable' type-id='type-id-5748' visibility='default' filepath='include/linux/usb/hcd.h' line='318' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1088'>
+          <var-decl name='endpoint_reset' type-id='type-id-5748' visibility='default' filepath='include/linux/usb/hcd.h' line='323' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1152'>
+          <var-decl name='hub_status_data' type-id='type-id-5749' visibility='default' filepath='include/linux/usb/hcd.h' line='327' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1216'>
+          <var-decl name='hub_control' type-id='type-id-5750' visibility='default' filepath='include/linux/usb/hcd.h' line='328' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1280'>
+          <var-decl name='bus_suspend' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='331' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1344'>
+          <var-decl name='bus_resume' type-id='type-id-5742' visibility='default' filepath='include/linux/usb/hcd.h' line='332' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1408'>
+          <var-decl name='start_port_reset' type-id='type-id-5751' visibility='default' filepath='include/linux/usb/hcd.h' line='333' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1472'>
+          <var-decl name='get_resuming_ports' type-id='type-id-5752' visibility='default' filepath='include/linux/usb/hcd.h' line='334' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1536'>
+          <var-decl name='relinquish_port' type-id='type-id-5753' visibility='default' filepath='include/linux/usb/hcd.h' line='337' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1600'>
+          <var-decl name='port_handed_over' type-id='type-id-5754' visibility='default' filepath='include/linux/usb/hcd.h' line='339' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1664'>
+          <var-decl name='clear_tt_buffer_complete' type-id='type-id-5748' visibility='default' filepath='include/linux/usb/hcd.h' line='342' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1728'>
+          <var-decl name='alloc_dev' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='347' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1792'>
+          <var-decl name='free_dev' type-id='type-id-5756' visibility='default' filepath='include/linux/usb/hcd.h' line='349' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1856'>
+          <var-decl name='alloc_streams' type-id='type-id-5757' visibility='default' filepath='include/linux/usb/hcd.h' line='351' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1920'>
+          <var-decl name='free_streams' type-id='type-id-5758' visibility='default' filepath='include/linux/usb/hcd.h' line='357' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='1984'>
+          <var-decl name='add_endpoint' type-id='type-id-5759' visibility='default' filepath='include/linux/usb/hcd.h' line='372' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2048'>
+          <var-decl name='drop_endpoint' type-id='type-id-5759' visibility='default' filepath='include/linux/usb/hcd.h' line='375' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2112'>
+          <var-decl name='check_bandwidth' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='382' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2176'>
+          <var-decl name='reset_bandwidth' type-id='type-id-5756' visibility='default' filepath='include/linux/usb/hcd.h' line='390' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2240'>
+          <var-decl name='address_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='392' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2304'>
+          <var-decl name='enable_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='394' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2368'>
+          <var-decl name='update_hub_device' type-id='type-id-5760' visibility='default' filepath='include/linux/usb/hcd.h' line='398' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2432'>
+          <var-decl name='reset_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='400' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2496'>
+          <var-decl name='update_device' type-id='type-id-5755' visibility='default' filepath='include/linux/usb/hcd.h' line='404' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2560'>
+          <var-decl name='set_usb2_hw_lpm' type-id='type-id-5761' visibility='default' filepath='include/linux/usb/hcd.h' line='405' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2624'>
+          <var-decl name='enable_usb3_lpm_timeout' type-id='type-id-5762' visibility='default' filepath='include/linux/usb/hcd.h' line='408' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2688'>
+          <var-decl name='disable_usb3_lpm_timeout' type-id='type-id-5762' visibility='default' filepath='include/linux/usb/hcd.h' line='413' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2752'>
+          <var-decl name='find_raw_port_number' type-id='type-id-5754' visibility='default' filepath='include/linux/usb/hcd.h' line='415' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2816'>
+          <var-decl name='port_power' type-id='type-id-5763' visibility='default' filepath='include/linux/usb/hcd.h' line='417' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2880'>
+          <var-decl name='android_kabi_reserved1' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='419' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='2944'>
+          <var-decl name='android_kabi_reserved2' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='420' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3008'>
+          <var-decl name='android_kabi_reserved3' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='421' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='3072'>
+          <var-decl name='android_kabi_reserved4' type-id='type-id-202' visibility='default' filepath='include/linux/usb/hcd.h' line='422' column='1'/>
         </data-member>
       </class-decl>
       <enum-decl name='usb3_link_state' filepath='include/uapi/linux/usb/ch9.h' line='1174' column='1' id='type-id-5764'>
@@ -54597,27 +54711,27 @@
           <var-decl name='aca_max' type-id='type-id-131' visibility='default' filepath='include/linux/usb/phy.h' line='85' column='1'/>
         </data-member>
       </class-decl>
-      <enum-decl name='usb_dev_authorize_policy' filepath='include/linux/usb/hcd.h' line='75' column='1' id='type-id-5737'>
+      <enum-decl name='usb_dev_authorize_policy' filepath='include/linux/usb/hcd.h' line='76' column='1' id='type-id-5737'>
         <underlying-type type-id='type-id-110'/>
         <enumerator name='USB_DEVICE_AUTHORIZE_NONE' value='0'/>
         <enumerator name='USB_DEVICE_AUTHORIZE_ALL' value='1'/>
         <enumerator name='USB_DEVICE_AUTHORIZE_INTERNAL' value='2'/>
       </enum-decl>
-      <class-decl name='giveback_urb_bh' size-in-bits='576' is-struct='yes' visibility='default' filepath='include/linux/usb/hcd.h' line='67' column='1' id='type-id-5738'>
+      <class-decl name='giveback_urb_bh' size-in-bits='576' is-struct='yes' visibility='default' filepath='include/linux/usb/hcd.h' line='68' column='1' id='type-id-5738'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='running' type-id='type-id-184' visibility='default' filepath='include/linux/usb/hcd.h' line='68' column='1'/>
+          <var-decl name='running' type-id='type-id-184' visibility='default' filepath='include/linux/usb/hcd.h' line='69' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb/hcd.h' line='69' column='1'/>
+          <var-decl name='lock' type-id='type-id-211' visibility='default' filepath='include/linux/usb/hcd.h' line='70' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='head' type-id='type-id-129' visibility='default' filepath='include/linux/usb/hcd.h' line='70' column='1'/>
+          <var-decl name='head' type-id='type-id-129' visibility='default' filepath='include/linux/usb/hcd.h' line='71' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='bh' type-id='type-id-4251' visibility='default' filepath='include/linux/usb/hcd.h' line='71' column='1'/>
+          <var-decl name='bh' type-id='type-id-4251' visibility='default' filepath='include/linux/usb/hcd.h' line='72' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='completing_ep' type-id='type-id-4189' visibility='default' filepath='include/linux/usb/hcd.h' line='72' column='1'/>
+          <var-decl name='completing_ep' type-id='type-id-4189' visibility='default' filepath='include/linux/usb/hcd.h' line='73' column='1'/>
         </data-member>
       </class-decl>
       <qualified-type-def type-id='type-id-5740' const='yes' id='type-id-5790'/>
@@ -54673,7 +54787,7 @@
       <pointer-type-def type-id='type-id-5833' size-in-bits='64' id='type-id-5756'/>
       <pointer-type-def type-id='type-id-5834' size-in-bits='64' id='type-id-5748'/>
       <pointer-type-def type-id='type-id-5835' size-in-bits='64' id='type-id-5775'/>
-      <function-decl name='usb_put_hcd' mangled-name='usb_put_hcd' filepath='include/linux/usb/hcd.h' line='466' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_put_hcd'>
+      <function-decl name='usb_put_hcd' mangled-name='usb_put_hcd' filepath='include/linux/usb/hcd.h' line='476' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='usb_put_hcd'>
         <parameter type-id='type-id-5693'/>
         <return type-id='type-id-681'/>
       </function-decl>
