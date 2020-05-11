@@ -6610,8 +6610,6 @@ static int find_energy_efficient_cpu(struct task_struct *p, int prev_cpu, int sy
 		goto fail;
 
 	sync_entity_load_avg(&p->se);
-	if (!task_util_est(p))
-		goto unlock;
 
 	latency_sensitive = uclamp_latency_sensitive(p);
 	boosted = uclamp_boosted(p);
