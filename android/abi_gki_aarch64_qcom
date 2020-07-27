@@ -924,6 +924,7 @@
   fwnode_property_read_string
   fwnode_property_read_u16_array
   fwnode_property_read_u32_array
+  fwnode_usb_role_switch_get
   gcd
   generic_delete_inode
   generic_device_group
@@ -1112,6 +1113,7 @@
   input_unregister_device
   input_unregister_handle
   input_unregister_handler
+  int_to_scsilun
   invalidate_mapping_pages
   iomem_resource
   iommu_alloc_resv_region
@@ -1551,7 +1553,6 @@
   of_usb_get_phy_mode
   of_usb_host_tpl_support
   oops_in_progress
-  open_exec
   override_creds
   panic
   panic_notifier_list
@@ -1957,11 +1958,14 @@
   schedule_timeout
   schedule_timeout_interruptible
   schedule_timeout_uninterruptible
+  scmd_printk
   scnprintf
   scsi_add_host_with_dma
   scsi_autopm_get_device
   scsi_autopm_put_device
+  scsi_block_requests
   scsi_block_when_processing_errors
+  scsi_change_queue_depth
   scsi_command_size_tbl
   scsi_device_get
   scsi_device_put
@@ -1974,6 +1978,7 @@
   scsi_ioctl_block_when_processing_errors
   scsi_is_host_device
   scsi_normalize_sense
+  scsi_print_command
   __scsi_print_sense
   scsi_register_interface
   scsi_remove_host
@@ -1981,6 +1986,7 @@
   scsi_report_device_reset
   scsi_scan_host
   scsi_sense_desc_find
+  scsi_unblock_requests
   sdev_prefix_printk
   __sdhci_add_host
   sdhci_add_host
@@ -2438,12 +2444,14 @@
   usb_add_phy_dev
   usb_alloc_coherent
   usb_alloc_dev
+  usb_alloc_streams
   usb_alloc_urb
   usb_amd_dev_put
   usb_amd_pt_check_port
   usb_amd_quirk_pll_check
   usb_amd_quirk_pll_disable
   usb_amd_quirk_pll_enable
+  usb_anchor_urb
   usb_asmedia_modifyflowcontrol
   usb_assign_descriptors
   usb_autopm_get_interface
@@ -2482,6 +2490,7 @@
   usb_find_common_endpoints
   usb_free_all_descriptors
   usb_free_coherent
+  usb_free_streams
   usb_free_urb
   usb_function_register
   usb_function_unregister
@@ -2522,6 +2531,7 @@
   usb_hub_find_child
   usb_ifnum_to_if
   usb_interface_id
+  usb_kill_anchored_urbs
   usb_kill_urb
   usb_lock_device_for_reset
   usb_match_one_id
@@ -2537,6 +2547,9 @@
   usb_remove_phy
   usb_reset_device
   usb_reset_endpoint
+  usb_role_switch_register
+  usb_role_switch_set_role
+  usb_role_switch_unregister
   usb_root_hub_lost_power
   usb_set_device_state
   usb_set_interface
@@ -2547,8 +2560,10 @@
   usb_string
   usb_string_id
   usb_submit_urb
+  usb_unanchor_urb
   usb_unlink_urb
   usb_unregister_notify
+  usb_wait_anchor_empty_timeout
   usb_wakeup_notification
   __usecs_to_jiffies
   usleep_range
@@ -2593,7 +2608,10 @@
   v4l2_type_names
   vabits_actual
   vb2_buffer_done
+  vb2_common_vm_ops
   vb2_create_bufs
+  vb2_create_framevec
+  vb2_destroy_framevec
   vb2_dqbuf
   vb2_expbuf
   vb2_fop_mmap
@@ -2622,6 +2640,10 @@
   vb2_reqbufs
   vb2_streamoff
   vb2_streamon
+  vchan_dma_desc_free_list
+  vchan_init
+  vchan_tx_desc_free
+  vchan_tx_submit
   vfree
   vfs_create2
   vfs_fsync

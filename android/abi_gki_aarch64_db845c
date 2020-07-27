@@ -12,6 +12,7 @@
   bpf_trace_run4
   bt_err
   bt_info
+  cancel_delayed_work
   cancel_delayed_work_sync
   cancel_work_sync
   __cfi_slowpath
@@ -59,6 +60,7 @@
   device_property_read_string
   device_property_read_u32_array
   device_register
+  device_release_driver
   device_set_wakeup_capable
   device_unregister
   device_wakeup_enable
@@ -155,8 +157,6 @@
   gpiod_set_value_cansleep
   handle_edge_irq
   handle_level_irq
-  __hci_cmd_sync
-  hci_recv_frame
   hdmi_audio_infoframe_init
   hrtimer_init
   hrtimer_start_range_ns
@@ -462,43 +462,6 @@
   spmi_register_read
   spmi_register_write
   spmi_register_zero_write
-
-# required by btqca.ko
-  __hci_cmd_send
-  __hci_cmd_sync_ev
-
-# required by hci_uart.ko
-  bit_wait_timeout
-  hci_alloc_dev
-  hci_free_dev
-  hci_recv_diag
-  hci_register_dev
-  hci_unregister_dev
-  jiffies_to_msecs
-  n_tty_ioctl_helper
-  out_of_line_wait_on_bit_timeout
-  __percpu_down_read
-  percpu_down_write
-  percpu_free_rwsem
-  __percpu_init_rwsem
-  __percpu_up_read
-  percpu_up_write
-  serdev_device_close
-  __serdev_device_driver_register
-  serdev_device_open
-  serdev_device_set_baudrate
-  serdev_device_set_flow_control
-  serdev_device_set_tiocm
-  serdev_device_wait_until_sent
-  serdev_device_write_buf
-  serdev_device_write_flush
-  tty_driver_flush_buffer
-  tty_ldisc_flush
-  tty_register_ldisc
-  tty_set_termios
-  tty_unregister_ldisc
-  tty_unthrottle
-  wake_up_bit
 
 # required by clk-scmi.ko
   clk_hw_set_rate_range
@@ -825,6 +788,7 @@
   of_icc_get
   of_property_read_string_helper
   param_ops_charp
+  pm_runtime_get_if_in_use
   put_pid
   put_unused_fd
   _raw_read_lock
@@ -1049,6 +1013,26 @@
   rtc_update_irq
   rtc_valid_tm
 
+# required by ufs-qcom.ko
+  print_hex_dump
+  ufshcd_dme_get_attr
+  ufshcd_dme_set_attr
+  ufshcd_dump_regs
+  ufshcd_get_local_unipro_ver
+  ufshcd_get_pwr_dev_param
+  ufshcd_hold
+  ufshcd_pltfrm_init
+  ufshcd_pltfrm_resume
+  ufshcd_pltfrm_runtime_idle
+  ufshcd_pltfrm_runtime_resume
+  ufshcd_pltfrm_runtime_suspend
+  ufshcd_pltfrm_shutdown
+  ufshcd_pltfrm_suspend
+  ufshcd_release
+  ufshcd_remove
+  ufshcd_uic_hibern8_enter
+  ufshcd_uic_hibern8_exit
+
 # required by mdt_loader.ko
   request_firmware_into_buf
 
@@ -1139,23 +1123,6 @@
   usb_gadget_unmap_request_by_dev
   usb_get_maximum_speed
 
-# required by ehci-hcd.ko
-  device_remove_file
-  ehci_cf_port_reset_rwsem
-  hrtimer_cancel
-  kstrtouint
-  ktime_get_with_offset
-  usb_for_each_dev
-
-# required by ehci-pci.ko
-  pci_clear_mwi
-  pci_find_capability
-  usb_amd_hang_symptom_quirk
-
-# required by ehci-platform.ko
-  device_pm_wait_for_dev
-  usb_of_get_companion_dev
-
 # required by ohci-hcd.ko
   flush_work
   gen_pool_dma_alloc_align
@@ -1169,7 +1136,6 @@
 
 # required by xhci-hcd.ko
   add_timer
-  cancel_delayed_work
   mod_delayed_work_on
   __num_online_cpus
   param_ops_ullong
@@ -1189,7 +1155,6 @@
   wait_for_completion
 
 # required by xhci-pci-renesas.ko
-  device_release_driver
   pci_dev_get
   pci_write_config_dword
   request_firmware_nowait
