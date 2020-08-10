@@ -1169,11 +1169,13 @@
       <elf-symbol name='drm_crtc_init_with_planes' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x37fc8c6a'/>
       <elf-symbol name='drm_crtc_send_vblank_event' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd06997b0'/>
       <elf-symbol name='drm_crtc_set_max_vblank_count' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x387b90e1'/>
+      <elf-symbol name='drm_crtc_vblank_count' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x16b1f18a'/>
       <elf-symbol name='drm_crtc_vblank_get' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1a191c1d'/>
       <elf-symbol name='drm_crtc_vblank_off' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x7c8e1ec3'/>
       <elf-symbol name='drm_crtc_vblank_on' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x6a085c1b'/>
       <elf-symbol name='drm_crtc_vblank_put' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1987dfa6'/>
       <elf-symbol name='drm_crtc_vblank_reset' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1bca348c'/>
+      <elf-symbol name='drm_crtc_vblank_waitqueue' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x8d33635b'/>
       <elf-symbol name='drm_crtc_wait_one_vblank' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x92e45f4d'/>
       <elf-symbol name='drm_cvt_mode' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf25aaeb2'/>
       <elf-symbol name='drm_dbg' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x34a4640a'/>
@@ -2902,6 +2904,7 @@
       <elf-symbol name='remap_vmalloc_range' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xce3d1805'/>
       <elf-symbol name='remove_arg_zero' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa815aeb3'/>
       <elf-symbol name='remove_proc_entry' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x871ec87f'/>
+      <elf-symbol name='remove_proc_subtree' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x28ac8b85'/>
       <elf-symbol name='remove_wait_queue' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x37110088'/>
       <elf-symbol name='report_iommu_fault' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x87f1db1c'/>
       <elf-symbol name='request_firmware' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x4c57ef17'/>
@@ -4082,6 +4085,7 @@
       <elf-symbol name='wait_for_completion_interruptible_timeout' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa33c0eac'/>
       <elf-symbol name='wait_for_completion_io_timeout' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x139cee21'/>
       <elf-symbol name='wait_for_completion_killable' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa096b889'/>
+      <elf-symbol name='wait_for_completion_killable_timeout' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x917490b'/>
       <elf-symbol name='wait_for_completion_timeout' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x4d1ff60a'/>
       <elf-symbol name='wait_woken' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb308c97d'/>
       <elf-symbol name='wake_up_process' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x58c2c8b3'/>
@@ -29914,6 +29918,10 @@
         <parameter type-id='e3dd029e' name='old_state' filepath='drivers/gpu/drm/drm_atomic_helper.c' line='1432' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
+      <function-decl name='drm_crtc_vblank_count' mangled-name='drm_crtc_vblank_count' filepath='include/drm/drm_vblank.h' line='198' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_crtc_vblank_count'>
+        <parameter type-id='b64ad7cb'/>
+        <return type-id='3a47d82b'/>
+      </function-decl>
       <function-decl name='drm_atomic_helper_commit_tail' mangled-name='drm_atomic_helper_commit_tail' filepath='drivers/gpu/drm/drm_atomic_helper.c' line='1529' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_atomic_helper_commit_tail'>
         <parameter type-id='e3dd029e' name='old_state' filepath='drivers/gpu/drm/drm_atomic_helper.c' line='1529' column='1'/>
         <return type-id='48b5725f'/>
@@ -37468,6 +37476,10 @@
         <parameter type-id='8898134d' name='dev' filepath='drivers/gpu/drm/drm_vblank.c' line='444' column='1'/>
         <parameter type-id='f0981eeb' name='num_crtcs' filepath='drivers/gpu/drm/drm_vblank.c' line='444' column='1'/>
         <return type-id='95e97e5e'/>
+      </function-decl>
+      <function-decl name='drm_crtc_vblank_waitqueue' mangled-name='drm_crtc_vblank_waitqueue' filepath='drivers/gpu/drm/drm_vblank.c' line='499' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_crtc_vblank_waitqueue'>
+        <parameter type-id='b64ad7cb' name='crtc' filepath='drivers/gpu/drm/drm_vblank.c' line='499' column='1'/>
+        <return type-id='03d48e96'/>
       </function-decl>
       <function-decl name='drm_calc_vbltimestamp_from_scanoutpos' mangled-name='drm_calc_vbltimestamp_from_scanoutpos' filepath='drivers/gpu/drm/drm_vblank.c' line='596' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_calc_vbltimestamp_from_scanoutpos'>
         <parameter type-id='8898134d' name='dev' filepath='drivers/gpu/drm/drm_vblank.c' line='596' column='1'/>
@@ -85740,6 +85752,11 @@
         <parameter type-id='eaa32e2f' name='data' filepath='fs/proc/generic.c' line='463' column='1'/>
         <return type-id='d077e929'/>
       </function-decl>
+      <function-decl name='remove_proc_subtree' mangled-name='remove_proc_subtree' filepath='fs/proc/generic.c' line='689' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='remove_proc_subtree'>
+        <parameter type-id='80f4b756' name='name' filepath='fs/proc/generic.c' line='689' column='1'/>
+        <parameter type-id='d077e929' name='parent' filepath='fs/proc/generic.c' line='689' column='1'/>
+        <return type-id='95e97e5e'/>
+      </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/proc/meminfo.c' language='LANG_C89'>
       <array-type-def dimensions='1' type-id='447da2ae' size-in-bits='192' id='d371d064'>
@@ -89389,6 +89406,11 @@
       <function-decl name='wait_for_completion_interruptible_timeout' mangled-name='wait_for_completion_interruptible_timeout' filepath='kernel/sched/completion.c' line='223' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='wait_for_completion_interruptible_timeout'>
         <parameter type-id='389faaf7' name='x' filepath='kernel/sched/completion.c' line='223' column='1'/>
         <parameter type-id='7359adad' name='timeout' filepath='kernel/sched/completion.c' line='224' column='1'/>
+        <return type-id='bd54fe1a'/>
+      </function-decl>
+      <function-decl name='wait_for_completion_killable_timeout' mangled-name='wait_for_completion_killable_timeout' filepath='kernel/sched/completion.c' line='261' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='wait_for_completion_killable_timeout'>
+        <parameter type-id='389faaf7' name='x' filepath='kernel/sched/completion.c' line='261' column='1'/>
+        <parameter type-id='7359adad' name='timeout' filepath='kernel/sched/completion.c' line='262' column='1'/>
         <return type-id='bd54fe1a'/>
       </function-decl>
       <function-decl name='try_wait_for_completion' mangled-name='try_wait_for_completion' filepath='kernel/sched/completion.c' line='280' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='try_wait_for_completion'>
