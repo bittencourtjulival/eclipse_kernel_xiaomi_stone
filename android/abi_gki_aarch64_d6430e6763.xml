@@ -1444,6 +1444,12 @@
       <elf-symbol name='memmove' type='func-type' binding='weak-binding' visibility='default-visibility' is-defined='yes' crc='0x5a9f1d63'/>
       <elf-symbol name='memory_read_from_buffer' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x65e0d6d7'/>
       <elf-symbol name='memparse' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x27864d57'/>
+      <elf-symbol name='mempool_alloc' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc3762aec'/>
+      <elf-symbol name='mempool_alloc_slab' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc972449f'/>
+      <elf-symbol name='mempool_create' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1953c958'/>
+      <elf-symbol name='mempool_destroy' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9034a696'/>
+      <elf-symbol name='mempool_free' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa897e3e7'/>
+      <elf-symbol name='mempool_free_slab' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x8a99a016'/>
       <elf-symbol name='memremap' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x4d924f20'/>
       <elf-symbol name='memset' type='func-type' binding='weak-binding' visibility='default-visibility' is-defined='yes' crc='0xdcb764ad'/>
       <elf-symbol name='memunmap' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9e9fdd9d'/>
@@ -18710,14 +18716,6 @@
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/gpu/drm/drm_gem.c' language='LANG_C89'>
       <class-decl name='drm_property' is-struct='yes' visibility='default' is-declaration-only='yes' id='811caa37'/>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='724' column='1' id='f9cbf5e9'>
-        <data-member access='private'>
-          <var-decl name='i_fop' type-id='61758ee5' visibility='default' filepath='include/linux/fs.h' line='725' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='free_inode' type-id='4f3d95df' visibility='default' filepath='include/linux/fs.h' line='726' column='1'/>
-        </data-member>
-      </union-decl>
       <union-decl name='__anonymous_union__7' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='170' column='1' id='f4cbee08'>
         <data-member access='private'>
           <var-decl name='rb_node' type-id='2a8a6332' visibility='default' filepath='include/linux/blkdev.h' line='171' column='1'/>
@@ -19809,7 +19807,7 @@
         <member-type access='private'>
           <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='105' column='1' id='70494aaa'>
             <data-member access='public' layout-offset-in-bits='0'>
-              <var-decl name='' type-id='f9cbf5ea' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1'/>
+              <var-decl name='' type-id='f9cbf5e9' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='128'>
               <var-decl name='slab_cache' type-id='f3b4aca8' visibility='default' filepath='include/linux/mm_types.h' line='119' column='1'/>
@@ -20188,10 +20186,10 @@
           <var-decl name='flags' type-id='f9b06939' visibility='default' filepath='include/drm/drm_edid.h' line='100' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='48'>
-          <var-decl name='formula' type-id='f9cbf5eb' visibility='default' filepath='include/drm/drm_edid.h' line='119' column='1'/>
+          <var-decl name='formula' type-id='f9cbf5ea' visibility='default' filepath='include/drm/drm_edid.h' line='119' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='56' is-anonymous='yes' visibility='default' filepath='include/drm/drm_edid.h' line='101' column='1' id='f9cbf5eb'>
+      <union-decl name='__anonymous_union__2' size-in-bits='56' is-anonymous='yes' visibility='default' filepath='include/drm/drm_edid.h' line='101' column='1' id='f9cbf5ea'>
         <data-member access='private'>
           <var-decl name='gtf2' type-id='e7f43f7a' visibility='default' filepath='include/drm/drm_edid.h' line='109' column='1'/>
         </data-member>
@@ -22996,7 +22994,7 @@
           <var-decl name='' type-id='f6cbf134' visibility='default' filepath='include/media/media-entity.h' line='135' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='' type-id='f9cbf5ec' visibility='default' filepath='include/media/media-entity.h' line='140' column='1'/>
+          <var-decl name='' type-id='f9cbf5eb' visibility='default' filepath='include/media/media-entity.h' line='140' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
           <var-decl name='reverse' type-id='b4de78ea' visibility='default' filepath='include/media/media-entity.h' line='145' column='1'/>
@@ -23033,7 +23031,7 @@
           <var-decl name='flags' type-id='19c2251e' visibility='default' filepath='include/media/media-entity.h' line='339' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/media/media-entity.h' line='140' column='1' id='f9cbf5ec'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/media/media-entity.h' line='140' column='1' id='f9cbf5eb'>
         <data-member access='private'>
           <var-decl name='gobj1' type-id='4077272c' visibility='default' filepath='include/media/media-entity.h' line='141' column='1'/>
         </data-member>
@@ -24080,10 +24078,10 @@
           <var-decl name='type' type-id='3f1a6b60' visibility='default' filepath='include/uapi/linux/videodev2.h' line='1512' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='' type-id='f9cbf5ed' visibility='default' filepath='include/uapi/linux/videodev2.h' line='1513' column='1'/>
+          <var-decl name='' type-id='f9cbf5ec' visibility='default' filepath='include/uapi/linux/videodev2.h' line='1513' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='1024' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/videodev2.h' line='1513' column='1' id='f9cbf5ed'>
+      <union-decl name='__anonymous_union__2' size-in-bits='1024' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/videodev2.h' line='1513' column='1' id='f9cbf5ec'>
         <data-member access='private'>
           <var-decl name='bt' type-id='ecc13ba0' visibility='default' filepath='include/uapi/linux/videodev2.h' line='1514' column='1'/>
         </data-member>
@@ -27506,7 +27504,7 @@
           <var-decl name='' type-id='f6cbf135' visibility='default' filepath='include/media/v4l2-ctrls.h' line='242' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1280'>
-          <var-decl name='' type-id='f9cbf5ee' visibility='default' filepath='include/media/v4l2-ctrls.h' line='246' column='1'/>
+          <var-decl name='' type-id='f9cbf5ed' visibility='default' filepath='include/media/v4l2-ctrls.h' line='246' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1344'>
           <var-decl name='flags' type-id='7359adad' visibility='default' filepath='include/media/v4l2-ctrls.h' line='250' column='1'/>
@@ -28174,7 +28172,7 @@
           <var-decl name='menu_skip_mask' type-id='91ce1af9' visibility='default' filepath='include/media/v4l2-ctrls.h' line='244' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/media/v4l2-ctrls.h' line='246' column='1' id='f9cbf5ee'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/media/v4l2-ctrls.h' line='246' column='1' id='f9cbf5ed'>
         <data-member access='private'>
           <var-decl name='qmenu' type-id='13956559' visibility='default' filepath='include/media/v4l2-ctrls.h' line='247' column='1'/>
         </data-member>
@@ -30313,167 +30311,14 @@
           <var-decl name='' type-id='bad2c189' visibility='default' filepath='include/linux/mm_types.h' line='125' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='7168' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='389' column='1' id='657f91c3'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='mmap' type-id='2ae08426' visibility='default' filepath='include/linux/mm_types.h' line='390' column='1'/>
+      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f2cbeae5'>
+        <data-member access='private'>
+          <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
         </data-member>
-        <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='mm_rb' type-id='dec44472' visibility='default' filepath='include/linux/mm_types.h' line='391' column='1'/>
+        <data-member access='private'>
+          <var-decl name='pt_frag_refcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='152' column='1'/>
         </data-member>
-        <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='vmacache_seqnum' type-id='91ce1af9' visibility='default' filepath='include/linux/mm_types.h' line='392' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='get_unmapped_area' type-id='d44a8cec' visibility='default' filepath='include/linux/mm_types.h' line='397' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='mmap_base' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='401' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='mmap_legacy_base' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='402' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='384'>
-          <var-decl name='task_size' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='408' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='highest_vm_end' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='409' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='pgd' type-id='2e97ceaf' visibility='default' filepath='include/linux/mm_types.h' line='410' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='membarrier_state' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='419' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='608'>
-          <var-decl name='mm_users' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='431' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='mm_count' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='440' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='704'>
-          <var-decl name='pgtables_bytes' type-id='f22a8abb' visibility='default' filepath='include/linux/mm_types.h' line='443' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='map_count' type-id='95e97e5e' visibility='default' filepath='include/linux/mm_types.h' line='445' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='800'>
-          <var-decl name='page_table_lock' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='447' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='832'>
-          <var-decl name='mmap_sem' type-id='f19fdb93' visibility='default' filepath='include/linux/mm_types.h' line='450' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1216'>
-          <var-decl name='mmlist' type-id='72f469ec' visibility='default' filepath='include/linux/mm_types.h' line='452' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1344'>
-          <var-decl name='hiwater_rss' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='459' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1408'>
-          <var-decl name='hiwater_vm' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='460' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1472'>
-          <var-decl name='total_vm' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='462' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1536'>
-          <var-decl name='locked_vm' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='463' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1600'>
-          <var-decl name='pinned_vm' type-id='28ee064c' visibility='default' filepath='include/linux/mm_types.h' line='464' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1664'>
-          <var-decl name='data_vm' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='465' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1728'>
-          <var-decl name='exec_vm' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='466' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1792'>
-          <var-decl name='stack_vm' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='467' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1856'>
-          <var-decl name='def_flags' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='468' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1920'>
-          <var-decl name='arg_lock' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='470' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='1984'>
-          <var-decl name='start_code' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='471' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2048'>
-          <var-decl name='end_code' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='471' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2112'>
-          <var-decl name='start_data' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='471' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2176'>
-          <var-decl name='end_data' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='471' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2240'>
-          <var-decl name='start_brk' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='472' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2304'>
-          <var-decl name='brk' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='472' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2368'>
-          <var-decl name='start_stack' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='472' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2432'>
-          <var-decl name='arg_start' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='473' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2496'>
-          <var-decl name='arg_end' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='473' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2560'>
-          <var-decl name='env_start' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='473' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2624'>
-          <var-decl name='env_end' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='473' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='2688'>
-          <var-decl name='saved_auxv' type-id='d964a553' visibility='default' filepath='include/linux/mm_types.h' line='475' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='5632'>
-          <var-decl name='rss_stat' type-id='2235a2cb' visibility='default' filepath='include/linux/mm_types.h' line='481' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='5888'>
-          <var-decl name='binfmt' type-id='7cc59444' visibility='default' filepath='include/linux/mm_types.h' line='483' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='5952'>
-          <var-decl name='context' type-id='0eb9c3fd' visibility='default' filepath='include/linux/mm_types.h' line='486' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6144'>
-          <var-decl name='flags' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='488' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6208'>
-          <var-decl name='core_state' type-id='90ad83aa' visibility='default' filepath='include/linux/mm_types.h' line='490' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6272'>
-          <var-decl name='ioctx_lock' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='493' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6336'>
-          <var-decl name='ioctx_table' type-id='122191b2' visibility='default' filepath='include/linux/mm_types.h' line='494' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6400'>
-          <var-decl name='owner' type-id='f23e2572' visibility='default' filepath='include/linux/mm_types.h' line='507' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6464'>
-          <var-decl name='user_ns' type-id='c0ced320' visibility='default' filepath='include/linux/mm_types.h' line='509' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6528'>
-          <var-decl name='exe_file' type-id='77e79a4b' visibility='default' filepath='include/linux/mm_types.h' line='512' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6592'>
-          <var-decl name='tlb_flush_pending' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='538' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6656'>
-          <var-decl name='uprobes_state' type-id='6308a819' visibility='default' filepath='include/linux/mm_types.h' line='543' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='6720'>
-          <var-decl name='async_put_work' type-id='ef9025d0' visibility='default' filepath='include/linux/mm_types.h' line='547' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='7104'>
-          <var-decl name='android_vendor_data1' type-id='91ce1af9' visibility='default' filepath='include/linux/mm_types.h' line='548' column='1'/>
-        </data-member>
-      </class-decl>
+      </union-decl>
       <class-decl name='sdhci_pltfm_data' size-in-bits='128' is-struct='yes' visibility='default' filepath='drivers/mmc/host/sdhci-pltfm.h' line='15' column='1' id='5864e8c1'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='ops' type-id='4ba2bd6c' visibility='default' filepath='drivers/mmc/host/sdhci-pltfm.h' line='16' column='1'/>
@@ -31879,6 +31724,14 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/net/ppp/ppp_generic.c' language='LANG_C89'>
+      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f6cbf136'>
+        <data-member access='private'>
+          <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='ip_defrag_offset' type-id='95e97e5e' visibility='default' filepath='include/linux/skbuff.h' line='708' column='1'/>
+        </data-member>
+      </union-decl>
       <function-decl name='skb_pull' mangled-name='skb_pull' filepath='include/linux/skbuff.h' line='2259' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='skb_pull'>
         <parameter type-id='0fbf3cfd'/>
         <parameter type-id='f0981eeb'/>
@@ -32794,7 +32647,7 @@
       </function-type>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/net/usb/asix_common.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f6cbf136'>
+      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f6cbf137'>
         <data-member access='private'>
           <var-decl name='sk' type-id='f772df6d' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
         </data-member>
@@ -36263,6 +36116,41 @@
           <var-decl name='of_xlate' type-id='fdd04afe' visibility='default' filepath='include/linux/gpio/driver.h' line='449' column='1'/>
         </data-member>
       </class-decl>
+      <union-decl name='__anonymous_union__3' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f8cbf457'>
+        <member-type access='private'>
+          <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='146' column='1' id='1ca43828'>
+            <data-member access='public' layout-offset-in-bits='0'>
+              <var-decl name='_pt_pad_1' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='147' column='1'/>
+            </data-member>
+            <data-member access='public' layout-offset-in-bits='64'>
+              <var-decl name='pmd_huge_pte' type-id='c28b9700' visibility='default' filepath='include/linux/mm_types.h' line='148' column='1'/>
+            </data-member>
+            <data-member access='public' layout-offset-in-bits='128'>
+              <var-decl name='_pt_pad_2' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='149' column='1'/>
+            </data-member>
+            <data-member access='public' layout-offset-in-bits='192'>
+              <var-decl name='' type-id='f3cbec75' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
+            </data-member>
+            <data-member access='public' layout-offset-in-bits='256'>
+              <var-decl name='ptl' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='157' column='1'/>
+            </data-member>
+          </class-decl>
+        </member-type>
+        <data-member access='private'>
+          <var-decl name='' type-id='b7d2bcd0' visibility='default' filepath='include/linux/mm_types.h' line='80' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='callback_head' type-id='e3d8ce29' visibility='default' filepath='include/linux/mm_types.h' line='177' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__4' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f3cbec75'>
+        <data-member access='private'>
+          <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='pt_frag_refcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='152' column='1'/>
+        </data-member>
+      </union-decl>
       <class-decl name='gpio_irq_chip' size-in-bits='2176' is-struct='yes' visibility='default' filepath='include/linux/gpio/driver.h' line='28' column='1' id='31045126'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='chip' type-id='8846a616' visibility='default' filepath='include/linux/gpio/driver.h' line='34' column='1'/>
@@ -40048,14 +39936,6 @@
           <var-decl name='' type-id='687f9680' visibility='default' filepath='include/linux/mm_types.h' line='108' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__11' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='a00c90a9'>
-        <data-member access='private'>
-          <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='pt_frag_refcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='152' column='1'/>
-        </data-member>
-      </union-decl>
       <union-decl name='__anonymous_union__13' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='a20c93cf'>
         <data-member access='private'>
           <var-decl name='i_pipe' type-id='15d29710' visibility='default' filepath='include/linux/fs.h' line='732' column='1'/>
@@ -40073,7 +39953,7 @@
           <var-decl name='i_dir_seq' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='736' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='192' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='184' column='1' id='657f91c4'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='192' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='184' column='1' id='657f91c3'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='icq' type-id='7c6e0e0c' visibility='default' filepath='include/linux/blkdev.h' line='185' column='1'/>
         </data-member>
@@ -40235,6 +40115,14 @@
         <parameter type-id='95e97e5e'/>
         <return type-id='48b5725f'/>
       </function-type>
+      <union-decl name='__anonymous_union__11' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='a00c90a9'>
+        <data-member access='private'>
+          <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='pt_frag_refcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='152' column='1'/>
+        </data-member>
+      </union-decl>
       <union-decl name='__anonymous_union__10' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='122' column='1' id='9f0c8f16'>
         <data-member access='private'>
           <var-decl name='s_mem' type-id='eaa32e2f' visibility='default' filepath='include/linux/mm_types.h' line='123' column='1'/>
@@ -40308,15 +40196,15 @@
           <var-decl name='ipi_list' type-id='72f469ec' visibility='default' filepath='include/linux/blkdev.h' line='162' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='183' column='1' id='f9cbf5ef'>
+      <union-decl name='__anonymous_union__2' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='183' column='1' id='f9cbf5ee'>
         <data-member access='private'>
-          <var-decl name='elv' type-id='657f91c4' visibility='default' filepath='include/linux/blkdev.h' line='187' column='1'/>
+          <var-decl name='elv' type-id='657f91c3' visibility='default' filepath='include/linux/blkdev.h' line='187' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='flush' type-id='c0d2cafb' visibility='default' filepath='include/linux/blkdev.h' line='193' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='238' column='1' id='f8cbf457'>
+      <union-decl name='__anonymous_union__3' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='238' column='1' id='f8cbf458'>
         <data-member access='private'>
           <var-decl name='csd' type-id='bb75ea85' visibility='default' filepath='include/linux/blkdev.h' line='239' column='1'/>
         </data-member>
@@ -40990,10 +40878,10 @@
           <var-decl name='header' type-id='b010cb22' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='513' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='96'>
-          <var-decl name='' type-id='f6cbf137' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='514' column='1'/>
+          <var-decl name='' type-id='f6cbf138' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='514' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='514' column='1' id='f6cbf137'>
+      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='514' column='1' id='f6cbf138'>
         <data-member access='private'>
           <var-decl name='sr' type-id='18119fa5' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='515' column='1'/>
         </data-member>
@@ -41660,10 +41548,10 @@
           <var-decl name='reg_val' type-id='28645bde' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='407' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='' type-id='657f91c5' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='408' column='1'/>
+          <var-decl name='' type-id='657f91c4' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='408' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='1024' is-struct='yes' is-anonymous='yes' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='408' column='1' id='657f91c5'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='1024' is-struct='yes' is-anonymous='yes' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='408' column='1' id='657f91c4'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='crypto_key' type-id='47ba3182' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='409' column='1'/>
         </data-member>
@@ -42177,7 +42065,7 @@
           <var-decl name='addr' type-id='687f9682' visibility='default' filepath='include/linux/spi/spi-mem.h' line='101' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='dummy' type-id='657f91c6' visibility='default' filepath='include/linux/spi/spi-mem.h' line='106' column='1'/>
+          <var-decl name='dummy' type-id='657f91c5' visibility='default' filepath='include/linux/spi/spi-mem.h' line='106' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
           <var-decl name='data' type-id='667f9355' visibility='default' filepath='include/linux/spi/spi-mem.h' line='116' column='1'/>
@@ -42202,7 +42090,7 @@
           <var-decl name='val' type-id='91ce1af9' visibility='default' filepath='include/linux/spi/spi-mem.h' line='100' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='16' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/spi/spi-mem.h' line='103' column='1' id='657f91c6'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='16' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/spi/spi-mem.h' line='103' column='1' id='657f91c5'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='nbytes' type-id='f9b06939' visibility='default' filepath='include/linux/spi/spi-mem.h' line='104' column='1'/>
         </data-member>
@@ -42621,7 +42509,7 @@
           <var-decl name='get_pool_size' type-id='242fbf2c' visibility='default' filepath='include/linux/ion.h' line='71' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/sched.h' line='1313' column='1' id='f6cbf138'>
+      <union-decl name='__anonymous_union__1' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/sched.h' line='1313' column='1' id='f6cbf139'>
         <data-member access='private'>
           <var-decl name='rcu_users' type-id='64615833' visibility='default' filepath='include/linux/sched.h' line='1314' column='1'/>
         </data-member>
@@ -42674,6 +42562,14 @@
       </function-type>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='drivers/staging/android/ion/ion_buffer.c' language='LANG_C89'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='724' column='1' id='f9cbf5ef'>
+        <data-member access='private'>
+          <var-decl name='i_fop' type-id='61758ee5' visibility='default' filepath='include/linux/fs.h' line='725' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='free_inode' type-id='4f3d95df' visibility='default' filepath='include/linux/fs.h' line='726' column='1'/>
+        </data-member>
+      </union-decl>
       <function-decl name='ion_buffer_zero' mangled-name='ion_buffer_zero' filepath='drivers/staging/android/ion/ion_buffer.c' line='187' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='ion_buffer_zero'>
         <parameter type-id='64915dde' name='buffer' filepath='drivers/staging/android/ion/ion_buffer.c' line='187' column='1'/>
         <return type-id='95e97e5e'/>
@@ -49278,7 +49174,7 @@
           <var-decl name='num_supplies' type-id='b59d7dce' visibility='default' filepath='include/linux/power_supply.h' line='314' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
-          <var-decl name='of_node' type-id='9a537bbe' visibility='default' filepath='include/linux/power_supply.h' line='315' column='1'/>
+          <var-decl name='of_node' type-id='9a537bbf' visibility='default' filepath='include/linux/power_supply.h' line='315' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
           <var-decl name='drv_data' type-id='eaa32e2f' visibility='default' filepath='include/linux/power_supply.h' line='318' column='1'/>
@@ -49627,9 +49523,17 @@
           <var-decl name='brightness' type-id='95e97e5e' visibility='default' filepath='include/linux/leds.h' line='576' column='1'/>
         </data-member>
       </class-decl>
+      <union-decl name='power_supply_propval' size-in-bits='64' visibility='default' filepath='include/linux/power_supply.h' line='243' column='1' id='08942f16'>
+        <data-member access='private'>
+          <var-decl name='intval' type-id='95e97e5e' visibility='default' filepath='include/linux/power_supply.h' line='244' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='strval' type-id='80f4b756' visibility='default' filepath='include/linux/power_supply.h' line='245' column='1'/>
+        </data-member>
+      </union-decl>
       <class-decl name='power_supply_config' size-in-bits='384' is-struct='yes' visibility='default' filepath='include/linux/power_supply.h' line='252' column='1' id='098cab97'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='of_node' type-id='9a537bbe' visibility='default' filepath='include/linux/power_supply.h' line='253' column='1'/>
+          <var-decl name='of_node' type-id='9a537bbf' visibility='default' filepath='include/linux/power_supply.h' line='253' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
           <var-decl name='fwnode' type-id='4a935626' visibility='default' filepath='include/linux/power_supply.h' line='254' column='1'/>
@@ -49653,14 +49557,6 @@
         <enumerator name='USB_ROLE_HOST' value='1'/>
         <enumerator name='USB_ROLE_DEVICE' value='2'/>
       </enum-decl>
-      <union-decl name='power_supply_propval' size-in-bits='64' visibility='default' filepath='include/linux/power_supply.h' line='243' column='1' id='08942f16'>
-        <data-member access='private'>
-          <var-decl name='intval' type-id='95e97e5e' visibility='default' filepath='include/linux/power_supply.h' line='244' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='strval' type-id='80f4b756' visibility='default' filepath='include/linux/power_supply.h' line='245' column='1'/>
-        </data-member>
-      </union-decl>
       <qualified-type-def type-id='098cab97' const='yes' id='e45577b8'/>
       <pointer-type-def type-id='e45577b8' size-in-bits='64' id='048b3ad6'/>
       <qualified-type-def type-id='6d39b2d0' const='yes' id='79a9ff6f'/>
@@ -50683,6 +50579,16 @@
       </union-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/attr.c' language='LANG_C89'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fsnotify_backend.h' line='298' column='1' id='ac5ab5ab'>
+        <data-member access='private'>
+          <var-decl name='obj' type-id='c66f5ec5' visibility='default' filepath='include/linux/fsnotify_backend.h' line='300' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='destroy_next' type-id='994d9d61' visibility='default' filepath='include/linux/fsnotify_backend.h' line='302' column='1'/>
+        </data-member>
+      </union-decl>
+      <typedef-decl name='fsnotify_connp_t' type-id='994d9d61' filepath='include/linux/fsnotify_backend.h' line='284' column='1' id='dc5fa7f0'/>
+      <pointer-type-def type-id='dc5fa7f0' size-in-bits='64' id='c66f5ec5'/>
       <function-decl name='simple_setattr' mangled-name='simple_setattr' filepath='include/linux/fs.h' line='3370' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='simple_setattr'>
         <parameter type-id='27675065'/>
         <parameter type-id='ab7bbd67'/>
@@ -50714,9 +50620,9 @@
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/char_dev.c' language='LANG_C89'>
       <class-decl name='iov_iter' is-struct='yes' visibility='default' is-declaration-only='yes' id='f2b4d089'/>
-      <union-decl name='__anonymous_union__3' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f8cbf458'>
+      <union-decl name='__anonymous_union__2' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f9cbf5f1'>
         <member-type access='private'>
-          <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='146' column='1' id='1ca43828'>
+          <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='146' column='1' id='62a75ba3'>
             <data-member access='public' layout-offset-in-bits='0'>
               <var-decl name='_pt_pad_1' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='147' column='1'/>
             </data-member>
@@ -50727,7 +50633,7 @@
               <var-decl name='_pt_pad_2' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='149' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='192'>
-              <var-decl name='' type-id='f3cbec75' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
+              <var-decl name='' type-id='f8cbf459' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='256'>
               <var-decl name='ptl' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='157' column='1'/>
@@ -50741,7 +50647,7 @@
           <var-decl name='callback_head' type-id='e3d8ce29' visibility='default' filepath='include/linux/mm_types.h' line='177' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__4' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f3cbec75'>
+      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f8cbf459'>
         <data-member access='private'>
           <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
         </data-member>
@@ -51085,7 +50991,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/crypto/hkdf.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/crypto.h' line='567' column='1' id='f6cbf139'>
+      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/crypto.h' line='567' column='1' id='f6cbf13a'>
         <data-member access='private'>
           <var-decl name='ablkcipher' type-id='67574995' visibility='default' filepath='include/linux/crypto.h' line='568' column='1'/>
         </data-member>
@@ -51175,23 +51081,6 @@
       </function-type>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/dcache.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='f8cbf459'>
-        <data-member access='private'>
-          <var-decl name='i_pipe' type-id='15d29710' visibility='default' filepath='include/linux/fs.h' line='732' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_bdev' type-id='b88dd945' visibility='default' filepath='include/linux/fs.h' line='733' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_cdev' type-id='3e6eb93a' visibility='default' filepath='include/linux/fs.h' line='734' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_link' type-id='26a90f95' visibility='default' filepath='include/linux/fs.h' line='735' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_dir_seq' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='736' column='1'/>
-        </data-member>
-      </union-decl>
       <function-decl name='d_splice_alias' mangled-name='d_splice_alias' filepath='fs/dcache.c' line='2998' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='d_splice_alias'>
         <parameter type-id='7e666abe' name='inode' filepath='fs/dcache.c' line='2998' column='1'/>
         <parameter type-id='27675065' name='dentry' filepath='fs/dcache.c' line='2998' column='1'/>
@@ -51414,7 +51303,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/iomap/direct-io.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/uio.h' line='39' column='1' id='ac5ab5ab'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/uio.h' line='39' column='1' id='ac5ab5ac'>
         <data-member access='private'>
           <var-decl name='iov' type-id='2c556848' visibility='default' filepath='include/linux/uio.h' line='40' column='1'/>
         </data-member>
@@ -51436,7 +51325,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/kernfs/dir.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/kernfs.h' line='151' column='1' id='ac5ab5ac'>
+      <union-decl name='__anonymous_union__' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/kernfs.h' line='151' column='1' id='ac5ab5ad'>
         <data-member access='private'>
           <var-decl name='dir' type-id='4303ca40' visibility='default' filepath='include/linux/kernfs.h' line='152' column='1'/>
         </data-member>
@@ -51702,6 +51591,26 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/open.c' language='LANG_C89'>
+      <class-decl name='fsnotify_mark_connector' size-in-bits='256' is-struct='yes' visibility='default' filepath='include/linux/fsnotify_backend.h' line='292' column='1' id='aadc8ce9'>
+        <data-member access='public' layout-offset-in-bits='0'>
+          <var-decl name='lock' type-id='fb4018a0' visibility='default' filepath='include/linux/fsnotify_backend.h' line='293' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='32'>
+          <var-decl name='type' type-id='8efea9e5' visibility='default' filepath='include/linux/fsnotify_backend.h' line='294' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='48'>
+          <var-decl name='flags' type-id='8efea9e5' visibility='default' filepath='include/linux/fsnotify_backend.h' line='296' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='64'>
+          <var-decl name='fsid' type-id='ac895711' visibility='default' filepath='include/linux/fsnotify_backend.h' line='297' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='128'>
+          <var-decl name='' type-id='f3cbec7b' visibility='default' filepath='include/linux/fsnotify_backend.h' line='298' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='192'>
+          <var-decl name='list' type-id='e151255a' visibility='default' filepath='include/linux/fsnotify_backend.h' line='304' column='1'/>
+        </data-member>
+      </class-decl>
       <typedef-decl name='__kernel_fsid_t' type-id='39d018c6' filepath='include/uapi/asm-generic/posix_types.h' line='81' column='1' id='ac895711'/>
       <class-decl name='__anonymous_struct__' size-in-bits='64' is-struct='yes' is-anonymous='yes' naming-typedef-id='ac895711' visibility='default' filepath='include/uapi/asm-generic/posix_types.h' line='79' column='1' id='39d018c6'>
         <data-member access='public' layout-offset-in-bits='0'>
@@ -51710,14 +51619,15 @@
       </class-decl>
       <union-decl name='__anonymous_union__4' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fsnotify_backend.h' line='298' column='1' id='f3cbec7b'>
         <data-member access='private'>
-          <var-decl name='obj' type-id='c66f5ec5' visibility='default' filepath='include/linux/fsnotify_backend.h' line='300' column='1'/>
+          <var-decl name='obj' type-id='c66f5ec6' visibility='default' filepath='include/linux/fsnotify_backend.h' line='300' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='destroy_next' type-id='994d9d61' visibility='default' filepath='include/linux/fsnotify_backend.h' line='302' column='1'/>
+          <var-decl name='destroy_next' type-id='994d9d62' visibility='default' filepath='include/linux/fsnotify_backend.h' line='302' column='1'/>
         </data-member>
       </union-decl>
-      <typedef-decl name='fsnotify_connp_t' type-id='994d9d61' filepath='include/linux/fsnotify_backend.h' line='284' column='1' id='dc5fa7f0'/>
-      <pointer-type-def type-id='dc5fa7f0' size-in-bits='64' id='c66f5ec5'/>
+      <typedef-decl name='fsnotify_connp_t' type-id='994d9d62' filepath='include/linux/fsnotify_backend.h' line='284' column='1' id='dc5fa7f1'/>
+      <pointer-type-def type-id='dc5fa7f1' size-in-bits='64' id='c66f5ec6'/>
+      <pointer-type-def type-id='aadc8ce9' size-in-bits='64' id='994d9d62'/>
       <pointer-type-def type-id='7e666abe' size-in-bits='64' id='8f39c6fc'/>
       <function-decl name='notify_change' mangled-name='notify_change' filepath='include/linux/fs.h' line='2948' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='notify_change'>
         <parameter type-id='27675065'/>
@@ -51771,7 +51681,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/proc/generic.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='fs/proc/internal.h' line='44' column='1' id='ac5ab5ad'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='fs/proc/internal.h' line='44' column='1' id='ac5ab5ae'>
         <data-member access='private'>
           <var-decl name='seq_ops' type-id='943a1b48' visibility='default' filepath='fs/proc/internal.h' line='45' column='1'/>
         </data-member>
@@ -51986,7 +51896,7 @@
           <var-decl name='flags' type-id='f0981eeb' visibility='default' filepath='include/linux/splice.h' line='32' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='u' type-id='ac5ab5ae' visibility='default' filepath='include/linux/splice.h' line='40' column='1'/>
+          <var-decl name='u' type-id='ac5ab5af' visibility='default' filepath='include/linux/splice.h' line='40' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
           <var-decl name='pos' type-id='69bf7bee' visibility='default' filepath='include/linux/splice.h' line='41' column='1'/>
@@ -52001,7 +51911,7 @@
           <var-decl name='need_wakeup' type-id='b50a4934' visibility='default' filepath='include/linux/splice.h' line='44' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/splice.h' line='36' column='1' id='ac5ab5ae'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/splice.h' line='36' column='1' id='ac5ab5af'>
         <data-member access='private'>
           <var-decl name='userptr' type-id='eaa32e2f' visibility='default' filepath='include/linux/splice.h' line='37' column='1'/>
         </data-member>
@@ -52037,6 +51947,23 @@
       </function-type>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='fs/stack.c' language='LANG_C89'>
+      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='f8cbf45b'>
+        <data-member access='private'>
+          <var-decl name='i_pipe' type-id='15d29710' visibility='default' filepath='include/linux/fs.h' line='732' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='i_bdev' type-id='b88dd945' visibility='default' filepath='include/linux/fs.h' line='733' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='i_cdev' type-id='3e6eb93a' visibility='default' filepath='include/linux/fs.h' line='734' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='i_link' type-id='26a90f95' visibility='default' filepath='include/linux/fs.h' line='735' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='i_dir_seq' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='736' column='1'/>
+        </data-member>
+      </union-decl>
       <function-decl name='fsstack_copy_inode_size' mangled-name='fsstack_copy_inode_size' filepath='fs/stack.c' line='11' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='fsstack_copy_inode_size'>
         <parameter type-id='7e666abe' name='dst' filepath='fs/stack.c' line='11' column='1'/>
         <parameter type-id='7e666abe' name='src' filepath='fs/stack.c' line='11' column='1'/>
@@ -52435,10 +52362,10 @@
           <var-decl name='e_perm' type-id='8efea9e5' visibility='default' filepath='include/linux/posix_acl.h' line='20' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='' type-id='f6cbf13a' visibility='default' filepath='include/linux/posix_acl.h' line='21' column='1'/>
+          <var-decl name='' type-id='f6cbf13b' visibility='default' filepath='include/linux/posix_acl.h' line='21' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/posix_acl.h' line='21' column='1' id='f6cbf13a'>
+      <union-decl name='__anonymous_union__1' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/posix_acl.h' line='21' column='1' id='f6cbf13b'>
         <data-member access='private'>
           <var-decl name='e_uid' type-id='d80b72e6' visibility='default' filepath='include/linux/posix_acl.h' line='22' column='1'/>
         </data-member>
@@ -53001,7 +52928,7 @@
       <class-decl name='fs_struct' size-in-bits='448' is-struct='yes' visibility='default' is-declaration-only='yes' id='7dc87302'/>
       <class-decl name='fscrypt_info' is-struct='yes' visibility='default' is-declaration-only='yes' id='9441bb37'/>
       <class-decl name='fscrypt_operations' size-in-bits='768' is-struct='yes' visibility='default' is-declaration-only='yes' id='fa21a7e9'/>
-      <class-decl name='fsnotify_mark_connector' size-in-bits='256' is-struct='yes' visibility='default' is-declaration-only='yes' id='aadc8ce9'/>
+      <class-decl name='fsnotify_mark_connector' is-struct='yes' visibility='default' is-declaration-only='yes' id='aadc8cea'/>
       <class-decl name='fsverity_info' is-struct='yes' visibility='default' is-declaration-only='yes' id='43489bca'/>
       <class-decl name='fsverity_operations' is-struct='yes' visibility='default' is-declaration-only='yes' id='5f0d764c'/>
       <class-decl name='futex_pi_state' is-struct='yes' visibility='default' is-declaration-only='yes' id='62bd013f'/>
@@ -53396,7 +53323,7 @@
           <var-decl name='class' type-id='3570c570' visibility='default' filepath='include/linux/trace_events.h' line='261' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='' type-id='ac5ab5af' visibility='default' filepath='include/linux/trace_events.h' line='262' column='1'/>
+          <var-decl name='' type-id='ac5ab5b0' visibility='default' filepath='include/linux/trace_events.h' line='262' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
           <var-decl name='event' type-id='78b26ac9' visibility='default' filepath='include/linux/trace_events.h' line='267' column='1'/>
@@ -53488,7 +53415,7 @@
           <var-decl name='enabled' type-id='49178f86' visibility='default' filepath='include/linux/jump_label.h' line='88' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='' type-id='f6cbf13b' visibility='default' filepath='include/linux/jump_label.h' line='102' column='1'/>
+          <var-decl name='' type-id='f6cbf13c' visibility='default' filepath='include/linux/jump_label.h' line='102' column='1'/>
         </data-member>
       </class-decl>
       <typedef-decl name='atomic_t' type-id='9ae05d53' filepath='include/linux/types.h' line='173' column='1' id='49178f86'/>
@@ -53505,7 +53432,7 @@
           <var-decl name='id' type-id='91ce1af9' visibility='default' filepath='include/linux/kernfs.h' line='120' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/jump_label.h' line='102' column='1' id='f6cbf13b'>
+      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/jump_label.h' line='102' column='1' id='f6cbf13c'>
         <data-member access='private'>
           <var-decl name='type' type-id='7359adad' visibility='default' filepath='include/linux/jump_label.h' line='103' column='1'/>
         </data-member>
@@ -53672,10 +53599,10 @@
       <typedef-decl name='spinlock_t' type-id='53fb272e' filepath='include/linux/spinlock_types.h' line='73' column='1' id='fb4018a0'/>
       <class-decl name='spinlock' size-in-bits='32' is-struct='yes' visibility='default' filepath='include/linux/spinlock_types.h' line='61' column='1' id='53fb272e'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='' type-id='f9cbf5f1' visibility='default' filepath='include/linux/spinlock_types.h' line='62' column='1'/>
+          <var-decl name='' type-id='f9cbf5f2' visibility='default' filepath='include/linux/spinlock_types.h' line='62' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/spinlock_types.h' line='62' column='1' id='f9cbf5f1'>
+      <union-decl name='__anonymous_union__2' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/spinlock_types.h' line='62' column='1' id='f9cbf5f2'>
         <data-member access='private'>
           <var-decl name='rlock' type-id='f106d0e5' visibility='default' filepath='include/linux/spinlock_types.h' line='63' column='1'/>
         </data-member>
@@ -53688,10 +53615,10 @@
       <typedef-decl name='arch_spinlock_t' type-id='c167abfb' filepath='include/asm-generic/qspinlock_types.h' line='52' column='1' id='641c41d1'/>
       <class-decl name='qspinlock' size-in-bits='32' is-struct='yes' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='22' column='1' id='c167abfb'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='' type-id='f8cbf45b' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='23' column='1'/>
+          <var-decl name='' type-id='f8cbf45c' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='23' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='23' column='1' id='f8cbf45b'>
+      <union-decl name='__anonymous_union__3' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='23' column='1' id='f8cbf45c'>
         <member-type access='private'>
           <class-decl name='__anonymous_struct__' size-in-bits='32' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='36' column='1' id='1ca43829'>
             <data-member access='public' layout-offset-in-bits='0'>
@@ -53706,10 +53633,10 @@
           <var-decl name='val' type-id='49178f86' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='24' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='' type-id='657f91c7' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='32' column='1'/>
+          <var-decl name='' type-id='657f91c6' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='32' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='16' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='32' column='1' id='657f91c7'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='16' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='32' column='1' id='657f91c6'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='locked' type-id='f9b06939' visibility='default' filepath='include/asm-generic/qspinlock_types.h' line='33' column='1'/>
         </data-member>
@@ -54604,7 +54531,7 @@
       </class-decl>
       <class-decl name='file' size-in-bits='2048' is-struct='yes' visibility='default' filepath='include/linux/fs.h' line='955' column='1' id='b4b8adeb'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='f_u' type-id='f2cbeae5' visibility='default' filepath='include/linux/fs.h' line='959' column='1'/>
+          <var-decl name='f_u' type-id='f2cbeae6' visibility='default' filepath='include/linux/fs.h' line='959' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
           <var-decl name='f_path' type-id='b5382ece' visibility='default' filepath='include/linux/fs.h' line='960' column='1'/>
@@ -66700,7 +66627,7 @@
       <pointer-type-def type-id='8d0295a2' size-in-bits='64' id='5760dcb1'/>
       <pointer-type-def type-id='7dc87302' size-in-bits='64' id='08890290'/>
       <pointer-type-def type-id='9441bb37' size-in-bits='64' id='1ea8c5af'/>
-      <pointer-type-def type-id='aadc8ce9' size-in-bits='64' id='994d9d61'/>
+      <pointer-type-def type-id='aadc8cea' size-in-bits='64' id='994d9d61'/>
       <pointer-type-def type-id='43489bca' size-in-bits='64' id='ba18e248'/>
       <pointer-type-def type-id='62bd013f' size-in-bits='64' id='0bbc9f87'/>
       <pointer-type-def type-id='84a13146' size-in-bits='64' id='41b1c13c'/>
@@ -69025,7 +68952,7 @@
           <var-decl name='units' type-id='95e97e5e' visibility='default' filepath='include/linux/mm_types.h' line='196' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/trace_events.h' line='262' column='1' id='ac5ab5af'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/trace_events.h' line='262' column='1' id='ac5ab5b0'>
         <data-member access='private'>
           <var-decl name='name' type-id='26a90f95' visibility='default' filepath='include/linux/trace_events.h' line='263' column='1'/>
         </data-member>
@@ -69119,7 +69046,7 @@
           <var-decl name='__rcu_icq_cache' type-id='f3b4aca8' visibility='default' filepath='include/linux/iocontext.h' line='85' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='956' column='1' id='f2cbeae5'>
+      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='956' column='1' id='f2cbeae6'>
         <data-member access='private'>
           <var-decl name='fu_llist' type-id='c5ccfee8' visibility='default' filepath='include/linux/fs.h' line='957' column='1'/>
         </data-member>
@@ -69343,7 +69270,7 @@
           <var-decl name='rcu' type-id='e3d8ce29' visibility='default' filepath='include/net/netns/generic.h' line='32' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='198' column='1' id='f2cbeae6'>
+      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='198' column='1' id='f2cbeae7'>
         <data-member access='private'>
           <var-decl name='skc_flags' type-id='7359adad' visibility='default' filepath='include/net/sock.h' line='199' column='1'/>
         </data-member>
@@ -69352,6 +69279,14 @@
         </data-member>
         <data-member access='private'>
           <var-decl name='skc_tw_dr' type-id='b7ab21fc' visibility='default' filepath='include/net/sock.h' line='201' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__10' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='9f0c8f18'>
+        <data-member access='private'>
+          <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='ip_defrag_offset' type-id='95e97e5e' visibility='default' filepath='include/linux/skbuff.h' line='708' column='1'/>
         </data-member>
       </union-decl>
       <union-decl name='__anonymous_union__19' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='980c8412'>
@@ -69391,13 +69326,13 @@
           </class-decl>
         </member-type>
         <data-member access='private'>
-          <var-decl name='' type-id='657f91c8' visibility='default' filepath='include/linux/mm_types.h' line='80' column='1'/>
+          <var-decl name='' type-id='657f91c7' visibility='default' filepath='include/linux/mm_types.h' line='80' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='callback_head' type-id='e3d8ce29' visibility='default' filepath='include/linux/mm_types.h' line='177' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='80' column='1' id='657f91c8'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='80' column='1' id='657f91c7'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='lru' type-id='72f469ec' visibility='default' filepath='include/linux/mm_types.h' line='86' column='1'/>
         </data-member>
@@ -70006,7 +69941,7 @@
           <var-decl name='type' type-id='7f8e7476' visibility='default' filepath='include/linux/fs_context.h' line='66' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='' type-id='ac5ab5b0' visibility='default' filepath='include/linux/fs_context.h' line='67' column='1'/>
+          <var-decl name='' type-id='ac5ab5b1' visibility='default' filepath='include/linux/fs_context.h' line='67' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
           <var-decl name='size' type-id='b59d7dce' visibility='default' filepath='include/linux/fs_context.h' line='73' column='1'/>
@@ -70025,7 +69960,7 @@
         <enumerator name='fs_value_is_filename_empty' value='5'/>
         <enumerator name='fs_value_is_file' value='6'/>
       </enum-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs_context.h' line='67' column='1' id='ac5ab5b0'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs_context.h' line='67' column='1' id='ac5ab5b1'>
         <data-member access='private'>
           <var-decl name='string' type-id='26a90f95' visibility='default' filepath='include/linux/fs_context.h' line='68' column='1'/>
         </data-member>
@@ -70345,10 +70280,10 @@
       </class-decl>
       <class-decl name='sock_common' size-in-bits='1088' is-struct='yes' visibility='default' filepath='include/net/sock.h' line='148' column='1' id='5999c5f7'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='' type-id='f9cbf5f2' visibility='default' filepath='include/net/sock.h' line='152' column='1'/>
+          <var-decl name='' type-id='f9cbf5f3' visibility='default' filepath='include/net/sock.h' line='152' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='' type-id='f8cbf45c' visibility='default' filepath='include/net/sock.h' line='159' column='1'/>
+          <var-decl name='' type-id='f8cbf45d' visibility='default' filepath='include/net/sock.h' line='159' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='96'>
           <var-decl name='' type-id='f3cbec7e' visibility='default' filepath='include/net/sock.h' line='164' column='1'/>
@@ -70375,7 +70310,7 @@
           <var-decl name='skc_bound_dev_if' type-id='95e97e5e' visibility='default' filepath='include/net/sock.h' line='178' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='' type-id='f2cbeae7' visibility='default' filepath='include/net/sock.h' line='179' column='1'/>
+          <var-decl name='' type-id='f2cbeae8' visibility='default' filepath='include/net/sock.h' line='179' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
           <var-decl name='skc_prot' type-id='d2524501' visibility='default' filepath='include/net/sock.h' line='183' column='1'/>
@@ -70646,7 +70581,7 @@
           <var-decl name='pipe' type-id='15d29711' visibility='default' filepath='include/linux/uio.h' line='43' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='192' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='688' column='1' id='657f91c9'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='192' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='688' column='1' id='657f91c8'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='next' type-id='0fbf3cfd' visibility='default' filepath='include/linux/skbuff.h' line='690' column='1'/>
         </data-member>
@@ -71393,13 +71328,13 @@
       </enum-decl>
       <class-decl name='ifreq' size-in-bits='320' is-struct='yes' visibility='default' filepath='include/uapi/linux/if.h' line='231' column='1' id='c1a75286'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='ifr_ifrn' type-id='9f0c8f18' visibility='default' filepath='include/uapi/linux/if.h' line='236' column='1'/>
+          <var-decl name='ifr_ifrn' type-id='9f0c8f19' visibility='default' filepath='include/uapi/linux/if.h' line='236' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
           <var-decl name='ifr_ifru' type-id='a00c90ab' visibility='default' filepath='include/uapi/linux/if.h' line='252' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__10' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/if.h' line='233' column='1' id='9f0c8f18'>
+      <union-decl name='__anonymous_union__10' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/if.h' line='233' column='1' id='9f0c8f19'>
         <data-member access='private'>
           <var-decl name='ifrn_name' type-id='ac1fa8c0' visibility='default' filepath='include/uapi/linux/if.h' line='235' column='1'/>
         </data-member>
@@ -77731,7 +77666,7 @@
         <parameter type-id='19c2251e'/>
         <return type-id='eaa32e2f'/>
       </function-type>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='152' column='1' id='f9cbf5f2'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='152' column='1' id='f9cbf5f3'>
         <data-member access='private'>
           <var-decl name='skc_addrpair' type-id='d17a6eed' visibility='default' filepath='include/net/sock.h' line='153' column='1'/>
         </data-member>
@@ -77747,7 +77682,7 @@
           <var-decl name='' type-id='687f9684' visibility='default' filepath='include/net/sock.h' line='166' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='179' column='1' id='f2cbeae7'>
+      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='179' column='1' id='f2cbeae8'>
         <data-member access='private'>
           <var-decl name='skc_bind_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='180' column='1'/>
         </data-member>
@@ -77831,7 +77766,7 @@
           <var-decl name='args' type-id='613ff906' visibility='default' filepath='include/linux/netlink.h' line='201' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='159' column='1' id='f8cbf45c'>
+      <union-decl name='__anonymous_union__3' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='159' column='1' id='f8cbf45d'>
         <data-member access='private'>
           <var-decl name='skc_hash' type-id='f0981eeb' visibility='default' filepath='include/net/sock.h' line='160' column='1'/>
         </data-member>
@@ -77884,7 +77819,7 @@
         <subrange length='65' type-id='7ff19f0f' id='b50e2e4a'/>
         <subrange length='1' type-id='7ff19f0f' id='52f813b4'/>
       </array-type-def>
-      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/cred.h' line='149' column='1' id='ac5ab5b1'>
+      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/cred.h' line='149' column='1' id='ac5ab5b2'>
         <data-member access='private'>
           <var-decl name='non_rcu' type-id='95e97e5e' visibility='default' filepath='include/linux/cred.h' line='150' column='1'/>
         </data-member>
@@ -79526,7 +79461,7 @@
           <var-decl name='node' type-id='f68e0adc' visibility='default' filepath='include/net/inet_frag.h' line='78' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='key' type-id='f2cbeae8' visibility='default' filepath='include/net/inet_frag.h' line='82' column='1'/>
+          <var-decl name='key' type-id='f2cbeae9' visibility='default' filepath='include/net/inet_frag.h' line='82' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
           <var-decl name='timer' type-id='abe41e67' visibility='default' filepath='include/net/inet_frag.h' line='83' column='1'/>
@@ -79573,7 +79508,7 @@
           <var-decl name='next' type-id='3cc8739a' visibility='default' filepath='include/linux/rhashtable-types.h' line='18' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='352' is-anonymous='yes' visibility='default' filepath='include/net/inet_frag.h' line='79' column='1' id='f2cbeae8'>
+      <union-decl name='__anonymous_union__5' size-in-bits='352' is-anonymous='yes' visibility='default' filepath='include/net/inet_frag.h' line='79' column='1' id='f2cbeae9'>
         <data-member access='private'>
           <var-decl name='v4' type-id='c3a8bbbc' visibility='default' filepath='include/net/inet_frag.h' line='80' column='1'/>
         </data-member>
@@ -81645,7 +81580,7 @@
           <var-decl name='is_managed' type-id='f0981eeb' visibility='default' filepath='include/linux/interrupt.h' line='295' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/msi.h' line='100' column='1' id='ac5ab5b2'>
+      <union-decl name='__anonymous_union__' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/msi.h' line='100' column='1' id='ac5ab5b3'>
         <data-member access='private'>
           <var-decl name='' type-id='e7f43f84' visibility='default' filepath='include/linux/msi.h' line='102' column='1'/>
         </data-member>
@@ -81667,7 +81602,7 @@
           <var-decl name='msi_attrib' type-id='687f9686' visibility='default' filepath='include/linux/msi.h' line='113' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='' type-id='f6cbf13c' visibility='default' filepath='include/linux/msi.h' line='114' column='1'/>
+          <var-decl name='' type-id='f6cbf13d' visibility='default' filepath='include/linux/msi.h' line='114' column='1'/>
         </data-member>
       </class-decl>
       <class-decl name='__anonymous_struct__1' size-in-bits='64' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/msi.h' line='104' column='1' id='687f9686'>
@@ -81696,7 +81631,7 @@
           <var-decl name='default_irq' type-id='f0981eeb' visibility='default' filepath='include/linux/msi.h' line='112' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/msi.h' line='114' column='1' id='f6cbf13c'>
+      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/msi.h' line='114' column='1' id='f6cbf13d'>
         <data-member access='private'>
           <var-decl name='mask_pos' type-id='f9b06939' visibility='default' filepath='include/linux/msi.h' line='115' column='1'/>
         </data-member>
@@ -82433,11 +82368,11 @@
           <var-decl name='is_wait_die' type-id='8efea9e5' visibility='default' filepath='include/linux/ww_mutex.h' line='36' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f6cbf13d'>
+      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f6cbf13e'>
         <member-type access='private'>
           <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='105' column='1' id='70494aaa'>
             <data-member access='public' layout-offset-in-bits='0'>
-              <var-decl name='' type-id='f9cbf5ea' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1'/>
+              <var-decl name='' type-id='f9cbf5e9' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='128'>
               <var-decl name='slab_cache' type-id='f3b4aca8' visibility='default' filepath='include/linux/mm_types.h' line='119' column='1'/>
@@ -82446,7 +82381,7 @@
               <var-decl name='freelist' type-id='eaa32e2f' visibility='default' filepath='include/linux/mm_types.h' line='121' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='256'>
-              <var-decl name='' type-id='f8cbf45d' visibility='default' filepath='include/linux/mm_types.h' line='122' column='1'/>
+              <var-decl name='' type-id='f8cbf45e' visibility='default' filepath='include/linux/mm_types.h' line='122' column='1'/>
             </data-member>
           </class-decl>
         </member-type>
@@ -82500,7 +82435,7 @@
           <var-decl name='private' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='96' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1' id='f9cbf5ea'>
+      <union-decl name='__anonymous_union__2' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1' id='f9cbf5e9'>
         <data-member access='private'>
           <var-decl name='slab_list' type-id='72f469ec' visibility='default' filepath='include/linux/mm_types.h' line='107' column='1'/>
         </data-member>
@@ -82556,7 +82491,7 @@
           <var-decl name='pt_frag_refcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='152' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='122' column='1' id='f8cbf45d'>
+      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='122' column='1' id='f8cbf45e'>
         <data-member access='private'>
           <var-decl name='s_mem' type-id='eaa32e2f' visibility='default' filepath='include/linux/mm_types.h' line='123' column='1'/>
         </data-member>
@@ -82874,7 +82809,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='kernel/params.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/moduleparam.h' line='76' column='1' id='ac5ab5b3'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/moduleparam.h' line='76' column='1' id='ac5ab5b4'>
         <data-member access='private'>
           <var-decl name='arg' type-id='eaa32e2f' visibility='default' filepath='include/linux/moduleparam.h' line='77' column='1'/>
         </data-member>
@@ -83147,7 +83082,7 @@
           <var-decl name='type' type-id='c47ba023' visibility='default' filepath='include/linux/pm_qos.h' line='112' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='data' type-id='ac5ab5b4' visibility='default' filepath='include/linux/pm_qos.h' line='117' column='1'/>
+          <var-decl name='data' type-id='ac5ab5b5' visibility='default' filepath='include/linux/pm_qos.h' line='117' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='512'>
           <var-decl name='dev' type-id='fa0b179b' visibility='default' filepath='include/linux/pm_qos.h' line='118' column='1'/>
@@ -83254,7 +83189,7 @@
         <parameter type-id='7292109c'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='448' is-anonymous='yes' visibility='default' filepath='include/linux/pm_qos.h' line='113' column='1' id='ac5ab5b4'>
+      <union-decl name='__anonymous_union__' size-in-bits='448' is-anonymous='yes' visibility='default' filepath='include/linux/pm_qos.h' line='113' column='1' id='ac5ab5b5'>
         <data-member access='private'>
           <var-decl name='pnode' type-id='e3a91a7c' visibility='default' filepath='include/linux/pm_qos.h' line='114' column='1'/>
         </data-member>
@@ -83937,23 +83872,6 @@
       <class-decl name='cdev' is-struct='yes' visibility='default' is-declaration-only='yes' id='22f86352'/>
       <class-decl name='gendisk' is-struct='yes' visibility='default' is-declaration-only='yes' id='4f60ffbd'/>
       <class-decl name='hd_struct' is-struct='yes' visibility='default' is-declaration-only='yes' id='2473bc20'/>
-      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='f2cbeae9'>
-        <data-member access='private'>
-          <var-decl name='i_pipe' type-id='15d29710' visibility='default' filepath='include/linux/fs.h' line='732' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_bdev' type-id='b88dd945' visibility='default' filepath='include/linux/fs.h' line='733' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_cdev' type-id='3e6eb93a' visibility='default' filepath='include/linux/fs.h' line='734' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_link' type-id='26a90f95' visibility='default' filepath='include/linux/fs.h' line='735' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_dir_seq' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='736' column='1'/>
-        </data-member>
-      </union-decl>
       <pointer-type-def type-id='ac0aeb1e' size-in-bits='64' id='f885ca7e'/>
       <pointer-type-def type-id='22f86352' size-in-bits='64' id='3e6eb93a'/>
       <pointer-type-def type-id='4f60ffbd' size-in-bits='64' id='33c599db'/>
@@ -84430,7 +84348,7 @@
           <var-decl name='dl_nr_running' type-id='7359adad' visibility='default' filepath='kernel/sched/sched.h' line='772' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='earliest_dl' type-id='657f91ca' visibility='default' filepath='kernel/sched/sched.h' line='784' column='1'/>
+          <var-decl name='earliest_dl' type-id='657f91c9' visibility='default' filepath='kernel/sched/sched.h' line='784' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
           <var-decl name='dl_nr_migratory' type-id='7359adad' visibility='default' filepath='kernel/sched/sched.h' line='786' column='1'/>
@@ -84454,7 +84372,7 @@
           <var-decl name='bw_ratio' type-id='91ce1af9' visibility='default' filepath='kernel/sched/sched.h' line='821' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='128' is-struct='yes' is-anonymous='yes' visibility='default' filepath='kernel/sched/sched.h' line='781' column='1' id='657f91ca'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='128' is-struct='yes' is-anonymous='yes' visibility='default' filepath='kernel/sched/sched.h' line='781' column='1' id='657f91c9'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='curr' type-id='91ce1af9' visibility='default' filepath='kernel/sched/sched.h' line='782' column='1'/>
         </data-member>
@@ -84900,7 +84818,7 @@
           <var-decl name='name' type-id='26a90f95' visibility='default' filepath='include/linux/sched/topology.h' line='134' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2048'>
-          <var-decl name='' type-id='ac5ab5b5' visibility='default' filepath='include/linux/sched/topology.h' line='136' column='1'/>
+          <var-decl name='' type-id='ac5ab5b6' visibility='default' filepath='include/linux/sched/topology.h' line='136' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2176'>
           <var-decl name='shared' type-id='774b23cf' visibility='default' filepath='include/linux/sched/topology.h' line='140' column='1'/>
@@ -84964,7 +84882,7 @@
           <var-decl name='cpumask' type-id='c99b5ecd' visibility='default' filepath='kernel/sched/sched.h' line='1556' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/sched/topology.h' line='136' column='1' id='ac5ab5b5'>
+      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/sched/topology.h' line='136' column='1' id='ac5ab5b6'>
         <data-member access='private'>
           <var-decl name='private' type-id='eaa32e2f' visibility='default' filepath='include/linux/sched/topology.h' line='137' column='1'/>
         </data-member>
@@ -86584,7 +86502,7 @@
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='kernel/trace/trace_events.c' language='LANG_C89'>
       <class-decl name='prog_entry' is-struct='yes' visibility='default' is-declaration-only='yes' id='da952956'/>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/trace_events.h' line='262' column='1' id='ac5ab5b6'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/trace_events.h' line='262' column='1' id='ac5ab5b7'>
         <data-member access='private'>
           <var-decl name='name' type-id='26a90f95' visibility='default' filepath='include/linux/trace_events.h' line='263' column='1'/>
         </data-member>
@@ -86707,7 +86625,7 @@
       </class-decl>
       <class-decl name='worker' size-in-bits='1216' is-struct='yes' visibility='default' filepath='kernel/workqueue_internal.h' line='24' column='1' id='146df21f'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='' type-id='ac5ab5b7' visibility='default' filepath='kernel/workqueue_internal.h' line='26' column='1'/>
+          <var-decl name='' type-id='ac5ab5b8' visibility='default' filepath='kernel/workqueue_internal.h' line='26' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
           <var-decl name='current_work' type-id='83c1bde6' visibility='default' filepath='kernel/workqueue_internal.h' line='31' column='1'/>
@@ -86752,7 +86670,7 @@
           <var-decl name='last_func' type-id='72666d3f' visibility='default' filepath='kernel/workqueue_internal.h' line='59' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='kernel/workqueue_internal.h' line='26' column='1' id='ac5ab5b7'>
+      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='kernel/workqueue_internal.h' line='26' column='1' id='ac5ab5b8'>
         <data-member access='private'>
           <var-decl name='entry' type-id='72f469ec' visibility='default' filepath='kernel/workqueue_internal.h' line='27' column='1'/>
         </data-member>
@@ -87743,16 +87661,16 @@
           <var-decl name='array' type-id='60075f2a' visibility='default' filepath='include/linux/xarray.h' line='1093' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='' type-id='ac5ab5b8' visibility='default' filepath='include/linux/xarray.h' line='1094' column='1'/>
+          <var-decl name='' type-id='ac5ab5b9' visibility='default' filepath='include/linux/xarray.h' line='1094' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='320'>
           <var-decl name='slots' type-id='56f066f9' visibility='default' filepath='include/linux/xarray.h' line='1098' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='4416'>
-          <var-decl name='' type-id='f6cbf13e' visibility='default' filepath='include/linux/xarray.h' line='1099' column='1'/>
+          <var-decl name='' type-id='f6cbf13f' visibility='default' filepath='include/linux/xarray.h' line='1099' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/xarray.h' line='1094' column='1' id='ac5ab5b8'>
+      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/xarray.h' line='1094' column='1' id='ac5ab5b9'>
         <data-member access='private'>
           <var-decl name='private_list' type-id='72f469ec' visibility='default' filepath='include/linux/xarray.h' line='1095' column='1'/>
         </data-member>
@@ -87760,7 +87678,7 @@
           <var-decl name='callback_head' type-id='e3d8ce29' visibility='default' filepath='include/linux/xarray.h' line='1096' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/xarray.h' line='1099' column='1' id='f6cbf13e'>
+      <union-decl name='__anonymous_union__1' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/xarray.h' line='1099' column='1' id='f6cbf13f'>
         <data-member access='private'>
           <var-decl name='tags' type-id='aa5bd681' visibility='default' filepath='include/linux/xarray.h' line='1100' column='1'/>
         </data-member>
@@ -87851,10 +87769,10 @@
       <class-decl name='iomap' is-struct='yes' visibility='default' is-declaration-only='yes' id='3b326cb5'/>
       <class-decl name='fid' size-in-bits='160' is-struct='yes' visibility='default' filepath='include/linux/exportfs.h' line='113' column='1' id='2437c5c4'>
         <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='' type-id='f9cbf5f3' visibility='default' filepath='include/linux/exportfs.h' line='114' column='1'/>
+          <var-decl name='' type-id='f9cbf5f4' visibility='default' filepath='include/linux/exportfs.h' line='114' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='160' is-anonymous='yes' visibility='default' filepath='include/linux/exportfs.h' line='114' column='1' id='f9cbf5f3'>
+      <union-decl name='__anonymous_union__2' size-in-bits='160' is-anonymous='yes' visibility='default' filepath='include/linux/exportfs.h' line='114' column='1' id='f9cbf5f4'>
         <data-member access='private'>
           <var-decl name='i32' type-id='e7f43f87' visibility='default' filepath='include/linux/exportfs.h' line='120' column='1'/>
         </data-member>
@@ -87916,7 +87834,7 @@
           <var-decl name='i_dir_seq' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='736' column='1'/>
         </data-member>
       </union-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='7168' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='389' column='1' id='657f91cb'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='7168' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='389' column='1' id='657f91ca'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='mmap' type-id='2ae08426' visibility='default' filepath='include/linux/mm_types.h' line='390' column='1'/>
         </data-member>
@@ -88240,7 +88158,7 @@
       <var-decl name='contig_page_data' type-id='54406315' mangled-name='contig_page_data' visibility='default' filepath='mm/memblock.c' line='99' column='1' elf-symbol-id='contig_page_data'/>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='mm/memory.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f6cbf13f'>
+      <union-decl name='__anonymous_union__1' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f6cbf140'>
         <member-type access='private'>
           <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='146' column='1' id='70494aab'>
             <data-member access='public' layout-offset-in-bits='0'>
@@ -88253,7 +88171,7 @@
               <var-decl name='_pt_pad_2' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='149' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='192'>
-              <var-decl name='' type-id='f9cbf5f4' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
+              <var-decl name='' type-id='f9cbf5f5' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='256'>
               <var-decl name='ptl' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='157' column='1'/>
@@ -88267,7 +88185,7 @@
           <var-decl name='callback_head' type-id='e3d8ce29' visibility='default' filepath='include/linux/mm_types.h' line='177' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f9cbf5f4'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f9cbf5f5'>
         <data-member access='private'>
           <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
         </data-member>
@@ -88310,6 +88228,40 @@
       <function-decl name='device_online' filepath='include/linux/device.h' line='1613' column='1' visibility='default' binding='global' size-in-bits='64'>
         <parameter type-id='fa0b179b'/>
         <return type-id='95e97e5e'/>
+      </function-decl>
+    </abi-instr>
+    <abi-instr version='1.0' address-size='64' path='mm/mempool.c' language='LANG_C89'>
+      <pointer-type-def type-id='2745fad8' size-in-bits='64' id='78713e8f'/>
+      <function-decl name='mempool_destroy' mangled-name='mempool_destroy' filepath='mm/mempool.c' line='170' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mempool_destroy'>
+        <parameter type-id='78713e8f' name='pool' filepath='mm/mempool.c' line='170' column='1'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
+      <function-decl name='mempool_create' mangled-name='mempool_create' filepath='mm/mempool.c' line='253' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mempool_create'>
+        <parameter type-id='95e97e5e' name='min_nr' filepath='mm/mempool.c' line='253' column='1'/>
+        <parameter type-id='8bf6d789' name='alloc_fn' filepath='mm/mempool.c' line='253' column='1'/>
+        <parameter type-id='a4c19f22' name='free_fn' filepath='mm/mempool.c' line='254' column='1'/>
+        <parameter type-id='eaa32e2f' name='pool_data' filepath='mm/mempool.c' line='254' column='1'/>
+        <return type-id='78713e8f'/>
+      </function-decl>
+      <function-decl name='mempool_alloc' mangled-name='mempool_alloc' filepath='mm/mempool.c' line='375' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mempool_alloc'>
+        <parameter type-id='78713e8f' name='pool' filepath='mm/mempool.c' line='375' column='1'/>
+        <parameter type-id='3eb7c31c' name='gfp_mask' filepath='mm/mempool.c' line='375' column='1'/>
+        <return type-id='eaa32e2f'/>
+      </function-decl>
+      <function-decl name='mempool_free' mangled-name='mempool_free' filepath='mm/mempool.c' line='452' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mempool_free'>
+        <parameter type-id='eaa32e2f' name='element' filepath='mm/mempool.c' line='452' column='1'/>
+        <parameter type-id='78713e8f' name='pool' filepath='mm/mempool.c' line='452' column='1'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
+      <function-decl name='mempool_alloc_slab' mangled-name='mempool_alloc_slab' filepath='mm/mempool.c' line='509' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mempool_alloc_slab'>
+        <parameter type-id='3eb7c31c' name='gfp_mask' filepath='mm/mempool.c' line='509' column='1'/>
+        <parameter type-id='eaa32e2f' name='pool_data' filepath='mm/mempool.c' line='509' column='1'/>
+        <return type-id='eaa32e2f'/>
+      </function-decl>
+      <function-decl name='mempool_free_slab' mangled-name='mempool_free_slab' filepath='mm/mempool.c' line='517' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='mempool_free_slab'>
+        <parameter type-id='eaa32e2f' name='element' filepath='mm/mempool.c' line='517' column='1'/>
+        <parameter type-id='eaa32e2f' name='pool_data' filepath='mm/mempool.c' line='517' column='1'/>
+        <return type-id='48b5725f'/>
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='mm/mmap.c' language='LANG_C89'>
@@ -88502,7 +88454,7 @@
           <var-decl name='partial' type-id='02f11ed4' visibility='default' filepath='include/linux/slub_def.h' line='46' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1' id='f6cbf140'>
+      <union-decl name='__anonymous_union__1' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1' id='f6cbf141'>
         <data-member access='private'>
           <var-decl name='slab_list' type-id='72f469ec' visibility='default' filepath='include/linux/mm_types.h' line='107' column='1'/>
         </data-member>
@@ -88644,11 +88596,11 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='mm/truncate.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__2' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f9cbf5f5'>
+      <union-decl name='__anonymous_union__2' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='f9cbf5f6'>
         <member-type access='private'>
-          <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='105' column='1' id='62a75ba3'>
+          <class-decl name='__anonymous_struct__' size-in-bits='320' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='105' column='1' id='62a75ba4'>
             <data-member access='public' layout-offset-in-bits='0'>
-              <var-decl name='' type-id='f8cbf45e' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1'/>
+              <var-decl name='' type-id='f8cbf45f' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='128'>
               <var-decl name='slab_cache' type-id='f3b4aca8' visibility='default' filepath='include/linux/mm_types.h' line='119' column='1'/>
@@ -88673,7 +88625,7 @@
               <var-decl name='_pt_pad_2' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='149' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='192'>
-              <var-decl name='' type-id='f2cbeaec' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
+              <var-decl name='' type-id='f2cbeae5' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1'/>
             </data-member>
             <data-member access='public' layout-offset-in-bits='256'>
               <var-decl name='ptl' type-id='fb4018a0' visibility='default' filepath='include/linux/mm_types.h' line='157' column='1'/>
@@ -88701,20 +88653,12 @@
           <var-decl name='private' type-id='7359adad' visibility='default' filepath='include/linux/mm_types.h' line='96' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1' id='f8cbf45e'>
+      <union-decl name='__anonymous_union__3' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='106' column='1' id='f8cbf45f'>
         <data-member access='private'>
           <var-decl name='slab_list' type-id='72f469ec' visibility='default' filepath='include/linux/mm_types.h' line='107' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='' type-id='687f9680' visibility='default' filepath='include/linux/mm_types.h' line='108' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='150' column='1' id='f2cbeaec'>
-        <data-member access='private'>
-          <var-decl name='pt_mm' type-id='df4b7819' visibility='default' filepath='include/linux/mm_types.h' line='151' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='pt_frag_refcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='152' column='1'/>
         </data-member>
       </union-decl>
       <union-decl name='__anonymous_union__8' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/blkdev.h' line='170' column='1' id='ffcbff5d'>
@@ -89220,7 +89164,7 @@
           <var-decl name='data' type-id='db4e746c' visibility='default' filepath='include/uapi/linux/wireless.h' line='926' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/ip.h' line='124' column='1' id='ac5ab5b9'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/ip.h' line='124' column='1' id='ac5ab5ba'>
         <data-member access='private'>
           <var-decl name='destructor' type-id='841969d0' visibility='default' filepath='include/net/ip.h' line='125' column='1'/>
         </data-member>
@@ -89228,7 +89172,7 @@
           <var-decl name='saved_sk' type-id='f772df6e' visibility='default' filepath='include/net/ip.h' line='126' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/ip6_fib.h' line='146' column='1' id='f6cbf141'>
+      <union-decl name='__anonymous_union__1' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/ip6_fib.h' line='146' column='1' id='f6cbf142'>
         <data-member access='private'>
           <var-decl name='fib6_siblings' type-id='72f469ec' visibility='default' filepath='include/net/ip6_fib.h' line='147' column='1'/>
         </data-member>
@@ -89236,7 +89180,7 @@
           <var-decl name='nh_list' type-id='72f469ec' visibility='default' filepath='include/net/ip6_fib.h' line='148' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/nexthop.h' line='96' column='1' id='f9cbf5f6'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/nexthop.h' line='96' column='1' id='f9cbf5f7'>
         <data-member access='private'>
           <var-decl name='nh_info' type-id='e55edb2e' visibility='default' filepath='include/net/nexthop.h' line='97' column='1'/>
         </data-member>
@@ -89244,7 +89188,7 @@
           <var-decl name='nh_grp' type-id='c5ff416f' visibility='default' filepath='include/net/nexthop.h' line='98' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='832' is-anonymous='yes' visibility='default' filepath='include/net/nexthop.h' line='56' column='1' id='f8cbf45f'>
+      <union-decl name='__anonymous_union__3' size-in-bits='832' is-anonymous='yes' visibility='default' filepath='include/net/nexthop.h' line='56' column='1' id='f8cbf460'>
         <data-member access='private'>
           <var-decl name='fib_nhc' type-id='e1f89457' visibility='default' filepath='include/net/nexthop.h' line='57' column='1'/>
         </data-member>
@@ -89263,7 +89207,7 @@
           <var-decl name='ipv6' type-id='f6ed712a' visibility='default' filepath='include/net/ip_fib.h' line='91' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/route.h' line='62' column='1' id='f2cbeaed'>
+      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/route.h' line='62' column='1' id='f2cbeaec'>
         <data-member access='private'>
           <var-decl name='rt_gw4' type-id='78a133c2' visibility='default' filepath='include/net/route.h' line='63' column='1'/>
         </data-member>
@@ -89311,7 +89255,7 @@
           <var-decl name='completion_queue' type-id='0fbf3cfd' visibility='default' filepath='include/linux/netdevice.h' line='3045' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='xmit' type-id='657f91cc' visibility='default' filepath='include/linux/netdevice.h' line='3053' column='1'/>
+          <var-decl name='xmit' type-id='657f91cb' visibility='default' filepath='include/linux/netdevice.h' line='3053' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1024'>
           <var-decl name='input_queue_head' type-id='f0981eeb' visibility='default' filepath='include/linux/netdevice.h' line='3058' column='1'/>
@@ -89355,7 +89299,7 @@
           <var-decl name='buckets' type-id='29c3368c' visibility='default' filepath='include/linux/netdevice.h' line='3020' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='32' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/netdevice.h' line='3050' column='1' id='657f91cc'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='32' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/netdevice.h' line='3050' column='1' id='657f91cb'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='recursion' type-id='1dc6a898' visibility='default' filepath='include/linux/netdevice.h' line='3051' column='1'/>
         </data-member>
@@ -89430,14 +89374,14 @@
         <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='4668' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-decl name='netdev_upper_dev_unlink' mangled-name='netdev_upper_dev_unlink' filepath='net/core/dev.c' line='7395' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_upper_dev_unlink'>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='7395' column='1'/>
-        <parameter type-id='68a2d05c' name='upper_dev' filepath='net/core/dev.c' line='7396' column='1'/>
+      <function-decl name='netdev_upper_dev_unlink' mangled-name='netdev_upper_dev_unlink' filepath='net/core/dev.c' line='7396' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_upper_dev_unlink'>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='7396' column='1'/>
+        <parameter type-id='68a2d05c' name='upper_dev' filepath='net/core/dev.c' line='7397' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-decl name='netdev_lower_state_changed' mangled-name='netdev_lower_state_changed' filepath='net/core/dev.c' line='7628' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_lower_state_changed'>
-        <parameter type-id='68a2d05c' name='lower_dev' filepath='net/core/dev.c' line='7628' column='1'/>
-        <parameter type-id='eaa32e2f' name='lower_state_info' filepath='net/core/dev.c' line='7629' column='1'/>
+      <function-decl name='netdev_lower_state_changed' mangled-name='netdev_lower_state_changed' filepath='net/core/dev.c' line='7629' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_lower_state_changed'>
+        <parameter type-id='68a2d05c' name='lower_dev' filepath='net/core/dev.c' line='7629' column='1'/>
+        <parameter type-id='eaa32e2f' name='lower_state_info' filepath='net/core/dev.c' line='7630' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
       <var-decl name='softnet_data' type-id='035aa62d' mangled-name='softnet_data' visibility='default' filepath='net/core/dev.c' line='278' column='1' elf-symbol-id='softnet_data'/>
@@ -89544,46 +89488,46 @@
         <parameter type-id='b50a4934' name='flush_old' filepath='net/core/dev.c' line='5353' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-decl name='__napi_schedule' mangled-name='__napi_schedule' filepath='net/core/dev.c' line='5913' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='__napi_schedule'>
-        <parameter type-id='c50361c5' name='n' filepath='net/core/dev.c' line='5913' column='1'/>
+      <function-decl name='__napi_schedule' mangled-name='__napi_schedule' filepath='net/core/dev.c' line='5914' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='__napi_schedule'>
+        <parameter type-id='c50361c5' name='n' filepath='net/core/dev.c' line='5914' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-decl name='netdev_upper_dev_link' mangled-name='netdev_upper_dev_link' filepath='net/core/dev.c' line='7354' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_upper_dev_link'>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='7354' column='1'/>
-        <parameter type-id='68a2d05c' name='upper_dev' filepath='net/core/dev.c' line='7355' column='1'/>
-        <parameter type-id='5799dc94' name='extack' filepath='net/core/dev.c' line='7356' column='1'/>
+      <function-decl name='netdev_upper_dev_link' mangled-name='netdev_upper_dev_link' filepath='net/core/dev.c' line='7355' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_upper_dev_link'>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='7355' column='1'/>
+        <parameter type-id='68a2d05c' name='upper_dev' filepath='net/core/dev.c' line='7356' column='1'/>
+        <parameter type-id='5799dc94' name='extack' filepath='net/core/dev.c' line='7357' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <function-decl name='netdev_master_upper_dev_link' mangled-name='netdev_master_upper_dev_link' filepath='net/core/dev.c' line='7377' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_master_upper_dev_link'>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='7377' column='1'/>
-        <parameter type-id='68a2d05c' name='upper_dev' filepath='net/core/dev.c' line='7378' column='1'/>
-        <parameter type-id='eaa32e2f' name='upper_priv' filepath='net/core/dev.c' line='7379' column='1'/>
-        <parameter type-id='eaa32e2f' name='upper_info' filepath='net/core/dev.c' line='7379' column='1'/>
-        <parameter type-id='5799dc94' name='extack' filepath='net/core/dev.c' line='7380' column='1'/>
+      <function-decl name='netdev_master_upper_dev_link' mangled-name='netdev_master_upper_dev_link' filepath='net/core/dev.c' line='7378' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_master_upper_dev_link'>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='7378' column='1'/>
+        <parameter type-id='68a2d05c' name='upper_dev' filepath='net/core/dev.c' line='7379' column='1'/>
+        <parameter type-id='eaa32e2f' name='upper_priv' filepath='net/core/dev.c' line='7380' column='1'/>
+        <parameter type-id='eaa32e2f' name='upper_info' filepath='net/core/dev.c' line='7380' column='1'/>
+        <parameter type-id='5799dc94' name='extack' filepath='net/core/dev.c' line='7381' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <function-decl name='dev_set_mtu' mangled-name='dev_set_mtu' filepath='net/core/dev.c' line='8041' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='dev_set_mtu'>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='8041' column='1'/>
-        <parameter type-id='95e97e5e' name='new_mtu' filepath='net/core/dev.c' line='8041' column='1'/>
+      <function-decl name='dev_set_mtu' mangled-name='dev_set_mtu' filepath='net/core/dev.c' line='8042' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='dev_set_mtu'>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='8042' column='1'/>
+        <parameter type-id='95e97e5e' name='new_mtu' filepath='net/core/dev.c' line='8042' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <function-decl name='netdev_change_features' mangled-name='netdev_change_features' filepath='net/core/dev.c' line='8820' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_change_features'>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='8820' column='1'/>
+      <function-decl name='netdev_change_features' mangled-name='netdev_change_features' filepath='net/core/dev.c' line='8821' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_change_features'>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='8821' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-decl name='netif_stacked_transfer_operstate' mangled-name='netif_stacked_transfer_operstate' filepath='net/core/dev.c' line='8836' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netif_stacked_transfer_operstate'>
-        <parameter type-id='2ce52478' name='rootdev' filepath='net/core/dev.c' line='8836' column='1'/>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='8837' column='1'/>
+      <function-decl name='netif_stacked_transfer_operstate' mangled-name='netif_stacked_transfer_operstate' filepath='net/core/dev.c' line='8837' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netif_stacked_transfer_operstate'>
+        <parameter type-id='2ce52478' name='rootdev' filepath='net/core/dev.c' line='8837' column='1'/>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='8838' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-decl name='init_dummy_netdev' mangled-name='init_dummy_netdev' filepath='net/core/dev.c' line='9164' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='init_dummy_netdev'>
-        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='9164' column='1'/>
+      <function-decl name='init_dummy_netdev' mangled-name='init_dummy_netdev' filepath='net/core/dev.c' line='9165' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='init_dummy_netdev'>
+        <parameter type-id='68a2d05c' name='dev' filepath='net/core/dev.c' line='9165' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <function-decl name='netdev_increment_features' mangled-name='netdev_increment_features' filepath='net/core/dev.c' line='9912' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_increment_features'>
-        <parameter type-id='f9f4b16f' name='all' filepath='net/core/dev.c' line='9912' column='1'/>
-        <parameter type-id='f9f4b16f' name='one' filepath='net/core/dev.c' line='9913' column='1'/>
-        <parameter type-id='f9f4b16f' name='mask' filepath='net/core/dev.c' line='9913' column='1'/>
+      <function-decl name='netdev_increment_features' mangled-name='netdev_increment_features' filepath='net/core/dev.c' line='9913' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='netdev_increment_features'>
+        <parameter type-id='f9f4b16f' name='all' filepath='net/core/dev.c' line='9913' column='1'/>
+        <parameter type-id='f9f4b16f' name='one' filepath='net/core/dev.c' line='9914' column='1'/>
+        <parameter type-id='f9f4b16f' name='mask' filepath='net/core/dev.c' line='9914' column='1'/>
         <return type-id='f9f4b16f'/>
       </function-decl>
       <function-type size-in-bits='64' id='97488913'>
@@ -89651,7 +89595,7 @@
           <var-decl name='dma' type-id='cf29c9b3' visibility='default' filepath='include/net/xdp_sock.h' line='28' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='ac5ab5ba'>
+      <union-decl name='__anonymous_union__' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='79' column='1' id='ac5ab5bb'>
         <data-member access='private'>
           <var-decl name='' type-id='b7d2bcd0' visibility='default' filepath='include/linux/mm_types.h' line='80' column='1'/>
         </data-member>
@@ -89659,7 +89603,7 @@
           <var-decl name='callback_head' type-id='e3d8ce29' visibility='default' filepath='include/linux/mm_types.h' line='177' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='180' column='1' id='f6cbf142'>
+      <union-decl name='__anonymous_union__1' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='180' column='1' id='f6cbf143'>
         <data-member access='private'>
           <var-decl name='_mapcount' type-id='49178f86' visibility='default' filepath='include/linux/mm_types.h' line='185' column='1'/>
         </data-member>
@@ -89877,7 +89821,7 @@
           <var-decl name='udp' type-id='687f968a' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='29' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='icmp' type-id='657f91cd' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='32' column='1'/>
+          <var-decl name='icmp' type-id='657f91cc' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='32' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='dccp' type-id='667f935a' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='35' column='1'/>
@@ -89899,7 +89843,7 @@
           <var-decl name='port' type-id='84a5c3d4' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='28' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='16' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='30' column='1' id='657f91cd'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='16' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='30' column='1' id='657f91cc'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='id' type-id='84a5c3d4' visibility='default' filepath='include/uapi/linux/netfilter/nf_conntrack_tuple_common.h' line='31' column='1'/>
         </data-member>
@@ -89925,7 +89869,7 @@
           <var-decl name='u3' type-id='8c17f46b' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='42' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='u' type-id='f6cbf143' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='65' column='1'/>
+          <var-decl name='u' type-id='f6cbf144' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='65' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='144'>
           <var-decl name='protonum' type-id='892641a4' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='68' column='1'/>
@@ -89934,7 +89878,7 @@
           <var-decl name='dir' type-id='892641a4' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='71' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='16' is-anonymous='yes' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='43' column='1' id='f6cbf143'>
+      <union-decl name='__anonymous_union__1' size-in-bits='16' is-anonymous='yes' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='43' column='1' id='f6cbf144'>
         <data-member access='private'>
           <var-decl name='all' type-id='84a5c3d4' visibility='default' filepath='include/net/netfilter/nf_conntrack_tuple.h' line='45' column='1'/>
         </data-member>
@@ -90446,7 +90390,7 @@
       <array-type-def dimensions='1' type-id='a30f25c8' size-in-bits='3072' id='41cc9498'>
         <subrange length='6' type-id='7ff19f0f' id='52fa524b'/>
       </array-type-def>
-      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f8cbf460'>
+      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f8cbf461'>
         <data-member access='private'>
           <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
         </data-member>
@@ -90500,8 +90444,8 @@
           <var-decl name='user' type-id='70734f24' visibility='default' filepath='include/uapi/linux/xfrm.h' line='61' column='1'/>
         </data-member>
       </class-decl>
-      <typedef-decl name='xfrm_address_t' type-id='f2cbeaee' filepath='include/uapi/linux/xfrm.h' line='19' column='1' id='c210d497'/>
-      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/xfrm.h' line='15' column='1' id='f2cbeaee'>
+      <typedef-decl name='xfrm_address_t' type-id='f2cbeaed' filepath='include/uapi/linux/xfrm.h' line='19' column='1' id='c210d497'/>
+      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/uapi/linux/xfrm.h' line='15' column='1' id='f2cbeaed'>
         <data-member access='private'>
           <var-decl name='a4' type-id='78a133c2' visibility='default' filepath='include/uapi/linux/xfrm.h' line='16' column='1'/>
         </data-member>
@@ -90973,14 +90917,6 @@
           <var-decl name='is_ack_delayed' type-id='b50a4934' visibility='default' filepath='include/net/tcp.h' line='1034' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__11' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='956' column='1' id='a00c90ad'>
-        <data-member access='private'>
-          <var-decl name='fu_llist' type-id='c5ccfee8' visibility='default' filepath='include/linux/fs.h' line='957' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='fu_rcuhead' type-id='e3d8ce29' visibility='default' filepath='include/linux/fs.h' line='958' column='1'/>
-        </data-member>
-      </union-decl>
       <union-decl name='__anonymous_union__12' size-in-bits='256' is-anonymous='yes' visibility='default' filepath='include/linux/mm_types.h' line='328' column='1' id='a10c923d'>
         <data-member access='private'>
           <var-decl name='shared' type-id='3de1074c' visibility='default' filepath='include/linux/mm_types.h' line='332' column='1'/>
@@ -91235,14 +91171,6 @@
           <var-decl name='list' type-id='72f469ec' visibility='default' filepath='include/linux/skbuff.h' line='703' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__10' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='9f0c8f19'>
-        <data-member access='private'>
-          <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='ip_defrag_offset' type-id='95e97e5e' visibility='default' filepath='include/linux/skbuff.h' line='708' column='1'/>
-        </data-member>
-      </union-decl>
       <class-decl name='sock_diag_handler' size-in-bits='256' is-struct='yes' visibility='default' filepath='include/linux/sock_diag.h' line='15' column='1' id='caff6eaa'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='family' type-id='8f048e17' visibility='default' filepath='include/linux/sock_diag.h' line='16' column='1'/>
@@ -91337,7 +91265,18 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='net/netlink/af_netlink.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f2cbeaef'>
+      <union-decl name='__anonymous_union__4' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='687' column='1' id='f3cbec86'>
+        <data-member access='private'>
+          <var-decl name='' type-id='657f91c8' visibility='default' filepath='include/linux/skbuff.h' line='688' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='rbnode' type-id='2a8a6332' visibility='default' filepath='include/linux/skbuff.h' line='702' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='list' type-id='72f469ec' visibility='default' filepath='include/linux/skbuff.h' line='703' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f2cbeaee'>
         <data-member access='private'>
           <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
         </data-member>
@@ -91825,7 +91764,7 @@
           <var-decl name='pmsr_capa' type-id='5abfac26' visibility='default' filepath='include/net/cfg80211.h' line='4824' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11008'>
-          <var-decl name='tid_config_support' type-id='657f91ce' visibility='default' filepath='include/net/cfg80211.h' line='4828' column='1'/>
+          <var-decl name='tid_config_support' type-id='657f91cd' visibility='default' filepath='include/net/cfg80211.h' line='4828' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='11264'>
           <var-decl name='priv' type-id='e84913bd' visibility='default' filepath='include/net/cfg80211.h' line='4830' column='1'/>
@@ -93045,7 +92984,7 @@
           <var-decl name='request_civicloc' type-id='f9b06939' visibility='default' filepath='include/net/cfg80211.h' line='4472' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='128' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/net/cfg80211.h' line='4826' column='1' id='657f91ce'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='128' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/net/cfg80211.h' line='4826' column='1' id='657f91cd'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='peer' type-id='91ce1af9' visibility='default' filepath='include/net/cfg80211.h' line='4827' column='1'/>
         </data-member>
@@ -94585,7 +94524,7 @@
           <var-decl name='behaviour' type-id='10fd9108' visibility='default' filepath='include/net/cfg80211.h' line='2540' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='param' type-id='f6cbf144' visibility='default' filepath='include/net/cfg80211.h' line='2544' column='1'/>
+          <var-decl name='param' type-id='f6cbf145' visibility='default' filepath='include/net/cfg80211.h' line='2544' column='1'/>
         </data-member>
       </class-decl>
       <enum-decl name='nl80211_bss_select_attr' filepath='include/uapi/linux/nl80211.h' line='6057' column='1' id='10fd9108'>
@@ -94597,7 +94536,7 @@
         <enumerator name='__NL80211_BSS_SELECT_ATTR_AFTER_LAST' value='4'/>
         <enumerator name='NL80211_BSS_SELECT_ATTR_MAX' value='3'/>
       </enum-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/cfg80211.h' line='2541' column='1' id='f6cbf144'>
+      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/cfg80211.h' line='2541' column='1' id='f6cbf145'>
         <data-member access='private'>
           <var-decl name='band_pref' type-id='3eaa0294' visibility='default' filepath='include/net/cfg80211.h' line='2542' column='1'/>
         </data-member>
@@ -96068,26 +96007,123 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='net/wireless/nl80211.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='687' column='1' id='ac5ab5bb'>
+      <union-decl name='__anonymous_union__2' size-in-bits='384' is-anonymous='yes' visibility='default' filepath='include/linux/bpf.h' line='420' column='1' id='f9cbf5f8'>
         <data-member access='private'>
-          <var-decl name='' type-id='657f91c9' visibility='default' filepath='include/linux/skbuff.h' line='688' column='1'/>
+          <var-decl name='work' type-id='ef9025d0' visibility='default' filepath='include/linux/bpf.h' line='421' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='rbnode' type-id='2a8a6332' visibility='default' filepath='include/linux/skbuff.h' line='702' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='list' type-id='72f469ec' visibility='default' filepath='include/linux/skbuff.h' line='703' column='1'/>
+          <var-decl name='rcu' type-id='e3d8ce29' visibility='default' filepath='include/linux/bpf.h' line='422' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='f6cbf145'>
+      <union-decl name='__anonymous_union__3' is-anonymous='yes' visibility='default' filepath='include/linux/filter.h' line='547' column='1' id='f8cbf462'>
         <data-member access='private'>
-          <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
+          <var-decl name='insns' type-id='4967766c' visibility='default' filepath='include/linux/filter.h' line='548' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='ip_defrag_offset' type-id='95e97e5e' visibility='default' filepath='include/linux/skbuff.h' line='708' column='1'/>
+          <var-decl name='insnsi' type-id='b50399da' visibility='default' filepath='include/linux/filter.h' line='549' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='711' column='1' id='f9cbf5f7'>
+      <union-decl name='__anonymous_union__6' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='152' column='1' id='f5cbefa4'>
+        <data-member access='private'>
+          <var-decl name='skc_addrpair' type-id='d17a6eed' visibility='default' filepath='include/net/sock.h' line='153' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='' type-id='e7f43f82' visibility='default' filepath='include/net/sock.h' line='154' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__7' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='159' column='1' id='f4cbee0f'>
+        <data-member access='private'>
+          <var-decl name='skc_hash' type-id='f0981eeb' visibility='default' filepath='include/net/sock.h' line='160' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_u16hashes' type-id='810b4a17' visibility='default' filepath='include/net/sock.h' line='161' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__8' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='164' column='1' id='ffcbff5e'>
+        <data-member access='private'>
+          <var-decl name='skc_portpair' type-id='e7c2a649' visibility='default' filepath='include/net/sock.h' line='165' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='' type-id='687f9684' visibility='default' filepath='include/net/sock.h' line='166' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__9' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='179' column='1' id='fecbfdcc'>
+        <data-member access='private'>
+          <var-decl name='skc_bind_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='180' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_portaddr_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='181' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__10' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='956' column='1' id='9f0c8f1a'>
+        <data-member access='private'>
+          <var-decl name='fu_llist' type-id='c5ccfee8' visibility='default' filepath='include/linux/fs.h' line='957' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='fu_rcuhead' type-id='e3d8ce29' visibility='default' filepath='include/linux/fs.h' line='958' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__11' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='1185' column='1' id='a00c90ad'>
+        <data-member access='private'>
+          <var-decl name='hashinfo' type-id='d7a1e3c2' visibility='default' filepath='include/net/sock.h' line='1186' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='udp_table' type-id='115daa23' visibility='default' filepath='include/net/sock.h' line='1187' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='raw_hash' type-id='eb2c56dc' visibility='default' filepath='include/net/sock.h' line='1188' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='smc_hash' type-id='aa8162a3' visibility='default' filepath='include/net/sock.h' line='1189' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__13' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='210' column='1' id='a20c93d2'>
+        <data-member access='private'>
+          <var-decl name='skc_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='211' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_nulls_node' type-id='5bd248e7' visibility='default' filepath='include/net/sock.h' line='212' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__14' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='218' column='1' id='9b0c88cc'>
+        <data-member access='private'>
+          <var-decl name='skc_incoming_cpu' type-id='95e97e5e' visibility='default' filepath='include/net/sock.h' line='219' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_rcv_wnd' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='220' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_tw_rcv_nxt' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='221' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__15' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='227' column='1' id='9c0c8a5e'>
+        <data-member access='private'>
+          <var-decl name='skc_rxhash' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='228' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_window_clamp' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='229' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='skc_tw_snd_nxt' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='230' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__16' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='396' column='1' id='9d0c8bf1'>
+        <data-member access='private'>
+          <var-decl name='sk_wq' type-id='99f34ac1' visibility='default' filepath='include/net/sock.h' line='397' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='sk_wq_raw' type-id='99f34ac1' visibility='default' filepath='include/net/sock.h' line='398' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__17' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='412' column='1' id='9e0c8d85'>
+        <data-member access='private'>
+          <var-decl name='sk_send_head' type-id='0fbf3cfd' visibility='default' filepath='include/net/sock.h' line='413' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='tcp_rtx_queue' type-id='dec44472' visibility='default' filepath='include/net/sock.h' line='414' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__18' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='711' column='1' id='970c8282'>
         <data-member access='private'>
           <var-decl name='tstamp' type-id='fbc017ef' visibility='default' filepath='include/linux/skbuff.h' line='712' column='1'/>
         </data-member>
@@ -96095,7 +96131,7 @@
           <var-decl name='skb_mstamp_ns' type-id='91ce1af9' visibility='default' filepath='include/linux/skbuff.h' line='713' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='723' column='1' id='f8cbf461'>
+      <union-decl name='__anonymous_union__19' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='723' column='1' id='980c8414'>
         <data-member access='private'>
           <var-decl name='' type-id='687f9679' visibility='default' filepath='include/linux/skbuff.h' line='724' column='1'/>
         </data-member>
@@ -96103,7 +96139,7 @@
           <var-decl name='tcp_tsorted_anchor' type-id='72f469ec' visibility='default' filepath='include/linux/skbuff.h' line='728' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__4' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='833' column='1' id='f3cbec86'>
+      <union-decl name='__anonymous_union__20' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='833' column='1' id='1113fe53'>
         <data-member access='private'>
           <var-decl name='csum' type-id='fbd88bba' visibility='default' filepath='include/linux/skbuff.h' line='834' column='1'/>
         </data-member>
@@ -96111,7 +96147,7 @@
           <var-decl name='' type-id='657f91c0' visibility='default' filepath='include/linux/skbuff.h' line='835' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='846' column='1' id='f2cbeaf0'>
+      <union-decl name='__anonymous_union__21' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='846' column='1' id='1013fcbf'>
         <data-member access='private'>
           <var-decl name='napi_id' type-id='f0981eeb' visibility='default' filepath='include/linux/skbuff.h' line='847' column='1'/>
         </data-member>
@@ -96119,7 +96155,7 @@
           <var-decl name='sender_cpu' type-id='f0981eeb' visibility='default' filepath='include/linux/skbuff.h' line='848' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__6' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='855' column='1' id='f5cbefa4'>
+      <union-decl name='__anonymous_union__22' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='855' column='1' id='13140178'>
         <data-member access='private'>
           <var-decl name='mark' type-id='3f1a6b60' visibility='default' filepath='include/linux/skbuff.h' line='856' column='1'/>
         </data-member>
@@ -96127,72 +96163,12 @@
           <var-decl name='reserved_tailroom' type-id='3f1a6b60' visibility='default' filepath='include/linux/skbuff.h' line='857' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__7' size-in-bits='16' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='860' column='1' id='f4cbee0f'>
+      <union-decl name='__anonymous_union__23' size-in-bits='16' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='860' column='1' id='1213ffe3'>
         <data-member access='private'>
           <var-decl name='inner_protocol' type-id='84a5c3d4' visibility='default' filepath='include/linux/skbuff.h' line='861' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='inner_ipproto' type-id='8f048e17' visibility='default' filepath='include/linux/skbuff.h' line='862' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__8' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='673' column='1' id='ffcbff5e'>
-        <data-member access='private'>
-          <var-decl name='i_nlink' type-id='20f5f452' visibility='default' filepath='include/linux/fs.h' line='674' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='__i_nlink' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='675' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__9' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='712' column='1' id='fecbfdcc'>
-        <data-member access='private'>
-          <var-decl name='i_dentry' type-id='e151255a' visibility='default' filepath='include/linux/fs.h' line='713' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_rcu' type-id='e3d8ce29' visibility='default' filepath='include/linux/fs.h' line='714' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__10' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='724' column='1' id='9f0c8f1a'>
-        <data-member access='private'>
-          <var-decl name='i_fop' type-id='61758ee5' visibility='default' filepath='include/linux/fs.h' line='725' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='free_inode' type-id='4f3d95df' visibility='default' filepath='include/linux/fs.h' line='726' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__11' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='a00c90ae'>
-        <data-member access='private'>
-          <var-decl name='i_pipe' type-id='15d29711' visibility='default' filepath='include/linux/fs.h' line='732' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_bdev' type-id='b88dd945' visibility='default' filepath='include/linux/fs.h' line='733' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_cdev' type-id='3e6eb93a' visibility='default' filepath='include/linux/fs.h' line='734' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_link' type-id='26a90f95' visibility='default' filepath='include/linux/fs.h' line='735' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='i_dir_seq' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='736' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__12' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/dcache.h' line='108' column='1' id='a10c923f'>
-        <data-member access='private'>
-          <var-decl name='d_lru' type-id='72f469ec' visibility='default' filepath='include/linux/dcache.h' line='109' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='d_wait' type-id='03d48e96' visibility='default' filepath='include/linux/dcache.h' line='110' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__13' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/dcache.h' line='117' column='1' id='a20c93d2'>
-        <data-member access='private'>
-          <var-decl name='d_alias' type-id='03a4a074' visibility='default' filepath='include/linux/dcache.h' line='118' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='d_in_lookup_hash' type-id='8db0df1b' visibility='default' filepath='include/linux/dcache.h' line='119' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='d_rcu' type-id='e3d8ce29' visibility='default' filepath='include/linux/dcache.h' line='120' column='1'/>
         </data-member>
       </union-decl>
       <enum-decl name='nl80211_commands' filepath='include/uapi/linux/nl80211.h' line='1149' column='1' id='187e1e49'>
@@ -96659,7 +96635,7 @@
       <pointer-type-def type-id='cc4b6920' size-in-bits='64' id='76db5996'/>
       <function-decl name='__cfg80211_alloc_event_skb' mangled-name='__cfg80211_alloc_event_skb' filepath='net/wireless/nl80211.c' line='9903' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='__cfg80211_alloc_event_skb'>
         <parameter type-id='666fb412' name='wiphy' filepath='net/wireless/nl80211.c' line='9903' column='1'/>
-        <parameter type-id='63c7e8e1' name='wdev' filepath='net/wireless/nl80211.c' line='9904' column='1'/>
+        <parameter type-id='63c7e8e2' name='wdev' filepath='net/wireless/nl80211.c' line='9904' column='1'/>
         <parameter type-id='187e1e49' name='cmd' filepath='net/wireless/nl80211.c' line='9905' column='1'/>
         <parameter type-id='320b0ded' name='attr' filepath='net/wireless/nl80211.c' line='9906' column='1'/>
         <parameter type-id='f0981eeb' name='portid' filepath='net/wireless/nl80211.c' line='9907' column='1'/>
@@ -96691,7 +96667,7 @@
         <return type-id='48b5725f'/>
       </function-decl>
       <function-decl name='cfg80211_ready_on_channel' mangled-name='cfg80211_ready_on_channel' filepath='net/wireless/nl80211.c' line='15949' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='cfg80211_ready_on_channel'>
-        <parameter type-id='63c7e8e1' name='wdev' filepath='net/wireless/nl80211.c' line='15949' column='1'/>
+        <parameter type-id='63c7e8e2' name='wdev' filepath='net/wireless/nl80211.c' line='15949' column='1'/>
         <parameter type-id='91ce1af9' name='cookie' filepath='net/wireless/nl80211.c' line='15949' column='1'/>
         <parameter type-id='ec00acfb' name='chan' filepath='net/wireless/nl80211.c' line='15950' column='1'/>
         <parameter type-id='f0981eeb' name='duration' filepath='net/wireless/nl80211.c' line='15951' column='1'/>
@@ -96699,7 +96675,7 @@
         <return type-id='48b5725f'/>
       </function-decl>
       <function-decl name='cfg80211_remain_on_channel_expired' mangled-name='cfg80211_remain_on_channel_expired' filepath='net/wireless/nl80211.c' line='15963' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='cfg80211_remain_on_channel_expired'>
-        <parameter type-id='63c7e8e1' name='wdev' filepath='net/wireless/nl80211.c' line='15963' column='1'/>
+        <parameter type-id='63c7e8e2' name='wdev' filepath='net/wireless/nl80211.c' line='15963' column='1'/>
         <parameter type-id='91ce1af9' name='cookie' filepath='net/wireless/nl80211.c' line='15963' column='1'/>
         <parameter type-id='ec00acfb' name='chan' filepath='net/wireless/nl80211.c' line='15964' column='1'/>
         <parameter type-id='3eb7c31c' name='gfp' filepath='net/wireless/nl80211.c' line='15965' column='1'/>
@@ -96720,7 +96696,7 @@
         <return type-id='48b5725f'/>
       </function-decl>
       <function-decl name='cfg80211_mgmt_tx_status' mangled-name='cfg80211_mgmt_tx_status' filepath='net/wireless/nl80211.c' line='16197' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='cfg80211_mgmt_tx_status'>
-        <parameter type-id='63c7e8e1' name='wdev' filepath='net/wireless/nl80211.c' line='16197' column='1'/>
+        <parameter type-id='63c7e8e2' name='wdev' filepath='net/wireless/nl80211.c' line='16197' column='1'/>
         <parameter type-id='91ce1af9' name='cookie' filepath='net/wireless/nl80211.c' line='16197' column='1'/>
         <parameter type-id='bbaf3419' name='buf' filepath='net/wireless/nl80211.c' line='16198' column='1'/>
         <parameter type-id='b59d7dce' name='len' filepath='net/wireless/nl80211.c' line='16198' column='1'/>
@@ -96775,12 +96751,47 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='net/wireless/reg.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='724' column='1' id='f8cbf462'>
+      <union-decl name='__anonymous_union__1' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='673' column='1' id='f6cbf146'>
+        <data-member access='private'>
+          <var-decl name='i_nlink' type-id='20f5f452' visibility='default' filepath='include/linux/fs.h' line='674' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='__i_nlink' type-id='f0981eeb' visibility='default' filepath='include/linux/fs.h' line='675' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__2' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='712' column='1' id='f9cbf5f9'>
+        <data-member access='private'>
+          <var-decl name='i_dentry' type-id='e151255a' visibility='default' filepath='include/linux/fs.h' line='713' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='i_rcu' type-id='e3d8ce29' visibility='default' filepath='include/linux/fs.h' line='714' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__3' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='724' column='1' id='f8cbf463'>
         <data-member access='private'>
           <var-decl name='i_fop' type-id='61758ee5' visibility='default' filepath='include/linux/fs.h' line='725' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='free_inode' type-id='4f3d95df' visibility='default' filepath='include/linux/fs.h' line='726' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__5' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/dcache.h' line='108' column='1' id='f2cbeaef'>
+        <data-member access='private'>
+          <var-decl name='d_lru' type-id='72f469ec' visibility='default' filepath='include/linux/dcache.h' line='109' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='d_wait' type-id='03d48e96' visibility='default' filepath='include/linux/dcache.h' line='110' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='__anonymous_union__6' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/linux/dcache.h' line='117' column='1' id='f5cbefa5'>
+        <data-member access='private'>
+          <var-decl name='d_alias' type-id='03a4a074' visibility='default' filepath='include/linux/dcache.h' line='118' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='d_in_lookup_hash' type-id='8db0df1b' visibility='default' filepath='include/linux/dcache.h' line='119' column='1'/>
+        </data-member>
+        <data-member access='private'>
+          <var-decl name='d_rcu' type-id='e3d8ce29' visibility='default' filepath='include/linux/dcache.h' line='120' column='1'/>
         </data-member>
       </union-decl>
       <enum-decl name='nl80211_channel_type' filepath='include/uapi/linux/nl80211.h' line='4342' column='1' id='9e446de7'>
@@ -96873,7 +96884,7 @@
           <var-decl name='deauth' type-id='687f968d' visibility='default' filepath='include/linux/ieee80211.h' line='918' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='assoc_req' type-id='657f91cf' visibility='default' filepath='include/linux/ieee80211.h' line='924' column='1'/>
+          <var-decl name='assoc_req' type-id='657f91ce' visibility='default' filepath='include/linux/ieee80211.h' line='924' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='assoc_resp' type-id='667f935c' visibility='default' filepath='include/linux/ieee80211.h' line='931' column='1'/>
@@ -96919,7 +96930,7 @@
           <var-decl name='reason_code' type-id='23119536' visibility='default' filepath='include/linux/ieee80211.h' line='917' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='32' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/ieee80211.h' line='919' column='1' id='657f91cf'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='32' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/linux/ieee80211.h' line='919' column='1' id='657f91ce'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='capab_info' type-id='23119536' visibility='default' filepath='include/linux/ieee80211.h' line='920' column='1'/>
         </data-member>
@@ -97001,10 +97012,10 @@
           <var-decl name='category' type-id='f9b06939' visibility='default' filepath='include/linux/ieee80211.h' line='963' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='8'>
-          <var-decl name='u' type-id='f6cbf146' visibility='default' filepath='include/linux/ieee80211.h' line='1060' column='1'/>
+          <var-decl name='u' type-id='f6cbf147' visibility='default' filepath='include/linux/ieee80211.h' line='1060' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='200' is-anonymous='yes' visibility='default' filepath='include/linux/ieee80211.h' line='964' column='1' id='f6cbf146'>
+      <union-decl name='__anonymous_union__1' size-in-bits='200' is-anonymous='yes' visibility='default' filepath='include/linux/ieee80211.h' line='964' column='1' id='f6cbf147'>
         <data-member access='private'>
           <var-decl name='wme_action' type-id='c9d994ed' visibility='default' filepath='include/linux/ieee80211.h' line='970' column='1'/>
         </data-member>
@@ -97483,38 +97494,6 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='net/wireless/util.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='152' column='1' id='ac5ab5bd'>
-        <data-member access='private'>
-          <var-decl name='skc_addrpair' type-id='d17a6eed' visibility='default' filepath='include/net/sock.h' line='153' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='' type-id='e7f43f82' visibility='default' filepath='include/net/sock.h' line='154' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__1' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='159' column='1' id='f6cbf147'>
-        <data-member access='private'>
-          <var-decl name='skc_hash' type-id='f0981eeb' visibility='default' filepath='include/net/sock.h' line='160' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_u16hashes' type-id='810b4a17' visibility='default' filepath='include/net/sock.h' line='161' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='164' column='1' id='f9cbf5f8'>
-        <data-member access='private'>
-          <var-decl name='skc_portpair' type-id='e7c2a649' visibility='default' filepath='include/net/sock.h' line='165' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='' type-id='687f9684' visibility='default' filepath='include/net/sock.h' line='166' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='179' column='1' id='f8cbf463'>
-        <data-member access='private'>
-          <var-decl name='skc_bind_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='180' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_portaddr_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='181' column='1'/>
-        </data-member>
-      </union-decl>
       <union-decl name='__anonymous_union__4' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='687' column='1' id='f3cbec87'>
         <data-member access='private'>
           <var-decl name='' type-id='e7f43f8b' visibility='default' filepath='include/linux/skbuff.h' line='688' column='1'/>
@@ -97534,31 +97513,15 @@
           <var-decl name='prev' type-id='0fbf3cfd' visibility='default' filepath='include/linux/skbuff.h' line='691' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='' type-id='f2cbeaf1' visibility='default' filepath='include/linux/skbuff.h' line='693' column='1'/>
+          <var-decl name='' type-id='f2cbeaf0' visibility='default' filepath='include/linux/skbuff.h' line='693' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='693' column='1' id='f2cbeaf1'>
+      <union-decl name='__anonymous_union__5' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='693' column='1' id='f2cbeaf0'>
         <data-member access='private'>
           <var-decl name='dev' type-id='68a2d05c' visibility='default' filepath='include/linux/skbuff.h' line='694' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='dev_scratch' type-id='7359adad' visibility='default' filepath='include/linux/skbuff.h' line='699' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__6' size-in-bits='384' is-anonymous='yes' visibility='default' filepath='include/linux/bpf.h' line='420' column='1' id='f5cbefa5'>
-        <data-member access='private'>
-          <var-decl name='work' type-id='ef9025d0' visibility='default' filepath='include/linux/bpf.h' line='421' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='rcu' type-id='e3d8ce29' visibility='default' filepath='include/linux/bpf.h' line='422' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__7' is-anonymous='yes' visibility='default' filepath='include/linux/filter.h' line='547' column='1' id='f4cbee10'>
-        <data-member access='private'>
-          <var-decl name='insns' type-id='4967766c' visibility='default' filepath='include/linux/filter.h' line='548' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='insnsi' type-id='b50399da' visibility='default' filepath='include/linux/filter.h' line='549' column='1'/>
         </data-member>
       </union-decl>
       <union-decl name='__anonymous_union__9' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='fecbfdcd'>
@@ -97569,21 +97532,7 @@
           <var-decl name='ip_defrag_offset' type-id='95e97e5e' visibility='default' filepath='include/linux/skbuff.h' line='708' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__16' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='1185' column='1' id='9d0c8bf1'>
-        <data-member access='private'>
-          <var-decl name='hashinfo' type-id='d7a1e3c2' visibility='default' filepath='include/net/sock.h' line='1186' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='udp_table' type-id='115daa23' visibility='default' filepath='include/net/sock.h' line='1187' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='raw_hash' type-id='eb2c56dc' visibility='default' filepath='include/net/sock.h' line='1188' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='smc_hash' type-id='aa8162a3' visibility='default' filepath='include/net/sock.h' line='1189' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__17' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='198' column='1' id='9e0c8d85'>
+      <union-decl name='__anonymous_union__17' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='198' column='1' id='9e0c8d86'>
         <data-member access='private'>
           <var-decl name='skc_flags' type-id='7359adad' visibility='default' filepath='include/net/sock.h' line='199' column='1'/>
         </data-member>
@@ -97592,52 +97541,6 @@
         </data-member>
         <data-member access='private'>
           <var-decl name='skc_tw_dr' type-id='b7ab21fc' visibility='default' filepath='include/net/sock.h' line='201' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__18' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='210' column='1' id='970c8282'>
-        <data-member access='private'>
-          <var-decl name='skc_node' type-id='03a4a074' visibility='default' filepath='include/net/sock.h' line='211' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_nulls_node' type-id='5bd248e7' visibility='default' filepath='include/net/sock.h' line='212' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__19' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='218' column='1' id='980c8414'>
-        <data-member access='private'>
-          <var-decl name='skc_incoming_cpu' type-id='95e97e5e' visibility='default' filepath='include/net/sock.h' line='219' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_rcv_wnd' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='220' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_tw_rcv_nxt' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='221' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__20' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='227' column='1' id='1113fe53'>
-        <data-member access='private'>
-          <var-decl name='skc_rxhash' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='228' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_window_clamp' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='229' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='skc_tw_snd_nxt' type-id='19c2251e' visibility='default' filepath='include/net/sock.h' line='230' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__21' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='396' column='1' id='1013fcbf'>
-        <data-member access='private'>
-          <var-decl name='sk_wq' type-id='99f34ac1' visibility='default' filepath='include/net/sock.h' line='397' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='sk_wq_raw' type-id='99f34ac1' visibility='default' filepath='include/net/sock.h' line='398' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='__anonymous_union__22' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='412' column='1' id='13140178'>
-        <data-member access='private'>
-          <var-decl name='sk_send_head' type-id='0fbf3cfd' visibility='default' filepath='include/net/sock.h' line='413' column='1'/>
-        </data-member>
-        <data-member access='private'>
-          <var-decl name='tcp_rtx_queue' type-id='dec44472' visibility='default' filepath='include/net/sock.h' line='414' column='1'/>
         </data-member>
       </union-decl>
       <union-decl name='__anonymous_union__25' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='724' column='1' id='0c13f671'>
@@ -97690,7 +97593,7 @@
       </function-decl>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='net/wireless/wext-core.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/netdevice.h' line='2055' column='1' id='ac5ab5be'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/netdevice.h' line='2055' column='1' id='ac5ab5bd'>
         <data-member access='private'>
           <var-decl name='ml_priv' type-id='eaa32e2f' visibility='default' filepath='include/linux/netdevice.h' line='2056' column='1'/>
         </data-member>
@@ -98075,7 +97978,7 @@
         </data-member>
       </class-decl>
       <typedef-decl name='u_int8_t' type-id='f9b06939' filepath='include/linux/types.h' line='98' column='1' id='892641a4'/>
-      <union-decl name='__anonymous_union__12' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='a10c9240'>
+      <union-decl name='__anonymous_union__12' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fs.h' line='731' column='1' id='a10c923f'>
         <data-member access='private'>
           <var-decl name='i_pipe' type-id='15d29711' visibility='default' filepath='include/linux/fs.h' line='732' column='1'/>
         </data-member>
@@ -98168,10 +98071,10 @@
           <var-decl name='count' type-id='f0981eeb' visibility='default' filepath='include/net/inet_hashtables.h' line='114' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='' type-id='9b0c88cc' visibility='default' filepath='include/net/inet_hashtables.h' line='115' column='1'/>
+          <var-decl name='' type-id='9b0c88cd' visibility='default' filepath='include/net/inet_hashtables.h' line='115' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__14' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/inet_hashtables.h' line='115' column='1' id='9b0c88cc'>
+      <union-decl name='__anonymous_union__14' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/inet_hashtables.h' line='115' column='1' id='9b0c88cd'>
         <data-member access='private'>
           <var-decl name='head' type-id='e151255a' visibility='default' filepath='include/net/inet_hashtables.h' line='116' column='1'/>
         </data-member>
@@ -98179,7 +98082,7 @@
           <var-decl name='nulls_head' type-id='af86905d' visibility='default' filepath='include/net/inet_hashtables.h' line='117' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__15' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='198' column='1' id='9c0c8a5e'>
+      <union-decl name='__anonymous_union__15' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/net/sock.h' line='198' column='1' id='9c0c8a5f'>
         <data-member access='private'>
           <var-decl name='skc_flags' type-id='7359adad' visibility='default' filepath='include/net/sock.h' line='199' column='1'/>
         </data-member>
@@ -98190,7 +98093,7 @@
           <var-decl name='skc_tw_dr' type-id='b7ab21fc' visibility='default' filepath='include/net/sock.h' line='201' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__23' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='1213ffe3'>
+      <union-decl name='__anonymous_union__23' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/skbuff.h' line='706' column='1' id='1213ffe4'>
         <data-member access='private'>
           <var-decl name='sk' type-id='f772df6e' visibility='default' filepath='include/linux/skbuff.h' line='707' column='1'/>
         </data-member>
@@ -98422,7 +98325,7 @@
           <var-decl name='value' type-id='f6cbf149' visibility='default' filepath='include/uapi/sound/asound.h' line='934' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1664'>
-          <var-decl name='dimen' type-id='f9cbf5f9' visibility='default' filepath='include/uapi/sound/asound.h' line='938' column='1'/>
+          <var-decl name='dimen' type-id='f9cbf5fa' visibility='default' filepath='include/uapi/sound/asound.h' line='938' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='1728'>
           <var-decl name='reserved' type-id='de076c27' visibility='default' filepath='include/uapi/sound/asound.h' line='939' column='1'/>
@@ -98437,7 +98340,7 @@
           <var-decl name='integer64' type-id='687f968e' visibility='default' filepath='include/uapi/sound/asound.h' line='925' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='enumerated' type-id='657f91d0' visibility='default' filepath='include/uapi/sound/asound.h' line='932' column='1'/>
+          <var-decl name='enumerated' type-id='657f91cf' visibility='default' filepath='include/uapi/sound/asound.h' line='932' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='reserved' type-id='6f10c3ff' visibility='default' filepath='include/uapi/sound/asound.h' line='933' column='1'/>
@@ -98465,7 +98368,7 @@
           <var-decl name='step' type-id='1eb56b1e' visibility='default' filepath='include/uapi/sound/asound.h' line='924' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='__anonymous_struct__2' size-in-bits='704' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='926' column='1' id='657f91d0'>
+      <class-decl name='__anonymous_struct__2' size-in-bits='704' is-struct='yes' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='926' column='1' id='657f91cf'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='items' type-id='f0981eeb' visibility='default' filepath='include/uapi/sound/asound.h' line='927' column='1'/>
         </data-member>
@@ -98482,7 +98385,7 @@
           <var-decl name='names_length' type-id='f0981eeb' visibility='default' filepath='include/uapi/sound/asound.h' line='931' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='935' column='1' id='f9cbf5f9'>
+      <union-decl name='__anonymous_union__2' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='935' column='1' id='f9cbf5fa'>
         <data-member access='private'>
           <var-decl name='d' type-id='3f30d495' visibility='default' filepath='include/uapi/sound/asound.h' line='936' column='1'/>
         </data-member>
@@ -98513,13 +98416,13 @@
           <var-decl name='integer' type-id='f3cbec88' visibility='default' filepath='include/uapi/sound/asound.h' line='949' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='integer64' type-id='f2cbeaf2' visibility='default' filepath='include/uapi/sound/asound.h' line='953' column='1'/>
+          <var-decl name='integer64' type-id='f2cbeaf1' visibility='default' filepath='include/uapi/sound/asound.h' line='953' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='enumerated' type-id='f5cbefa6' visibility='default' filepath='include/uapi/sound/asound.h' line='957' column='1'/>
         </data-member>
         <data-member access='private'>
-          <var-decl name='bytes' type-id='f4cbee11' visibility='default' filepath='include/uapi/sound/asound.h' line='961' column='1'/>
+          <var-decl name='bytes' type-id='f4cbee10' visibility='default' filepath='include/uapi/sound/asound.h' line='961' column='1'/>
         </data-member>
         <data-member access='private'>
           <var-decl name='iec958' type-id='22a78e66' visibility='default' filepath='include/uapi/sound/asound.h' line='962' column='1'/>
@@ -98533,7 +98436,7 @@
           <var-decl name='value_ptr' type-id='3ccc2590' visibility='default' filepath='include/uapi/sound/asound.h' line='948' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='4096' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='950' column='1' id='f2cbeaf2'>
+      <union-decl name='__anonymous_union__5' size-in-bits='4096' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='950' column='1' id='f2cbeaf1'>
         <data-member access='private'>
           <var-decl name='value' type-id='1fd26250' visibility='default' filepath='include/uapi/sound/asound.h' line='951' column='1'/>
         </data-member>
@@ -98549,7 +98452,7 @@
           <var-decl name='item_ptr' type-id='807869d3' visibility='default' filepath='include/uapi/sound/asound.h' line='956' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__7' size-in-bits='4096' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='958' column='1' id='f4cbee11'>
+      <union-decl name='__anonymous_union__7' size-in-bits='4096' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asound.h' line='958' column='1' id='f4cbee10'>
         <data-member access='private'>
           <var-decl name='data' type-id='b6d05418' visibility='default' filepath='include/uapi/sound/asound.h' line='959' column='1'/>
         </data-member>
@@ -98957,7 +98860,7 @@
           <var-decl name='content' type-id='8efea9e5' visibility='default' filepath='include/sound/info.h' line='64' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='c' type-id='ac5ab5bf' visibility='default' filepath='include/sound/info.h' line='68' column='1'/>
+          <var-decl name='c' type-id='ac5ab5be' visibility='default' filepath='include/sound/info.h' line='68' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='384'>
           <var-decl name='parent' type-id='b9608bfd' visibility='default' filepath='include/sound/info.h' line='69' column='1'/>
@@ -99131,7 +99034,7 @@
         <parameter type-id='00aa6a0e'/>
         <return type-id='48b5725f'/>
       </function-type>
-      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/sound/info.h' line='65' column='1' id='ac5ab5bf'>
+      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/sound/info.h' line='65' column='1' id='ac5ab5be'>
         <data-member access='private'>
           <var-decl name='text' type-id='cf87b76c' visibility='default' filepath='include/sound/info.h' line='66' column='1'/>
         </data-member>
@@ -99805,7 +99708,7 @@
           <var-decl name='ops' type-id='76e6e22f' visibility='default' filepath='include/sound/soc-topology.h' line='68' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='' type-id='f2cbeaf3' visibility='default' filepath='include/sound/soc-topology.h' line='69' column='1'/>
+          <var-decl name='' type-id='f2cbeaf2' visibility='default' filepath='include/sound/soc-topology.h' line='69' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='448'>
           <var-decl name='private' type-id='eaa32e2f' visibility='default' filepath='include/sound/soc-topology.h' line='73' column='1'/>
@@ -100010,10 +99913,10 @@
           <var-decl name='size' type-id='2f162548' visibility='default' filepath='include/uapi/sound/asoc.h' line='235' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='32'>
-          <var-decl name='' type-id='f9cbf5fa' visibility='default' filepath='include/uapi/sound/asoc.h' line='236' column='1'/>
+          <var-decl name='' type-id='f9cbf5fb' visibility='default' filepath='include/uapi/sound/asoc.h' line='236' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__2' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asoc.h' line='236' column='1' id='f9cbf5fa'>
+      <union-decl name='__anonymous_union__2' is-anonymous='yes' visibility='default' filepath='include/uapi/sound/asoc.h' line='236' column='1' id='f9cbf5fb'>
         <data-member access='private'>
           <var-decl name='data' type-id='e84913bd' visibility='default' filepath='include/uapi/sound/asoc.h' line='237' column='1'/>
         </data-member>
@@ -101242,7 +101145,7 @@
           <var-decl name='put' type-id='f517dc88' visibility='default' filepath='include/sound/soc-topology.h' line='94' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__5' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/sound/soc-topology.h' line='69' column='1' id='f2cbeaf3'>
+      <union-decl name='__anonymous_union__5' size-in-bits='192' is-anonymous='yes' visibility='default' filepath='include/sound/soc-topology.h' line='69' column='1' id='f2cbeaf2'>
         <data-member access='private'>
           <var-decl name='control' type-id='8a84fb32' visibility='default' filepath='include/sound/soc-topology.h' line='70' column='1'/>
         </data-member>
@@ -102199,7 +102102,7 @@
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='sound/soc/soc-devres.c' language='LANG_C89'>
       <class-decl name='snd_jack' is-struct='yes' visibility='default' is-declaration-only='yes' id='c4d4ddeb'/>
-      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/sound/info.h' line='65' column='1' id='ac5ab5c0'>
+      <union-decl name='__anonymous_union__' size-in-bits='128' is-anonymous='yes' visibility='default' filepath='include/sound/info.h' line='65' column='1' id='ac5ab5bf'>
         <data-member access='private'>
           <var-decl name='text' type-id='cf87b76c' visibility='default' filepath='include/sound/info.h' line='66' column='1'/>
         </data-member>
@@ -102901,7 +102804,7 @@
       </function-type>
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='sound/usb/pcm.c' language='LANG_C89'>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/media/media-entity.h' line='311' column='1' id='ac5ab5c1'>
+      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/media/media-entity.h' line='311' column='1' id='ac5ab5c0'>
         <data-member access='private'>
           <var-decl name='dev' type-id='687f967d' visibility='default' filepath='include/media/media-entity.h' line='315' column='1'/>
         </data-member>
