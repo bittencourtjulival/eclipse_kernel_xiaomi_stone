@@ -513,15 +513,15 @@
       <elf-symbol name='cdev_device_del' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x89353791'/>
       <elf-symbol name='cdev_init' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe699196c'/>
       <elf-symbol name='ce_aes_expandkey' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x68f275ad'/>
-      <elf-symbol name='cec_allocate_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd6a72d6e'/>
-      <elf-symbol name='cec_delete_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9511db38'/>
-      <elf-symbol name='cec_received_msg_ts' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf42b24eb'/>
-      <elf-symbol name='cec_register_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x128484f0'/>
-      <elf-symbol name='cec_s_phys_addr' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x113e3be7'/>
-      <elf-symbol name='cec_s_phys_addr_from_edid' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xcef5cf43'/>
-      <elf-symbol name='cec_transmit_attempt_done_ts' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x74929ec8'/>
-      <elf-symbol name='cec_transmit_done_ts' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd7e23226'/>
-      <elf-symbol name='cec_unregister_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x55aeb05b'/>
+      <elf-symbol name='cec_allocate_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x6b2c0736'/>
+      <elf-symbol name='cec_delete_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x92a5183b'/>
+      <elf-symbol name='cec_received_msg_ts' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x21553c97'/>
+      <elf-symbol name='cec_register_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xae874780'/>
+      <elf-symbol name='cec_s_phys_addr' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x86404bb1'/>
+      <elf-symbol name='cec_s_phys_addr_from_edid' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x11f81aca'/>
+      <elf-symbol name='cec_transmit_attempt_done_ts' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc8768258'/>
+      <elf-symbol name='cec_transmit_done_ts' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfb3003ab'/>
+      <elf-symbol name='cec_unregister_adapter' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x521a7358'/>
       <elf-symbol name='cfg80211_assoc_timeout' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa1a8ae3e'/>
       <elf-symbol name='cfg80211_auth_timeout' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd8f48307'/>
       <elf-symbol name='cfg80211_calculate_bitrate' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x15a37cf3'/>
@@ -961,7 +961,7 @@
       <elf-symbol name='devm_hwspin_lock_request_specific' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x6e19bcfc'/>
       <elf-symbol name='devm_iio_channel_get' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x853fa0db'/>
       <elf-symbol name='devm_iio_device_alloc' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa454785d'/>
-      <elf-symbol name='devm_input_allocate_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd8c6e7f3'/>
+      <elf-symbol name='devm_input_allocate_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5117de6b'/>
       <elf-symbol name='devm_ioremap' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x8d2ae1a6'/>
       <elf-symbol name='devm_ioremap_nocache' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xce0727a1'/>
       <elf-symbol name='devm_ioremap_resource' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xdc11c7fb'/>
@@ -1876,30 +1876,30 @@
       <elf-symbol name='init_wait_entry' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfe487975'/>
       <elf-symbol name='inode_init_once' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x93ae0bd5'/>
       <elf-symbol name='inode_init_owner' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3782bd6e'/>
-      <elf-symbol name='input_alloc_absinfo' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfd5385fc'/>
-      <elf-symbol name='input_allocate_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb5f567f'/>
-      <elf-symbol name='input_close_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3fb6576e'/>
-      <elf-symbol name='input_event' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x79407dc9'/>
-      <elf-symbol name='input_ff_create' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd7ce1662'/>
-      <elf-symbol name='input_ff_create_memless' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3a1a0da4'/>
-      <elf-symbol name='input_ff_destroy' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x7151bb93'/>
-      <elf-symbol name='input_free_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf49d42b6'/>
-      <elf-symbol name='input_mt_destroy_slots' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x57520a01'/>
-      <elf-symbol name='input_mt_get_slot_by_key' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5a7ab397'/>
-      <elf-symbol name='input_mt_init_slots' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x35d6a3b8'/>
-      <elf-symbol name='input_mt_report_pointer_emulation' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9cc88c9b'/>
-      <elf-symbol name='input_mt_report_slot_state' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xda27ea10'/>
-      <elf-symbol name='input_mt_sync_frame' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd08bf63'/>
-      <elf-symbol name='input_open_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xddc29f13'/>
-      <elf-symbol name='input_register_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc4c1263f'/>
-      <elf-symbol name='input_register_handle' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xef4099d0'/>
-      <elf-symbol name='input_register_handler' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd40bba78'/>
+      <elf-symbol name='input_alloc_absinfo' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1ef28359'/>
+      <elf-symbol name='input_allocate_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa6c66dcc'/>
+      <elf-symbol name='input_close_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x75333196'/>
+      <elf-symbol name='input_event' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x65775b23'/>
+      <elf-symbol name='input_ff_create' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5612a1d'/>
+      <elf-symbol name='input_ff_create_memless' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x50394419'/>
+      <elf-symbol name='input_ff_destroy' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x7eb198e2'/>
+      <elf-symbol name='input_free_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x173c4413'/>
+      <elf-symbol name='input_mt_destroy_slots' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc20847ef'/>
+      <elf-symbol name='input_mt_get_slot_by_key' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x893fc040'/>
+      <elf-symbol name='input_mt_init_slots' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1717daae'/>
+      <elf-symbol name='input_mt_report_pointer_emulation' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x84ac8e9f'/>
+      <elf-symbol name='input_mt_report_slot_state' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3d6343fb'/>
+      <elf-symbol name='input_mt_sync_frame' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9852f28d'/>
+      <elf-symbol name='input_open_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9747f9eb'/>
+      <elf-symbol name='input_register_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x2760209a'/>
+      <elf-symbol name='input_register_handle' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa5c5ff28'/>
+      <elf-symbol name='input_register_handler' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1aa26807'/>
       <elf-symbol name='input_scancode_to_scalar' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x2c256e1f'/>
-      <elf-symbol name='input_set_abs_params' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb12a3abd'/>
-      <elf-symbol name='input_set_capability' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1e5e3453'/>
-      <elf-symbol name='input_unregister_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf2b53240'/>
-      <elf-symbol name='input_unregister_handle' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc92bd4fb'/>
-      <elf-symbol name='input_unregister_handler' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xaa165c57'/>
+      <elf-symbol name='input_set_abs_params' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x6e3c49fc'/>
+      <elf-symbol name='input_set_capability' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x4c9b4f5e'/>
+      <elf-symbol name='input_unregister_device' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x111434e5'/>
+      <elf-symbol name='input_unregister_handle' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x83aeb203'/>
+      <elf-symbol name='input_unregister_handler' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x64bf8e28'/>
       <elf-symbol name='int_pow' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1af267f8'/>
       <elf-symbol name='int_sqrt' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb678366f'/>
       <elf-symbol name='int_to_scsilun' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5ed90adc'/>
@@ -3386,9 +3386,9 @@
       <elf-symbol name='snd_info_get_line' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x24a94b26'/>
       <elf-symbol name='snd_info_register' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x73b41eff'/>
       <elf-symbol name='snd_interval_refine' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x4cda566'/>
-      <elf-symbol name='snd_jack_new' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe98dc8f4'/>
-      <elf-symbol name='snd_jack_report' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x92c154fb'/>
-      <elf-symbol name='snd_jack_set_key' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x8440b26d'/>
+      <elf-symbol name='snd_jack_new' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x660d6780'/>
+      <elf-symbol name='snd_jack_report' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5aa0cc88'/>
+      <elf-symbol name='snd_jack_set_key' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x188cef43'/>
       <elf-symbol name='snd_pci_quirk_lookup' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9e25655f'/>
       <elf-symbol name='snd_pcm_add_chmap_ctls' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd5f56e89'/>
       <elf-symbol name='snd_pcm_create_iec958_consumer_hw_params' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x11eba48e'/>
