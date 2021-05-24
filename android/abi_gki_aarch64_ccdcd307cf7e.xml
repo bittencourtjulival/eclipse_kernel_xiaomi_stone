@@ -36664,7 +36664,7 @@
           <var-decl name='va' type-id='50bcf651' visibility='default' filepath='include/linux/printk.h' line='95' column='1'/>
         </data-member>
       </class-decl>
-      <typedef-decl name='va_list' type-id='7f896fb4' filepath='/local/mnt/workspace/c_spathi/aosp_clang/clang-r416183/lib64/clang/12.0.4/include/stdarg.h' line='14' column='1' id='2aee9912'/>
+      <typedef-decl name='va_list' type-id='7f896fb4' filepath='/local/mnt/workspace/c_spathi/aosp_clang/clang-r416183b/lib64/clang/12.0.5/include/stdarg.h' line='14' column='1' id='2aee9912'/>
       <class-decl name='drm_mode_create_dumb' size-in-bits='256' is-struct='yes' visibility='default' filepath='include/uapi/drm/drm_mode.h' line='811' column='1' id='46d25262'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='height' type-id='3f1a6b60' visibility='default' filepath='include/uapi/drm/drm_mode.h' line='812' column='1'/>
@@ -109526,7 +109526,7 @@
       <pointer-type-def type-id='705711f5' size-in-bits='64' id='c2c60445'/>
       <pointer-type-def type-id='c39df2b8' size-in-bits='64' id='3d15880e'/>
       <pointer-type-def type-id='be9189df' size-in-bits='64' id='0a0aff97'/>
-      <var-decl name='system_state' type-id='2ead22b4' mangled-name='system_state' visibility='default' filepath='init/main.c' line='121' column='1' elf-symbol-id='system_state'/>
+      <var-decl name='system_state' type-id='2ead22b4' mangled-name='system_state' visibility='default' filepath='init/main.c' line='125' column='1' elf-symbol-id='system_state'/>
       <function-decl name='event_triggers_call' mangled-name='event_triggers_call' filepath='include/linux/trace_events.h' line='486' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='event_triggers_call'>
         <parameter type-id='3d4ca6d2'/>
         <parameter type-id='eaa32e2f'/>
