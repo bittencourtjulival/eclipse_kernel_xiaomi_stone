@@ -90,10 +90,17 @@ static int proc_fdinfo_access_allowed(struct inode *inode)
 
 static int seq_fdinfo_open(struct inode *inode, struct file *file)
 {
-	int ret = proc_fdinfo_access_allowed(inode);
+	bool allowed = false;
+	struct task_struct *task = get_proc_task(inode);
 
-	if (ret)
-		return ret;
+	if (!task)
+		return -ESRCH;
+
+	allowed = ptrace_may_access(task, PTRACE_MODE_READ_FSCREDS);
+	put_task_struct(task);
+
+	if (!allowed)
+		return -EACCES;
 
 	return single_open(file, seq_show, inode);
 }
