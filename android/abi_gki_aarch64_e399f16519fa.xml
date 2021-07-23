@@ -94598,6 +94598,12 @@
         <parameter type-id='fa0b179b'/>
         <return type-id='48b5725f'/>
       </function-decl>
+      <function-decl name='strscpy' mangled-name='strscpy' filepath='include/linux/string.h' line='32' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='strscpy'>
+        <parameter type-id='26a90f95'/>
+        <parameter type-id='80f4b756'/>
+        <parameter type-id='7359adad'/>
+        <return type-id='bd54fe1a'/>
+      </function-decl>
       <function-decl name='msleep' mangled-name='msleep' filepath='include/linux/delay.h' line='59' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='msleep'>
         <parameter type-id='f0981eeb'/>
         <return type-id='48b5725f'/>
@@ -128690,15 +128696,15 @@
         <parameter type-id='1ce53783'/>
         <return type-id='c894953d'/>
       </function-decl>
-      <function-decl name='sched_setscheduler' mangled-name='sched_setscheduler' filepath='kernel/sched/core.c' line='5319' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='sched_setscheduler'>
-        <parameter type-id='f23e2572' name='p' filepath='kernel/sched/core.c' line='5319' column='1'/>
-        <parameter type-id='95e97e5e' name='policy' filepath='kernel/sched/core.c' line='5319' column='1'/>
-        <parameter type-id='36fca399' name='param' filepath='kernel/sched/core.c' line='5320' column='1'/>
+      <function-decl name='sched_setscheduler' mangled-name='sched_setscheduler' filepath='kernel/sched/core.c' line='5322' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='sched_setscheduler'>
+        <parameter type-id='f23e2572' name='p' filepath='kernel/sched/core.c' line='5322' column='1'/>
+        <parameter type-id='95e97e5e' name='policy' filepath='kernel/sched/core.c' line='5322' column='1'/>
+        <parameter type-id='36fca399' name='param' filepath='kernel/sched/core.c' line='5323' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <function-decl name='sched_setattr' mangled-name='sched_setattr' filepath='kernel/sched/core.c' line='5326' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='sched_setattr'>
-        <parameter type-id='f23e2572' name='p' filepath='kernel/sched/core.c' line='5326' column='1'/>
-        <parameter type-id='8abbb6c3' name='attr' filepath='kernel/sched/core.c' line='5326' column='1'/>
+      <function-decl name='sched_setattr' mangled-name='sched_setattr' filepath='kernel/sched/core.c' line='5329' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='sched_setattr'>
+        <parameter type-id='f23e2572' name='p' filepath='kernel/sched/core.c' line='5329' column='1'/>
+        <parameter type-id='8abbb6c3' name='attr' filepath='kernel/sched/core.c' line='5329' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
       <function-decl name='strnstr' mangled-name='strnstr' filepath='include/linux/string.h' line='84' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='strnstr'>
@@ -130489,12 +130495,6 @@
       <function-decl name='work_busy' mangled-name='work_busy' filepath='kernel/workqueue.c' line='4553' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='work_busy'>
         <parameter type-id='83c1bde6' name='work' filepath='kernel/workqueue.c' line='4553' column='1'/>
         <return type-id='f0981eeb'/>
-      </function-decl>
-      <function-decl name='strscpy' mangled-name='strscpy' filepath='include/linux/string.h' line='32' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='strscpy'>
-        <parameter type-id='26a90f95'/>
-        <parameter type-id='80f4b756'/>
-        <parameter type-id='7359adad'/>
-        <return type-id='bd54fe1a'/>
       </function-decl>
       <function-decl name='ida_alloc_range' mangled-name='ida_alloc_range' filepath='include/linux/idr.h' line='255' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='ida_alloc_range'>
         <parameter type-id='a9e764bb'/>
