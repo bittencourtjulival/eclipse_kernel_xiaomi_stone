@@ -2803,6 +2803,7 @@
       <elf-symbol name='of_find_node_opts_by_path' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb91e827d'/>
       <elf-symbol name='of_find_node_with_property' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe057bed9'/>
       <elf-symbol name='of_find_property' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3d022de'/>
+      <elf-symbol name='of_find_spi_device_by_node' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1ac5072a'/>
       <elf-symbol name='of_gen_pool_get' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xcd714eb'/>
       <elf-symbol name='of_genpd_add_provider_onecell' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x838b837e'/>
       <elf-symbol name='of_genpd_add_provider_simple' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x4627bcdd'/>
@@ -3763,6 +3764,7 @@
       <elf-symbol name='snd_card_disconnect' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1ec9048'/>
       <elf-symbol name='snd_card_free' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfd4ce02e'/>
       <elf-symbol name='snd_card_new' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd70eba2b'/>
+      <elf-symbol name='snd_card_ref' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfca69a67'/>
       <elf-symbol name='snd_card_register' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1992f379'/>
       <elf-symbol name='snd_card_rw_proc_new' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf7b0c582'/>
       <elf-symbol name='snd_component_add' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9d4a180a'/>
@@ -3848,8 +3850,10 @@
       <elf-symbol name='snd_soc_card_jack_new' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xdf28d3f2'/>
       <elf-symbol name='snd_soc_component_async_complete' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe01a1ea0'/>
       <elf-symbol name='snd_soc_component_disable_pin' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd0ea5bce'/>
+      <elf-symbol name='snd_soc_component_enable_pin' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x6864f446'/>
       <elf-symbol name='snd_soc_component_exit_regmap' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x2fc8a05'/>
       <elf-symbol name='snd_soc_component_force_enable_pin' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x480abc67'/>
+      <elf-symbol name='snd_soc_component_get_pin_status' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x6de75978'/>
       <elf-symbol name='snd_soc_component_init_regmap' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa84053c5'/>
       <elf-symbol name='snd_soc_component_read' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x14624d'/>
       <elf-symbol name='snd_soc_component_read32' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x2f982b6e'/>
@@ -28578,7 +28582,7 @@
           <var-decl name='work' type-id='ef9025d0' visibility='default' filepath='mm/slab.h' line='91' column='1'/>
         </data-member>
       </union-decl>
-      <union-decl name='__anonymous_union__' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fsnotify_backend.h' line='298' column='1' id='9114ebb7'>
+      <union-decl name='__anonymous_union__4' size-in-bits='64' is-anonymous='yes' visibility='default' filepath='include/linux/fsnotify_backend.h' line='298' column='1' id='9114ebb7'>
         <data-member access='public'>
           <var-decl name='obj' type-id='c66f5ec5' visibility='default' filepath='include/linux/fsnotify_backend.h' line='300' column='1'/>
         </data-member>
@@ -125373,6 +125377,16 @@
       </class-decl>
       <pointer-type-def type-id='fa712c1b' size-in-bits='64' id='6da1022f'/>
       <pointer-type-def type-id='391f1e06' size-in-bits='64' id='0bd06100'/>
+      <function-type size-in-bits='64' id='fa712c1b'>
+        <parameter type-id='fa0b179b'/>
+        <parameter type-id='ec167ceb'/>
+        <return type-id='95e97e5e'/>
+      </function-type>
+      <function-type size-in-bits='64' id='391f1e06'>
+        <parameter type-id='fa0b179b'/>
+        <parameter type-id='ec167ceb'/>
+        <return type-id='48b5725f'/>
+      </function-type>
     </abi-instr>
     <abi-instr address-size='64' path='drivers/scsi/ufs/tc-dwc-g210-pltfrm.c' language='LANG_C89'>
       <array-type-def dimensions='1' type-id='78a133c2' size-in-bits='96' id='3015ceb4'>
@@ -128707,6 +128721,10 @@
       <function-decl name='spi_bus_unlock' mangled-name='spi_bus_unlock' filepath='drivers/spi/spi.c' line='3669' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='spi_bus_unlock'>
         <parameter type-id='f22e4524' name='ctlr' filepath='drivers/spi/spi.c' line='3669' column='1'/>
         <return type-id='95e97e5e'/>
+      </function-decl>
+      <function-decl name='of_find_spi_device_by_node' mangled-name='of_find_spi_device_by_node' filepath='drivers/spi/spi.c' line='3763' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='of_find_spi_device_by_node'>
+        <parameter type-id='9a537bbe' name='node' filepath='drivers/spi/spi.c' line='3763' column='1'/>
+        <return type-id='e90f4666'/>
       </function-decl>
       <function-type size-in-bits='64' id='1c210187'>
         <parameter type-id='33dc3b1b'/>
@@ -162506,16 +162524,6 @@
         <parameter type-id='fbc017ef'/>
         <return type-id='c3082d06'/>
       </function-type>
-      <function-type size-in-bits='64' id='fa712c1b'>
-        <parameter type-id='fa0b179b'/>
-        <parameter type-id='ec167ceb'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='391f1e06'>
-        <parameter type-id='fa0b179b'/>
-        <parameter type-id='ec167ceb'/>
-        <return type-id='48b5725f'/>
-      </function-type>
     </abi-instr>
     <abi-instr address-size='64' path='kernel/time/clocksource.c' language='LANG_C89'>
       <function-decl name='__clocksource_register_scale' mangled-name='__clocksource_register_scale' filepath='kernel/time/clocksource.c' line='925' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='__clocksource_register_scale'>
@@ -186132,10 +186140,26 @@
         <return type-id='95e97e5e'/>
       </function-type>
     </abi-instr>
+    <abi-instr address-size='64' path='sound/last.c' language='LANG_C89'>
+      <function-decl name='snd_card_ref' mangled-name='snd_card_ref' filepath='include/sound/core.h' line='239' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='snd_card_ref'>
+        <parameter type-id='95e97e5e'/>
+        <return type-id='52704eb7'/>
+      </function-decl>
+    </abi-instr>
     <abi-instr address-size='64' path='sound/soc/soc-component.c' language='LANG_C89'>
+      <function-decl name='snd_soc_component_enable_pin' mangled-name='snd_soc_component_enable_pin' filepath='sound/soc/soc-component.c' line='80' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='snd_soc_component_enable_pin'>
+        <parameter type-id='807b7702' name='component' filepath='sound/soc/soc-component.c' line='80' column='1'/>
+        <parameter type-id='80f4b756' name='pin' filepath='sound/soc/soc-component.c' line='81' column='1'/>
+        <return type-id='95e97e5e'/>
+      </function-decl>
       <function-decl name='snd_soc_component_disable_pin' mangled-name='snd_soc_component_disable_pin' filepath='sound/soc/soc-component.c' line='124' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='snd_soc_component_disable_pin'>
         <parameter type-id='807b7702' name='component' filepath='sound/soc/soc-component.c' line='124' column='1'/>
         <parameter type-id='80f4b756' name='pin' filepath='sound/soc/soc-component.c' line='125' column='1'/>
+        <return type-id='95e97e5e'/>
+      </function-decl>
+      <function-decl name='snd_soc_component_get_pin_status' mangled-name='snd_soc_component_get_pin_status' filepath='sound/soc/soc-component.c' line='212' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='snd_soc_component_get_pin_status'>
+        <parameter type-id='807b7702' name='component' filepath='sound/soc/soc-component.c' line='212' column='1'/>
+        <parameter type-id='80f4b756' name='pin' filepath='sound/soc/soc-component.c' line='213' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
       <function-decl name='snd_soc_component_force_enable_pin' mangled-name='snd_soc_component_force_enable_pin' filepath='sound/soc/soc-component.c' line='234' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='snd_soc_component_force_enable_pin'>
@@ -191191,6 +191215,6 @@
 </abi-corpus-group>
 
 <!--
-     libabigail: abidw: 2.0.0SOONG BUILD NUMBER PLACEHOLDER
+     libabigail: abidw: 2.0.0-6bca1bdb-soong
      built with: clang: Android (7284624, based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)
 -->
