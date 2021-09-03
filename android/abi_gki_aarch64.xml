@@ -1302,9 +1302,16 @@
       <elf-symbol name='drm_class_device_register' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x91e69350'/>
       <elf-symbol name='drm_class_device_unregister' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xdac84885'/>
       <elf-symbol name='drm_clflush_pages' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x7270209f'/>
+      <elf-symbol name='drm_client_buffer_vmap' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xaef5ea29'/>
+      <elf-symbol name='drm_client_framebuffer_create' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x50c03a89'/>
+      <elf-symbol name='drm_client_framebuffer_delete' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe8b2f90c'/>
       <elf-symbol name='drm_client_init' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9321b242'/>
+      <elf-symbol name='drm_client_modeset_commit' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x92336a30'/>
       <elf-symbol name='drm_client_modeset_commit_force' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x2ca425ef'/>
+      <elf-symbol name='drm_client_modeset_probe' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd2ee6980'/>
       <elf-symbol name='drm_client_register' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x8c5f6d1a'/>
+      <elf-symbol name='drm_client_release' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5b39fd05'/>
+      <elf-symbol name='drm_client_rotation' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc12d6f08'/>
       <elf-symbol name='drm_compat_ioctl' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xc419be0'/>
       <elf-symbol name='drm_connector_attach_content_protection_property' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe1dc7ef7'/>
       <elf-symbol name='drm_connector_attach_edid_property' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x33b8ed71'/>
@@ -1464,6 +1471,7 @@
       <elf-symbol name='drm_hdmi_infoframe_set_hdr_metadata' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5c525392'/>
       <elf-symbol name='drm_hdmi_vendor_infoframe_from_display_mode' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xbda7767e'/>
       <elf-symbol name='drm_helper_connector_dpms' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9e8fdd1c'/>
+      <elf-symbol name='drm_helper_disable_unused_functions' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x7c6fadf4'/>
       <elf-symbol name='drm_helper_hpd_irq_event' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x652a894f'/>
       <elf-symbol name='drm_helper_mode_fill_fb_struct' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x8be9df7a'/>
       <elf-symbol name='drm_helper_probe_single_connector_modes' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9b7eb2c6'/>
@@ -1504,6 +1512,7 @@
       <elf-symbol name='drm_mode_get_tile_group' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xdd376b2f'/>
       <elf-symbol name='drm_mode_is_420_also' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xed3b6bc3'/>
       <elf-symbol name='drm_mode_is_420_only' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3fa11c6'/>
+      <elf-symbol name='drm_mode_legacy_fb_format' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x29f078d1'/>
       <elf-symbol name='drm_mode_object_find' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf8de2293'/>
       <elf-symbol name='drm_mode_object_get' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x5369b0d9'/>
       <elf-symbol name='drm_mode_object_put' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x7d47c98a'/>
@@ -74043,10 +74052,44 @@
         <parameter type-id='cc1804ea' name='client' filepath='drivers/gpu/drm/drm_client.c' line='125' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
+      <function-decl name='drm_client_release' mangled-name='drm_client_release' filepath='drivers/gpu/drm/drm_client.c' line='149' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_release'>
+        <parameter type-id='cc1804ea' name='client' filepath='drivers/gpu/drm/drm_client.c' line='149' column='1'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
+      <function-decl name='drm_client_buffer_vmap' mangled-name='drm_client_buffer_vmap' filepath='drivers/gpu/drm/drm_client.c' line='305' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_buffer_vmap'>
+        <parameter type-id='b78e1fbb' name='buffer' filepath='drivers/gpu/drm/drm_client.c' line='305' column='1'/>
+        <return type-id='eaa32e2f'/>
+      </function-decl>
+      <function-decl name='drm_client_framebuffer_create' mangled-name='drm_client_framebuffer_create' filepath='drivers/gpu/drm/drm_client.c' line='407' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_framebuffer_create'>
+        <parameter type-id='cc1804ea' name='client' filepath='drivers/gpu/drm/drm_client.c' line='407' column='1'/>
+        <parameter type-id='19c2251e' name='width' filepath='drivers/gpu/drm/drm_client.c' line='407' column='1'/>
+        <parameter type-id='19c2251e' name='height' filepath='drivers/gpu/drm/drm_client.c' line='407' column='1'/>
+        <parameter type-id='19c2251e' name='format' filepath='drivers/gpu/drm/drm_client.c' line='407' column='1'/>
+        <return type-id='b78e1fbb'/>
+      </function-decl>
+      <function-decl name='drm_client_framebuffer_delete' mangled-name='drm_client_framebuffer_delete' filepath='drivers/gpu/drm/drm_client.c' line='430' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_framebuffer_delete'>
+        <parameter type-id='b78e1fbb' name='buffer' filepath='drivers/gpu/drm/drm_client.c' line='430' column='1'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
     </abi-instr>
     <abi-instr address-size='64' path='drivers/gpu/drm/drm_client_modeset.c' language='LANG_C89'>
+      <function-decl name='drm_client_modeset_probe' mangled-name='drm_client_modeset_probe' filepath='drivers/gpu/drm/drm_client_modeset.c' line='690' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_modeset_probe'>
+        <parameter type-id='cc1804ea' name='client' filepath='drivers/gpu/drm/drm_client_modeset.c' line='690' column='1'/>
+        <parameter type-id='f0981eeb' name='width' filepath='drivers/gpu/drm/drm_client_modeset.c' line='690' column='1'/>
+        <parameter type-id='f0981eeb' name='height' filepath='drivers/gpu/drm/drm_client_modeset.c' line='690' column='1'/>
+        <return type-id='95e97e5e'/>
+      </function-decl>
+      <function-decl name='drm_client_rotation' mangled-name='drm_client_rotation' filepath='drivers/gpu/drm/drm_client_modeset.c' line='824' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_rotation'>
+        <parameter type-id='8106240b' name='modeset' filepath='drivers/gpu/drm/drm_client_modeset.c' line='824' column='1'/>
+        <parameter type-id='807869d3' name='rotation' filepath='drivers/gpu/drm/drm_client_modeset.c' line='824' column='1'/>
+        <return type-id='b50a4934'/>
+      </function-decl>
       <function-decl name='drm_client_modeset_commit_force' mangled-name='drm_client_modeset_commit_force' filepath='drivers/gpu/drm/drm_client_modeset.c' line='1035' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_modeset_commit_force'>
         <parameter type-id='cc1804ea' name='client' filepath='drivers/gpu/drm/drm_client_modeset.c' line='1035' column='1'/>
+        <return type-id='95e97e5e'/>
+      </function-decl>
+      <function-decl name='drm_client_modeset_commit' mangled-name='drm_client_modeset_commit' filepath='drivers/gpu/drm/drm_client_modeset.c' line='1060' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_client_modeset_commit'>
+        <parameter type-id='cc1804ea' name='client' filepath='drivers/gpu/drm/drm_client_modeset.c' line='1060' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
     </abi-instr>
@@ -77751,6 +77794,10 @@
       </function-decl>
       <function-decl name='drm_connector_list_iter_end' mangled-name='drm_connector_list_iter_end' filepath='include/drm/drm_connector.h' line='1609' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_connector_list_iter_end'>
         <parameter type-id='40a902ec'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
+      <function-decl name='drm_helper_disable_unused_functions' mangled-name='drm_helper_disable_unused_functions' filepath='drivers/gpu/drm/drm_crtc_helper.c' line='215' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_helper_disable_unused_functions'>
+        <parameter type-id='8898134d' name='dev' filepath='drivers/gpu/drm/drm_crtc_helper.c' line='215' column='1'/>
         <return type-id='48b5725f'/>
       </function-decl>
       <function-decl name='drm_modeset_lock_all' mangled-name='drm_modeset_lock_all' filepath='include/drm/drm_modeset_lock.h' line='126' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_modeset_lock_all'>
@@ -81876,6 +81923,11 @@
       </function-type>
     </abi-instr>
     <abi-instr address-size='64' path='drivers/gpu/drm/drm_fourcc.c' language='LANG_C89'>
+      <function-decl name='drm_mode_legacy_fb_format' mangled-name='drm_mode_legacy_fb_format' filepath='drivers/gpu/drm/drm_fourcc.c' line='46' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_mode_legacy_fb_format'>
+        <parameter type-id='8f92235e' name='bpp' filepath='drivers/gpu/drm/drm_fourcc.c' line='46' column='1'/>
+        <parameter type-id='8f92235e' name='depth' filepath='drivers/gpu/drm/drm_fourcc.c' line='46' column='1'/>
+        <return type-id='8f92235e'/>
+      </function-decl>
       <function-decl name='drm_format_info' mangled-name='drm_format_info' filepath='drivers/gpu/drm/drm_fourcc.c' line='300' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='drm_format_info'>
         <parameter type-id='19c2251e' name='format' filepath='drivers/gpu/drm/drm_fourcc.c' line='300' column='1'/>
         <return type-id='f10b2208'/>
@@ -126863,22 +126915,6 @@
           <var-decl name='hostdata' type-id='c99b5ecd' visibility='default' filepath='include/scsi/scsi_host.h' line='708' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='ufs_crypto_capabilities' size-in-bits='32' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='326' column='1' id='4721c843'>
-        <data-member access='public'>
-          <var-decl name='reg_val' type-id='2f162548' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='327' column='1'/>
-        </data-member>
-        <data-member access='public'>
-          <var-decl name='' type-id='e15f514f' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='328' column='1'/>
-        </data-member>
-      </union-decl>
-      <union-decl name='ufs_crypto_cap_entry' size-in-bits='32' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='352' column='1' id='f81b67f4'>
-        <data-member access='public'>
-          <var-decl name='reg_val' type-id='2f162548' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='353' column='1'/>
-        </data-member>
-        <data-member access='public'>
-          <var-decl name='' type-id='7db2e6af' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='354' column='1'/>
-        </data-member>
-      </union-decl>
       <class-decl name='scsi_host_template' size-in-bits='3008' is-struct='yes' visibility='default' filepath='include/scsi/scsi_host.h' line='46' column='1' id='1a0d5389'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='module' type-id='2730d015' visibility='default' filepath='include/scsi/scsi_host.h' line='47' column='1'/>
@@ -127384,6 +127420,22 @@
           <var-decl name='android_kabi_reserved4' type-id='91ce1af9' visibility='default' filepath='include/scsi/scsi_device.h' line='238' column='1'/>
         </data-member>
       </class-decl>
+      <union-decl name='ufs_crypto_capabilities' size-in-bits='32' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='326' column='1' id='4721c843'>
+        <data-member access='public'>
+          <var-decl name='reg_val' type-id='2f162548' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='327' column='1'/>
+        </data-member>
+        <data-member access='public'>
+          <var-decl name='' type-id='e15f514f' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='328' column='1'/>
+        </data-member>
+      </union-decl>
+      <union-decl name='ufs_crypto_cap_entry' size-in-bits='32' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='352' column='1' id='f81b67f4'>
+        <data-member access='public'>
+          <var-decl name='reg_val' type-id='2f162548' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='353' column='1'/>
+        </data-member>
+        <data-member access='public'>
+          <var-decl name='' type-id='7db2e6af' visibility='default' filepath='drivers/scsi/ufs/ufshci.h' line='354' column='1'/>
+        </data-member>
+      </union-decl>
       <class-decl name='scsi_vpd' size-in-bits='192' is-struct='yes' visibility='default' filepath='include/scsi/scsi_device.h' line='96' column='1' id='4399e1b2'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='rcu' type-id='e3d8ce29' visibility='default' filepath='include/scsi/scsi_device.h' line='97' column='1'/>
@@ -127770,7 +127822,7 @@
           <var-decl name='' type-id='d67af9b5' visibility='default' filepath='include/uapi/scsi/scsi_bsg_ufs.h' line='74' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__3' size-in-bits='160' is-anonymous='yes' visibility='default' filepath='include/uapi/scsi/scsi_bsg_ufs.h' line='74' column='1' id='d67af9b5'>
+      <union-decl name='__anonymous_union__5' size-in-bits='160' is-anonymous='yes' visibility='default' filepath='include/uapi/scsi/scsi_bsg_ufs.h' line='74' column='1' id='d67af9b5'>
         <data-member access='public'>
           <var-decl name='sc' type-id='498490b9' visibility='default' filepath='include/uapi/scsi/scsi_bsg_ufs.h' line='75' column='1'/>
         </data-member>
@@ -127826,7 +127878,7 @@
           <var-decl name='' type-id='0b42cb04' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='506' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='__anonymous_union__4' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='506' column='1' id='0b42cb04'>
+      <union-decl name='__anonymous_union__6' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='506' column='1' id='0b42cb04'>
         <data-member access='public'>
           <var-decl name='sr' type-id='18119fa5' visibility='default' filepath='drivers/scsi/ufs/ufs.h' line='507' column='1'/>
         </data-member>
