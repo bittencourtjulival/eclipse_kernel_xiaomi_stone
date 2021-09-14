@@ -3316,6 +3316,7 @@
       <elf-symbol name='refcount_dec_not_one' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe441e95a'/>
       <elf-symbol name='refcount_inc_checked' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x1ee8d6d4'/>
       <elf-symbol name='refcount_inc_not_zero_checked' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x957b1fb6'/>
+      <elf-symbol name='refresh_frequency_limits' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x47c92f8'/>
       <elf-symbol name='reg_initiator_name' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xdba126c1'/>
       <elf-symbol name='regcache_cache_bypass' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x791cef53'/>
       <elf-symbol name='regcache_cache_only' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x9b4d0605'/>
@@ -3624,6 +3625,7 @@
       <elf-symbol name='sdio_writew' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x2c183296'/>
       <elf-symbol name='search_binary_handler' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x10b0c818'/>
       <elf-symbol name='security_sk_classify_flow' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf0875158'/>
+      <elf-symbol name='security_sk_clone' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xe06141e9'/>
       <elf-symbol name='security_sock_graft' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xda10ec3'/>
       <elf-symbol name='securityfs_create_dir' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb6174463'/>
       <elf-symbol name='securityfs_create_file' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x41a0ce03'/>
@@ -65928,6 +65930,10 @@
         <parameter type-id='f0981eeb'/>
         <return type-id='95e97e5e'/>
       </function-decl>
+      <function-decl name='refresh_frequency_limits' mangled-name='refresh_frequency_limits' filepath='drivers/cpufreq/cpufreq.c' line='1135' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='refresh_frequency_limits'>
+        <parameter type-id='343c3ae4' name='policy' filepath='drivers/cpufreq/cpufreq.c' line='1135' column='1'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
       <function-decl name='cpufreq_quick_get_max' mangled-name='cpufreq_quick_get_max' filepath='drivers/cpufreq/cpufreq.c' line='1749' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='cpufreq_quick_get_max'>
         <parameter type-id='f0981eeb' name='cpu' filepath='drivers/cpufreq/cpufreq.c' line='1749' column='1'/>
         <return type-id='f0981eeb'/>
@@ -118723,11 +118729,6 @@
           <var-decl name='triggered_count' type-id='49178f86' visibility='default' filepath='drivers/reset/core.c' line='49' column='1'/>
         </data-member>
       </class-decl>
-      <union-decl name='phy_configure_opts' size-in-bits='896' visibility='default' filepath='include/linux/phy/phy.h' line='50' column='1' id='2c7a2d9f'>
-        <data-member access='public'>
-          <var-decl name='mipi_dphy' type-id='b277cad4' visibility='default' filepath='include/linux/phy/phy.h' line='51' column='1'/>
-        </data-member>
-      </union-decl>
       <enum-decl name='gpiod_flags' filepath='include/linux/gpio/consumer.h' line='48' column='1' id='38d4936d'>
         <underlying-type type-id='9cac1fee'/>
         <enumerator name='GPIOD_ASIS' value='0'/>
@@ -118896,6 +118897,11 @@
           <var-decl name='lanes' type-id='002ac4a6' visibility='default' filepath='include/linux/phy/phy-mipi-dphy.h' line='275' column='1'/>
         </data-member>
       </class-decl>
+      <union-decl name='phy_configure_opts' size-in-bits='896' visibility='default' filepath='include/linux/phy/phy.h' line='50' column='1' id='2c7a2d9f'>
+        <data-member access='public'>
+          <var-decl name='mipi_dphy' type-id='b277cad4' visibility='default' filepath='include/linux/phy/phy.h' line='51' column='1'/>
+        </data-member>
+      </union-decl>
       <class-decl name='phy_attrs' size-in-bits='64' is-struct='yes' visibility='default' filepath='include/linux/phy/phy.h' line='114' column='1' id='2bd806af'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='bus_width' type-id='19c2251e' visibility='default' filepath='include/linux/phy/phy.h' line='115' column='1'/>
@@ -184844,6 +184850,11 @@
       </function-decl>
     </abi-instr>
     <abi-instr address-size='64' path='security/security.c' language='LANG_C89'>
+      <function-decl name='security_sk_clone' mangled-name='security_sk_clone' filepath='security/security.c' line='2077' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='security_sk_clone'>
+        <parameter type-id='78e7cf52' name='sk' filepath='security/security.c' line='2077' column='1'/>
+        <parameter type-id='f772df6d' name='newsk' filepath='security/security.c' line='2077' column='1'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
       <function-decl name='security_sock_graft' mangled-name='security_sock_graft' filepath='security/security.c' line='2095' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='security_sock_graft'>
         <parameter type-id='f772df6d' name='sk' filepath='security/security.c' line='2095' column='1'/>
         <parameter type-id='13103032' name='parent' filepath='security/security.c' line='2095' column='1'/>
