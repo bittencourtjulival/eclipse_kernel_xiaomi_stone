@@ -1393,6 +1393,7 @@
       <elf-symbol name='kfree' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x37a0cba'/>
       <elf-symbol name='kfree_skb' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x13260dc2'/>
       <elf-symbol name='kfree_skb_list' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x463eae4e'/>
+      <elf-symbol name='kill_anon_super' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xdc36516'/>
       <elf-symbol name='kill_fasync' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x773a2cd1'/>
       <elf-symbol name='kill_litter_super' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x3fa262f'/>
       <elf-symbol name='kmalloc_order_trace' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xb8b9f817'/>
@@ -20954,6 +20955,7 @@
     </abi-instr>
     <abi-instr version='1.0' address-size='64' path='block/blk-core.c' language='LANG_C89'>
       <typedef-decl name='blk_mq_req_flags_t' type-id='3f1a6b60' filepath='include/linux/blk_types.h' line='268' column='1' id='346d62be'/>
+      <pointer-type-def type-id='9a335021' size-in-bits='64' id='c9c70151'/>
       <function-decl name='blk_queue_flag_set' mangled-name='blk_queue_flag_set' filepath='block/blk-core.c' line='79' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='blk_queue_flag_set'>
         <parameter type-id='f0981eeb' name='flag' filepath='block/blk-core.c' line='79' column='1'/>
         <parameter type-id='e7d2a5fc' name='q' filepath='block/blk-core.c' line='79' column='1'/>
@@ -21596,7 +21598,7 @@
           <var-decl name='nr_ctx' type-id='8efea9e5' visibility='default' filepath='include/linux/blk-mq.h' line='41' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2368'>
-          <var-decl name='ctxs' type-id='c9c70151' visibility='default' filepath='include/linux/blk-mq.h' line='42' column='1'/>
+          <var-decl name='ctxs' type-id='c9c70152' visibility='default' filepath='include/linux/blk-mq.h' line='42' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2432'>
           <var-decl name='dispatch_wait_lock' type-id='fb4018a0' visibility='default' filepath='include/linux/blk-mq.h' line='44' column='1'/>
@@ -21699,7 +21701,7 @@
       </class-decl>
       <pointer-type-def type-id='1d120222' size-in-bits='64' id='e118affa'/>
       <pointer-type-def type-id='cde99b3a' size-in-bits='64' id='9a335022'/>
-      <pointer-type-def type-id='9a335022' size-in-bits='64' id='c9c70151'/>
+      <pointer-type-def type-id='9a335022' size-in-bits='64' id='c9c70152'/>
       <array-type-def dimensions='1' type-id='32406f0a' size-in-bits='384' id='ffbe012f'>
         <subrange length='3' type-id='7ff19f0f' id='56f209d2'/>
       </array-type-def>
@@ -22135,7 +22137,7 @@
           <var-decl name='nr_ctx' type-id='8efea9e5' visibility='default' filepath='include/linux/blk-mq.h' line='41' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2368'>
-          <var-decl name='ctxs' type-id='c9c70151' visibility='default' filepath='include/linux/blk-mq.h' line='42' column='1'/>
+          <var-decl name='ctxs' type-id='c9c70152' visibility='default' filepath='include/linux/blk-mq.h' line='42' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='2432'>
           <var-decl name='dispatch_wait_lock' type-id='fb4018a0' visibility='default' filepath='include/linux/blk-mq.h' line='44' column='1'/>
@@ -22459,7 +22461,7 @@
       <typedef-decl name='map_queues_fn' type-id='640838f9' filepath='include/linux/blk-mq.h' line='140' column='1' id='6e9b911c'/>
       <pointer-type-def type-id='1d120222' size-in-bits='64' id='e118affa'/>
       <pointer-type-def type-id='cde99b3a' size-in-bits='64' id='9a335022'/>
-      <pointer-type-def type-id='9a335022' size-in-bits='64' id='c9c70151'/>
+      <pointer-type-def type-id='9a335022' size-in-bits='64' id='c9c70152'/>
       <pointer-type-def type-id='70bf757e' size-in-bits='64' id='ceead144'/>
       <pointer-type-def type-id='e0630290' size-in-bits='64' id='a47d3468'/>
       <pointer-type-def type-id='a47d3468' size-in-bits='64' id='3e195538'/>
@@ -22778,7 +22780,6 @@
           <var-decl name='data' type-id='5e6516ee' visibility='default' filepath='include/scsi/scsi_ioctl.h' line='30' column='1'/>
         </data-member>
       </class-decl>
-      <pointer-type-def type-id='9a335021' size-in-bits='64' id='c9c70152'/>
       <pointer-type-def type-id='8efd3866' size-in-bits='64' id='0461ecf6'/>
       <pointer-type-def type-id='0461ecf6' size-in-bits='64' id='c527e30e'/>
       <pointer-type-def type-id='85553493' size-in-bits='64' id='2926d4f3'/>
@@ -94726,6 +94727,10 @@
         <parameter type-id='42c8f564' name='s' filepath='fs/super.c' line='1099' column='1'/>
         <parameter type-id='eaa32e2f' name='data' filepath='fs/super.c' line='1099' column='1'/>
         <return type-id='95e97e5e'/>
+      </function-decl>
+      <function-decl name='kill_anon_super' mangled-name='kill_anon_super' filepath='fs/super.c' line='1105' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='kill_anon_super'>
+        <parameter type-id='42c8f564' name='sb' filepath='fs/super.c' line='1105' column='1'/>
+        <return type-id='48b5725f'/>
       </function-decl>
       <function-decl name='kill_litter_super' mangled-name='kill_litter_super' filepath='fs/super.c' line='1113' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='kill_litter_super'>
         <parameter type-id='42c8f564' name='sb' filepath='fs/super.c' line='1113' column='1'/>
