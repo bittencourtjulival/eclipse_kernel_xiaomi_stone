@@ -698,3 +698,15 @@ CONFIG_UBSAN_TRAP=y
 # CONFIG_UBSAN_SHIFT is not set
 # CONFIG_UBSAN_BOOL is not set
 # CONFIG_UBSAN_ENUM is not set
+<<<<<<< HEAD:arch/arm64/configs/stone_defconfig
+=======
+# CONFIG_MSM_IDLE_STATS is not set
+# CONFIG_PAGE_OWNER is not set
+# CONFIG_DEBUG_FS is not set
+# CONFIG_PAGE_EXTENSION is not set
+# CONFIG_BT_DEBUGFS is not set
+# CONFIG_FRAME_VECTOR is not set
+# CONFIG_BLK_DEBUG_FS is not set
+# CONFIG_SLUB_DEBUG is not set
+# CONFIG_ARM64_SW_TTBR0_PAN is not set
+>>>>>>> 2ac2490d688d (arm64: configs: Disable ARM64 PAN emulation):arch/arm64/configs/veux_defconfig
