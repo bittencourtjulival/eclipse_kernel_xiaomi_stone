@@ -3254,6 +3254,7 @@
       <elf-symbol name='pppox_compat_ioctl' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x23643aed'/>
       <elf-symbol name='pppox_ioctl' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xf7940f27'/>
       <elf-symbol name='pppox_unbind_sock' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xd727858'/>
+      <elf-symbol name='prandom_bytes' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xa99b39c2'/>
       <elf-symbol name='prandom_seed' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfa873ad0'/>
       <elf-symbol name='prandom_u32' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0xfda9581f'/>
       <elf-symbol name='preempt_schedule' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes' crc='0x43b0c9c3'/>
@@ -31647,23 +31648,7 @@
           <var-decl name='subcmd' type-id='3f1a6b60' visibility='default' filepath='include/uapi/linux/nl80211.h' line='5980' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='pr_ops' size-in-bits='320' is-struct='yes' visibility='default' filepath='include/linux/pr.h' line='7' column='1' id='b45c773c'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='pr_register' type-id='0b6bd27e' visibility='default' filepath='include/linux/pr.h' line='8' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='pr_reserve' type-id='28138af2' visibility='default' filepath='include/linux/pr.h' line='10' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='pr_release' type-id='eda6f223' visibility='default' filepath='include/linux/pr.h' line='12' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='pr_preempt' type-id='af664338' visibility='default' filepath='include/linux/pr.h' line='14' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='pr_clear' type-id='45f42df9' visibility='default' filepath='include/linux/pr.h' line='16' column='1'/>
-        </data-member>
-      </class-decl>
+      <class-decl name='pr_ops' is-struct='yes' visibility='default' is-declaration-only='yes' id='b45c773c'/>
       <class-decl name='quota_format_ops' size-in-bits='640' is-struct='yes' visibility='default' filepath='include/linux/quota.h' line='312' column='1' id='87cad984'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='check_quota_file' type-id='dcab5203' visibility='default' filepath='include/linux/quota.h' line='313' column='1'/>
@@ -32612,11 +32597,6 @@
       <array-type-def dimensions='1' type-id='a9d5f761' size-in-bits='infinite' id='9195bab1'>
         <subrange length='infinite' type-id='7ff19f0f' id='031f2035'/>
       </array-type-def>
-      <pointer-type-def type-id='8a49f2ad' size-in-bits='64' id='45f42df9'/>
-      <pointer-type-def type-id='70eee7af' size-in-bits='64' id='eda6f223'/>
-      <pointer-type-def type-id='c3a10c20' size-in-bits='64' id='28138af2'/>
-      <pointer-type-def type-id='0efc83de' size-in-bits='64' id='af664338'/>
-      <pointer-type-def type-id='5520e014' size-in-bits='64' id='0b6bd27e'/>
       <pointer-type-def type-id='7ae39c29' size-in-bits='64' id='6266601d'/>
       <pointer-type-def type-id='f3f27ff7' size-in-bits='64' id='69b48c13'/>
       <pointer-type-def type-id='137e352e' size-in-bits='64' id='81145c38'/>
@@ -48347,6 +48327,13 @@
         <return type-id='48b5725f'/>
       </function-decl>
     </abi-instr>
+    <abi-instr address-size='64' path='block/blk-crypto-fallback.c' language='LANG_C89'>
+      <function-decl name='prandom_bytes' mangled-name='prandom_bytes' filepath='include/linux/prandom.h' line='16' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='prandom_bytes'>
+        <parameter type-id='eaa32e2f'/>
+        <parameter type-id='7359adad'/>
+        <return type-id='48b5725f'/>
+      </function-decl>
+    </abi-instr>
     <abi-instr address-size='64' path='block/blk-exec.c' language='LANG_C89'>
       <function-decl name='blk_execute_rq_nowait' mangled-name='blk_execute_rq_nowait' filepath='block/blk-exec.c' line='48' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='blk_execute_rq_nowait'>
         <parameter type-id='e7d2a5fc' name='q' filepath='block/blk-exec.c' line='48' column='1'/>
@@ -49411,21 +49398,7 @@
           <var-decl name='flags' type-id='f0981eeb' visibility='default' filepath='include/linux/genhd.h' line='294' column='1'/>
         </data-member>
       </class-decl>
-      <enum-decl name='pr_type' filepath='include/uapi/linux/pr.h' line='7' column='1' id='98031623'>
-        <underlying-type type-id='9cac1fee'/>
-        <enumerator name='PR_WRITE_EXCLUSIVE' value='1'/>
-        <enumerator name='PR_EXCLUSIVE_ACCESS' value='2'/>
-        <enumerator name='PR_WRITE_EXCLUSIVE_REG_ONLY' value='3'/>
-        <enumerator name='PR_EXCLUSIVE_ACCESS_REG_ONLY' value='4'/>
-        <enumerator name='PR_WRITE_EXCLUSIVE_ALL_REGS' value='5'/>
-        <enumerator name='PR_EXCLUSIVE_ACCESS_ALL_REGS' value='6'/>
-      </enum-decl>
       <pointer-type-def type-id='1b07397f' size-in-bits='64' id='bf96e357'/>
-      <pointer-type-def type-id='8a49f2ad' size-in-bits='64' id='45f42df9'/>
-      <pointer-type-def type-id='70eee7af' size-in-bits='64' id='eda6f223'/>
-      <pointer-type-def type-id='c3a10c20' size-in-bits='64' id='28138af2'/>
-      <pointer-type-def type-id='0efc83de' size-in-bits='64' id='af664338'/>
-      <pointer-type-def type-id='5520e014' size-in-bits='64' id='0b6bd27e'/>
       <function-decl name='disk_part_iter_init' mangled-name='disk_part_iter_init' filepath='include/linux/genhd.h' line='297' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='disk_part_iter_init'>
         <parameter type-id='bf96e357'/>
         <parameter type-id='33c599da'/>
@@ -49440,39 +49413,6 @@
         <parameter type-id='bf96e357'/>
         <return type-id='48b5725f'/>
       </function-decl>
-      <function-type size-in-bits='64' id='8a49f2ad'>
-        <parameter type-id='b88dd945'/>
-        <parameter type-id='91ce1af9'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='70eee7af'>
-        <parameter type-id='b88dd945'/>
-        <parameter type-id='91ce1af9'/>
-        <parameter type-id='98031623'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='c3a10c20'>
-        <parameter type-id='b88dd945'/>
-        <parameter type-id='91ce1af9'/>
-        <parameter type-id='98031623'/>
-        <parameter type-id='19c2251e'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='0efc83de'>
-        <parameter type-id='b88dd945'/>
-        <parameter type-id='91ce1af9'/>
-        <parameter type-id='91ce1af9'/>
-        <parameter type-id='98031623'/>
-        <parameter type-id='b50a4934'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='5520e014'>
-        <parameter type-id='b88dd945'/>
-        <parameter type-id='91ce1af9'/>
-        <parameter type-id='91ce1af9'/>
-        <parameter type-id='19c2251e'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
     </abi-instr>
     <abi-instr address-size='64' path='block/keyslot-manager.c' language='LANG_C89'>
       <array-type-def dimensions='1' type-id='cb92d198' size-in-bits='infinite' id='5e2617b4'>
@@ -125828,6 +125768,38 @@
           <var-decl name='additional_length' type-id='f9b06939' visibility='default' filepath='include/scsi/scsi_common.h' line='58' column='1'/>
         </data-member>
       </class-decl>
+      <class-decl name='transport_container' size-in-bits='832' is-struct='yes' visibility='default' filepath='include/linux/transport_class.h' line='56' column='1' id='2af4292a'>
+        <data-member access='public' layout-offset-in-bits='0'>
+          <var-decl name='ac' type-id='52bea74f' visibility='default' filepath='include/linux/transport_class.h' line='57' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='768'>
+          <var-decl name='statistics' type-id='8ff9530e' visibility='default' filepath='include/linux/transport_class.h' line='58' column='1'/>
+        </data-member>
+      </class-decl>
+      <class-decl name='attribute_container' size-in-bits='768' is-struct='yes' visibility='default' filepath='include/linux/attribute_container.h' line='16' column='1' id='52bea74f'>
+        <data-member access='public' layout-offset-in-bits='0'>
+          <var-decl name='node' type-id='72f469ec' visibility='default' filepath='include/linux/attribute_container.h' line='17' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='128'>
+          <var-decl name='containers' type-id='6160a6ce' visibility='default' filepath='include/linux/attribute_container.h' line='18' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='448'>
+          <var-decl name='class' type-id='67aca04f' visibility='default' filepath='include/linux/attribute_container.h' line='19' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='512'>
+          <var-decl name='grp' type-id='8ff9530e' visibility='default' filepath='include/linux/attribute_container.h' line='20' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='576'>
+          <var-decl name='attrs' type-id='aa9eb300' visibility='default' filepath='include/linux/attribute_container.h' line='21' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='640'>
+          <var-decl name='match' type-id='341171ef' visibility='default' filepath='include/linux/attribute_container.h' line='22' column='1'/>
+        </data-member>
+        <data-member access='public' layout-offset-in-bits='704'>
+          <var-decl name='flags' type-id='7359adad' visibility='default' filepath='include/linux/attribute_container.h' line='24' column='1'/>
+        </data-member>
+      </class-decl>
+      <typedef-decl name='activate_complete' type-id='1ed1e4cd' filepath='include/scsi/scsi_dh.h' line='47' column='1' id='0b6eba4d'/>
       <class-decl name='scsi_eh_save' size-in-bits='832' is-struct='yes' visibility='default' filepath='include/scsi/scsi_eh.h' line='32' column='1' id='2ee43d37'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='result' type-id='95e97e5e' visibility='default' filepath='include/scsi/scsi_eh.h' line='34' column='1'/>
@@ -125863,42 +125835,16 @@
           <var-decl name='sense_sgl' type-id='663acc25' visibility='default' filepath='include/scsi/scsi_eh.h' line='45' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='transport_container' size-in-bits='832' is-struct='yes' visibility='default' filepath='include/linux/transport_class.h' line='56' column='1' id='2af4292a'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='ac' type-id='52bea74f' visibility='default' filepath='include/linux/transport_class.h' line='57' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='768'>
-          <var-decl name='statistics' type-id='8ff9530e' visibility='default' filepath='include/linux/transport_class.h' line='58' column='1'/>
-        </data-member>
-      </class-decl>
-      <class-decl name='attribute_container' size-in-bits='768' is-struct='yes' visibility='default' filepath='include/linux/attribute_container.h' line='16' column='1' id='52bea74f'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='node' type-id='72f469ec' visibility='default' filepath='include/linux/attribute_container.h' line='17' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='containers' type-id='6160a6ce' visibility='default' filepath='include/linux/attribute_container.h' line='18' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='448'>
-          <var-decl name='class' type-id='67aca04f' visibility='default' filepath='include/linux/attribute_container.h' line='19' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='512'>
-          <var-decl name='grp' type-id='8ff9530e' visibility='default' filepath='include/linux/attribute_container.h' line='20' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='576'>
-          <var-decl name='attrs' type-id='aa9eb300' visibility='default' filepath='include/linux/attribute_container.h' line='21' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='640'>
-          <var-decl name='match' type-id='341171ef' visibility='default' filepath='include/linux/attribute_container.h' line='22' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='704'>
-          <var-decl name='flags' type-id='7359adad' visibility='default' filepath='include/linux/attribute_container.h' line='24' column='1'/>
-        </data-member>
-      </class-decl>
       <pointer-type-def type-id='52bea74f' size-in-bits='64' id='3257bfe7'/>
       <pointer-type-def type-id='6831a786' size-in-bits='64' id='3b3fe200'/>
       <pointer-type-def type-id='1120d7bb' size-in-bits='64' id='341171ef'/>
+      <pointer-type-def type-id='d591777b' size-in-bits='64' id='b25d7387'/>
+      <pointer-type-def type-id='08decef0' size-in-bits='64' id='a263aa4a'/>
+      <pointer-type-def type-id='1d3d5bb0' size-in-bits='64' id='81d19a12'/>
       <pointer-type-def type-id='2ee43d37' size-in-bits='64' id='075d8b9f'/>
       <pointer-type-def type-id='d6746ce3' size-in-bits='64' id='991b8213'/>
+      <pointer-type-def type-id='f7146e24' size-in-bits='64' id='04d17276'/>
+      <pointer-type-def type-id='2922fb19' size-in-bits='64' id='1ed1e4cd'/>
       <function-decl name='scsi_normalize_sense' mangled-name='scsi_normalize_sense' filepath='include/scsi/scsi_common.h' line='69' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='scsi_normalize_sense'>
         <parameter type-id='354f7eb9'/>
         <parameter type-id='95e97e5e'/>
@@ -125949,6 +125895,32 @@
         <parameter type-id='3257bfe7'/>
         <parameter type-id='fa0b179b'/>
         <return type-id='95e97e5e'/>
+      </function-type>
+      <function-type size-in-bits='64' id='d591777b'>
+        <parameter type-id='eb572b74'/>
+        <parameter type-id='80f4b756'/>
+        <return type-id='95e97e5e'/>
+      </function-type>
+      <function-type size-in-bits='64' id='08decef0'>
+        <parameter type-id='eb572b74'/>
+        <parameter type-id='991b8213'/>
+        <return type-id='95e97e5e'/>
+      </function-type>
+      <function-type size-in-bits='64' id='1d3d5bb0'>
+        <parameter type-id='eb572b74'/>
+        <parameter type-id='0b6eba4d'/>
+        <parameter type-id='eaa32e2f'/>
+        <return type-id='95e97e5e'/>
+      </function-type>
+      <function-type size-in-bits='64' id='f7146e24'>
+        <parameter type-id='eb572b74'/>
+        <parameter type-id='3dad1a48'/>
+        <return type-id='f4e2facd'/>
+      </function-type>
+      <function-type size-in-bits='64' id='2922fb19'>
+        <parameter type-id='eaa32e2f'/>
+        <parameter type-id='95e97e5e'/>
+        <return type-id='48b5725f'/>
       </function-type>
       <pointer-type-def type-id='fe7ab802' size-in-bits='64' id='0b8718c0'/>
       <array-type-def dimensions='1' type-id='002ac4a6' size-in-bits='128' id='92a46553'>
@@ -126137,12 +126109,6 @@
       </function-decl>
     </abi-instr>
     <abi-instr address-size='64' path='drivers/scsi/scsi_lib.c' language='LANG_C89'>
-      <typedef-decl name='activate_complete' type-id='1ed1e4cd' filepath='include/scsi/scsi_dh.h' line='47' column='1' id='0b6eba4d'/>
-      <pointer-type-def type-id='d591777b' size-in-bits='64' id='b25d7387'/>
-      <pointer-type-def type-id='08decef0' size-in-bits='64' id='a263aa4a'/>
-      <pointer-type-def type-id='1d3d5bb0' size-in-bits='64' id='81d19a12'/>
-      <pointer-type-def type-id='f7146e24' size-in-bits='64' id='04d17276'/>
-      <pointer-type-def type-id='2922fb19' size-in-bits='64' id='1ed1e4cd'/>
       <function-decl name='__scsi_execute' mangled-name='__scsi_execute' filepath='drivers/scsi/scsi_lib.c' line='248' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='__scsi_execute'>
         <parameter type-id='eb572b74' name='sdev' filepath='drivers/scsi/scsi_lib.c' line='248' column='1'/>
         <parameter type-id='354f7eb9' name='cmd' filepath='drivers/scsi/scsi_lib.c' line='248' column='1'/>
@@ -126158,32 +126124,6 @@
         <parameter type-id='7292109c' name='resid' filepath='drivers/scsi/scsi_lib.c' line='252' column='1'/>
         <return type-id='95e97e5e'/>
       </function-decl>
-      <function-type size-in-bits='64' id='d591777b'>
-        <parameter type-id='eb572b74'/>
-        <parameter type-id='80f4b756'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='08decef0'>
-        <parameter type-id='eb572b74'/>
-        <parameter type-id='991b8213'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='1d3d5bb0'>
-        <parameter type-id='eb572b74'/>
-        <parameter type-id='0b6eba4d'/>
-        <parameter type-id='eaa32e2f'/>
-        <return type-id='95e97e5e'/>
-      </function-type>
-      <function-type size-in-bits='64' id='f7146e24'>
-        <parameter type-id='eb572b74'/>
-        <parameter type-id='3dad1a48'/>
-        <return type-id='f4e2facd'/>
-      </function-type>
-      <function-type size-in-bits='64' id='2922fb19'>
-        <parameter type-id='eaa32e2f'/>
-        <parameter type-id='95e97e5e'/>
-        <return type-id='48b5725f'/>
-      </function-type>
     </abi-instr>
     <abi-instr address-size='64' path='drivers/scsi/scsi_lib_dma.c' language='LANG_C89'>
       <function-decl name='scsi_dma_map' mangled-name='scsi_dma_map' filepath='drivers/scsi/scsi_lib_dma.c' line='23' column='1' visibility='default' binding='global' size-in-bits='64' elf-symbol-id='scsi_dma_map'>
@@ -153208,20 +153148,7 @@
           <var-decl name='__data' type-id='c99b5ecd' visibility='default' filepath='include/net/ip_fib.h' line='240' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='hd_geometry' size-in-bits='128' is-struct='yes' visibility='default' filepath='include/uapi/linux/hdreg.h' line='324' column='1' id='28e89e7e'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='heads' type-id='002ac4a6' visibility='default' filepath='include/uapi/linux/hdreg.h' line='325' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='8'>
-          <var-decl name='sectors' type-id='002ac4a6' visibility='default' filepath='include/uapi/linux/hdreg.h' line='326' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='16'>
-          <var-decl name='cylinders' type-id='8efea9e5' visibility='default' filepath='include/uapi/linux/hdreg.h' line='327' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='start' type-id='7359adad' visibility='default' filepath='include/uapi/linux/hdreg.h' line='328' column='1'/>
-        </data-member>
-      </class-decl>
+      <class-decl name='hd_geometry' is-struct='yes' visibility='default' is-declaration-only='yes' id='28e89e7e'/>
       <class-decl name='inet_hashinfo' size-in-bits='4608' is-struct='yes' visibility='default' filepath='include/net/inet_hashtables.h' line='124' column='1' id='3482ac54'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='ehash' type-id='77011cbc' visibility='default' filepath='include/net/inet_hashtables.h' line='131' column='1'/>
@@ -153856,23 +153783,7 @@
           <var-decl name='dev' type-id='fa0b179b' visibility='default' filepath='include/linux/pm_domain.h' line='174' column='1'/>
         </data-member>
       </class-decl>
-      <class-decl name='pr_ops' size-in-bits='320' is-struct='yes' visibility='default' filepath='include/linux/pr.h' line='7' column='1' id='b45c773c'>
-        <data-member access='public' layout-offset-in-bits='0'>
-          <var-decl name='pr_register' type-id='0b6bd27e' visibility='default' filepath='include/linux/pr.h' line='8' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='64'>
-          <var-decl name='pr_reserve' type-id='28138af2' visibility='default' filepath='include/linux/pr.h' line='10' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='128'>
-          <var-decl name='pr_release' type-id='eda6f223' visibility='default' filepath='include/linux/pr.h' line='12' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='192'>
-          <var-decl name='pr_preempt' type-id='af664338' visibility='default' filepath='include/linux/pr.h' line='14' column='1'/>
-        </data-member>
-        <data-member access='public' layout-offset-in-bits='256'>
-          <var-decl name='pr_clear' type-id='45f42df9' visibility='default' filepath='include/linux/pr.h' line='16' column='1'/>
-        </data-member>
-      </class-decl>
+      <class-decl name='pr_ops' is-struct='yes' visibility='default' is-declaration-only='yes' id='b45c773c'/>
       <class-decl name='proc_dir_entry' size-in-bits='1408' is-struct='yes' visibility='default' filepath='fs/proc/internal.h' line='30' column='1' id='fe4ffa7a'>
         <data-member access='public' layout-offset-in-bits='0'>
           <var-decl name='in_use' type-id='49178f86' visibility='default' filepath='fs/proc/internal.h' line='35' column='1'/>
