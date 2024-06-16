@@ -60,10 +60,10 @@
 				 UFSHCD_ERROR_MASK)
 #if defined(CONFIG_SCSI_UFSHCD_QTI)
 /* UIC command timeout, unit: ms */
-#define UIC_CMD_TIMEOUT	999
+#define UIC_CMD_TIMEOUT	3000
 #else
 /* UIC command timeout, unit: ms */
-#define UIC_CMD_TIMEOUT	500
+#define UIC_CMD_TIMEOUT	3000
 #endif
 
 /* NOP OUT retries waiting for NOP IN response */
