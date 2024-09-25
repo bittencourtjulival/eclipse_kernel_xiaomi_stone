@@ -610,6 +610,14 @@ config CHARGER_BQ25890
 	help
 	  Say Y to enable support for the TI BQ25890 battery charger.
 
+config CHARGER_PD_MANAGER
+	tristate "PD policy manager"
+	default n
+	help
+	  Say Y here to enable support of pd manager
+	  It is mainly used as divider charger for
+	  direct charge
+
 config CHARGER_SMB347
 	tristate "Summit Microelectronics SMB347 Battery Charger"
 	depends on I2C
