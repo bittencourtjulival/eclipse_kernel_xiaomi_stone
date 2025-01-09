@@ -567,6 +567,8 @@ static int dsi_panel_update_backlight(struct dsi_panel *panel,
 	rc = mipi_dsi_dcs_set_display_brightness(dsi, bl_lvl);
 	if (rc < 0)
 		DSI_ERR("failed to update dcs backlight:%d\n", bl_lvl);
+	else
+		panel->bl_config.bl_last_level = bl_lvl;
 
 	if (unlikely(panel->bl_config.lp_mode))
 		dsi->mode_flags = mode_flags;
@@ -1786,6 +1788,10 @@ const char *cmd_set_prop_map[DSI_CMD_SET_MAX] = {
 	"qcom,mdss-dsi-doze-lbm-command",
 	"qcom,mdss-dsi-dispparam-bc-120hz-command",
 	"qcom,mdss-dsi-dispparam-bc-60hz-command",
+	"qcom,mdss-dsi-dispparam-hbm-on-l1-command",
+	"qcom,mdss-dsi-dispparam-hbm-on-l2-command",
+	"qcom,mdss-dsi-dispparam-hbm-on-l3-command",
+	"qcom,mdss-dsi-dispparam-hbm-off-command",
 };
 
 const char *cmd_set_state_map[DSI_CMD_SET_MAX] = {
@@ -1816,6 +1822,10 @@ const char *cmd_set_state_map[DSI_CMD_SET_MAX] = {
 	"qcom,mdss-dsi-doze-lbm-command-state",
 	"qcom,mdss-dsi-dispparam-bc-120hz-command-state",
 	"qcom,mdss-dsi-dispparam-bc-60hz-command-state",
+	"qcom,mdss-dsi-dispparam-hbm-on-l1-command-state",
+	"qcom,mdss-dsi-dispparam-hbm-on-l2-command-state",
+	"qcom,mdss-dsi-dispparam-hbm-on-l3-command-state",
+	"qcom,mdss-dsi-dispparam-hbm-off-command-state",
 };
 
 int dsi_panel_get_cmd_pkt_count(const char *data, u32 length, u32 *cnt)
@@ -4988,4 +4998,57 @@ inline void dsi_set_backlight_control(struct dsi_panel *panel)
 	else
 		DSI_ERR("failed to send backlight control cmd %d, rc=%d\n",
 			refresh_rate, rc);
+}
+
+ssize_t dsi_panel_set_hbm(struct dsi_panel *panel, int hbm_status)
+{
+	ssize_t rc = 0;
+
+	if (!panel) {
+		pr_err("Invalid params\n");
+		return -EINVAL;
+	}
+	if (!dsi_panel_initialized(panel)) {
+		pr_err("%s: panel not yet initialized\n", __func__);
+		return -EINVAL;
+	}
+
+	mutex_lock(&panel->panel_lock);
+	switch (hbm_status) {
+	case DSI_PANEL_HBM_L1_ON:
+		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_HBM_ON_L1);
+		if (rc)
+			pr_err("[%s][%s] failed to send DSI_CMD_SET_DISP_HBM_ON_L1 cmd, rc=%d\n",
+					__func__, panel->name, rc);
+		break;
+	case DSI_PANEL_HBM_L2_ON:
+		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_HBM_ON_L2);
+		if (rc)
+			pr_err("[%s][%s] failed to send DSI_CMD_SET_DISP_HBM_ON_L2 cmd, rc=%d\n",
+					__func__, panel->name, rc);
+		break;
+	case DSI_PANEL_HBM_L3_ON:
+		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_HBM_ON_L3);
+		if (rc)
+			pr_err("[%s][%s] failed to send DSI_CMD_SET_DISP_HBM_ON_L3 cmd, rc=%d\n",
+					__func__, panel->name, rc);
+		break;
+	case DSI_PANEL_HBM_OFF:
+		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_HBM_OFF);
+		if (rc)
+			pr_err("[%s][%s] failed to send DSI_CMD_SET_DISP_HBM_OFF cmd, rc=%d\n",
+					__func__, panel->name, rc);
+            	dsi_panel_set_backlight(panel, panel->bl_config.bl_last_level);
+		break;
+	default:
+		pr_err("%s: panel hbm status is invalid\n", __func__);
+		break;
+	}
+	if (!rc) {
+		panel->bl_config.hbm_status = hbm_status;
+		pr_info("%s: panel set hbm = %d\n", __func__, hbm_status);
+	}
+	mutex_unlock(&panel->panel_lock);
+
+	return rc;
 }
