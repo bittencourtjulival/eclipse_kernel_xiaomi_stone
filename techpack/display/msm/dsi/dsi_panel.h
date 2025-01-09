@@ -59,6 +59,13 @@ enum dsi_doze_type {
 	DSI_DOZE_LBM,
 };
 
+enum hbm_level {
+	DSI_PANEL_HBM_OFF = 0,
+	DSI_PANEL_HBM_L1_ON,
+	DSI_PANEL_HBM_L2_ON,
+	DSI_PANEL_HBM_L3_ON
+};
+
 enum bl_update_flag {
 	BL_UPDATE_DELAY_UNTIL_FIRST_FRAME,
 	BL_UPDATE_NONE,
@@ -129,6 +136,7 @@ struct dsi_backlight_config {
 	u32 brightness_max_level;
 	u32 bl_level;
 	u32 bl_level_nodim;
+	u32 bl_last_level;
 	u32 bl_scale;
 	u32 bl_scale_sv;
 	bool bl_inverted_dbv;
@@ -145,6 +153,7 @@ struct dsi_backlight_config {
 
 	/* DCS params */
 	bool lp_mode;
+	u32 hbm_status;
 };
 
 struct dsi_reset_seq {
@@ -423,4 +432,5 @@ void dsi_panel_destroy_cmd_packets(struct dsi_panel_cmd_set *set);
 void dsi_panel_dealloc_cmd_packets(struct dsi_panel_cmd_set *set);
 
 void dsi_set_backlight_control(struct dsi_panel *panel);
+ssize_t dsi_panel_set_hbm(struct dsi_panel *panel, int hbm_status);
 #endif /* _DSI_PANEL_H_ */
