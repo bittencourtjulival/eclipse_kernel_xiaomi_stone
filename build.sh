@@ -10,12 +10,12 @@ export ARCH=arm64
 export KBUILD_BUILD_HOST=Taki
 export KBUILD_BUILD_USER=GoogleFucksYou
 export KBUILD_COMPILER_STRING="$($HOME/clang-r510928/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
-export PATH="$HOME/clang-r510928/bin:$PATH"
+export PATH="$HOME/clang-r547379/bin:$PATH"
 
 # clone clang
-if ! [ -d "$HOME/clang-r510928" ]; then
+if ! [ -d "$HOME/clang-r547379" ]; then
 echo "Clang not found! Cloning..."
-if ! git clone -q https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-playground -b 17 --depth=1 --single-branch ~/clang-r510928; then
+if ! git clone -q https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git -b 15.0 --depth=1 --single-branch ~/clang-r547379; then
 echo "Cloning failed! Aborting..."
 exit 1
 fi
