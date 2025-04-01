@@ -25,6 +25,7 @@
 #include <drm/drm_print.h>
 #include <drm/drm_property.h>
 #include <drm/drm_sysfs.h>
+#include <drm/drm_encoder.h>
 
 #include "drm_internal.h"
 #include "drm_crtc_internal.h"
