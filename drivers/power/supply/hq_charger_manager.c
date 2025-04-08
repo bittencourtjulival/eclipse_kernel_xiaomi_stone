@@ -20,6 +20,7 @@
 #include "hq_charger_manager.h"
 
 #include <misc/fastchg.h>
+#include <misc/fastchgtoggle.h>
 
 #if 0
 int set_jeita_lcd_on_off(bool lcdon)
@@ -576,24 +577,36 @@ static void  sw_battery_jeita(struct batt_chg *chg, int temp)
 {
 	int vbat = 0;
 	int rc;
+	
+	// Thermal boost
+	bool thermal_boost = thermal_boost_allowed();
+
+    	int step0 = chg->dt.jeita_temp_step0 + (thermal_boost ? 50 : 0);
+    	int step1 = chg->dt.jeita_temp_step1 + (thermal_boost ? 50 : 0);
+    	int step2 = chg->dt.jeita_temp_step2 + (thermal_boost ? 50 : 0);
+    	int step3 = chg->dt.jeita_temp_step3 + (thermal_boost ? 50 : 0);
+    	int step4 = chg->dt.jeita_temp_step4 + (thermal_boost ? 50 : 0);
+    	int step6 = chg->dt.jeita_temp_step6 + (thermal_boost ? 50 : 0);
+    	int step7 = chg->dt.jeita_temp_step7 + (thermal_boost ? 50 : 0);
 
 	rc = batt_get_battery_volt_uV(chg, &vbat);
 
 	if(temp <= chg->dt.jeita_temp_step0 ||  temp >= chg->dt.jeita_temp_step7){
 			chg->jeita_cur = 0;
 	} else {
-		if(temp <= chg->dt.jeita_temp_step1) {
+		if(temp <= step1) {
 			chg->jeita_cur = 470000;
-		} else if(temp > chg->dt.jeita_temp_step1 && temp <= chg->dt.jeita_temp_step2) {
+		} else if (temp > step1 && temp <= step2) {
 			chg->jeita_cur = 896000;
-		} else if(temp > chg->dt.jeita_temp_step2 && temp <= chg->dt.jeita_temp_step3) {
+		} else if (temp > step2 && temp <= step3) {
 			chg->jeita_cur = 2350000;
-		} else if(temp > chg->dt.jeita_temp_step3 && temp <= chg->dt.jeita_temp_step4) {
+		} else if (temp > step3 && temp <= step4) {
 			chg->jeita_cur = 3820000;
-		} else if(temp > chg->dt.jeita_temp_step4 && temp < chg->dt.jeita_temp_step6) {
+		} else if (temp > step4 && temp <= step6) {
 			chg->jeita_cur = 5300000;
-		} else if (temp >= chg->dt.jeita_temp_step6)
+		} else if (temp >= step6) {
 			chg->jeita_cur = 2450000;
+		}
 	}
 
 	if (temp >= chg->dt.jeita_temp_step7) {
@@ -610,6 +623,9 @@ static void  sw_battery_jeita(struct batt_chg *chg, int temp)
 
 static void sw_get_charger_type_current_limit(struct batt_chg *chg,int type)
 {
+
+	int fast_mode = fast_chg_get_mode();
+
 	switch (type)
 	{
 		case POWER_SUPPLY_TYPE_USB:
@@ -633,13 +649,26 @@ static void sw_get_charger_type_current_limit(struct batt_chg *chg,int type)
 			chg->charge_limit_cur = 1950000;
 			chg->input_limit_cur = 1950000;
 			break;
-		case POWER_SUPPLY_TYPE_USB_PD:
-			if (chg->batt_auth)
-				chg->charge_limit_cur = 3000000;
-			else
-				chg->charge_limit_cur = 2000000;
-			chg->input_limit_cur = 3000000;
-			break;
+        	case POWER_SUPPLY_TYPE_USB_PD:
+            	    if (chg->batt_auth) {
+                	switch (fast_mode) {
+                    	    case FAST_CHARGE_30W:
+                                chg->charge_limit_cur = 3000000; // 30W
+                        	break;
+                    	    case FAST_CHARGE_15W:
+                        	chg->charge_limit_cur = 1500000; // 15W
+                        	break;
+                    	    case FAST_CHARGE_8W:
+                        	chg->charge_limit_cur = 800000;  // 8W
+                        	break;
+                   	    default:
+                        	chg->charge_limit_cur = 3000000;
+                	    }
+            		} else {
+                	    chg->charge_limit_cur = 2000000;
+            		}
+            		chg->input_limit_cur = 3000000;
+            		break;
 		case POWER_SUPPLY_TYPE_UNKNOWN:
 			chg->charge_limit_cur = 0;
 			chg->input_limit_cur = 0;
@@ -828,7 +857,7 @@ static int batt_init_config(struct batt_chg *chg)
 	chg->dt.jeita_temp_step2 = 50;
 	chg->dt.jeita_temp_step3 = 100;
 	chg->dt.jeita_temp_step4 = 150;
-	chg->dt.jeita_temp_step5 = 350;
+	chg->dt.jeita_temp_step5 = 390;
 	chg->dt.jeita_temp_step6 = 480;
 	chg->dt.jeita_temp_step7 = 600;
 	chg->mtbf_current = 0;
