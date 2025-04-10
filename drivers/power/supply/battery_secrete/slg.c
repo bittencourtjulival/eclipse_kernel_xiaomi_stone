@@ -360,6 +360,14 @@ static void slg_exit(void)
 	return;
 }
 
+#ifdef CONFIG_BUILD_QGKI
+int authenticate_battery(void)
+{
+	// This is a stubbed implementation. Change the return value if needed.
+	return 0;
+}
+#endif
+
 module_init(slg_init);
 module_exit(slg_exit);
 
