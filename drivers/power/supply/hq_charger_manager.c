@@ -22,7 +22,53 @@
 #include <misc/fastchg.h>
 #include <misc/fastchgtoggle.h>
 
-#if 0
+#include <linux/fs.h>
+ #include <linux/uaccess.h>
+ #include <linux/slab.h>
+ 
+ bool fast_chg_allowed(void)
+ {
+ 	struct file *fp;
+ 	char *buf;
+ 	mm_segment_t old_fs;
+ 	loff_t pos = 0;
+ 	int ret;
+ 	bool allowed = false;
+ 
+ 	/* Allocate a buffer */
+ 	buf = kzalloc(2, GFP_KERNEL);
+ 	if (!buf)
+ 		return false;
+ 
+ 	/* Open the sysfs node */
+ 	fp = filp_open("/sys/kernel/fastchgtoggle/mode", O_RDONLY, 0);
+ 	if (IS_ERR(fp)) {
+ 		kfree(buf);
+ 		return false;
+ 	}
+ 
+ 	/* Switch access context */
+ 	old_fs = get_fs();
+ 	set_fs(KERNEL_DS);
+ 
+ 	/* Read the contents of the node */
+ 	ret = kernel_read(fp, buf, 1, &pos);
+ 
+ 	/* Restore access context */
+ 	set_fs(old_fs);
+ 
+ 	/* Close the file */
+ 	filp_close(fp, NULL);
+ 
+ 	/* Check if fast charge is enabled */
+ 	if (ret > 0 && buf[0] == '1')
+ 		allowed = true;
+ 
+ 	kfree(buf);
+ 	return allowed;
+ }
+ 
+ #if 0
 int set_jeita_lcd_on_off(bool lcdon)
 {
 	//hq need set lcd state
