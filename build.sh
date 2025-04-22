@@ -22,8 +22,8 @@
 # Set Kernel Build Variables
 DEVICE_CODENAME="stone"  # Device codename (e.g., veux, garnet, etc.)
 DEVICE_NAME="POCO X5 5G/Redmi Note 12 5G/Note 12R Pro"          # Device Market name (e.g., POCO X4 PRO 5G)
-KERNEL_NAME="Paimon"    # Kernel name
-KERNEL_DEFCONFIG="vendor/${DEVICE_CODENAME}_qgki_defconfig"
+KERNEL_NAME="Eclipse"    # Kernel name
+KERNEL_DEFCONFIG="${DEVICE_CODENAME}_defconfig"
 ANYKERNEL3_DIR=$PWD/AnyKernel3/
 FINAL_KERNEL_ZIP="${KERNEL_NAME}-Kernel-${DEVICE_CODENAME}-$(date '+%Y%m%d').zip"
 
@@ -46,7 +46,7 @@ fi
 
 export ARCH=arm64
 export KBUILD_BUILD_HOST=$BUILD_HOSTNAME
-export KBUILD_BUILD_USER="Embraceurself"
+export KBUILD_BUILD_USER="Julival"
 export KBUILD_COMPILER_STRING="$COMPILER_NAME"
 
 # Telegram Bot Config
