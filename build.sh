@@ -19,13 +19,28 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 
+echo "Do you want to include KernelSU? (y / n)"
+read KernelSU
+
+if [ "$KernelSU" = "y" ]; then
+    echo "Build KernelSU Selected"
+    curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+else
+    echo "Build Non KernelSU Selected"
+fi
+
 # Set Kernel Build Variables
 DEVICE_CODENAME="stone"  # Device codename (e.g., veux, garnet, etc.)
 DEVICE_NAME="POCO X5 5G/Redmi Note 12 5G/Note 12R Pro"          # Device Market name (e.g., POCO X4 PRO 5G)
 KERNEL_NAME="Eclipse"    # Kernel name
 KERNEL_DEFCONFIG="${DEVICE_CODENAME}_defconfig"
 ANYKERNEL3_DIR=$PWD/AnyKernel3/
-FINAL_KERNEL_ZIP="${KERNEL_NAME}-Kernel-${DEVICE_CODENAME}-$(date '+%Y%m%d').zip"
+
+if [ "$KernelSU" = "y" ]; then
+    FINAL_KERNEL_ZIP="${KERNEL_NAME}-Kernel-KSU-${DEVICE_CODENAME}-$(date '+%Y%m%d').zip"
+else
+    FINAL_KERNEL_ZIP="${KERNEL_NAME}-Kernel-${DEVICE_CODENAME}-$(date '+%Y%m%d').zip"
+fi
 
 # Set Build Status (Change to "STABLE/TESTING" if needed)
 BUILD_STATUS="STABLE"
