@@ -13,6 +13,8 @@
 #include "inc/xm_adapter_class.h"
 #include "inc/tcpci_config.h"
 
+#include <linux/quiet_logs.h>
+
 static struct class *adapter_class;
 static int log_level = 2;
 

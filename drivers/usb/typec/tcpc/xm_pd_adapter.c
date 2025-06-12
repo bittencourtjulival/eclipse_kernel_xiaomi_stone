@@ -42,6 +42,8 @@
 #include "inc/xm_adapter_class.h"
 #include "inc/tcpm.h"
 
+#include <linux/quiet_logs.h>
+
 #define PROBE_CNT_MAX	10
 static int log_level = 2;
 int get_apdo_regain;

@@ -21,6 +21,8 @@
 
 #include <misc/fastchg.h>
 
+#include <linux/quiet_logs.h>
+
 #if 0
 int set_jeita_lcd_on_off(bool lcdon)
 {

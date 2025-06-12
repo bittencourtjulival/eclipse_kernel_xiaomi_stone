@@ -39,6 +39,8 @@
 #include <linux/time.h>
 #include <linux/poll.h>
 
+#include <linux/quiet_logs.h>
+
 extern s32 i2c_smbus_write_word_data(const struct i2c_client *client, u8 command,
 			      u16 value);
 extern s32 i2c_smbus_read_word_data(const struct i2c_client *client, u8 command);

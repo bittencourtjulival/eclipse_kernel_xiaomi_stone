@@ -21,6 +21,8 @@
 
 #include <misc/fastchgtoggle.h>
 
+#include <linux/quiet_logs.h>
+
 //config battery charge full voltage
 #define BATT_MAX_CHG_VOLT           4460
 

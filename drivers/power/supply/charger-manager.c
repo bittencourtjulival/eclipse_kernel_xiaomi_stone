@@ -26,6 +26,8 @@
 #include <linux/of.h>
 #include <linux/thermal.h>
 
+#include <linux/quiet_logs.h>
+
 /*
  * Default temperature threshold for charging.
  * Every temperature units are in tenth of centigrade.

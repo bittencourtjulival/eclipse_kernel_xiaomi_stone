@@ -32,6 +32,8 @@
 
 #include "inc/tcpci_typec.h"
 
+#include <linux/quiet_logs.h>
+
 extern int class_for_each_device(struct class *class, struct device *start,
 				void *data, int (*fn)(struct device *, void *));
 extern int typec_partner_set_identity(struct typec_partner *partner);
