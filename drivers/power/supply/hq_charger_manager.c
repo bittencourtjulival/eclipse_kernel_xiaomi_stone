@@ -161,11 +161,17 @@ static int batt_get_battery_constant_current(struct batt_chg *chg, int* contant_
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
+	if (!chg->sw_psy) {
 		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
-		return -1;
+		return -ENODEV;
 	}
-	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT, &pval);
+	rc = power_supply_get_property(chg->sw_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT, &pval);
+	if (rc < 0) {
+            pr_err("Failed to get constant charge current from charger: %d", rc);
+            *contant_charge_current = 2000000;
+            return 0;
+	}
+
 	*contant_charge_current = pval.intval;
 	return rc;
 }
