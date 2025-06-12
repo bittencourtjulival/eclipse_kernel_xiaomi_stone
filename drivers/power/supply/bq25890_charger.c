@@ -30,6 +30,8 @@
 #include "sm5602_fg.h"
 #include "bq25890.h"
 
+#include <linux/quiet_logs.h>
+
 #define BQ25890_MANUFACTURER		"Texas Instruments"
 #define BQ25890_IRQ_PIN			"bq25890_irq"
 #define BQ25890_REG_NUM			21

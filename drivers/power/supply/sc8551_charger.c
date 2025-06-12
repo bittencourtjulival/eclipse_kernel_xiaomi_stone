@@ -28,6 +28,8 @@
 #include <linux/power/charger-manager.h>
 #include "sc8551_reg.h"
 
+#include <linux/quiet_logs.h>
+
 extern void power_supply_unregister(struct power_supply *psy);
 
 typedef enum {
