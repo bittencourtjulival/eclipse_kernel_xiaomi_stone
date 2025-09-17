@@ -69,10 +69,9 @@ static int batt_get_charge_status(struct batt_chg *chg, int* status)
 {
 	int rc;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_STATUS, &pval);
 	*status = pval.intval;
 
@@ -83,10 +82,9 @@ static int batt_get_battery_health(struct batt_chg *chg, int* health)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_TEMP, &pval);
 
 	if (pval.intval >= 600)
@@ -109,10 +107,9 @@ static int batt_get_battery_present(struct batt_chg *chg, int* present)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_PRESENT, &pval);
 	*present = pval.intval;
 
@@ -123,10 +120,9 @@ static int batt_get_battery_capacity(struct batt_chg *chg, int* capacity)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_CAPACITY, &pval);
 	*capacity = pval.intval;
 	chg->ui_soc =  *capacity;
@@ -137,10 +133,9 @@ static int batt_get_battery_volt_uV(struct batt_chg *chg, int* vbat)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_VOLTAGE_NOW, &pval);
 	*vbat = pval.intval;
 	return rc;
@@ -150,10 +145,9 @@ static int batt_get_battery_current_uA(struct batt_chg *chg, int* ibat)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_CURRENT_NOW, &pval);
 	*ibat = pval.intval;
 	return rc;
@@ -163,10 +157,9 @@ static int batt_get_battery_constant_current(struct batt_chg *chg, int* contant_
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->sw_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->sw_psy)
 		return -ENODEV;
-	}
+
 	rc = power_supply_get_property(chg->sw_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT, &pval);
 	if (rc < 0) {
             pr_err("Failed to get constant charge current from charger: %d", rc);
@@ -175,6 +168,7 @@ static int batt_get_battery_constant_current(struct batt_chg *chg, int* contant_
 	}
 
 	*contant_charge_current = pval.intval;
+
 	return rc;
 }
 
@@ -182,10 +176,9 @@ static int batt_get_battery_temp(struct batt_chg *chg, int* temp)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_TEMP, &pval);
 	*temp = pval.intval;
 	chg->battery_temp = *temp;
@@ -205,10 +198,9 @@ static int batt_get_battery_cycle_count(struct batt_chg *chg, int* cycle_count)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_CYCLE_COUNT, &pval);
 	*cycle_count = pval.intval;
 	return rc;
@@ -218,10 +210,9 @@ static int batt_get_battery_full(struct batt_chg *chg, int* charge_full)
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_CHARGE_FULL, &pval);
 	*charge_full = pval.intval;
 	return rc;
@@ -231,10 +222,9 @@ static int batt_get_battery_full_design(struct batt_chg *chg, int* charge_full_d
 {
 	int rc = 0;
 	union power_supply_propval pval = {0, };
-	if (!chg->fg_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->fg_psy) 
 		return -1;
-	}
+
 	rc = power_supply_get_property(chg->fg_psy, POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN, &pval);
 	*charge_full_design = pval.intval;
 	return rc;
@@ -254,10 +244,8 @@ static int batt_get_batt_verify_state(struct batt_chg *chg)
 	int rc;
 	union power_supply_propval pval = {0, };
 
-	if (!chg->verify_psy) {
-		pr_err("charge manager %s:%d, cannot finds verify psy", __func__, __LINE__);
+	if (!chg->verify_psy)
 		return -1;
-	}
 
 	rc = power_supply_get_property(chg->verify_psy,
             POWER_SUPPLY_PROP_AUTHENTIC, &pval);
@@ -267,7 +255,6 @@ static int batt_get_batt_verify_state(struct batt_chg *chg)
 		if(pval.intval == 1) {
 			rc = power_supply_get_property(chg->verify_psy, POWER_SUPPLY_PROP_MODEL_NAME, &pval);
 			if (rc) {
-				pr_err("get bat id err.");
 				chg->batt_id = UNKNOW_SUPPLIER;
 				return rc;
 			} else {
@@ -389,10 +376,8 @@ static int get_usb_charger_type(struct batt_chg *chg, int *type)
 	int i = 0;
 	int usb_type;
 
-	if (!chg->usb_psy) {
-		pr_err("charge manager %s:%d, cannot finds usb psy", __func__, __LINE__);
+	if (!chg->usb_psy)
 		return -1;
-	}
 
 	mutex_lock(&chg->charger_type_mtx);
 	ret = power_supply_get_property(chg->usb_psy, POWER_SUPPLY_PROP_USB_TYPE, &val);
@@ -405,7 +390,6 @@ static int get_usb_charger_type(struct batt_chg *chg, int *type)
 			*type = charger_type[i].adap_type;
 			chg->real_type = *type;
 			mutex_unlock(&chg->charger_type_mtx);
-			pr_info("usb_type %d, charger_type %d", usb_type, chg->real_type);
 			return 0;
 		}
 		i++;
@@ -417,7 +401,6 @@ static int get_usb_charger_type(struct batt_chg *chg, int *type)
 	}
 
 	mutex_unlock(&chg->charger_type_mtx);
-	pr_info("usb_type %d, charger_type %d", usb_type, chg->real_type);
 	return ret;
 }
 /*+++++++++++++++++++++ end +++++++++++++++++++++*/
@@ -460,7 +443,6 @@ static int batt_psy_get_prop(struct power_supply *psy,
 		batt_get_charge_status(chg, &pval->intval);
 		if (chg->old_real_type != chg->real_type) {
 			chg->old_real_type = chg->real_type;
-			pr_err("usb type changed , schedule batt_chg_work\n");
 			cancel_delayed_work(&chg->batt_chg_work);
 			schedule_delayed_work(&chg->batt_chg_work, msecs_to_jiffies(100));
 		}
@@ -539,7 +521,6 @@ static int batt_psy_get_prop(struct power_supply *psy,
 	case POWER_SUPPLY_PROP_TIME_TO_EMPTY_NOW:
 		break;
 	default:
-		pr_err("batt power supply prop %d not supported\n", psp);
 		rc = -EINVAL;
 		break;
 	}
@@ -624,9 +605,6 @@ static int judge_need_to_stop_charge(struct batt_chg *chg, int temp, int vbat)
 		if (temp <= 460 || vbat <= 4000000)
 			chg->is_stop_charge = 0;
 	}
-
-	pr_err("temp : %d, vbat: %d, is_stop: %d\n", temp, vbat, chg->is_stop_charge);
-
 	return chg->is_stop_charge;
 }
 
@@ -649,7 +627,6 @@ static int swchg_termination_current_adjust(struct batt_chg *chg, int temp, int 
 	}
 
 	pval.intval = sw_iterm;
-	pr_err("sw_iterm=%d\n", sw_iterm);
 	rc = power_supply_set_property(chg->sw_psy, POWER_SUPPLY_PROP_CHARGE_TERM_CURRENT, &pval);
 	return rc;
 }
@@ -683,9 +660,7 @@ static int sw_battery_set_cv(struct batt_chg *chg, int temp, int type)
 	}
 
 	pval.intval = sw_vreg;
-	pr_err("sw_vreg=%d, chg->is_pps_on=%d\n", sw_vreg, chg->is_pps_on);
 	rc = power_supply_set_property(chg->sw_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE, &pval);
-
 	return rc;
 }
 
@@ -715,8 +690,6 @@ static void  sw_battery_jeita(struct batt_chg *chg, int temp)
 
 	if (temp >= chg->dt.jeita_temp_step7) {
 		rc = main_chgic_reset();
-        	if(rc)
-        		pr_err("error\n");
     }
 
 	is_stop_charge = judge_need_to_stop_charge(chg, temp, vbat);
@@ -805,9 +778,6 @@ static int swchg_select_charging_current_limit(struct batt_chg *chg, int temp, i
 		rc = power_supply_set_property(chg->sw_psy, POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT, &val);
 		val.intval = ibat;
 		rc = power_supply_set_property(chg->sw_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT, &val);
-
-		pr_err("%s: charger state is %d, temp %d, jeita_cur %d, thermal_cur %d, type_icl %d, type_ibat %d, icl %d, ibat %d, is_mtbf %d\n", 
-			__func__, type, chg->battery_temp, chg->jeita_cur, chg->therm_cur, chg->input_limit_cur,  chg->charge_limit_cur, icl, ibat, is_mtbf_mode_func());
 	} else {
 		if(!chg->is_pps_on) {
 			icl = chg->input_limit_cur;
@@ -815,21 +785,18 @@ static int swchg_select_charging_current_limit(struct batt_chg *chg, int temp, i
 			if(chg->therm_cur != 0)
 				ibat = min(ibat, chg->therm_cur);
 			//for phone current limit
-		if (ibat == 900000) {
-			if (chg->sw_chg_chip_id == 3)
-				ibat = 2500000;
-			else
-				ibat = 2000000;
-			icl = 900000;
-		}
+			if (ibat == 900000) {
+				if (chg->sw_chg_chip_id == 3)
+					ibat = 2500000;
+				else
+					ibat = 2000000;
+				icl = 900000;
+			}
 			val.intval = icl;
 			rc = power_supply_set_property(chg->sw_psy, POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT, &val);
 			val.intval = ibat;
 			rc = power_supply_set_property(chg->sw_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT, &val);
-			pr_err("%s: charger state is pd, temp %d, jeita_cur %d, thermal_cur %d, icl %d, ibat %d, pd_cur_max %d\n", 
-				__func__, chg->battery_temp, chg->jeita_cur, chg->therm_cur, icl, ibat, chg->pd_cur_max);
-		} else
-			pr_err("%s: charger state is pps, hq cm can not set sw current limit\n", __func__);
+		}
 	}
 	return rc;
 }
@@ -852,16 +819,8 @@ static void swchg_curr_vreg_iterm_config(struct batt_chg *chg)
 	chg->sw_chg_chip_id = get_sw_charger_chip_id();
 
 	rc = swchg_termination_current_adjust(chg, temp, type);
-	if (rc)
-		pr_err("swchg set iterm error.");
-
 	rc = sw_battery_set_cv(chg, temp, type);
-	if (rc)
-		pr_err("swchg set vreg error.");
-
 	rc = swchg_select_charging_current_limit(chg, temp, type);
-	if (rc)
-		pr_err("swchg set ibat and icl error.");
 }
 
 static int wt_init_batt_psy(struct batt_chg *chg)
@@ -869,10 +828,8 @@ static int wt_init_batt_psy(struct batt_chg *chg)
 	struct power_supply_config batt_cfg = {};
 	int rc = 0;
 
-	if(!chg) {
-		pr_err("chg is NULL\n");
+	if(!chg) 
 		return rc;
-	}
 
 	batt_cfg.drv_data = chg;
 	batt_cfg.of_node = chg->dev->of_node;
@@ -880,7 +837,6 @@ static int wt_init_batt_psy(struct batt_chg *chg)
 					   &batt_psy_desc,
 					   &batt_cfg);
 	if (IS_ERR(chg->batt_psy)) {
-		pr_err("Couldn't register battery power supply\n");
 		return PTR_ERR(chg->batt_psy);
 	}
 
@@ -889,43 +845,31 @@ static int wt_init_batt_psy(struct batt_chg *chg)
 
 static int wt_init_ext_psy(struct batt_chg *chg)
 {
-	if(!chg) {
-		pr_err("chg is NULL\n");
+	if(!chg) 
 		return -1;
-	}
 
 	chg->sw_psy = power_supply_get_by_name("bq25890_charger");
-	if (chg->sw_psy == NULL) {
-		pr_err("can not find sw psy\n");
+	if (chg->sw_psy == NULL)
 		return -1;
-	}
 
 	chg->cp_psy = power_supply_get_by_name("ln8000_standalone");
 	if (chg->cp_psy == NULL) {
 		chg->cp_psy = power_supply_get_by_name("sc8551_standalone");
-		if (chg->cp_psy == NULL) {
-			pr_err("can not find cp psy\n");
+		if (chg->cp_psy == NULL)
 			return -1;
-		}
 	}
 
 	chg->fg_psy = power_supply_get_by_name("sm5602_bat");
-	if (chg->fg_psy == NULL) {
-		pr_err("can not find fg psy\n");
+	if (chg->fg_psy == NULL)
 		return -1;
-	}
 
 	chg->usb_psy = power_supply_get_by_name("usb");
-	if (chg->usb_psy == NULL) {
-		pr_err("can not find usb psy\n");
+	if (chg->usb_psy == NULL)
 		return -1;
-	}
 
 	chg->verify_psy = power_supply_get_by_name("batt_verify");
-	if (chg->verify_psy == NULL) {
-		pr_err("can not find batt_verify psy\n");
+	//if (chg->verify_psy == NULL)
 		//return -1;
-	}
 
 	return 1;
 }
@@ -974,31 +918,23 @@ static int batt_parse_dt(struct batt_chg *chg)
 	struct device_node *node = chg->dev->of_node;
 	int rc = 0;
 
-	if (!node) {
-		pr_err("device tree node missing\n");
+	if (!node)
 		return -EINVAL;
-	}
 
 	rc = of_property_read_u32(node,
 				"qcom,fv-max-uv", &chg->dt.batt_profile_fv_uv);
 	if (rc < 0)
 		chg->dt.batt_profile_fv_uv = 4450000;
-	else
-		pr_err("test %d\n",chg->dt.batt_profile_fv_uv);
 
 	rc = of_property_read_u32(node,
 				"qcom,fcc-max-ua", &chg->dt.batt_profile_fcc_ua);
 	if (rc < 0)
 		chg->dt.batt_profile_fcc_ua = 10000000;
-	else
-		pr_err("test %d\n",chg->dt.batt_profile_fcc_ua);
 
 	rc = of_property_read_u32(node,
 				"qcom,batt_iterm", &chg->dt.batt_iterm);
 	if (rc < 0)
 		chg->dt.batt_iterm = 300000;
-	else
-		pr_err("test %d\n",chg->dt.batt_iterm);
 
 	return 0;
 };
@@ -1044,17 +980,9 @@ static void judge_shutdown_delay(struct batt_chg *chg)
 
 	if(chg->ui_soc == 1) {
 		rc = batt_get_battery_volt_uV(chg, &vbat);
-		if (rc)
-			pr_err("get vbat error.\n");
 		rc = batt_get_charge_status(chg, &status);
-		if (rc)
-			pr_err("get charge status error.\n");
-		
 		if (vbat/1000 < (SHUTDOWN_DELAY_VOL_LOW - 100) && !chg->shutdown_delay) {
-			pr_err("vbat under 3.2V, poweroff.\n");
 			rc = main_chgic_reset();
-			if(rc)
-				pr_err("main chgic reset failed.\n");
 			msleep(1000);
 			do_msm_poweroff();
 		}	
@@ -1077,7 +1005,6 @@ static void judge_shutdown_delay(struct batt_chg *chg)
 			strncpy(uevent_string[0]+28, "1",MAX_UEVENT_LENGTH-28);
 		else
 			strncpy(uevent_string[0]+28, "0",MAX_UEVENT_LENGTH-28);
-		pr_err("envp[0] = %s\n", envp[0]);
 		kobject_uevent_env(&chg->dev->kobj, KOBJ_CHANGE, envp);
 	}
 }
@@ -1097,8 +1024,6 @@ static void batt_chg_main(struct work_struct *work)
 	rc = batt_get_battery_temp(chg,&chg->battery_temp);
 	rc = batt_get_battery_capacity(chg,&chg->ui_soc);
 	rc = batt_get_batt_verify_state(chg);
-	pr_err("real_type %d, temp %d, soc %d, batt_id %d, batt_auth %d\n",
-		chg->real_type, chg->battery_temp, chg->ui_soc, chg->batt_id, chg->batt_auth);
 
 	judge_shutdown_delay(chg);
 
@@ -1106,7 +1031,6 @@ static void batt_chg_main(struct work_struct *work)
 		if(!chg->wakeup_flag) {
 			__pm_stay_awake(chg->wt_ws);
 			chg->wakeup_flag = 1;
-			pr_err("wt workup\n");
 		}
 		swchg_curr_vreg_iterm_config(chg);
 
@@ -1125,7 +1049,6 @@ static void batt_chg_main(struct work_struct *work)
 		if(chg->wakeup_flag) {
 			__pm_relax(chg->wt_ws);
 			chg->wakeup_flag = 0;
-			pr_err("wt workup relax\n");
 		}
 		if (chg->ui_soc != chg->old_capacity || chg->battery_temp > 550 || chg->power_supply_count >= 6 || chg->ui_soc <= 10) {
 			chg->power_supply_count = 0;
@@ -1211,10 +1134,8 @@ static int batt_chg_probe(struct platform_device *pdev)
 
 	if (pdev->dev.of_node) {
 		indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(struct batt_chg));
-		if (!indio_dev) {
-			pr_err("Failed to allocate memory\n");
+		if (!indio_dev)
 			return -ENOMEM;
-		}
 	} else {
 		return -ENODEV;
 	}
@@ -1232,11 +1153,9 @@ static int batt_chg_probe(struct platform_device *pdev)
 
 	rc = wt_init_ext_psy(batt_chg);
 	if (rc == -1) {
-		pr_err("can not find chg fg psy");
-
 		if (probe_cnt >= PROBE_CNT_MAX) {
 			rc = -ENODEV;
-			goto out;
+			goto cleanup;
 		} else {
 			rc = -EPROBE_DEFER;
 			goto cleanup;
@@ -1252,16 +1171,12 @@ static int batt_chg_probe(struct platform_device *pdev)
 	}
 
 	rc = batt_init_config(batt_chg);
-	if (rc < 0) {
-		pr_err("Couldn't parse device tree rc=%d\n", rc);
+	if (rc < 0)
 		goto cleanup;
-	}
 
 	rc = wt_init_batt_psy(batt_chg);
-	if (rc < 0) {
-		pr_err("Couldn't initialize batt psy rc=%d\n", rc);
+	if (rc < 0)
 		goto cleanup;
-	}
 
 	mutex_init(&batt_chg->charger_type_mtx);
 
@@ -1273,7 +1188,6 @@ static int batt_chg_probe(struct platform_device *pdev)
 
 	batt_chg->wt_ws = wakeup_source_register(batt_chg->dev, "charge_wakeup");
 	if (!batt_chg->wt_ws) {
-		pr_err("wt chg workup fail!\n");
 		wakeup_source_unregister(batt_chg->wt_ws);
 	}
 
@@ -1282,14 +1196,9 @@ static int batt_chg_probe(struct platform_device *pdev)
 	//INIT_DELAYED_WORK( &batt_chg->charger_debug_info_print_work, xm_charger_debug_info_print_work);
 	//schedule_delayed_work(&batt_chg->charger_debug_info_print_work, 30 * HZ);
 	g_batt_chg = batt_chg;
-	pr_err("batt_chg probe success\n");
 	return 0;
 
-out:
-	pr_err("hq_charger_manager Over probe cnt max");
-
 cleanup:
-	pr_err("batt_chg probe fail\n");
 	g_batt_chg = NULL;
 	#ifdef CONFIG_HQ_QGKI
 	if (batt_chg && batt_chg->indio_dev)
@@ -1307,7 +1216,6 @@ static void batt_chg_shutdown(struct platform_device *pdev)
 {
 	struct batt_chg *chg = platform_get_drvdata(pdev);
 
-	pr_err("%s batt_chg_shutdown\n", __func__);
 	if (!chg)
 		return;
 
@@ -1335,13 +1243,11 @@ static struct platform_driver batt_chg_driver = {
 static int __init batt_chg_init(void)
 {
     platform_driver_register(&batt_chg_driver);
-	pr_err("batt_chg init end\n");
     return 0;
 }
 
 static void __exit batt_chg_exit(void)
 {
-	pr_err("batt_chg exit\n");
 	platform_driver_unregister(&batt_chg_driver);
 }
 

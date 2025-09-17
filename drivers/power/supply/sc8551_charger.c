@@ -1563,7 +1563,6 @@ static int sc8551_charger_get_property(struct power_supply *psy,
 	struct sc8551 *sc = power_supply_get_drvdata(psy);
 	int result;
 	int ret;
-	sc_info(">>>>>psp = %d\n", psp);
 	switch (psp) {
 	case POWER_SUPPLY_PROP_PRESENT:
 		val->intval = sc->usb_present;
@@ -1620,8 +1619,6 @@ static int sc8551_charger_set_property(struct power_supply *psy,
 	case POWER_SUPPLY_PROP_ONLINE:
 		sc8551_enable_charge(sc, val->intval);
 		sc8551_check_charge_enabled(sc, &sc->charge_enabled);
-		sc_info("POWER_SUPPLY_PROP_CHARGING_ENABLED: %s\n",
-				val->intval ? "enable" : "disable");
 		break;
 	case POWER_SUPPLY_PROP_PRESENT:
 		sc8551_set_present(sc, !!val->intval);
@@ -1708,8 +1705,6 @@ static irqreturn_t sc8551_charger_interrupt(int irq, void *dev_id)
 	struct sc8551 *sc = dev_id;
 	u8 i = 0;
 	u8 data = 0;
-
-	sc_info("Enter sc8551_charger_interrupt\n");
 
 	for(i=0; i<0x13; i++)
 	{

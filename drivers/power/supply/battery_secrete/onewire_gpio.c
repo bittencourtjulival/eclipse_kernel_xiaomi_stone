@@ -22,11 +22,6 @@
 #include <linux/spinlock.h>
 #include <misc/hqsys_pcba.h>
 
-#define ow_info	pr_info
-#define ow_dbg	pr_debug
-#define ow_err	pr_debug
-#define ow_log	pr_err
-
 #define DRV_STRENGTH_16MA		(0x7 << 6)
 #define DRV_STRENGTH_4MA		(0x1 << 6)
 #define GPIO_ENABLE			(0x1 << 12)
@@ -100,7 +95,6 @@ unsigned char ow_reset(void)
 	ONE_WIRE_CONFIG_IN;
 	Delay_us(7);
 	presence = (unsigned char)readl_relaxed(g_onewire_data->gpio_in_out_reg) & 0x01; // Read
-	ow_log("presence: 0x%x\n", presence);
 	Delay_us(50);
 
 	raw_spin_unlock_irqrestore(&g_onewire_data->lock, flags);
@@ -195,7 +189,6 @@ void Software_Reset(void)
 	for (i = 0; i < 40; i++)  //Pullup for 4ms
 		Delay_us(100);
 	step++;
-	ow_dbg("DS28E16_software_reset success!\n");
 }
 EXPORT_SYMBOL(Software_Reset);
 
@@ -209,32 +202,23 @@ static int onewire_gpio_parse_dt(struct device *dev,
 	// parse version
 	pdata->version = 0;
 	error = of_property_read_u32(np, "xiaomi,version", &val);
-	if (error && (error != -EINVAL))
-		ow_err("Unable to read version\n");
-	else if (error != -EINVAL)
+	if (error != -EINVAL)
 		pdata->version = val;
 
 	// parse gpio
 	pdata->ow_gpio = of_get_named_gpio_flags(np,
 					"gpio", 0, NULL);
-	ow_dbg("ow_gpio: %d\n", pdata->ow_gpio);
 
 	// parse gpio_num
 	pdata->gpio_num = 0;
 	error = of_property_read_u32(np, "xiaomi,gpio_number", &val);
-	if (error && (error != -EINVAL))
-		ow_err("Unable to read gpio number\n");
-	else if (error != -EINVAL)
+	if (error != -EINVAL)
 		pdata->gpio_num = val;
 
 	error = of_property_read_u32_array(np, "mi,onewire-gpio-cfg-addr", pdata->gpio_reg, 2);
-	if (error < 0)
-		ow_err("Unable to read onewire gpio addr\n");
-
 	pdata->onewire_gpio_cfg_addr = pdata->gpio_reg[0];
 	pdata->gpio_offset = pdata->gpio_reg[1];
 	pdata->onewire_gpio_level_addr = pdata->onewire_gpio_cfg_addr + pdata->gpio_offset;
-
 	return 0;
 }
 
@@ -246,7 +230,6 @@ static int onewire_gpio_pinctrl_init(struct onewire_gpio_data *onewire_data)
 	onewire_data->ow_gpio_pinctrl = devm_pinctrl_get(&onewire_data->pdev->dev);
 	if (IS_ERR_OR_NULL(onewire_data->ow_gpio_pinctrl)) {
 		retval = PTR_ERR(onewire_data->ow_gpio_pinctrl);
-		ow_err("Target does not use pinctrl %d\n", retval);
 		goto ow_gpio_err_pinctrl_get;
 	}
 
@@ -255,7 +238,6 @@ static int onewire_gpio_pinctrl_init(struct onewire_gpio_data *onewire_data)
 					"onewire_active");
 	if (IS_ERR_OR_NULL(onewire_data->pinctrl_state_active)) {
 		retval = PTR_ERR(onewire_data->pinctrl_state_active);
-		ow_err("Can not lookup onewire_active pinstate %d\n", retval);
 		goto ow_gpio_err_pinctrl_lookup;
 	}
 
@@ -264,7 +246,6 @@ static int onewire_gpio_pinctrl_init(struct onewire_gpio_data *onewire_data)
 					"onewire_sleep");
 	if (IS_ERR_OR_NULL(onewire_data->pinctrl_state_sleep)) {
 		retval = PTR_ERR(onewire_data->pinctrl_state_sleep);
-		ow_err("Can not lookup onewire_sleep  pinstate %d\n", retval);
 		goto ow_gpio_err_pinctrl_lookup;
 	}
 
@@ -305,42 +286,24 @@ const char *buf, size_t count)
 
 	if (buf_int == 0) {
 		ONE_WIRE_OUT_LOW;
-		ow_log("gpio : OUT 0");
 	} else if (buf_int == 1) {
 		ONE_WIRE_OUT_HIGH;
-		ow_log("gpio : OUT 1");
 	} else if (buf_int == 2) {
 		ONE_WIRE_CONFIG_OUT;
-		ow_log("gpio : OUT");
 	} else if (buf_int == 3) {
 		ONE_WIRE_CONFIG_IN;
-		ow_log("gpio : IN");
 	} else if (buf_int == 4) {
 		result = ow_reset();
-		if (result)
-			ow_log("ow_reset: no device.result = %02x", result);
-		else
-			ow_log("ow_reset: device exist.result = %02x", result);
 	} else if (buf_int == 5) {
 		result = read_bit();
-		ow_log("read_bit: %02x", result);
 	} else if (buf_int == 6) {
 		write_bit(0x01);
-		ow_log("write_bit 0");
 	} else if (buf_int == 7) {
 		result = ow_reset();
-		if (result)
-			ow_log("ow_reset: no device.result = %02x", result);
-		else
-			ow_log("ow_reset: device exist.result = %02x", result);
-
-		ow_dbg("Ready to write 0x33 to maxim IC!\n");
 		write_byte(0x33);
 
 		for (i = 0; i < 8; i++)
 			RomID[i] = read_byte();
-
-		ow_log("RomID = %02x%02x%02x%02x%02x%02x%02x%02x\n", RomID[0], RomID[1], RomID[2], RomID[3], RomID[4], RomID[5], RomID[6], RomID[7]);
 	} else if (buf_int == 8) {
 		ONE_WIRE_CONFIG_OUT;
 		ONE_WIRE_OUT_HIGH;
@@ -412,11 +375,8 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 	struct onewire_gpio_data *onewire_data;
 	struct kobject *p;
 
-	ow_log("onewire probe entry");
-
 #ifdef CONFIG_BUILD_QGKI
 	if ((get_huaqin_pcba_config() >= PCBA_UNKNOW) && (get_huaqin_pcba_config() <= PCBA_END) && (get_huaqin_pcba_config() % 0x10 == 3)){
-		ow_err("No compatable phone!\n");
 		return -ERANGE;
 	}
 #endif
@@ -428,10 +388,8 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 		onewire_data = devm_kzalloc(&pdev->dev,
 			sizeof(struct onewire_gpio_data),
 			GFP_KERNEL);
-		if (!onewire_data) {
-			ow_err("Failed to allocate memory\n");
+		if (!onewire_data)
 			return -ENOMEM;
-		}
 
 		retval = onewire_gpio_parse_dt(&pdev->dev, onewire_data);
 		if (retval) {
@@ -442,10 +400,8 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 		onewire_data = pdev->dev.platform_data;
 	}
 
-	if (!onewire_data) {
-		ow_err("No platform data found\n");
+	if (!onewire_data)
 		return -EINVAL;
-	}
 
 	g_onewire_data = onewire_data;
 	onewire_data->pdev = pdev;
@@ -458,8 +414,6 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 	if (!retval && onewire_data->ow_gpio_pinctrl) {
 		retval = pinctrl_select_state(onewire_data->ow_gpio_pinctrl,
 					onewire_data->pinctrl_state_active);
-		if (retval < 0)
-			ow_err("Failed to select active pinstate %d\n", retval);
 	}
 	if (retval)
 		goto onewire_pinctrl_err;
@@ -472,8 +426,6 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 		retval = -EINVAL;
 	}
 	if (retval) {
-		ow_err("request onewire gpio failed, retval=%d\n",
-				retval);
 		goto onewire_ow_gpio_err;
 	}
 
@@ -487,14 +439,11 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 					(uint32_t)onewire_data->onewire_gpio_level_addr, 0x4);
 	onewire_data->gpio_cfg66_reg = devm_ioremap(&pdev->dev,
 					(uint32_t)onewire_data->onewire_gpio_cfg_addr, 0x4);
-	ow_log("onewire_gpio_level_addr is %lx; onewire_gpio_cfg_addr is %lx", (uintptr_t)(onewire_data->onewire_gpio_level_addr), (uintptr_t)(onewire_data->onewire_gpio_cfg_addr));
-	ow_log("onewire_data->gpio_cfg66_reg is %lx; onewire_data->gpio_in_out_reg is %lx", (uintptr_t)(onewire_data->gpio_cfg66_reg), (uintptr_t)(onewire_data->gpio_in_out_reg));
 
 	// create device node
 	onewire_data->dev = device_create(onewire_class,
 		pdev->dev.parent->parent, onewire_major, onewire_data, "onewirectrl");
 	if (IS_ERR(onewire_data->dev)) {
-		ow_err("Failed to create interface device\n");
 		goto onewire_interface_dev_create_err;
 	}
 
@@ -503,14 +452,12 @@ static int onewire_gpio_probe(struct platform_device *pdev)
 	// create attr file
 	retval = sysfs_create_file(p, &dev_attr_ow_gpio.attr);
 	if (retval < 0) {
-		ow_err("Failed to create sysfs attr file\n");
 		goto onewire_sysfs_ow_gpio_err;
 	}
 
 	retval = sysfs_create_link(&onewire_data->dev->kobj, &pdev->dev.kobj,
 								"pltdev");
 	if (retval) {
-		ow_err("Failed to create sysfs link\n");
 		goto onewire_syfs_create_link_err;
 	}
 
@@ -546,7 +493,6 @@ static int onewire_gpio_remove(struct platform_device *pdev)
 static long onewire_dev_ioctl(struct file *file, unsigned int cmd,
 						unsigned long arg)
 {
-	ow_dbg("%d, cmd: 0x%x\n", __LINE__, cmd);
 	return 0;
 }
 static int onewire_dev_open(struct inode *inode, struct file *file)
@@ -586,17 +532,13 @@ static int __init onewire_gpio_init(void)
 	int retval;
 	onewire_gpio_detected = false;
 
-	ow_log("onewire gpio init entry.");
-
 	onewire_class = class_create(THIS_MODULE, "onewire");
 	if (IS_ERR(onewire_class)) {
-		ow_err("coudn't create class");
 		return PTR_ERR(onewire_class);
 	}
 
 	onewire_major = register_chrdev(0, "onewirectrl", &onewire_dev_fops);
 	if (onewire_major < 0) {
-		ow_err("failed to allocate char dev\n");
 		retval = onewire_major;
 		goto class_unreg;
 	}
@@ -610,7 +552,6 @@ class_unreg:
 
 static void __exit onewire_gpio_exit(void)
 {
-	ow_log("onewire gpio exit entry.");
 	platform_driver_unregister(&onewire_gpio_driver);
 
 	unregister_chrdev(onewire_major, "onewirectrl");

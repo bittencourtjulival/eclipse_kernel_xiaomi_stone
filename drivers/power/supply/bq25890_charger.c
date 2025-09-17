@@ -477,7 +477,7 @@ static int bq25890_set_ship_mode(struct bq25890_device *bq, int val)
 
 	ret = bq25890_field_write(bq, F_BATFET_DIS, val);
 	if (ret < 0) {
-		dev_dbg(bq->dev, "set ship mode failed %d\n", ret);
+		dev_err(bq->dev, "set ship mode failed %d\n", ret);
 		return ret;
 	}
 
@@ -491,7 +491,7 @@ static int bq25890_get_ship_mode(struct bq25890_device *bq,
 
 	ret = bq25890_field_read(bq, F_BATFET_DIS);
 	if (ret < 0) {
-		dev_dbg(bq->dev, "get ship mode failed %d\n", ret);
+		dev_err(bq->dev, "get ship mode failed %d\n", ret);
 		return ret;
 	}
 
@@ -668,9 +668,6 @@ static int bq25890_power_supply_get_property(struct power_supply *psy,
 		}
 
 		bq->old_online = online;
-
-		pr_info("old_online = %d, online = %d, state.chrg_status = %d, status = %d, is_pps_on = %d\n", bq->old_online, online, state.chrg_status, val->intval, is_pps_on);
-
 		break;
 
 	case POWER_SUPPLY_PROP_MANUFACTURER:
@@ -822,7 +819,6 @@ static int bq25890_power_supply_set_property(struct power_supply *psy,
 			ret = bq25890_field_write(bq, F_IILIM, (val->intval-100000) / 50000);
 			if (ret < 0) {
 				bq25890_field_write(bq, F_IILIM, (val->intval-100000) / 50000);
-				pr_err("[%s]line=%d: dbg_info 25890 set input current limit failed\n", __FUNCTION__, __LINE__);
 				return ret;
 			}
 			break;
@@ -906,11 +902,6 @@ static int bq25890_get_chip_state(struct bq25890_device *bq,
 		if (ret < 0)
 			pr_err("Config F_CONV_RATE = 0 failed %d\n", ret);
 	}
-
-	pr_info("S:CHG/PG/VSYS=%d/%d/%d, F:CHG/BOOST/BAT=%d/%d/%d,vbus=%d\n",
-		state->chrg_status, state->online, state->vsys_status,
-		state->chrg_fault, state->boost_fault, state->bat_fault, state->vbus_status);
-
 	return 0;
 }
 #ifdef CONFIG_HQ_QGKI
@@ -982,7 +973,6 @@ static int request_dpdm(struct bq25890_device *bq, bool enable)
 	mutex_lock(&bq->dpdm_lock);
 	if (enable) {
 		if (bq->dpdm_reg && !bq->dpdm_enabled) {
-			pr_err("--->southchip ap dpdm disable\n");
 			rc = msm_hsphy_dpdm_regulator_enable(bq->dpdm_reg->rdev);
 			if (rc < 0)
 				dev_err(bq->dev,
@@ -993,7 +983,6 @@ static int request_dpdm(struct bq25890_device *bq, bool enable)
 		}
 	} else {
 		if (bq->dpdm_reg && bq->dpdm_enabled) {
-			pr_err("--->southchip ap dpdm enable\n");
 			rc = msm_hsphy_dpdm_regulator_disable(bq->dpdm_reg->rdev);
 			if (rc < 0)
 				dev_err(bq->dev,
@@ -1020,7 +1009,6 @@ static void bq25890_handle_state_change(struct bq25890_device *bq,
 
 	if (!new_state->online) {			     /* power removed */
 		/* disable ADC */
-		pr_err("--->southchip, adapter remove\n");
 		ret = bq25890_field_write(bq, F_CONV_RATE, 0);
 		if (ret < 0)
 			goto error;
@@ -1030,19 +1018,16 @@ static void bq25890_handle_state_change(struct bq25890_device *bq,
 		cancel_delayed_work_sync(&bq->detect_float_work);
 		request_dpdm(bq,0); // sily open ap dp dm
 	} else if (!old_state.online) {			    /* power inserted */
-		pr_err("--->southchip, adapter insert\n");
 		bq->detect_force_dpdm_count = 0;
 		if (bq->chip_id == SC8989X_ID || bq->chip_id == BQ25890_ID) {
 			bq25890_field_write(bq, F_IILIM, 0);
 			msleep(100);
 			request_dpdm(bq,1); //close ap dp dm
-			pr_err("southchip force dpdm, 02\n");
 			regmap_write(bq->rmap, 0x02, 0x02);
 			//bq25890_field_write(bq, F_FORCE_DPM, 1); //force run bc1.2
 			//msleep(500);
 		} else {
 			request_dpdm(bq,1); //sily close ap dp dm
-			pr_err("SILY force dpdm\n");
 			bq25890_field_write(bq, F_FORCE_DPM, 1); //force run bc1.2
 			msleep(500);
 		}
@@ -1054,9 +1039,7 @@ static void bq25890_handle_state_change(struct bq25890_device *bq,
 
 
 	if (old_state.vbus_status == 0 && new_state->vbus_status != 0) {
-		pr_err("southchip bc1.2 done, open ap dpdm\n");
 		if (bq->chip_id == SC8989X_ID) {
-			pr_info("set Vindpm to 4800mV\n");
 			bq25890_field_write(bq, F_FORCE_VINDPM, 1);
 			bq25890_field_write(bq, F_VINDPM, 0x16);//Vindpm 4.8V
 		
@@ -1081,7 +1064,6 @@ static irqreturn_t bq25890_irq_handler_thread(int irq, void *private)
 	int ret;
 	struct bq25890_state state;
 
-	pr_info("Enter bq25890_irq_handler_thread.\n");
 	bq25890_dump_register(bq);
 	ret = bq25890_get_chip_state(bq, &state);
 	if (ret < 0)
@@ -1334,7 +1316,6 @@ int get_quick_charge_type(struct bq25890_device *bq)
 			i++;
 		}
 	}
-	pr_info("get_quick_charge_type is not supported in usb\n");
 	return 0;
 }
 
@@ -1368,7 +1349,6 @@ static int bq25890_usb_get_property(struct power_supply *psy,
 	switch (psp) {
 	case POWER_SUPPLY_PROP_ONLINE:
 		val->intval = get_usb_onlie_state();
-		pr_info("usb online = %d\n",val->intval);
 		break;
 	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
 		break;
@@ -1385,7 +1365,6 @@ static int bq25890_usb_get_property(struct power_supply *psy,
 			return ret;
 		if ((bq->pdactive) && (state.online)) {
 			val->intval = POWER_SUPPLY_USB_TYPE_PD;
-			pr_info("usb type is pd ,vbus_state=%x\n", state.vbus_status);
 			break;
 		}
 		switch(state.vbus_status) {
@@ -1412,11 +1391,9 @@ static int bq25890_usb_get_property(struct power_supply *psy,
 				val->intval = POWER_SUPPLY_USB_TYPE_UNKNOWN;
 				break;
 		}
-		pr_info("Get usb type %d,vbus_state=%x\n", val->intval, state.vbus_status);
 		break;
 	case POWER_SUPPLY_PROP_QUICK_CHARGE_TYPE:
 		val->intval = get_quick_charge_type(bq);
-		pr_info("get_quick_charge_type %d\n", val->intval);
 		bq->batpsy = power_supply_get_by_name("battery");
 		if(bq->batpsy != NULL) {
 			ret = power_supply_get_property(bq->batpsy,POWER_SUPPLY_PROP_TEMP,&battemp_val);
@@ -1444,21 +1421,17 @@ static int bq25890_usb_set_property(struct power_supply *psy,
 				case POWER_SUPPLY_TYPE_OTG_ENABLE:
 					ret = bq25890_field_write(bq, F_CHG_CFG, FALSE);
 					ret = bq25890_field_write(bq, F_OTG_CFG, TRUE);
-					pr_info("enable otg mode\n");
 					break;
 				case POWER_SUPPLY_TYPE_OTG_DISABLE:
 					ret = bq25890_field_write(bq, F_OTG_CFG, FALSE);
 					ret = bq25890_field_write(bq, F_CHG_CFG, TRUE);
-					pr_info("disable otg mode\n");
 					break;
 				case POWER_SUPPLY_PD_ACTIVE:
 				case POWER_SUPPLY_PD_PPS_ACTIVE:
 					bq->pdactive = 1;
-					pr_info("bq->pdactive = %d\n",val->intval);
 					break;
 				case POWER_SUPPLY_PD_INACTIVE:
 					bq->pdactive = 0;
-					pr_info("bq->pdactive = %d\n",val->intval);
 					break;
                           default:break;
 			}
@@ -1576,7 +1549,6 @@ static void bq25890_usb_work(struct work_struct *data)
 	struct bq25890_device *bq =
 			container_of(data, struct bq25890_device, usb_work);
 
-	pr_info("Enter bq25890 bq25890_usb_work.\n");
 	switch (bq->usb_event) {
 	case USB_EVENT_ID:
 		/* Enable boost mode */
@@ -1613,7 +1585,6 @@ static int bq25890_usb_notifier(struct notifier_block *nb, unsigned long val,
 	struct bq25890_device *bq =
 			container_of(nb, struct bq25890_device, usb_nb);
 
-	pr_err("Enter bq25890 bq25890_usb_notifier.\n");
 	bq->usb_event = val;
 	queue_work(system_power_efficient_wq, &bq->usb_work);
 
@@ -1669,18 +1640,14 @@ static void bq25890_detect_vbat_set_vindpm_work(struct work_struct *work)
 	vbat = bq25890_field_read(bq, F_BATV);
 
 	vbat = 2304 + vbat * 20;
-	pr_info("bq25890_detect_vbat_set_vindpm_work:vbat:%dmV\n",vbat);
 	if (vbat <= min_charger_voltage_1) {
 		// <=4v,set vindpm 4.4
-		pr_info("vbat less than 4000 mv set Vindpm to 4400mV\n");
 		bq25890_field_write(bq, F_VINDPM, 0x12);//Vindpm 4.4V
 	} else if (vbat <= min_charger_voltage_2) {
 		// 4v<vbat<=4.3v,vindpm 4.6
-		pr_info(" set Vindpm to 4600mv\n");
 		bq25890_field_write(bq, F_VINDPM, 0x14);
 	} else {
 		// vbat>4.3v,vindpm 4.8
-		pr_info(" set Vindpm to 4800mv\n");
 		bq25890_field_write(bq, F_VINDPM, 0x16);
 	}
 	schedule_delayed_work(&bq->detect_vbat_set_vindpm_work, msecs_to_jiffies(10000));
@@ -1693,7 +1660,6 @@ static void bq25890_detect_float_work(struct work_struct *work)
 			container_of(work, struct bq25890_device, detect_float_work.work);
 
 	request_dpdm(bq,1); //close ap dp dm
-	pr_err("southchip force dpdm\n");
 	bq25890_field_write(bq, F_FORCE_DPM, 1); //force run bc1.2
 	bq->detect_force_dpdm_count ++;
 	mutex_lock(&bq->lock);
@@ -1801,8 +1767,6 @@ static ssize_t hq_test_input_suspend_store(struct class *c,
 		input_suspend_flag = 0;//enable slave chg
 
 	bq25890_field_write(g_bq, F_EN_HIZ, bq->hq_test_input_suspend);
-	pr_info("bq->hq_test_input_suspend = %d\n", bq->hq_test_input_suspend);
-
 	return count;
 }
 
@@ -1836,8 +1800,6 @@ static ssize_t input_suspend_store(struct class *c,
 		bq25890_field_write(bq, F_CHG_CFG, 1);
 		input_suspend_flag = 0;//enable slave chg
 	}
-	pr_info("bq->input_suspend = %d\n", bq->input_suspend);
-
 	return count;
 }
 
@@ -1869,8 +1831,6 @@ static ssize_t otg_enable_show(struct class *c,
 	bq->otg_enable = bq25890_field_read(bq, F_OTG_CFG);
 	if (bq->otg_enable < 0)
 		return bq->otg_enable;
-	pr_info("get otg enable = %d\n", bq->otg_enable);
-
 	return scnprintf(buf, PAGE_SIZE, "%d\n", bq->otg_enable);
 }
 static CLASS_ATTR_RO(otg_enable);
@@ -1930,7 +1890,6 @@ static ssize_t set_ship_mode_store(struct class *c,
 
 	if((val == 1) || (val == 0)) {
 		bq25890_set_ship_mode(bq, val);
-		pr_err("set shipmode success,val = %d\n", val);
 	} else {
 		pr_err("%d is not a valid value,set_ship_mode failed\n", val);
 	}
@@ -1949,14 +1908,12 @@ static ssize_t mtbf_current_store(struct class *c,
 
 	if(val != 0) {
 		is_mtbf_mode = 1;
-		pr_err("set mtbf current,val = %d\n", val);
 		/* disable chg timer */
 		ret = bq25890_field_write(bq, F_TMR_EN, 0);
 		if (ret < 0)
 			pr_err("Disable chg timer failed %d\n", ret);
 	} else {
 		is_mtbf_mode = 0;
-		pr_err("val == 0, not need to set iilim and ichg\n");
 		/* enable chg timer */
 		ret = bq25890_field_write(bq, F_TMR_EN, 1);
 		if (ret < 0)
@@ -2004,7 +1961,6 @@ static ssize_t typec_mode_show(struct class *c,
 		type = 1;
 	else
 		type = bq->typec_mode;
-	pr_err(" %s vaule = %d\n", __func__, type);
 	return scnprintf(buf, PAGE_SIZE, "%s\n",  usb_typec_mode_text[type]);
 }
 static CLASS_ATTR_RO(typec_mode);
@@ -2031,7 +1987,6 @@ static ssize_t soc_decimal_show(struct class *c,
 #ifdef SOC_DECIMAL_2_POINT
 	val.intval = fg_get_soc_decimal();
 #endif
-	pr_err("soc_decimal_show,val = %d\n", val.intval);
 	if(val.intval < 0)
 		val.intval = 0;
 	return scnprintf(buf, PAGE_SIZE, "%d", val.intval);
@@ -2048,7 +2003,6 @@ static ssize_t soc_decimal_rate_show(struct class *c,
 #ifdef SOC_DECIMAL_2_POINT
 	val.intval = fg_get_soc_decimal_rate();
 #endif
-	pr_err("soc_decimal_rate_show,val = %d\n", val.intval);
 	if(val.intval > 100 || val.intval < 0)
 		val.intval = 0;
 	return scnprintf(buf, PAGE_SIZE, "%d", val.intval);
@@ -2065,7 +2019,6 @@ static ssize_t real_type_show(struct class *c,
 
 	real_type = get_usb_real_type(bq);
 	val = real_type - 3;
-	pr_info("real type = %s\n", get_usb_type_name(val));
 	return scnprintf(buf, PAGE_SIZE, "%s\n", get_usb_type_name(val));
 }
 static CLASS_ATTR_RO(real_type);
@@ -2116,7 +2069,6 @@ static ssize_t dev_real_type_show(struct device *dev,
 	int val,real_type;
 	real_type = get_usb_real_type(g_bq);
 	val = real_type - 3;
-	pr_info("real type = %s\n", get_usb_type_name(val));
 	return scnprintf(buf, PAGE_SIZE, "%s\n", get_usb_type_name(val));
 }
 static DEVICE_ATTR(real_type, 0664, dev_real_type_show, NULL);
@@ -2146,8 +2098,6 @@ static ssize_t dev_input_suspend_store(struct device *dev,
 		input_suspend_flag = 0;//enable slave chg
 	}
 	bq25890_field_write(g_bq, F_EN_HIZ, g_bq->input_suspend);
-	pr_info("bq->input_suspend = %d\n", g_bq->input_suspend);
-
 	return count;
 }
 static DEVICE_ATTR(input_suspend, 0664, dev_input_suspend_show, dev_input_suspend_store);
@@ -2172,8 +2122,6 @@ static ssize_t dev_hq_test_input_suspend_store(struct device *dev,
 		input_suspend_flag = 0;//enable slave chg
 
 	bq25890_field_write(g_bq, F_EN_HIZ, g_bq->hq_test_input_suspend);
-	pr_info("bq->hq_test_input_suspend = %d\n", g_bq->hq_test_input_suspend);
-
 	return count;
 }
 static DEVICE_ATTR(hq_test_input_suspend, 0664, dev_hq_test_input_suspend_show, dev_hq_test_input_suspend_store);
@@ -2251,9 +2199,6 @@ static void generate_xm_charge_uvent(struct work_struct *work)
 	soc_decimal_rate_show( &(bq->usb_debug_class), NULL, prop_buf);
 	strncpy( uevent_string[1]+30, prop_buf,MAX_UEVENT_LENGTH-30);
 
-	pr_err("uevent test : %s\n %s count %d\n",
-			envp[0], envp[1], count);
-
 	/*add our prop end*/
 
 	kobject_uevent_env(&bq->dev->kobj, KOBJ_CHANGE, envp);
@@ -2280,7 +2225,6 @@ static int get_board_temp(struct bq25890_device *bq,
 			return ret;
 		}
 		*val = temp / 100;
-		pr_info("get_board_temp(%d)\n", *val);
 	} else {
 		return -ENODATA;
 	}
@@ -2311,18 +2255,14 @@ static int bq25890_iio_set_prop(struct bq25890_device *bq,
 		break;
 	case PSY_IIO_APDO_MAX_VOLT:
 		bq->apdo_max_volt = val;
-		pr_info("set apdo_max_volt(%d)\n", bq->apdo_max_volt);
 		break;
 	case PSY_IIO_APDO_MAX_CURR:
 		bq->apdo_max_curr = val;
-		pr_info("set apdo_max_curr(%d)\n",bq->apdo_max_curr );
 		break;
 	case PSY_IIO_SET_SHIP_MODE:
 		bq25890_set_ship_mode(bq, val);
-		pr_err("[%s]line=%d: set ship mode success\n", __FUNCTION__, __LINE__);
 		break;
 	default:
-		pr_info("bq25890 master set prop %d is not supported\n", channel);
 		return -EINVAL;
 	}
 
@@ -2349,7 +2289,6 @@ static int bq25890_iio_get_prop(struct bq25890_device *bq,
 			return ret;
 		break;
 	default:
-		pr_info("bq25890 master get prop %d is not supported\n", channel);
 		return -EINVAL;
 	}
 
@@ -2387,7 +2326,6 @@ static int bq25890_of_xlate(struct iio_dev *indio_dev,
 	struct iio_chan_spec *iio_chan = iio_chip->bq25890_iio_chan_ids;
 
 	for (i = 0; i < iio_chip->nchannels; i++) {
-		pr_info("bq25890_of_xlate iio_chan->channel: %d iiospec->args[0]: %d\n", iio_chan->channel, iiospec->args[0]);
 		if (iio_chan->channel == iiospec->args[0])
 			return i;
 		iio_chan++;
@@ -2515,7 +2453,6 @@ static int bq25890_probe(struct i2c_client *client,
 		return bq->chip_id;
 	}
 	sw_charger_chip_id = bq->chip_id;
-	pr_err("bq25890-------Chip with ID=%d\n", bq->chip_id);
 
 #if 0
 	if ((bq->chip_id != BQ25890_ID) && (bq->chip_id != BQ25895_ID)
@@ -2540,7 +2477,6 @@ static int bq25890_probe(struct i2c_client *client,
 		pr_err("Cannot initialize the chip.\n");
 		return ret;
 	}
-	pr_err("bq25890 hw init success\n");
 
 	if (client->irq <= 0)
 		client->irq = bq25890_irq_probe(bq);
@@ -2561,7 +2497,6 @@ static int bq25890_probe(struct i2c_client *client,
 		INIT_WORK(&bq->usb_work, bq25890_usb_work);
 		bq->usb_nb.notifier_call = bq25890_usb_notifier;
 		usb_register_notifier(bq->usb_phy, &bq->usb_nb);
-		pr_err("bq25890 usb_phy found.\n");
 	}
 
 	ret = devm_request_threaded_irq(dev, client->irq, NULL,
@@ -2664,7 +2599,6 @@ static void bq25890_shutdown(struct i2c_client *client)
 	int ret = 0;
 	struct bq25890_device *bq = i2c_get_clientdata(client);
 
-	pr_err("bq25890 shutdown success\n");
 	/* reset all registers to default values */
 	//bq25890_chip_reset(bq);
 

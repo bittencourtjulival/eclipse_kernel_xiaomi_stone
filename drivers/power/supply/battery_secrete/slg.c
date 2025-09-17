@@ -26,11 +26,6 @@
 #include "w1_slg.h"
 #endif
 
-#define ds_info	pr_err
-#define ds_dbg	pr_err
-#define ds_err	pr_err
-#define ds_log	pr_err
-
 enum {
 	FIRST_SUPPLIER,
 	SECOND_SUPPLIER,
@@ -121,7 +116,6 @@ static int verify_get_property(struct power_supply *psy, enum power_supply_prope
 		val->strval = battery_id_name[slgbatid];
 		break;
 	default:
-		ds_err("unsupported property %d\n", psp);
 		return -ENODATA;
 	}
 
@@ -137,7 +131,6 @@ static int verify_set_property(struct power_supply *psy,
 
 	switch (prop) {
 	default:
-		ds_err("unsupported property %d\n", prop);
 		return -ENODATA;
 	}
 
@@ -175,12 +168,8 @@ static int verify_psy_register(struct slg_data *ds)
 	ds->verify_psy = devm_power_supply_register(ds->dev,
 						&ds->verify_psy_d,
 						&verify_psy_cfg);
-	if (IS_ERR(ds->verify_psy)) {
-		ds_err("Failed to register verify_psy");
+	if (IS_ERR(ds->verify_psy))
 		return PTR_ERR(ds->verify_psy);
-	}
-
-	ds_log("%s power supply register successfully\n", ds->verify_psy_d.name);
 	return 0;
 }
 
@@ -200,9 +189,7 @@ static int slg_parse_dt(struct device *dev,
 	// parse version
 	pdata->version = 0;
 	error = of_property_read_u32(np, "slg,version", &val);
-	if (error && (error != -EINVAL))
-		ds_err("Unable to read bootloader address\n");
-	else if (error != -EINVAL)
+	if (error != -EINVAL)
 		pdata->version = val;
 
 	return 0;
@@ -227,24 +214,20 @@ static void authentic_work(struct work_struct *work)
 	/*rc = power_supply_get_property(ds28e16_data->verify_psy,
 					POWER_SUPPLY_PROP_AUTHEN_RESULT, &pval);*/
 	pval.intval = authenticate_battery();
-	ds_log("[Loren3]authentic result is %d\n", pval.intval);
 	if (pval.intval != 0) {
 		retry_authentic_times++;
 		if (retry_authentic_times < AUTHENTIC_COUNT_MAX) {
-			ds_log("battery authentic work begin to restart.\n");
 			schedule_delayed_work(&slg_data->authentic_work,
 				msecs_to_jiffies(authentic_period_ms));
 		}
 
 		if (retry_authentic_times == AUTHENTIC_COUNT_MAX) {
-			ds_log("[Loren1]authentic result is %d\n", pval.intval);
 			slg_Auth_Result_b = false;
 			slgbatid = UNKNOW_SUPPLIER;
 		} 
 	} else {
-			ds_log("[Loren2]authentic result is %d\n", pval.intval);
-			slg_Auth_Result_b = true;
-			slgbatid = THIRD_SUPPLIER;
+		slg_Auth_Result_b = true;
+		slgbatid = THIRD_SUPPLIER;
 	}
 #endif
 }
@@ -256,35 +239,24 @@ static int slg_probe(struct platform_device *pdev)
 
 #ifdef CONFIG_BUILD_QGKI
 	if ((get_huaqin_pcba_config() >= PCBA_UNKNOW) && (get_huaqin_pcba_config() <= PCBA_END) && (get_huaqin_pcba_config() % 0x10 != 3)){
-		ds_dbg("Loren:No compatable phone!\n");
 		return -ERANGE;
 	}
 #endif
 
     //mutex_init(&slg_cmd_lock);
 
-	ds_log("%s entry.", __func__);
-	ds_dbg("platform_device is %s", pdev->name);
 	if (strcmp(pdev->name, "soc:maxim_slg") != 0)
-	{
-		ds_log("Loren debug strcmp.");
 		return -ENODEV;
-	}
 		
 	if (!pdev->dev.of_node || !of_device_is_available(pdev->dev.of_node))
-	{
-		ds_log("Loren debug of_device_is_available.");
 		return -ENODEV;
-	}
 
 	if (pdev->dev.of_node) {
 		slg_data = devm_kzalloc(&pdev->dev,
 			sizeof(struct slg_data),
 			GFP_KERNEL);
-		if (!slg_data) {
-			ds_err("Failed to allocate memory\n");
+		if (!slg_data)
 			return -ENOMEM;
-		}
 
 		retval = slg_parse_dt(&pdev->dev, slg_data);
 		if (retval) {
@@ -295,10 +267,9 @@ static int slg_probe(struct platform_device *pdev)
 		slg_data = pdev->dev.platform_data;
 	}
 
-	if (!slg_data) {
-		ds_err("No platform data found\n");
+	if (!slg_data)
 		return -EINVAL;
-	}
+	
 	slg_data->dev = &pdev->dev;
 	slg_data->pdev = pdev;
 	platform_set_drvdata(pdev, slg_data);
@@ -307,21 +278,16 @@ static int slg_probe(struct platform_device *pdev)
 #ifdef CONFIG_BUILD_QGKI
 	retval = verify_psy_register(slg_data);
 	if (retval) {
-		ds_err("Failed to verify_psy_register, err:%d\n", retval);
 		goto slg_psy_register_err;
 	}
 #endif
 	retval = sysfs_create_group(&slg_data->dev->kobj, &attribute_group);
 	if (retval) {
-		ds_err("Failed to register sysfs, err:%d\n", retval);
 		goto slg_create_group_err;
 	}
-
-	ds_log("Loren authenticate_battery start.");
 #ifdef CONFIG_BUILD_QGKI
 	retval =	authenticate_battery();
 	if (retval != 0) {
-		ds_log("Loren authenticate_battery failed,create schedule_delayed_work.");
 		schedule_delayed_work(&slg_data->authentic_work,
 				msecs_to_jiffies(500));
 	}
