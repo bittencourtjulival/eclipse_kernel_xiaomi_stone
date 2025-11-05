@@ -36,6 +36,8 @@
 #include <linux/fsnotify.h>
 #include <linux/fs_struct.h>
 #include <linux/pipe_fs_i.h>
+#include <linux/pid.h>
+#include <linux/pidfd.h>
 #include <linux/oom.h>
 #include <linux/compat.h>
 #include <linux/fs.h>
@@ -585,7 +587,7 @@ static int umh_coredump_setup(struct subprocess_info *info, struct cred *new)
 	if (cp->pid) {
 		int fd;
 
-		fd = pidfd_prepare(cp->pid, 0, &pidfs_file);
+		fd = -EINVAL;
 		if (fd < 0)
 			return fd;
 

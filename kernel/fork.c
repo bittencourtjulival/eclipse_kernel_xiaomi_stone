@@ -66,6 +66,7 @@
 #include <linux/ftrace.h>
 #include <linux/proc_fs.h>
 #include <linux/profile.h>
+#include <linux/pid.h>
 #include <linux/rmap.h>
 #include <linux/ksm.h>
 #include <linux/acct.h>
@@ -81,6 +82,7 @@
 #include <linux/fs_struct.h>
 #include <linux/magic.h>
 #include <linux/perf_event.h>
+#include <linux/pidfd.h>
 #include <linux/posix-timers.h>
 #include <linux/user-return-notifier.h>
 #include <linux/oom.h>
@@ -2083,7 +2085,7 @@ static __latent_entropy struct task_struct *copy_process(
 	 */
 	if (clone_flags & CLONE_PIDFD) {
 		/* Note that no task has been attached to @pid yet. */
-		retval = __pidfd_prepare(pid, O_RDWR | O_CLOEXEC, &pidfile);
+		retval = -EINVAL;
 		if (retval < 0)
 			goto bad_fork_free_pid;
 		pidfd = retval;
