@@ -155,7 +155,13 @@ static int posix_timer_add(struct k_itimer *timer)
 			/* Loop over all possible ids completed */
 			ret = -EAGAIN;
 		spin_unlock(&hash_lock);
+
+		/* ✅ trecho do upstream mantido corretamente */
+		cond_resched();
+
 	} while (ret == -ENOENT);
+
+	/* ✅ mantém retorno original do seu kernel */
 	return ret;
 }
 

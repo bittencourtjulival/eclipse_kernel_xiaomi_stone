@@ -990,7 +990,7 @@ static void msm_dirconn_cfg_reg(struct irq_data *d, u32 offset)
 	val = (d->hwirq) & 0xFF;
 
 	writel_relaxed(val, pctrl->regs[g->tile] + g->dir_conn_reg
-		       + (offset * 4));
+	+ (offset * 4));
 
 	val = msm_readl_relaxed_intr_cfg(pctrl, g);
 	val |= BIT(g->dir_conn_en_bit);
@@ -1011,7 +1011,7 @@ static void msm_dirconn_uncfg_reg(struct irq_data *d, u32 offset)
 	g = &pctrl->soc->groups[d->hwirq];
 
 	writel_relaxed(val, pctrl->regs[g->tile] + g->dir_conn_reg
-		       + (offset * 4));
+	+ (offset * 4));
 	val = msm_readl_relaxed_intr_cfg(pctrl, g);
 	val &= ~BIT(g->dir_conn_en_bit);
 	msm_writel_relaxed_intr_cfg(val, pctrl, g);
@@ -1019,7 +1019,7 @@ static void msm_dirconn_uncfg_reg(struct irq_data *d, u32 offset)
 }
 
 static int select_dir_conn_mux(struct irq_data *d, irq_hw_number_t *irq,
-			       bool add)
+							   bool add)
 {
 	struct msm_dir_conn *dc = NULL;
 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
@@ -1042,7 +1042,7 @@ static int select_dir_conn_mux(struct irq_data *d, irq_hw_number_t *irq,
 	}
 
 	pr_err("%s: No direct connects selected for interrupt %lu\n",
-				__func__, d->hwirq);
+		   __func__, d->hwirq);
 	return -EBUSY;
 }
 
@@ -1058,7 +1058,7 @@ static void msm_gpio_dirconn_handler(struct irq_desc *desc)
 	generic_handle_irq(irqd->irq);
 	chained_irq_exit(chip, desc);
 	irq_set_irqchip_state(irq_desc_get_irq_data(desc)->irq,
-			      IRQCHIP_STATE_ACTIVE, 0);
+						  IRQCHIP_STATE_ACTIVE, 0);
 }
 
 static void add_dirconn_tlmm(struct irq_data *d, struct msm_pinctrl *pctrl)
@@ -1099,6 +1099,27 @@ static void remove_dirconn_tlmm(struct irq_data *d, irq_hw_number_t irq)
 
 	dir_conn_data->chip->irq_mask(dir_conn_data);
 }
+
+/* --- nova função upstream: marca pins inválidos para interrupts --- */
+static void msm_gpio_irq_init_valid_mask(struct gpio_chip *gc,
+										 unsigned long *valid_mask,
+										 unsigned int ngpios)
+{
+	struct msm_pinctrl *pctrl = gpiochip_get_data(gc);
+	const struct msm_pingroup *g;
+	int i;
+
+	bitmap_fill(valid_mask, ngpios);
+
+	for (i = 0; i < ngpios; i++) {
+		g = &pctrl->soc->groups[i];
+
+		if (g->intr_detection_width != 1 &&
+			g->intr_detection_width != 2)
+			clear_bit(i, valid_mask);
+	}
+}
+
 
 static int msm_gpio_irq_set_type(struct irq_data *d, unsigned int type)
 {
@@ -1399,6 +1420,7 @@ static int msm_gpio_init(struct msm_pinctrl *pctrl)
 	girq->default_type = IRQ_TYPE_NONE;
 	girq->handler = handle_bad_irq;
 	girq->parents[0] = pctrl->irq;
+	girq->init_valid_mask = msm_gpio_irq_init_valid_mask;
 
 	ret = gpiochip_add_data(&pctrl->chip, pctrl);
 	if (ret) {

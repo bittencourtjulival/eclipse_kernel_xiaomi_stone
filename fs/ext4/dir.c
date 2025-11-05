@@ -76,52 +76,63 @@ static bool is_fake_dir_entry(struct ext4_dir_entry_2 *de)
  * on the inode inline data flag.
  */
 int __ext4_check_dir_entry(const char *function, unsigned int line,
-			   struct inode *dir, struct file *filp,
-			   struct ext4_dir_entry_2 *de,
-			   struct buffer_head *bh, char *buf, int size,
-			   unsigned int offset)
+						   struct inode *dir, struct file *filp,
+						   struct ext4_dir_entry_2 *de,
+						   struct buffer_head *bh, char *buf, int size,
+						   unsigned int offset)
 {
 	const char *error_msg = NULL;
 	const int rlen = ext4_rec_len_from_disk(de->rec_len,
-						dir->i_sb->s_blocksize);
+											dir->i_sb->s_blocksize);
 	const int next_offset = ((char *) de - buf) + rlen;
 	bool fake = is_fake_dir_entry(de);
 	bool has_csum = ext4_has_metadata_csum(dir->i_sb);
 
+	/* Basic sanity checks: minimal rec_len, alignment and enough room for name */
 	if (unlikely(rlen < ext4_dir_rec_len(1, fake ? NULL : dir)))
 		error_msg = "rec_len is smaller than minimal";
 	else if (unlikely(rlen % 4 != 0))
 		error_msg = "rec_len % 4 != 0";
 	else if (unlikely(rlen < ext4_dir_rec_len(de->name_len,
-							fake ? NULL : dir)))
+		fake ? NULL : dir)))
 		error_msg = "rec_len is too small for name_len";
-	else if (unlikely(((char *) de - buf) + rlen > size))
+	else if (unlikely(next_offset > size))
 		error_msg = "directory entry overrun";
+	/*
+	 * If the entry would extend into the tail of the block (less than a
+	 * minimal directory entry remaining) that's an error — but when checksums
+	 * are enabled the minimal entry size may differ (hence has_csum). Keep
+	 * the original semantics of using has_csum to determine minimal rec_len.
+	 */
 	else if (unlikely(next_offset > size - ext4_dir_rec_len(1,
-						  has_csum ? NULL : dir) &&
-			  next_offset != size))
+		has_csum ? NULL : dir) &&
+		next_offset != size))
 		error_msg = "directory entry too close to block end";
 	else if (unlikely(le32_to_cpu(de->inode) >
-			le32_to_cpu(EXT4_SB(dir->i_sb)->s_es->s_inodes_count)))
+		le32_to_cpu(EXT4_SB(dir->i_sb)->s_es->s_inodes_count)))
 		error_msg = "inode out of bounds";
+	else if (unlikely(next_offset == size && de->name_len == 1 &&
+			  de->name[0] == '.'))
+		error_msg = "'.' directory cannot be the last in data block";
 	else
 		return 0;
 
 	if (filp)
 		ext4_error_file(filp, function, line, bh->b_blocknr,
-				"bad entry in directory: %s - offset=%u, "
-				"inode=%u, rec_len=%d, size=%d fake=%d",
-				error_msg, offset, le32_to_cpu(de->inode),
-				rlen, size, fake);
-	else
-		ext4_error_inode(dir, function, line, bh->b_blocknr,
-				"bad entry in directory: %s - offset=%u, "
-				"inode=%u, rec_len=%d, size=%d fake=%d",
-				 error_msg, offset, le32_to_cpu(de->inode),
-				 rlen, size, fake);
+						"bad entry in directory: %s - offset=%u, "
+						"inode=%u, rec_len=%d, size=%d fake=%d",
+						error_msg, offset, le32_to_cpu(de->inode),
+						rlen, size, fake);
+		else
+			ext4_error_inode(dir, function, line, bh->b_blocknr,
+							 "bad entry in directory: %s - offset=%u, "
+							 "inode=%u, rec_len=%d, size=%d fake=%d",
+							 error_msg, offset, le32_to_cpu(de->inode),
+							 rlen, size, fake);
 
-	return 1;
+			return 1;
 }
+
 
 static int ext4_readdir(struct file *file, struct dir_context *ctx)
 {
