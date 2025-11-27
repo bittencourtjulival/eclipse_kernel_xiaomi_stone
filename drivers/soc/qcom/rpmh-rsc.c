@@ -294,12 +294,21 @@ static irqreturn_t tcs_tx_done(int irq, void *p)
 		ipc_log_string(drv->ipc_log_ctx,
 			       "IRQ response: m=%d err=%d", i, err);
 
-		/* Clear AMC trigger & enable modes and
+		/*
+		 * if wake tcs was re-purposed for sending active
+		 * votes, clear AMC trigger & enable modes and
 		 * disable interrupt for this TCS
 		 */
-		__tcs_set_trigger(drv, i, false);
-
-		skip:
+		if (!drv->tcs[ACTIVE_TCS].num_tcs) {
+			__tcs_trigger(drv, i, false);
+			/*
+			 * Disable interrupt for this TCS to avoid being
+			 * spammed with interrupts coming when the solver
+			 * sends its wake votes.
+			 */
+			enable_tcs_irq(drv, i, false);
+		}
+skip:
 		/* Reclaim the TCS */
 		write_tcs_reg(drv, RSC_DRV_CMD_ENABLE, i, 0);
 		write_tcs_reg(drv, RSC_DRV_IRQ_CLEAR, 0, BIT(i));
