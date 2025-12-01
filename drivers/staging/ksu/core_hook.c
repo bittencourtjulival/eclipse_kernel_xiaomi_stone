@@ -45,10 +45,6 @@
 #include "throne_tracker.h"
 #include "kernel_compat.h"
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 0, 0) || defined(KSU_COMPAT_GET_CRED_RCU)
-#define KSU_GET_CRED_RCU
-#endif
-
 static bool ksu_module_mounted = false;
 
 extern int handle_sepolicy(unsigned long arg3, void __user *arg4);
@@ -118,7 +114,7 @@ static void setup_groups(struct root_profile *profile, struct cred *cred)
 	set_groups(cred, group_info);
 }
 
-static void disable_seccomp(void)
+static void disable_seccomp()
 {
 	assert_spin_locked(&current->sighand->siglock);
 	// disable seccomp
@@ -140,7 +136,6 @@ void escape_to_root(void)
 {
 	struct cred *cred;
 
-#ifdef KSU_GET_CRED_RCU
 	rcu_read_lock();
 
 	do {
@@ -153,15 +148,6 @@ void escape_to_root(void)
 		rcu_read_unlock();
 		return;
 	}
-#else
-	cred = (struct cred *)__task_cred(current);
-
-	if (cred->euid.val == 0) {
-		pr_warn("Already root, don't escape!\n");
-		return;
-	}
-#endif
-
 	struct root_profile *profile = ksu_get_root_profile(cred->uid.val);
 
 	cred->uid.val = profile->uid;
@@ -192,9 +178,7 @@ void escape_to_root(void)
 
 	setup_groups(profile, cred);
 
-#ifdef KSU_GET_CRED_RCU
 	rcu_read_unlock();
-#endif
 
 	// Refer to kernel/seccomp.c: seccomp_set_mode_strict
 	// When disabling Seccomp, ensure that current->sighand->siglock is held during the operation.
