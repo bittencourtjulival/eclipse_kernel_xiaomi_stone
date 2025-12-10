@@ -1504,6 +1504,9 @@ static int sdhci_msm_execute_tuning(struct mmc_host *mmc, u32 opcode)
 	u32 core_vendor_spec;
 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
 	struct sdhci_msm_host *msm_host = sdhci_pltfm_priv(pltfm_host);
+
+	const struct sdhci_msm_offset *msm_offset =
+					sdhci_priv_msm_offset(host);
 	const struct sdhci_msm_offset *msm_offset = msm_host->offset;
 	u32 config;
 
