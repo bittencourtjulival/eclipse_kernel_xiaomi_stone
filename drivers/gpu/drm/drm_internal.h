@@ -209,6 +209,10 @@ int drm_syncobj_timeline_signal_ioctl(struct drm_device *dev, void *data,
 int drm_syncobj_query_ioctl(struct drm_device *dev, void *data,
 			    struct drm_file *file_private);
 
+/* HBM xiaomi import */
+ssize_t dsi_display_set_hbm(struct drm_connector *connector, int hbm_status);
+ssize_t dsi_display_get_hbm_status(struct drm_connector *connector);
+
 /* drm_framebuffer.c */
 void drm_framebuffer_print_info(struct drm_printer *p, unsigned int indent,
 				const struct drm_framebuffer *fb);

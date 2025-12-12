@@ -803,6 +803,9 @@ int dsi_display_dump_clks_state(struct dsi_display *display);
  */
 void dsi_display_dfps_update_parent(struct dsi_display *display);
 
+ssize_t dsi_display_set_hbm(struct drm_connector *connector, int hbm_status);
+ssize_t dsi_display_get_hbm_status(struct drm_connector *connector);
+
 /**
  * dsi_display_unset_clk_src() - reset the clocks source to default
  * @display:         Handle to display
