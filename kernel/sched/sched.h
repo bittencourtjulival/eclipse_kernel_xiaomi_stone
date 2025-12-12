@@ -2489,6 +2489,11 @@ unsigned long schedutil_cpu_util(int cpu, unsigned long util_cfs,
 				 unsigned long max, enum schedutil_type type,
 				 struct task_struct *p);
 
+static inline unsigned long task_util(struct task_struct *p)
+{
+    return READ_ONCE(p->se.avg.util_avg);
+}
+
 static inline unsigned long cpu_bw_dl(struct rq *rq)
 {
 	return (rq->dl.running_bw * SCHED_CAPACITY_SCALE) >> BW_SHIFT;
