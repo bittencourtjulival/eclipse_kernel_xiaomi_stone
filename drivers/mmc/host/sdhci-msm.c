@@ -1507,7 +1507,6 @@ static int sdhci_msm_execute_tuning(struct mmc_host *mmc, u32 opcode)
 
 	const struct sdhci_msm_offset *msm_offset =
 					sdhci_priv_msm_offset(host);
-	const struct sdhci_msm_offset *msm_offset = msm_host->offset;
 	u32 config;
 
 	if (!sdhci_msm_is_tuning_needed(host)) {

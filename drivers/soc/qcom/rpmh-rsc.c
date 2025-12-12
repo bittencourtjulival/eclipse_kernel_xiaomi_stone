@@ -300,7 +300,7 @@ static irqreturn_t tcs_tx_done(int irq, void *p)
 		 * disable interrupt for this TCS
 		 */
 		if (!drv->tcs[ACTIVE_TCS].num_tcs) {
-			__tcs_set_trigger(drv, i, false);
+			__tcs_trigger(drv, i, false);
 			/*
 			 * Disable interrupt for this TCS to avoid being
 			 * spammed with interrupts coming when the solver
