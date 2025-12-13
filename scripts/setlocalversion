@@ -49,7 +49,17 @@ fi
 
 scm_version()
 {
+	local short
+	short=false
+
 	cd "$srctree"
+	if test -e .scmversion; then
+		cat .scmversion
+		return
+	fi
+	if test "$1" = "--short"; then
+		short=true
+	fi
 
 	# Check for git and a git repo.
 	if test -z "$(git rev-parse --show-cdup 2>/dev/null)" &&
@@ -88,7 +98,7 @@ scm_version()
 			# If we don't have a tag at all we print -g{commitish},
 			# again using exactly 12 hex chars.
 			else
-				head="$(echo $head | cut -c1-8)"
+				head="$(echo $head | cut -c1-12)"
 				printf '%s%s' -g $head
 			fi
 		fi
@@ -146,6 +156,14 @@ collect_files()
 	done
 	echo "$res"
 }
+
+if $scm_only; then
+	if test ! -e .scmversion; then
+		res=$(scm_version)
+		echo "$res" >.scmversion
+	fi
+	exit
+fi
 
 if test -e include/config/auto.conf; then
 	. include/config/auto.conf
