@@ -158,8 +158,15 @@ extern int cpuidle_register(struct cpuidle_driver *drv,
 extern void cpuidle_unregister(struct cpuidle_driver *drv);
 extern void cpuidle_pause_and_lock(void);
 extern void cpuidle_resume_and_unlock(void);
+
+#ifdef CONFIG_CPU_IDLE
 extern void cpuidle_pause(void);
 extern void cpuidle_resume(void);
+#else
+static inline void cpuidle_pause(void) { }
+static inline void cpuidle_resume(void) { }
+#endif
+
 extern int cpuidle_enable_device(struct cpuidle_device *dev);
 extern void cpuidle_disable_device(struct cpuidle_device *dev);
 extern int cpuidle_play_dead(void);
