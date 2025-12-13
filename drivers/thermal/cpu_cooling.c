@@ -105,6 +105,8 @@ void cpu_limits_set_level(unsigned int cpu, unsigned int max_freq)
 	unsigned int cdev_cpu;
 	unsigned int level;
 
+        mutex_lock(&cooling_list_lock);
+
 	list_for_each_entry(cpufreq_cdev, &cpufreq_cdev_list, node) {
 		sscanf(cpufreq_cdev->cdev->type, "thermal-cpufreq-%d", &cdev_cpu);
 		if (cdev_cpu == cpu) {
@@ -122,6 +124,8 @@ void cpu_limits_set_level(unsigned int cpu, unsigned int max_freq)
         		break;
 		}
 	}
+
+        mutex_unlock(&cooling_list_lock);
 }
 #endif
 
