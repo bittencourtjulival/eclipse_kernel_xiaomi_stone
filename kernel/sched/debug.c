@@ -7,7 +7,7 @@
  * Copyright(C) 2007, Red Hat, Inc., Ingo Molnar
  */
 #include "sched.h"
-
+#include <linux/seq_file.h>
 /*
  * This allows printing both to /proc/sched_debug and
  * to the console
@@ -81,6 +81,11 @@ struct static_key sched_feat_keys[__SCHED_FEAT_NR] = {
 };
 
 #undef SCHED_FEAT
+
+static void __PS(struct seq_file *m, const char *name, unsigned long val)
+{
+	seq_printf(m, "%s=%lu ", name, val);
+}
 
 static void sched_feat_disable(int i)
 {
@@ -829,7 +834,7 @@ __initcall(init_sched_debug_procfs);
 
 #define __P(F)	SEQ_printf(m, "%-45s:%21Ld\n",	     #F, (long long)F)
 #define   P(F)	SEQ_printf(m, "%-45s:%21Ld\n",	     #F, (long long)p->F)
-#define   PM(F, M) __PS(#F, p->F & (M))
+#define PM(F, M) __PS(m, #F, p->F & (M))
 #define __PN(F)	SEQ_printf(m, "%-45s:%14Ld.%06ld\n", #F, SPLIT_NS((long long)F))
 #define   PN(F)	SEQ_printf(m, "%-45s:%14Ld.%06ld\n", #F, SPLIT_NS((long long)p->F))
 
