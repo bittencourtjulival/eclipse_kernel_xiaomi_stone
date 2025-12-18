@@ -31,6 +31,14 @@
 #include <linux/bpf-netns.h>
 #include <linux/rcupdate_trace.h>
 
+#ifndef BPF_MAX_KEY_SIZE
+#define BPF_MAX_KEY_SIZE	256
+#endif
+
+#ifndef BPF_MAX_VALUE_SIZE
+#define BPF_MAX_VALUE_SIZE	65536
+#endif
+
 #define IS_FD_ARRAY(map) ((map)->map_type == BPF_MAP_TYPE_PERF_EVENT_ARRAY || \
 			  (map)->map_type == BPF_MAP_TYPE_CGROUP_ARRAY || \
 			  (map)->map_type == BPF_MAP_TYPE_ARRAY_OF_MAPS)
@@ -1017,6 +1025,8 @@ static int map_lookup_elem(union bpf_attr *attr)
 	int ufd = attr->map_fd;
 	struct bpf_map *map;
 	void *key, *value;
+	u8 key_onstack[BPF_MAX_KEY_SIZE] __aligned(sizeof(long));
+	u8 value_onstack[BPF_MAX_VALUE_SIZE] __aligned(sizeof(long));
 	u32 value_size;
 	struct fd f;
 	int err;
