@@ -8,9 +8,33 @@
 
 ////////////////////////////////////////////////////////////////////////
 //
+
 // Generic data structures.
 
 struct rcu_tasks;
+struct task_struct;
+
+#ifndef HAVE_TRY_INVOKE_ON_LOCKED_DOWN_TASK
+static inline bool try_invoke_on_locked_down_task(
+	struct task_struct *t,
+	bool (*func)(struct task_struct *t, void *arg),
+	void *arg)
+{
+	/*
+	 * Kernel 5.4 fallback:
+	 * No task lockdown support, so invoke directly
+	 * while holding task_lock().
+	 */
+	bool ret;
+
+	task_lock(t);
+	ret = func(t, arg);
+	task_unlock(t);
+
+	return ret;
+}
+#endif
+
 typedef void (*rcu_tasks_gp_func_t)(struct rcu_tasks *rtp);
 typedef void (*pregp_func_t)(void);
 typedef void (*pertask_func_t)(struct task_struct *t, struct list_head *hop);
