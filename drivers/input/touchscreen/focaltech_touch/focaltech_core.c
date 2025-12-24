@@ -1320,11 +1320,7 @@ int fts_reset_proc(int hdelayms)
 {
 	FTS_DEBUG("tp reset");
 	gpio_direction_output(fts_data->pdata->reset_gpio, 0);
-	msleep(2);
-	gpio_direction_output(fts_data->pdata->avdd_gpio, 0);
-	msleep(10);
-	gpio_direction_output(fts_data->pdata->avdd_gpio, 1);
-	msleep(2);
+	msleep(1);
 	gpio_direction_output(fts_data->pdata->reset_gpio, 1);
 	if (hdelayms) {
 		msleep(hdelayms);
@@ -1853,21 +1849,10 @@ static int fts_read_parse_touchdata(struct fts_ts_data *data)
 		}
 
 		data->touch_point++;
-		if (data->pdata->type == _FT3519T) {
-			events[i].x = ((buf[FTS_TOUCH_X_H_POS + base] & 0x0F) << 11) +
-					((buf[FTS_TOUCH_X_L_POS + base] & 0xFF) << 3) +
-					((buf[FTS_TOUCH_PRE_POS + base] & 0xC0) >> 5) +
-					((buf[FTS_TOUCH_X_H_POS + base] & 0x20) >> 5);
-			events[i].y = ((buf[FTS_TOUCH_Y_H_POS + base] & 0x0F) << 11) +
-					((buf[FTS_TOUCH_Y_L_POS + base] & 0xFF) << 3) +
-					((buf[FTS_TOUCH_PRE_POS + base] & 0x30) >> 3) +
-					((buf[FTS_TOUCH_Y_H_POS + base] & 0x20) >> 5);
-		} else {
-			events[i].x = ((buf[FTS_TOUCH_X_H_POS + base] & 0x0F) << 8) +
-					(buf[FTS_TOUCH_X_L_POS + base] & 0xFF);
-			events[i].y = ((buf[FTS_TOUCH_Y_H_POS + base] & 0x0F) << 8) +
-					(buf[FTS_TOUCH_Y_L_POS + base] & 0xFF);
-		}
+		events[i].x = ((buf[FTS_TOUCH_X_H_POS + base] & 0x0F) << 8) +
+				(buf[FTS_TOUCH_X_L_POS + base] & 0xFF);
+		events[i].y = ((buf[FTS_TOUCH_Y_H_POS + base] & 0x0F) << 8) +
+				(buf[FTS_TOUCH_Y_L_POS + base] & 0xFF);
 		events[i].flag = buf[FTS_TOUCH_EVENT_POS + base] >> 6;
 		events[i].id = buf[FTS_TOUCH_ID_POS + base] >> 4;
 		events[i].area = buf[FTS_TOUCH_AREA_POS + base] >> 4;
@@ -2182,7 +2167,6 @@ static int fts_power_source_ctrl(struct fts_ts_data *ts_data, int enable)
 			FTS_DEBUG("regulator enable !");
 			gpio_direction_output(ts_data->pdata->reset_gpio, 0);
 			msleep(1);
-			gpio_direction_output(ts_data->pdata->avdd_gpio, 1);
 			ret = fts_ts_enable_reg(ts_data, true);
 			if (ret)
 				FTS_ERROR("Touch reg enable failed\n");
@@ -2193,7 +2177,6 @@ static int fts_power_source_ctrl(struct fts_ts_data *ts_data, int enable)
 			FTS_DEBUG("regulator disable !");
 			gpio_direction_output(ts_data->pdata->reset_gpio, 0);
 			msleep(1);
-			gpio_direction_output(ts_data->pdata->avdd_gpio, 0);
 			ret = fts_ts_enable_reg(ts_data, false);
 			if (ret)
 				FTS_ERROR("Touch reg disable failed");
@@ -2363,27 +2346,9 @@ static int fts_gpio_configure(struct fts_ts_data *data)
 		}
 	}
 
-	/* request avdd gpio */
-	if (gpio_is_valid(data->pdata->avdd_gpio)) {
-		ret = gpio_request(data->pdata->avdd_gpio, "fts_avdd_gpio");
-		if (ret) {
-			FTS_ERROR("[GPIO]avdd gpio request failed");
-			goto err_reset_gpio_dir;
-		}
-
-		ret = gpio_direction_output(data->pdata->avdd_gpio, 1);
-		if (ret) {
-			FTS_ERROR("[GPIO]set_direction for avdd gpio failed");
-			goto err_avdd_gpio_dir;
-		}
-	}
-
 	FTS_FUNC_EXIT();
 	return 0;
 
-err_avdd_gpio_dir:
-	if (gpio_is_valid(data->pdata->avdd_gpio))
-		gpio_free(data->pdata->avdd_gpio);
 err_reset_gpio_dir:
 	if (gpio_is_valid(data->pdata->reset_gpio))
 		gpio_free(data->pdata->reset_gpio);
@@ -2489,12 +2454,6 @@ static int fts_parse_dt(struct device *dev, struct fts_ts_platform_data *pdata)
 	if (pdata->reset_gpio < 0)
 		FTS_ERROR("Unable to get reset_gpio");
 
-	pdata->avdd_gpio = of_get_named_gpio_flags(np, "focaltech,avdd-gpio",
-			0, &pdata->avdd_gpio_flags);
-	FTS_INFO("avdd_gpio = %d", pdata->avdd_gpio);
-	if (pdata->avdd_gpio < 0)
-		FTS_DEBUG("Unable to get avdd_gpio");
-
 	pdata->irq_gpio = of_get_named_gpio_flags(np, "focaltech,irq-gpio",
 			0, &pdata->irq_gpio_flags);
 	if (pdata->irq_gpio < 0)
@@ -2573,7 +2532,6 @@ static int fb_notifier_callback(struct notifier_block *self,
 		break;
 
 	case DRM_PANEL_BLANK_POWERDOWN:
-	case DRM_PANEL_BLANK_LP:
 		if (event == DRM_PANEL_EARLY_EVENT_BLANK) {
 			queue_work(fts_data->ts_workqueue,
 					&fts_data->suspend_work);
@@ -2725,8 +2683,6 @@ tvm_setup:
 err_irq_req:
 	if (gpio_is_valid(fts_data->pdata->reset_gpio))
 		gpio_free(fts_data->pdata->reset_gpio);
-	if (gpio_is_valid(fts_data->pdata->avdd_gpio))
-		gpio_free(fts_data->pdata->avdd_gpio);
 	if (gpio_is_valid(fts_data->pdata->irq_gpio))
 		gpio_free(fts_data->pdata->irq_gpio);
 #if FTS_POWER_SOURCE_CUST_EN
@@ -2926,9 +2882,6 @@ static int fts_ts_remove_entry(struct fts_ts_data *ts_data)
 
 	if (gpio_is_valid(ts_data->pdata->reset_gpio))
 		gpio_free(ts_data->pdata->reset_gpio);
-
-	if (gpio_is_valid(ts_data->pdata->avdd_gpio))
-		gpio_free(ts_data->pdata->avdd_gpio);
 
 	if (gpio_is_valid(ts_data->pdata->irq_gpio))
 		gpio_free(ts_data->pdata->irq_gpio);
