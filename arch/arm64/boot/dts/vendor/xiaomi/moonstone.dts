@@ -4,6 +4,7 @@
 #include "moonstone-consumerir.dts"
 #include "moonstone-display.dts"
 #include "moonstone-fingerprint.dts"
+#include "moonstone-gpu.dts"
 #include "moonstone-memory.dts"
 #include "moonstone-nfc.dts"
 #include "moonstone-pinctrl.dts"
