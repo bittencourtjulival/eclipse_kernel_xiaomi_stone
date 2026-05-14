@@ -51,8 +51,11 @@
 #define CHG_BAT_TEMP_48     480
 #define CHG_BAT_TEMP_MAX    600
 
+#define CHG_BAT_CURR_2300MA     2300
 #define CHG_BAT_CURR_2450MA     2450
-#define CHG_BAT_CURR_3920MA    3920
+#define CHG_BAT_CURR_3200MA     3200
+#define CHG_BAT_CURR_4200MA     4200
+#define CHG_BAT_CURR_3920MA     3920
 #define CHG_BAT_CURR_4000MA     4000
 #define CHG_BAT_CURR_5400MA     5400
 #define CHG_BAT_CURR_6000MA     6000
@@ -73,7 +76,7 @@ static const struct pdpm_config pm_config = {
     .bus_curr_lp_lmt            = (BAT_CURR_LOOP_LMT >> 1),
 
     //config CP to main charger current(ma)
-    .fc2_taper_current          = 2200,
+    .fc2_taper_current          = 1800,
     //config adapter voltage step(PPS:1-->20mV)
     .fc2_steps                  = 1,
     //config adapter pps pdo min voltage
@@ -832,6 +835,28 @@ static int  get_batt_temp_thermal_curr(struct usbpd_pm *pdpm)
     return 0;
 }
 
+static bool thermal_bypass_active;
+static void usbpd_update_thermal_bypass(struct usbpd_pm *pdpm)
+{
+    int low_thr, high_thr;
+    bool boost;
+
+    boost = thermal_boost_allowed();
+
+    if (boost) {
+        low_thr  = 420;
+        high_thr = 460;
+    } else {
+        low_thr  = 380;
+        high_thr = 420;
+    }
+
+    if (!thermal_bypass_active && pdpm->bat_temp <= low_thr)
+        thermal_bypass_active = true;
+    else if (thermal_bypass_active && pdpm->bat_temp >= high_thr)
+        thermal_bypass_active = false;
+}
+
 extern int get_usbpd_verifed_state(void);
 static int battery_sw_jeita(struct usbpd_pm *pdpm)
 {
@@ -854,15 +879,23 @@ static int battery_sw_jeita(struct usbpd_pm *pdpm)
         else if (pdpm->bat_temp > CHG_BAT_TEMP_10 && pdpm->bat_temp <= CHG_BAT_TEMP_15)
             jeita_curr  =  CHG_BAT_CURR_3920MA;
         else if (pdpm->bat_temp > CHG_BAT_TEMP_15 && pdpm->bat_temp < CHG_BAT_TEMP_48) {
-            if(pd_auth) {
-                if( pdpm->sw.vbat_volt <= cycle_volt )
-                    jeita_curr  =  CHG_BAT_CURR_6000MA;
-                else if ( pdpm->sw.vbat_volt > cycle_volt && pdpm->sw.vbat_volt <= 4440 )
-                    jeita_curr  =  CHG_BAT_CURR_5400MA;
+            if (pd_auth) {
+                if (pdpm->sw.vbat_volt <= cycle_volt)
+                    jeita_curr = CHG_BAT_CURR_6000MA;
+                else if (pdpm->sw.vbat_volt <= 4340)
+                    jeita_curr = CHG_BAT_CURR_4200MA;
+                else if (pdpm->sw.vbat_volt <= 4410)
+                    jeita_curr = CHG_BAT_CURR_3200MA;
                 else
-                    jeita_curr  =  CHG_BAT_CURR_4000MA;
-            } else
-                jeita_curr  =  CHG_BAT_CURR_5400MA;
+                    jeita_curr = CHG_BAT_CURR_2300MA;
+            } else {
+                if (pdpm->sw.vbat_volt <= 4340)
+                    jeita_curr = CHG_BAT_CURR_4200MA;
+                else if (pdpm->sw.vbat_volt <= 4410)
+                    jeita_curr = CHG_BAT_CURR_3200MA;
+                else
+                    jeita_curr = CHG_BAT_CURR_2300MA;
+            }
         }
         else
             jeita_curr  = CHG_BAT_CURR_2450MA;
@@ -897,12 +930,10 @@ static int battery_sw_jeita(struct usbpd_pm *pdpm)
                         pdpm->bat_temp,  jeita_curr, pdpm->therm_curr, pdpm->pps_temp_flag, pd_auth, pdpm->bat_cycle, pdpm->batt_auth);
 
     // Thermal charge bypass
-    bool thermal_boost = thermal_boost_allowed();
-    int thermal_threshold = thermal_boost ? 440 : 400;
-    
-    if (pdpm->bat_temp < thermal_threshold) {
+    usbpd_update_thermal_bypass(pdpm);
+
+    if (thermal_bypass_active)
         pdpm->therm_curr = jeita_curr;
-    }
 
     return min(pdpm->therm_curr, jeita_curr);
 }
