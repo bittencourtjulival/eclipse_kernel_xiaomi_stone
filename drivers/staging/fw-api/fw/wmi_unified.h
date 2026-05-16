@@ -18391,6 +18391,10 @@ enum WMI_VDEV_UP_FLAGS {
      * Valid only for VBSS subtype vaps.
      */
     WMI_VDEV_UP_FLAG_VBSS_PASSIVE  = 0x00000004,
+    /** REDUCE_OFF_DIAGONAL_NULL_THR
+     * The flag will be set to reduce off diagonal nulling threshold.
+     */
+    WMI_VDEV_UP_FLAG_REDUCE_OFF_DIAGONAL_NULL_THR = 0x00000008,
 };
 
 typedef struct{
