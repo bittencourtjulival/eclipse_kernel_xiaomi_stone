@@ -2345,9 +2345,28 @@ static int fts_gpio_configure(struct fts_ts_data *data)
 		}
 	}
 
+	/* request avdd gpio */
+	if (gpio_is_valid(data->pdata->avdd_gpio)) {
+			ret = gpio_request(data->pdata->avdd_gpio, "fts_avdd_gpio");
+			if (ret) {
+					FTS_ERROR("[GPIO]avdd gpio request failed");
+					goto err_avdd_gpio_req;
+				}
+
+				ret = gpio_direction_input(data->pdata->avdd_gpio);
+				if (ret) {
+						FTS_ERROR("[GPIO]set_direction for avdd gpio failed");
+						goto err_avdd_gpio_dir;
+					}
+				}
+
 	FTS_FUNC_EXIT();
 	return 0;
 
+err_avdd_gpio_dir:
+	if (gpio_is_valid(data->pdata->avdd_gpio))
+		gpio_free(data->pdata->avdd_gpio);
+err_avdd_gpio_req:
 err_reset_gpio_dir:
 	if (gpio_is_valid(data->pdata->reset_gpio))
 		gpio_free(data->pdata->reset_gpio);
@@ -2457,6 +2476,11 @@ static int fts_parse_dt(struct device *dev, struct fts_ts_platform_data *pdata)
 			0, &pdata->irq_gpio_flags);
 	if (pdata->irq_gpio < 0)
 		FTS_ERROR("Unable to get irq_gpio");
+
+	pdata->avdd_gpio = of_get_named_gpio_flags(np, "focaltech,avdd-gpio",
+									 0, &pdata->avdd_gpio_flags);
+	if (pdata->avdd_gpio < 0)
+		FTS_ERROR("Unable to get avdd_gpio");
 
 	ret = of_property_read_u32(np, "focaltech,max-touch-number", &temp_val);
 	if (ret < 0) {
@@ -2884,6 +2908,9 @@ static int fts_ts_remove_entry(struct fts_ts_data *ts_data)
 
 	if (gpio_is_valid(ts_data->pdata->irq_gpio))
 		gpio_free(ts_data->pdata->irq_gpio);
+
+	if (gpio_is_valid(ts_data->pdata->avdd_gpio))
+		gpio_free(ts_data->pdata->avdd_gpio);
 
 #if FTS_POWER_SOURCE_CUST_EN
 	fts_power_source_exit(ts_data);
