@@ -65,6 +65,9 @@
 #include "linux/haven/hh_mem_notifier.h"
 #include "linux/haven/hh_rm_drv.h"
 #include <linux/sort.h>
+#include <linux/sched.h>
+#include <linux/sched/rt.h>
+#include <linux/irqdesc.h>
 #endif
 
 /*****************************************************************************
@@ -1913,6 +1916,33 @@ static irqreturn_t fts_irq_handler(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
+/*
+ * fts_irq_thread_boost - elevates the touch IRQ thread to SCHED_FIFO.
+ *
+ * Touch is a latency-critical path: under CPU load (gaming,
+ * heavy scrolling), the default CFS thread can be preempted, causing
+ * a perceptible delay between the physical touch and the event reported to
+ * the input subsystem. Running in SCHED_FIFO with high priority (but below
+ * maximum RT_PRIO to avoid conflicting with kernel real-time IRQs)
+ * reduces reporting jitter.
+ */
+static void fts_irq_thread_boost(struct fts_ts_data *ts_data)
+{
+	struct irq_desc *desc = irq_to_desc(ts_data->irq);
+	struct sched_param param = { .sched_priority = MAX_RT_PRIO - 2 };
+
+	if (!desc || !desc->action || !desc->action->thread) {
+		FTS_ERROR("could not resolve irq thread task_struct");
+		return;
+	}
+
+	if (sched_setscheduler_nocheck(desc->action->thread, SCHED_FIFO, &param))
+		FTS_ERROR("failed to boost irq thread to SCHED_FIFO");
+	else
+		FTS_INFO("irq thread boosted to SCHED_FIFO prio=%d",
+			 param.sched_priority);
+}
+
 static int fts_irq_registration(struct fts_ts_data *ts_data)
 {
 	int ret = 0;
@@ -1932,6 +1962,10 @@ static int fts_irq_registration(struct fts_ts_data *ts_data)
 				pdata->irq_gpio_flags,
 				FTS_DRIVER_NAME, ts_data);
 #endif
+
+	if (!ret)
+		fts_irq_thread_boost(ts_data);
+
 	return ret;
 }
 
@@ -2742,7 +2776,15 @@ static int fts_ts_probe_entry(struct fts_ts_data *ts_data)
 		}
 	}
 
-	ts_data->ts_workqueue = create_singlethread_workqueue("fts_wq");
+	/*
+	 * WQ_HIGHPRI: schedules the work item with high priority in the worker
+	 * pool, reducing resume/suspend and point-report-check latency.
+	 * WQ_UNBOUND: does not bind the work to a fixed CPU, allowing the
+	 * scheduler to choose the least busy core (important on big.LITTLE
+	 * SoCs like holi).
+	 */
+	ts_data->ts_workqueue = alloc_workqueue("fts_wq",
+						 WQ_UNBOUND | WQ_HIGHPRI, 1);
 	if (!ts_data->ts_workqueue) {
 		FTS_ERROR("create fts workqueue fail");
 	}

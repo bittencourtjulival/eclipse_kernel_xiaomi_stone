@@ -189,15 +189,29 @@
 
 /*
  * ESD check & protection
- * default: disable
+ * default: disabled
+ * Enabled: periodic watchdog that detects an IC lock-up (noise/EMI,
+ * e.g., near a fast charger) and forces a reset, preventing a
+ * "frozen" touchscreen. CPU cost is a lightweight timer; if it causes
+ * false positives (spurious resets during normal use), revert to 0.
  */
-#define FTS_ESDCHECK_EN                         0
+#define FTS_ESDCHECK_EN                         1
 
 /*
  * Production test enable
  * 1: enable, 0:disable(default)
  */
 #define FTS_TEST_EN                             0
+
+/*
+ * Point report check
+ * Protects against "ghost touch" or stuck touch: if the IRQ misses a
+ * touch-up event, it forces a release after POINT_REPORT_CHECK_WAIT_TIME.
+ * It was referenced in focaltech_core.h but never defined anywhere
+ * in the original package—without this definition, the protection
+ * remains disabled even if focaltech_point_report_check.c is compiled.
+ */
+#define FTS_POINT_REPORT_CHECK_EN               1
 
 /*
  * Pinctrl enable
