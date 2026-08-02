@@ -776,8 +776,11 @@ KBUILD_CFLAGS  += -Werror
 endif
 
 # Optimize
-KBUILD_CFLAGS += -mcpu=cortex-a78+crc+crypto -mtune=cortex-a78 -march=armv8.2-a+crc+crypto+lse+rdm+rcpc+dotprod
-KBUILD_AFLAGS += -mcpu=cortex-a78+crc+crypto -mtune=cortex-a78 -march=armv8.2-a+crc+crypto+lse+rdm+rcpc+dotprod
+KBUILD_CFLAGS += -march=armv8.2-a+crc+crypto+lse+rdm+rcpc+dotprod
+KBUILD_CFLAGS += -mtune=cortex-a78
+
+KBUILD_AFLAGS += -march=armv8.2-a+crc+crypto+lse+rdm+rcpc+dotprod
+KBUILD_AFLAGS += -mtune=cortex-a78
 
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
