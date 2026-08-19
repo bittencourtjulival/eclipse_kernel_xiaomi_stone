@@ -107,7 +107,7 @@ CONFIG_ARM64_USE_LSE_ATOMICS=y
 # CONFIG_ARM64_SVE is not set
 # CONFIG_ARM64_VHE is not set
 CONFIG_RANDOMIZE_BASE=y
-CONFIG_CMDLINE="cgroup_disable=pressure ro.storage.optimize=1 cgroup.memory=nokmem,nosocket"
+CONFIG_CMDLINE="cgroup_disable=pressure ro.storage.optimize=1 cgroup.memory=nokmem,nosocket binderfs.mode=0755"
 CONFIG_CMDLINE_EXTEND=y
 # CONFIG_DMI is not set
 # CONFIG_EFI is not set
