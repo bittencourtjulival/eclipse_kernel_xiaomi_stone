@@ -1,5 +1,5 @@
 &msm_gpu {
-    qcom,ca-busy-penalty = <8000>;
+    qcom,ca-busy-penalty = <4000>;
 
     qcom,gpu-pwrlevel-bins {
         qcom,gpu-pwrlevels-2 {
