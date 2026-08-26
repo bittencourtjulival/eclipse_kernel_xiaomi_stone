@@ -1453,14 +1453,22 @@ static int bq25890_usb_set_property(struct power_supply *psy,
 					break;
 				case POWER_SUPPLY_PD_ACTIVE:
 				case POWER_SUPPLY_PD_PPS_ACTIVE:
-					bq->pdactive = 1;
-					pr_info("bq->pdactive = %d\n",val->intval);
+					if (bq->state.online) {
+						dev_info(bq->dev, "PD Active set while charger online\n");
+						bq->pdactive = 1;
+					} else {
+						dev_info(bq->dev, "PD Active set while charger offline, ignoring\n");
+					}
 					break;
 				case POWER_SUPPLY_PD_INACTIVE:
-					bq->pdactive = 0;
-					pr_info("bq->pdactive = %d\n",val->intval);
+					if (!bq->state.online) {
+						dev_info(bq->dev, "PD Inactive set while charger offline\n");
+						bq->pdactive = 0;
+					} else {
+						dev_info(bq->dev, "PD Inactive set while charger online, ignoring to prevent DRP error\n");
+					}
 					break;
-                          default:break;
+			   default:break;
 			}
 			break;
 		default:

@@ -169,9 +169,8 @@ static int batt_get_battery_constant_current(struct batt_chg *chg, int* contant_
 	}
 	rc = power_supply_get_property(chg->sw_psy, POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT, &pval);
 	if (rc < 0) {
-            pr_err("Failed to get constant charge current from charger: %d", rc);
-            *contant_charge_current = 2000000;
-            return 0;
+		pr_err("Failed to get constant charge current from charger: %d", rc);
+		return rc;
 	}
 
 	*contant_charge_current = pval.intval;
@@ -496,6 +495,10 @@ static int batt_psy_get_prop(struct power_supply *psy,
 		break;
 	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT:
 		rc = batt_get_battery_constant_current(chg, &pval->intval);
+		if (rc < 0) {
+			pval->intval = 2000000;
+			rc = 0;
+		}
 		break;
 	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX:
 		if (chg->sw_psy) {
