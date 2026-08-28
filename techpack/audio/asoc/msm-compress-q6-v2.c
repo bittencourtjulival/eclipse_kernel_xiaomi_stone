@@ -3949,21 +3949,22 @@ static int msm_compr_dec_params_put(struct snd_kcontrol *kcontrol,
 			__func__, fe_id);
 		return -EINVAL;
 	}
-
+	mutex_lock(&pdata->lock);
 	cstream = pdata->cstream[fe_id];
 	dec_params = pdata->dec_params[fe_id];
 
 	if (!cstream || !dec_params) {
 		pr_err("%s: stream or dec_params inactive\n", __func__);
+		mutex_unlock(&pdata->lock);
 		return -EINVAL;
 	}
 	prtd = cstream->runtime->private_data;
 	if (!prtd) {
 		pr_err("%s: cannot set dec_params\n", __func__);
+		mutex_unlock(&pdata->lock);
 		return -EINVAL;
 	}
 
-	mutex_lock(&pdata->lock);
 	switch (prtd->codec) {
 	case FORMAT_MP3:
 	case FORMAT_MPEG4_AAC:
@@ -4281,20 +4282,21 @@ static int msm_compr_ion_fd_map_put(struct snd_kcontrol *kcontrol,
 			__func__, fe_id);
 		return -EINVAL;
 	}
-
+	mutex_lock(&pdata->lock);
 	cstream = pdata->cstream[fe_id];
 	if (cstream == NULL) {
 		pr_err("%s cstream is null\n", __func__);
+		mutex_unlock(&pdata->lock);
 		return -EINVAL;
 	}
 
 	prtd = cstream->runtime->private_data;
 	if (!prtd) {
 		pr_err("%s: prtd is null\n", __func__);
+		mutex_unlock(&pdata->lock);
 		return -EINVAL;
 	}
 
-	mutex_lock(&pdata->lock);
 	if (prtd->audio_client == NULL) {
 		pr_err("%s: audio_client is null\n", __func__);
 		ret = -EINVAL;
