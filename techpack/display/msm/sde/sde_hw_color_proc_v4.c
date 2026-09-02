@@ -15,13 +15,75 @@ static unsigned short kcal_sat = 255;
 static unsigned short kcal_val = 255;
 static unsigned short kcal_cont = 255;
 
-module_param(kcal_red, short, 0644);
-module_param(kcal_green, short, 0644);
-module_param(kcal_blue, short, 0644);
-module_param(kcal_hue, short, 0644);
-module_param(kcal_sat, short, 0644);
-module_param(kcal_val, short, 0644);
-module_param(kcal_cont, short, 0644);
+#define MAX_KCAL_CTX 4
+static struct sde_hw_dspp *kcal_ctx_arr[MAX_KCAL_CTX];
+static struct drm_msm_pcc kcal_pcc_payload[MAX_KCAL_CTX];
+static bool kcal_pcc_valid[MAX_KCAL_CTX] = {false};
+static int kcal_ctx_count = 0;
+
+static void sde_kcal_update(struct sde_hw_dspp *ctx, int idx)
+{
+	struct drm_msm_pcc *pcc_cfg;
+	struct drm_msm_pcc_coeff *coeffs = NULL;
+	int i = 0;
+	u32 base = 0;
+	u32 opcode = 0, local_opcode = 0;
+
+	if (!ctx || !kcal_pcc_valid[idx])
+		return;
+
+	pcc_cfg = &kcal_pcc_payload[idx];
+
+	for (i = 0; i < PCC_NUM_PLANES; i++) {
+		base = ctx->cap->sblk->pcc.base + (i * sizeof(u32));
+		switch (i) {
+		case 0: coeffs = &pcc_cfg->r; break;
+		case 1: coeffs = &pcc_cfg->g; break;
+		case 2: coeffs = &pcc_cfg->b; break;
+		default: return;
+		}
+
+		SDE_REG_WRITE(&ctx->hw, base + PCC_R_OFF, i == 0 ? (coeffs->r * kcal_red) / 256 : coeffs->r);
+		SDE_REG_WRITE(&ctx->hw, base + PCC_G_OFF, i == 1 ? (coeffs->g * kcal_green) / 256 : coeffs->g);
+		SDE_REG_WRITE(&ctx->hw, base + PCC_B_OFF, i == 2 ? (coeffs->b * kcal_blue) / 256 : coeffs->b);
+	}
+
+	opcode = SDE_REG_READ(&ctx->hw, ctx->cap->sblk->hsic.base);
+	SDE_REG_WRITE(&ctx->hw, ctx->cap->sblk->hsic.base + PA_HUE_OFF, kcal_hue & PA_HUE_MASK);
+	SDE_REG_WRITE(&ctx->hw, ctx->cap->sblk->hsic.base + PA_SAT_OFF, kcal_sat & PA_SAT_MASK);
+	SDE_REG_WRITE(&ctx->hw, ctx->cap->sblk->hsic.base + PA_VAL_OFF, kcal_val & PA_VAL_MASK);
+	SDE_REG_WRITE(&ctx->hw, ctx->cap->sblk->hsic.base + PA_CONT_OFF, kcal_cont & PA_CONT_MASK);
+	local_opcode = PA_HUE_EN | PA_SAT_EN | PA_VAL_EN | PA_CONT_EN;
+	opcode |= (local_opcode | PA_EN);
+	SDE_REG_WRITE(&ctx->hw, ctx->cap->sblk->hsic.base, opcode);
+	SDE_REG_WRITE(&ctx->hw, ctx->cap->sblk->pcc.base, PCC_EN);
+}
+
+static int kcal_param_set(const char *val, const struct kernel_param *kp)
+{
+	int ret = param_set_short(val, kp);
+	int i;
+	if (ret) return ret;
+	for (i = 0; i < kcal_ctx_count; i++) {
+		sde_kcal_update(kcal_ctx_arr[i], i);
+	}
+	return 0;
+}
+
+static const struct kernel_param_ops kcal_param_ops = {
+	.set = kcal_param_set,
+	.get = param_get_short,
+};
+
+module_param_cb(kcal_red, &kcal_param_ops, &kcal_red, 0644);
+module_param_cb(kcal_green, &kcal_param_ops, &kcal_green, 0644);
+module_param_cb(kcal_blue, &kcal_param_ops, &kcal_blue, 0644);
+module_param_cb(kcal_hue, &kcal_param_ops, &kcal_hue, 0644);
+module_param_cb(kcal_sat, &kcal_param_ops, &kcal_sat, 0644);
+module_param_cb(kcal_val, &kcal_param_ops, &kcal_val, 0644);
+module_param_cb(kcal_cont, &kcal_param_ops, &kcal_cont, 0644);
+
+
 
 static int sde_write_3d_gamut(struct sde_hw_blk_reg_map *hw,
 		struct drm_msm_3d_gamut *payload, u32 base,
@@ -219,10 +281,35 @@ void sde_setup_dspp_pccv4(struct sde_hw_dspp *ctx, void *cfg)
 	struct sde_hw_cp_cfg *hw_cfg = cfg;
 	struct drm_msm_pcc *pcc_cfg;
 	struct drm_msm_pcc_coeff *coeffs = NULL;
+	bool found = false;
+	int j_idx = 0;
 	int i = 0;
 	int kcal_min = 20;
 	u32 base = 0;
 	u32 opcode = 0, local_opcode = 0;
+
+	if (ctx && cfg) {
+		for (j_idx = 0; j_idx < kcal_ctx_count; j_idx++) {
+			if (kcal_ctx_arr[j_idx] == ctx) {
+				found = true;
+				break;
+			}
+		}
+		if (!found && kcal_ctx_count < MAX_KCAL_CTX) {
+			j_idx = kcal_ctx_count;
+			kcal_ctx_arr[j_idx] = ctx;
+			kcal_ctx_count++;
+		}
+
+		if (j_idx < MAX_KCAL_CTX) {
+			struct sde_hw_cp_cfg *hw_cfg = cfg;
+			if (hw_cfg->payload && hw_cfg->len == sizeof(struct drm_msm_pcc)) {
+				memcpy(&kcal_pcc_payload[j_idx], hw_cfg->payload, sizeof(struct drm_msm_pcc));
+				kcal_pcc_valid[j_idx] = true;
+			}
+		}
+	}
+
 
 	if (!ctx || !cfg) {
 		DRM_ERROR("invalid param ctx %pK cfg %pK\n", ctx, cfg);
