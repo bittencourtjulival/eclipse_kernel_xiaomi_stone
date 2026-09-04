@@ -388,21 +388,8 @@ static const struct cred *access_override_creds(void)
 
 	old_cred = override_creds(override_cred);
 
-	{
-		static const char addon_path[] = "/system/addon.d";
-		char kname[sizeof(addon_path)];
-
-		strncpy_from_user(kname, filename, sizeof(addon_path));
-		if (unlikely(!strncmp(kname, addon_path, strlen(addon_path)))) {
-			if (uid_gt(current_fsuid(), KUIDT_INIT(2000))) {
-				res = -ENOENT;
-				goto out;
-			}
-		}
-	}
 	/* override_cred() gets its own ref */
 	put_cred(override_cred);
-
 	return old_cred;
 }
 
@@ -420,6 +407,19 @@ long do_faccessat(int dfd, const char __user *filename, int mode)
 	old_cred = access_override_creds();
 	if (!old_cred)
 		return -ENOMEM;
+
+	{
+		static const char addon_path[] = "/system/addon.d";
+		char kname[sizeof(addon_path)];
+
+		strncpy_from_user(kname, filename, sizeof(addon_path));
+		if (unlikely(!strncmp(kname, addon_path, strlen(addon_path)))) {
+			if (uid_gt(current_fsuid(), KUIDT_INIT(2000))) {
+				res = -ENOENT;
+				goto out;
+			}
+		}
+	}
 
 retry:
 	res = user_path_at(dfd, filename, lookup_flags, &path);
