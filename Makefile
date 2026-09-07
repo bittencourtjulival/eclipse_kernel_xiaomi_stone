@@ -497,6 +497,13 @@ KBUILD_CFLAGS   := -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE \
 		   -Werror=implicit-function-declaration -Werror=implicit-int \
 		   -Werror=return-type -Wno-format-security \
+		   -Wno-declaration-after-statement \
+		   -Wno-frame-larger-than \
+		   -Wno-unused-function \
+		   -Wno-incompatible-pointer-types-discards-qualifiers \
+		   -Wno-macro-redefined \
+		   -Wno-pointer-bool-conversion \
+		   -Wno-fortify-source \
 		   -std=gnu89
 KBUILD_CPPFLAGS := -D__KERNEL__
 KBUILD_AFLAGS_KERNEL :=
