@@ -1124,7 +1124,7 @@ int msm_adsp_init_mixer_ctl_pp_event_queue(struct snd_soc_pcm_runtime *rtd)
 	kctl = snd_soc_card_get_kcontrol(rtd->card, mixer_str);
 	kfree(mixer_str);
 	if (!kctl) {
-		pr_err("%s: failed to get kctl.\n", __func__);
+		pr_debug("%s: failed to get kctl.\n", __func__);
 		ret = -EINVAL;
 		goto done;
 	}
@@ -1180,7 +1180,7 @@ int msm_adsp_clean_mixer_ctl_pp_event_queue(struct snd_soc_pcm_runtime *rtd)
 	kctl = snd_soc_card_get_kcontrol(rtd->card, mixer_str);
 	kfree(mixer_str);
 	if (!kctl) {
-		pr_err("%s: failed to get kctl.\n", __func__);
+		pr_debug("%s: failed to get kctl.\n", __func__);
 		ret = -EINVAL;
 		goto done;
 	}
@@ -1233,7 +1233,7 @@ int msm_adsp_init_mixer_ctl_adm_pp_event_queue(struct snd_soc_pcm_runtime *rtd)
 	kctl = snd_soc_card_get_kcontrol(rtd->card, mixer_str);
 	kfree(mixer_str);
 	if (!kctl) {
-		pr_err("%s: failed to get kctl.\n", __func__);
+		pr_debug("%s: failed to get kctl.\n", __func__);
 		ret = -EINVAL;
 		goto done;
 	}
@@ -1287,7 +1287,7 @@ int msm_adsp_clean_mixer_ctl_adm_pp_event_queue(struct snd_soc_pcm_runtime *rtd)
 	kctl = snd_soc_card_get_kcontrol(rtd->card, mixer_str);
 	kfree(mixer_str);
 	if (!kctl) {
-		pr_err("%s: failed to get kctl.\n", __func__);
+		pr_debug("%s: failed to get kctl.\n", __func__);
 		ret = -EINVAL;
 		goto done;
 	}
@@ -1355,7 +1355,7 @@ int msm_adsp_copp_inform_mixer_ctl(struct snd_soc_pcm_runtime *rtd,
 	kctl = snd_soc_card_get_kcontrol(rtd->card, mixer_str);
 	kfree(mixer_str);
 	if (!kctl) {
-		pr_err("%s: failed to get kctl.\n", __func__);
+		pr_debug("%s: failed to get kctl.\n", __func__);
 		ret = -EINVAL;
 		goto done;
 	}
@@ -1461,7 +1461,7 @@ int msm_adsp_inform_mixer_ctl(struct snd_soc_pcm_runtime *rtd,
 	kctl = snd_soc_card_get_kcontrol(rtd->card, mixer_str);
 	kfree(mixer_str);
 	if (!kctl) {
-		pr_err("%s: failed to get kctl.\n", __func__);
+		pr_debug("%s: failed to get kctl.\n", __func__);
 		ret = -EINVAL;
 		goto done;
 	}
