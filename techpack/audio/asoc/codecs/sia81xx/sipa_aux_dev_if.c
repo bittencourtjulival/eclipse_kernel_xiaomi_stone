@@ -256,7 +256,7 @@ int soc_aux_init_only_sia81xx(
 
 	ret = soc_sia81xx_init(pdev, aux_dev, aux_num, codec_conf, conf_num);
 	if (0 != ret) {
-		pr_err("[  err][%s] : soc_sia81xx_init ret = %d !!! \r\n",
+		pr_debug("[  err][%s] : soc_sia81xx_init ret = %d !!! \r\n",
 			__func__, ret);
 		return ret;
 	}
@@ -392,7 +392,7 @@ int soc_codec_conf_sia91xx(
 
 	ret = soc_sia91xx_init(pdev, codec_conf, conf_num);
 	if (0 != ret) {
-		pr_err("[  err][%s] : soc_sia81xx_init ret = %d !!! \r\n",
+		pr_debug("[  err][%s] : soc_sia81xx_init ret = %d !!! \r\n",
 			__func__, ret);
 		return ret;
 	}
