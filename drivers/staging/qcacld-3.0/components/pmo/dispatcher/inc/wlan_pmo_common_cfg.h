@@ -262,7 +262,7 @@
  */
 #define CFG_PMO_MOD_DTIM_ON_SYS_SUSPEND CFG_INI_BOOL( \
 	"enable_mod_dtim_on_system_suspend", \
-	0, \
+	1, \
 	"Modulated DTIM on System suspend wow")
 
 /*
