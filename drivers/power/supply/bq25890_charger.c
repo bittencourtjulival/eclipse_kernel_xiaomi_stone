@@ -1018,17 +1018,20 @@ static void bq25890_handle_state_change(struct bq25890_device *bq,
 	old_state = bq->state;
 	mutex_unlock(&bq->lock);
 
-	if (!new_state->online) {			     /* power removed */
-		/* disable ADC */
+	if (!new_state->online) {
 		pr_err("--->southchip, adapter remove\n");
+
+		bq->pdactive = 0;
+		request_dpdm(bq, 0);
+
 		ret = bq25890_field_write(bq, F_CONV_RATE, 0);
 		if (ret < 0)
 			goto error;
-          	if (bq->chip_id == SC8989X_ID) {
+
+		if (bq->chip_id == SC8989X_ID)
 			cancel_delayed_work_sync(&bq->detect_vbat_set_vindpm_work);
-                }
+
 		cancel_delayed_work_sync(&bq->detect_float_work);
-		request_dpdm(bq,0); // sily open ap dp dm
 	} else if (!old_state.online) {			    /* power inserted */
 		pr_err("--->southchip, adapter insert\n");
 		bq->detect_force_dpdm_count = 0;
@@ -1053,7 +1056,7 @@ static void bq25890_handle_state_change(struct bq25890_device *bq,
 	}
 
 
-	if (old_state.vbus_status == 0 && new_state->vbus_status != 0) {
+	if (old_state.vbus_status == BQ2589X_VBUS_NONE && new_state->vbus_status != BQ2589X_VBUS_NONE) {
 		pr_err("southchip bc1.2 done, open ap dpdm\n");
 		if (bq->chip_id == SC8989X_ID) {
 			pr_info("set Vindpm to 4800mV\n");
@@ -1068,6 +1071,16 @@ static void bq25890_handle_state_change(struct bq25890_device *bq,
 		request_dpdm(bq,0); //open ap dp dm
 	}
 
+	if (old_state.online && new_state->online &&
+		old_state.vbus_status != new_state->vbus_status &&
+		(new_state->vbus_status == BQ2589X_VBUS_USB_SDP ||
+		new_state->vbus_status == BQ2589X_VBUS_USB_CDP)) {
+		pr_info("USB data source detected: vbus %u -> %u\n",
+				old_state.vbus_status, new_state->vbus_status);
+
+		bq->pdactive = 0;
+		request_dpdm(bq, 0);
+	}
 
 	return;
 
