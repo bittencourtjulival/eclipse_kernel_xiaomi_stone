@@ -151,7 +151,7 @@
 	"gEnableDynamicDTIM", \
 	0, \
 	10, \
-	0, \
+	3, \
 	CFG_VALUE_OR_DEFAULT, \
 	"Enable Dynamic DTIM")
 
@@ -182,7 +182,7 @@
 	"gEnableModulatedDTIM", \
 	0, \
 	5, \
-	0, \
+	3, \
 	CFG_VALUE_OR_DEFAULT, \
 	"Enable/disable modulated DTIM feature")
 
