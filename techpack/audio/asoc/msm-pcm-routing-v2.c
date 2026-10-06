@@ -43874,8 +43874,10 @@ static int msm_routing_probe(struct snd_soc_component *component)
 
 	/* Add doa control based on config */
 	msm_routing_add_doa_control(component);
+	/*
 	snd_soc_add_component_controls(component, msm_source_tracking_controls,
 				ARRAY_SIZE(msm_source_tracking_controls));
+	*/
 	snd_soc_add_component_controls(component, adm_channel_config_controls,
 				ARRAY_SIZE(adm_channel_config_controls));
 
