@@ -1113,17 +1113,17 @@ static int ipa3_wdi2_gsi_alloc_channel_ring(
 
 	ep_cfg = ipa3_get_gsi_ep_info(client);
 	if (!ep_cfg) {
-		IPAERR("Failed getting GSI EP info for client=%d\n",
+		IPADBG("Failed getting GSI EP info for client=%d\n",
 				client);
 		return -EPERM;
 	}
 
 	if (IPA_CLIENT_IS_PROD(client)) {
-		IPAERR("Client is PROD\n");
+		IPADBG("Client is PROD\n");
 		channel_props->dir = GSI_CHAN_DIR_TO_GSI;
 		channel_props->re_size = GSI_CHAN_RE_SIZE_16B;
 	} else {
-		IPAERR("Client is CONS");
+		IPADBG("Client is CONS");
 		channel_props->dir = GSI_CHAN_DIR_FROM_GSI;
 		channel_props->re_size = GSI_CHAN_RE_SIZE_8B;
 	}
@@ -1182,14 +1182,14 @@ int ipa3_connect_gsi_wdi_pipe(struct ipa_wdi_in_params *in,
 
 	ipa_ep_idx = ipa3_get_ep_mapping(in->sys.client);
 	if (ipa_ep_idx == -1) {
-		IPAERR("fail to alloc EP.\n");
+		IPADBG("fail to alloc EP.\n");
 		goto fail;
 	}
 
 	ep = &ipa3_ctx->ep[ipa_ep_idx];
 
 	if (ep->valid) {
-		IPAERR("EP already allocated.\n");
+		IPADBG("EP already allocated.\n");
 		goto fail;
 	}
 
@@ -1433,8 +1433,8 @@ int ipa3_connect_gsi_wdi_pipe(struct ipa_wdi_in_params *in,
 	ep->gsi_mem_info.evt_ring_base_addr = gsi_evt_ring_props.ring_base_addr;
 	ep->gsi_mem_info.evt_ring_base_vaddr =
 				gsi_evt_ring_props.ring_base_vaddr;
-	IPAERR("evt ring len: %d\n", ep->gsi_mem_info.evt_ring_len);
-	IPAERR("element size: %d\n", gsi_evt_ring_props.re_size);
+	IPADBG("evt ring len: %d\n", ep->gsi_mem_info.evt_ring_len);
+	IPADBG("element size: %d\n", gsi_evt_ring_props.re_size);
 
 	result = ipa3_wdi2_gsi_alloc_channel_ring(&gsi_channel_props,
 					in->sys.client,
@@ -1454,7 +1454,7 @@ int ipa3_connect_gsi_wdi_pipe(struct ipa_wdi_in_params *in,
 		gsi_channel_props.ring_base_vaddr;
 
 	num_ring_ele = ep->gsi_mem_info.evt_ring_len/gsi_evt_ring_props.re_size;
-	IPAERR("UPDATE_RI_MODERATION_THRESHOLD: %d\n", num_ring_ele);
+	IPADBG("UPDATE_RI_MODERATION_THRESHOLD: %d\n", num_ring_ele);
 	if (ipa3_ctx->ipa_hw_type < IPA_HW_v4_7) {
 		if (IPA_CLIENT_IS_PROD(in->sys.client)) {
 			gsi_scratch.wdi.wifi_rx_ri_addr_low =
@@ -1605,14 +1605,14 @@ int ipa3_connect_wdi_pipe(struct ipa_wdi_in_params *in,
 
 	ipa_ep_idx = ipa3_get_ep_mapping(in->sys.client);
 	if (ipa_ep_idx == -1) {
-		IPAERR("fail to alloc EP.\n");
+		IPADBG("fail to alloc EP.\n");
 		goto fail;
 	}
 
 	ep = &ipa3_ctx->ep[ipa_ep_idx];
 
 	if (ep->valid) {
-		IPAERR("EP already allocated.\n");
+		IPADBG("EP already allocated.\n");
 		goto fail;
 	}
 
@@ -2214,7 +2214,7 @@ int ipa3_enable_gsi_wdi_pipe(u32 clnt_hdl)
 
 	ipa_ep_idx = ipa3_get_ep_mapping(ipa3_get_client_mapping(clnt_hdl));
 	if (ipa_ep_idx == -1) {
-		IPAERR("fail to alloc EP.\n");
+		IPADBG("fail to alloc EP.\n");
 		return -EPERM;
 	}
 
