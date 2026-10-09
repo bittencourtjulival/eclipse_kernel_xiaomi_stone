@@ -2113,6 +2113,7 @@ int sps_register_bam_device(const struct sps_bam_props *bam_props,
 	if (virt_addr != NULL)
 		bam->props.virt_addr = virt_addr;
 
+#ifdef CONFIG_IPC_LOGGING
 	snprintf(bam_name, sizeof(bam_name), "sps_bam_%pa_0",
 					&bam->props.phys_addr);
 	bam->ipc_log0 = ipc_log_context_create(SPS_IPC_LOGPAGES,
@@ -2152,6 +2153,7 @@ int sps_register_bam_device(const struct sps_bam_props *bam_props,
 	if (!bam->ipc_log4)
 		SPS_ERR(sps, "unable to create IPC Log 4 for bam %pa\n",
 				&bam->props.phys_addr);
+#endif
 
 	if (bam_props->ipc_loglevel)
 		bam->ipc_loglevel = bam_props->ipc_loglevel;
